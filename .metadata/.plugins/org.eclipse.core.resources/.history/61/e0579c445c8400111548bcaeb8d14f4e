@@ -1,0 +1,19 @@
+package nodes;
+
+import parsing.Type;
+
+public abstract class Node {
+
+	protected Type type_;
+	
+	// TODO update this to work with new typing system
+	protected Pos pos_;
+	
+	
+	// getters 
+	
+	public Type getType() {
+		return type_;
+	}
+
+}

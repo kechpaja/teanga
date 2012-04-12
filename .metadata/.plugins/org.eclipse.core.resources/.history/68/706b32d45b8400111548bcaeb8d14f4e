@@ -1,0 +1,22 @@
+package parsing;
+
+public enum Pos {
+	
+	NOUN,
+	VERB,
+	ADJECTIVE,
+	ADVERB,
+	PRONOUN,
+	PREPOSITION,
+	ARTICLE,
+	PUNCTUATION;
+	// Correlatives?
+	
+	
+	public String toString() {
+		switch (this) {
+		case NOUN: return "NOUN";
+		}
+	}
+
+}

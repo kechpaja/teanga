@@ -1,0 +1,12 @@
+package parsing;
+
+public enum Pos {
+	
+	NOUN,
+	VERB,
+	ADJECTIVE,
+	ADVERB,
+	PRONOUN,
+	
+
+}

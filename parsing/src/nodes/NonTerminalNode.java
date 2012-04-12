@@ -1,6 +1,6 @@
 package nodes;
 
-import parsing.Type;
+import parsing.*;
 
 public class NonTerminalNode extends Node {
 	
@@ -23,15 +23,18 @@ public class NonTerminalNode extends Node {
 //	}
 	
 	// Constructor
-	public NonTerminalNode(Node head, Node tail, Type type) {
+	public NonTerminalNode(Node head, Node tail, Pos pos, NumMarker num, Case c, Tense tense) {
 		head_ = head;
 		tail_ = tail;
-		type_ = type;
+		pos_ = pos;
+		number_ = num;
+		cm_ = c;
+		t_ = tense;
 	}
 	
 	// toString()
 	public String toString() {
-		return "(" + type_ + ": " + head_.toString() + " " + tail_.toString() + ")";
+		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_.toString() + " " + tail_.toString() + ")";
 	}
 
 }

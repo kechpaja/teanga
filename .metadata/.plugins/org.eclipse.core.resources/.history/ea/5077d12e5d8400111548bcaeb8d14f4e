@@ -1,0 +1,16 @@
+package parsing;
+
+public enum Case {
+	
+	NOMINATIVE,
+	ACCUSATIVE; // TODO genitive for correlatives?
+	
+	public void toString() {
+		switch (this) {
+		case NOMINATIVE: return "NOMINATIVE";
+		case ACCUSATIVE: return "ACCUSATIVE";
+		default: return "BAD";
+		}
+	}
+
+}

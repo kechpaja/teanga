@@ -1,0 +1,21 @@
+package nodes;
+
+import parsing.*;
+
+public abstract class Node {
+
+	protected Type type_;
+	
+	// TODO update this to work with new typing system
+	protected Pos pos_;
+	protected NumMarker number_;
+	protected Case case_;
+	
+	
+	// getters 
+	
+	public Type getType() {
+		return type_;
+	}
+
+}

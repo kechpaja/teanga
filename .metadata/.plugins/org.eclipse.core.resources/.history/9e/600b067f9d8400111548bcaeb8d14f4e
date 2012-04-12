@@ -1,0 +1,21 @@
+package parsing;
+
+public enum Tense {
+	
+	PRESENT,
+	PAST,
+	FUTURE,
+	CONDITIONAL;
+	
+	// TODO imperative; infinitive?
+	
+	public String toString() {
+		switch (this) {
+		case PRESENT: return "PRESENT";
+		case PAST: return "PAST";
+		case FUTURE: return "FUTURE";
+		case CONDITIONAL: return "CONDITIONAL";
+		}
+	}
+
+}

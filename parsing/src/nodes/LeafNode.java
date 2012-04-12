@@ -14,11 +14,15 @@ public class LeafNode extends Node {
 	// Constructor
 	public LeafNode(Token t) {
 		name_ = t.getName();
-		type_ = t.getPartOfSpeech();
+		//type_ = t.getPartOfSpeech();
+		pos_ = t.getPos();
+		number_ = t.getNumMarker();
+		cm_ = t.getCase();
+		t_ = t.getTense();
 	}
 	
 	public String toString() {
-		return "(" + type_.toString() + ": " + name_ + ")";
+		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + name_ + ")";
 	}
 	
 }

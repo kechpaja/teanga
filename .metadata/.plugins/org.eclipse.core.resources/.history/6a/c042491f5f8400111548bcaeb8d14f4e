@@ -1,0 +1,42 @@
+package parsing;
+
+public class Token {
+	
+	private String name_; // this token's face/phonetic value
+	//private Type pos_; // this token's part of speech
+	
+	private Pos pos_;
+	private NumMarker number_;
+	private Case cm_;
+	
+	
+	
+	// GETTERS
+	public String getName() {
+		return name_;
+	}
+	
+	public Pos getPartOfSpeech() {
+		return pos_;
+	}
+	
+	public NumMarker getNumMarker() {
+		return number_;
+	}
+	
+	public Case getCase() {
+		return cm_;
+	}
+	
+	protected Token(String name, Pos pos, NumMarker num, Case c) {
+		name_ = name;
+		pos_ = pos;
+		number_ = num;
+		cm_ = c;
+	}
+	
+	public String toString() {
+		return pos_.toString();
+	}
+
+}
