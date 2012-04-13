@@ -20,7 +20,7 @@ public class SyntacticRule extends Rule {
 	
 	// combining method
 	public NonTerminalNode combine(Node n1, Node n2) {
-		return new NonTerminalNode(n1, n2, pos_, number_, cm_, t_);
+		return new NonTerminalNode(n1, n2, becomes_);
 	}
 	
 	// Constructor

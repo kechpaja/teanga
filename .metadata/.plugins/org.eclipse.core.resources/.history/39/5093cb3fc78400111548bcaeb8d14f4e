@@ -31,19 +31,19 @@ public class Tokenizer {
 			// check the endings
 			if (s.equals("la")) {
 				pos = Pos.ARTICLE;
-			//	num = null;
-			//	c = null;
+				num = null;
+				c = null;
 			} else if (s.equals("en") || s.equals("al") || s.equals("de")) {
 				pos = Pos.PREPOSITION;
-			//	num = null; // sometimes we may be able to check...
-			//	c = null; // again, not entirely sure
+				num = null; // sometimes we may be able to check...
+				c = null; // again, not entirely sure
 				//pos = Type.PREP; //TODO we need a list of prepositions to check against
 			}
 			
 			else if (s.matches(".*e$")) {
 				pos = Pos.ADVERB;
-			//	num = null;
-			//	c = null; // TODO maybe...
+				num = null;
+				c = null; // TODO maybe...
 			}
 			
 			else if (s.matches(".*o$")) {
