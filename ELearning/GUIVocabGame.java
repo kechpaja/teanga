@@ -1,4 +1,4 @@
-package ELearning;
+package finalGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -11,10 +11,10 @@ public class GUIVocabGame extends JPanel{
 	
 	GUIVocabGameBoard _gameBoard;
 	JTextField _textField;
-	VocabLevel vl;
+	String _correctAnswer;
 	
 	//this path and string would actually be an array of PicturePairs
-	public GUIVocabGame(VocabLevel _vl){
+	public GUIVocabGame(String path, String correctAnswer){
 		super(new BorderLayout());
 		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
@@ -22,6 +22,7 @@ public class GUIVocabGame extends JPanel{
 		this.setSize(size);
 		this.setBackground(new Color(50,50,200,255));
 
+		_correctAnswer = correctAnswer;
 
 		//Box Layout		
 		Box theBox = Box.createVerticalBox();
@@ -31,9 +32,8 @@ public class GUIVocabGame extends JPanel{
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
 
 		//The game board (takes care of almost everything game related)
-		_gameBoard = new GUIVocabGameBoard(vl);
+		_gameBoard = new GUIVocabGameBoard();
 
-		vl = _vl;
 		//The panel that contains the text field in which the user
 		// types their guesses.
 		JPanel enterAnswers = new JPanel();
@@ -60,7 +60,7 @@ public class GUIVocabGame extends JPanel{
 	
 	//Checks a typed answers
 	public void checkAnswer(String answer){
-		if(vl.tryAnswer(answer)){
+		if(_correctAnswer.equals(answer)){
 			_gameBoard.clearPiece();
 			//Set _correctAnswer to the next correct answer
 		}
@@ -80,4 +80,3 @@ public class GUIVocabGame extends JPanel{
 	}
 
 }
-

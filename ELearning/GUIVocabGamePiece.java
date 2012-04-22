@@ -1,5 +1,4 @@
-package ELearning;
-
+package finalGUI;
 
 import gfx.Rectangle;
 import java.awt.AlphaComposite;
@@ -56,7 +55,7 @@ public class GUIVocabGamePiece {
 
 	}
 	
-	//Gets called every time the timer ticks
+	//Gets called everytime the timer ticks
 	public void move(){
 		
 		//If the piece is not at its lowest point
@@ -96,5 +95,3 @@ public class GUIVocabGamePiece {
 	}
 
 }
-
-
