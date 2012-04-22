@@ -17,12 +17,12 @@ import GUI.GUIGrammarGame;
 */
 public class App extends javax.swing.JFrame{
 	private Driver _driver;
-public App(){
+	public App(){
 		
 		super("ELearning");
 		this.setPreferredSize(new Dimension(1000, 700));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		_driver = new Driver(this);
+		_driver = new Driver();
 
 		//This instantiation would actually happen in the driver (when we get
 		// everything working). The two parameters would actually become
