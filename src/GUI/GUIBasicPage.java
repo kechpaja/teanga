@@ -4,7 +4,14 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
+import javax.crypto.NoSuchPaddingException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
@@ -12,7 +19,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 import javax.swing.SwingConstants;
@@ -25,6 +34,7 @@ import ELearning.Driver;
 public class GUIBasicPage extends JPanel{
 	Driver _driver;
 	JList nameList;
+	JPasswordField passField;
 
 	public GUIBasicPage(Driver driver){
 		super(new BorderLayout());
@@ -60,15 +70,17 @@ public class GUIBasicPage extends JPanel{
 		buttonpane.setLayout(new BoxLayout(buttonpane, BoxLayout.Y_AXIS));
 		
 		JButton submitB = new JButton("Submit");
+		submitB.addActionListener(new SubmitActionListener());
 		JButton addUserB = new JButton("Add User");
-		JTextField passField = new JTextField(20);
+		addUserB.addActionListener(new AddUserActionListener());
+		passField = new JPasswordField(20);
 		JLabel passLabel = new JLabel("Password: ");
 		Box passBox = Box.createHorizontalBox();
-		passBox.add(Box.createHorizontalStrut(150));		
+		passBox.add(Box.createHorizontalStrut(350));		
 		passBox.add(passLabel);
 		passBox.add(Box.createHorizontalStrut(10));
 		passBox.add(passField);
-		passBox.add(Box.createHorizontalStrut(150));
+		passBox.add(Box.createHorizontalStrut(350));
 		
 		Box verticalBox = Box.createVerticalBox();
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -106,11 +118,59 @@ public class GUIBasicPage extends JPanel{
 				JList list = (JList) e.getSource();
 				String name = (String) list.getSelectedValue();
 				_driver.setUserName(name);
-				System.out.println(_driver.getUserName());
 			}
 			
 		}
 		
+	}
+	
+	private class AddUserActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	private class SubmitActionListener implements ActionListener{
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			if (_driver.getUserName() == null){
+				String infoMessage = "Please select an existing user";
+				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
+				return;
+			} else {
+				try {
+					if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
+						
+					} else {
+						String infoMessage = "Incorrect Password";
+						JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
+						//try to figure out how to zero the passfield
+						return;
+					}
+				} catch (InvalidKeyException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NoSuchAlgorithmException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InvalidKeySpecException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (NoSuchPaddingException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				} catch (InvalidAlgorithmParameterException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+			
+		}
+		
+	}
 	}
 	
 	public static void main(String[] args){
