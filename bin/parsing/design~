@@ -1,0 +1,44 @@
+There are parsing libraries out there, but I haven't found any that suit our needs. The ones I've found 
+focus on parsing good sentences, rather than handling bad sentences and determining the location of mistakes. 
+
+Also, I'm not entirely sure "parsing" is the right word here. 
+
+Anyway, the interface that I'm building:
+
+:: there will have to be a "parse" method (or otherly named method), which takes a sentence, probably
+   in the form of a simple string. Each word will have to be broken down into its component morphemes; 
+   we'll need an extensible way of doing that (not specific to Eo). Tokenization of words can happen
+   at the sentence level simply by splitting on whitespace; Eo (at least at this level) doesn't have
+   contractions or anything like that. 
+   
+:: classes for words maybe, or classes for morphemes? Or tokenize each morpheme individually, and call
+   affixes individual words. Not sure how I want to do this yet. 
+   
+:: class field will of course have getters and setters. The parse method won't build a tree, since it isn't
+   really parsing - instead, it's scanning for a number of factors that have to be true for a sentence to 
+   "pass". It will check each word against the dictionary; also, there will be a rule class, of the form
+   "if X is present, Y must be too", or "if X is here, Y must follow", etc. Require ACC if there are two NPs,
+   at least one finite verb, etc. Return a "Response" - this contains a boolean true (passed) or false (failed).
+   The sentence is returned in a field too. If false/failed, return a linked list of Mistakes, each containing 
+   a pair of indices (or more), indicating the part of the sentence to be highlighted as wrong, as well as a 
+   brief String describing what is wrong. 
+   
+:: 
+
+
+
+Testing plan:
+
+:: There will be JUnit tests for each class, of course. I can't be sure whether they will be separate units, or
+   just have a method to test each class in the whole project. Tests will try different correct and incorrect
+   input strings against different sets of rules. We'll have to make sure the parser gets right/wrong correct,
+   and whether it correctly identifies the location of the mistake. 
+   
+   
+Ruleset for syntactic rules/parsing:
+   S = VP
+   S = Part VP
+   VP =  
+
+
+We'll be re-working the Type class. It will mark pos, case, and number, and anything else that might agree. I'm unsure what will be the right way to go about this - I still need to figure out how to add unary rules to my parser, and then work out the index-tracking system. Semantic checking will be even harder. 

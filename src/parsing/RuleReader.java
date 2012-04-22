@@ -25,7 +25,7 @@ public class RuleReader {
 	 * The words "unary" and "binary" are not included, since one can tell from the number of items...
 	 * 
 	 */
-	
+	/*
 	private SyntacticRule parseSynRule(String line) {
 		String[] spl = line.split("\\s");
 		
@@ -33,7 +33,7 @@ public class RuleReader {
 			
 			//TODO unary rule
 		} else if (spl.length == 3) {
-			return new SyntacticRule();
+			//return new SyntacticRule();
 			// TODO binary rule
 		} else {
 			// TODO error of some sort
@@ -43,6 +43,7 @@ public class RuleReader {
 		// TODO finish
 		return null;
 	}
+	
 	
 	// parses out an agreement rule
 	private AgreementRule parseAgRule(String line) {
@@ -106,5 +107,7 @@ public class RuleReader {
 		
 		return ruleset;
 	}
+	
+	*/
 
 }

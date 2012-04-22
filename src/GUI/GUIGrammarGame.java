@@ -37,7 +37,7 @@ public class GUIGrammarGame extends JPanel{
 		//Constants
 		int picheight = 300;
 		int picwidth = 400;
-		_maxChars = 50;
+		_maxChars = 60;
 		
 		String picPath = "data/funpic2.gif";
 		String partial = "The ~0~ ate the bird";
@@ -60,7 +60,7 @@ public class GUIGrammarGame extends JPanel{
 			System.exit(0);
 		}
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color(0,0,0,255));
+		overall.setBackground(new Color(200,200,200,255));
 		Box mainVertical = Box.createVerticalBox();
 		overall.add(mainVertical, BorderLayout.CENTER);
 		
@@ -95,7 +95,7 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
-		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the cat how funny is that ~1~ what will we do with the hat ~2~ that swallowed the cat.");
+		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~. What will we do with the crazy ~2~ that swallowed the cat.");
 		phraseHoriz.add(choicePanel);
 		
 		ArrayList<JLabel> blankLabels = choicePanel.getBlanks();
@@ -131,12 +131,14 @@ public class GUIGrammarGame extends JPanel{
 		for(int i = 0; i < actSent.length; i++){
 			if(i%2 == 1){
 				words.push(null);//if it is a blank add a null
+				System.out.print(" null ");
 			} else{
 				String smallWs[] = actSent[i].split(" ");
 				
 				//add strings 1 word at a time
 				for(int j=0; j < smallWs.length; j++){
 					words.push(smallWs[j]);
+					System.out.print(smallWs[j]);
 				}
 			}
 		}
@@ -159,17 +161,20 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("          ");//put a blank in the line
+					JLabel blank = new JLabel("**********");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
 				} else{//otherwise, add word to line 1
-					currString += last;
+					currString += last + " ";
 					currNum += last.length();
 				}
 			}
 			
-			System.out.println("made it past cho");
+			if(!currString.equals("")){
+				line2.push(new JLabel(currString));
+				currString = "";
+			}
 			
 			//when you have finished line 1
 			while(!words.isEmpty()){
@@ -178,11 +183,11 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("          ");//put a blank in the line
+					JLabel blank = new JLabel("**********");//put a blank in the line
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
-					currString += last;;
+					currString += last + " ";
 				}
 			}
 			
@@ -197,13 +202,13 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.getLast());
+				line1Box.add(line1.removeLast());
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
 			
 			line2Box.add(Box.createHorizontalStrut(20));
 			while(!line2.isEmpty()){
-				line2Box.add(line2.getLast());
+				line2Box.add(line2.removeLast());
 			}
 			line2Box.add(Box.createHorizontalStrut(20));
 			
@@ -225,7 +230,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.add(phrase);
-					JLabel blank = new JLabel("          ");//put a blank in the line
+					JLabel blank = new JLabel("**********");//put a blank in the line
 					line1.add(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -237,7 +242,7 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.getLast());
+				line1Box.add(line1.removeLast());
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
 			
