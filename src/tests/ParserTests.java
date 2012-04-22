@@ -28,10 +28,10 @@ public class ParserTests extends TestCase {
 		Tokenizer tkn1 = new Tokenizer("kato");
 		Tokenizer tkn2 = new Tokenizer("la kato");
 		Tokenizer tkn3 = new Tokenizer("kato estas en la domo");
-		Tokenizer tkn4 = new Tokenizer("la bela kato manÄas la muson");
-		Tokenizer tkn5 = new Tokenizer("La musoj manÄis rapide");
+		Tokenizer tkn4 = new Tokenizer("la bela kato manÄ?as la muson");
+		Tokenizer tkn5 = new Tokenizer("La musoj manÄ?is rapide");
 		Tokenizer tkn6 = new Tokenizer("LA KATOJ MANÄœOS LA BELAJN MUSOJN");
-		Tokenizer tkn7 = new Tokenizer("Mia domo estus en la Äardeno");
+		Tokenizer tkn7 = new Tokenizer("Mia domo estus en la Ä?ardeno");
 		Tokenizer tkn8 = new Tokenizer("Vidu la kato");
 		Tokenizer tkn9 = new Tokenizer("kato");
 		Tokenizer tkn10 = new Tokenizer("kato");
@@ -119,8 +119,8 @@ public class ParserTests extends TestCase {
 		
 		Parser p = new Parser(syn, sem);
 		
-		p.parse("la bela kato manÄas la muson");
-		p.parse("belaj musoj manÄas la katojn");
+		p.parse("la bela kato manÄ?as la muson");
+		p.parse("belaj musoj manÄ?as la katojn");
 		
 		System.out.println("-----");
 		
