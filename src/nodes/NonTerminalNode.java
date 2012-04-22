@@ -1,6 +1,9 @@
 package nodes;
 
-import parsing.Type;
+import java.util.List;
+
+import parsing.*;
+import rules.AgreementRule;
 
 public class NonTerminalNode extends Node {
 	
@@ -23,15 +26,40 @@ public class NonTerminalNode extends Node {
 //	}
 	
 	// Constructor
-	public NonTerminalNode(Node head, Node tail, Type type) {
+	public NonTerminalNode(Node head, Node tail, Pos pos, NumMarker num, Case c, Tense tense) {
 		head_ = head;
 		tail_ = tail;
-		type_ = type;
+		pos_ = pos;
+		number_ = num;
+		cm_ = c;
+		t_ = tense;
 	}
 	
 	// toString()
 	public String toString() {
-		return "(" + type_ + ": " + head_.toString() + " " + tail_.toString() + ")";
+		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_.toString() + " " + tail_.toString() + ")";
+	}
+	
+	// visit method
+	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
+		// check for errors at this level
+		if (!head_.agreesInCase(tail_)) {
+			// TODO get indicies and add mistake
+		}
+		
+		if (!head_.agreesInNumber(tail_)) {
+			// TODO ...
+		}
+		
+		if (!head_.agreesInTense(tail_)) {
+			// TODO
+		}
+		
+		// recur on children
+		head_.visit(rules, mistakes);
+		if (tail_ != null) {
+			tail_.visit(rules, mistakes);
+		}
 	}
 
 }
