@@ -27,7 +27,7 @@ public class GameTester {
 		GameTester myTests = new GameTester();
 		int curLevel = 0;
 		VocabLevel vl = myTests.v.makeLevel(3);
-		while (!vl.isOver()){
+		while (true){
 			System.out.println("Score: "+vl.getScore());
 			vl.addToWaiting();
 			for (VocabPicturePair v: vl.getWaiting()){
