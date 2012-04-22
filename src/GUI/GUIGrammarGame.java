@@ -10,19 +10,15 @@ import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Stack;
 
 import javax.imageio.ImageIO;
-import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
-import javax.swing.JList;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.SwingConstants;
-import javax.swing.border.Border;
 
 public class GUIGrammarGame extends JPanel{
 	
@@ -125,48 +121,40 @@ public class GUIGrammarGame extends JPanel{
 		
 		int numChars = partialSentance.length();
 		Box vertBox = Box.createVerticalBox();
-		String actSent[] = partialSentance.split(",");//Need to fix this to be ~1~
+		String actSent[] = partialSentance.split("~");//Need to fix this to be ~1~
+		Stack<String> words = new Stack<String>();
+		
+		//parse the sentence into words with null's representing blanks
+		for(int i = 0; i < actSent.length; i++){
+			if(i%2 == 1){
+				words.push(null);//if it is a blank add a null
+			} else{
+				String smallWs[] = actSent[i].split(" ");
+				
+				//add strings 1 word at a time
+				for(int j=0; j < smallWs.length; j++){
+					words.push(smallWs[j]);
+				}
+			}
+		}
+		
+		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
 		
 		if(numChars > _maxChars*2){
 			System.out.println("Error, grammar game sentance too long");
+			//go to next exercise
 		} else if(numChars > _maxChars){
-			Box line1 = Box.createHorizontalBox();
-			Box line2 = Box.createHorizontalBox();
 			
-			int currLength = actSent[0].length();
-			String string1 = actSent[0];
-			String string2 = "";
 			
-			for(int i = 1; i<actSent.length; i++){
-				
-				if(currLength < _maxChars){
-					string1 = string1 + "          ";
-					currLength = currLength+10;
-					if(currLength + actSent[i].length() < _maxChars){
-						string1 = string1 + actSent[i];
-						currLength = currLength + actSent[i].length();
-					} else{
-						String partSent[] = actSent[i].split(" ");
-						int j = 0;
-						while(currLength < _maxChars && j < partSent.length){
-							string1 = string1 + " " + partSent[j];
-							currLength = currLength + partSent[j].length()+1;
-							j++;
-						}
-						if(j < partSent.length-1){
-							string1 = string1 + " ";
-						}
-						while(j < partSent.length){
-							string2 = string2 + " " + partSent[j];
-							currLength = currLength + partSent[j].length()+1;
-							j++;
-						}
-					}
-				} else{
-						string2 = string2 + "          " + actSent[i];
-						currLength = currLength + 10 + actSent[i].length();
-				}
-			}
+			
+			
+			
+			
+			
+		} else{
+			
+		}
+			/*
 			JLabel string1Label = new JLabel(string1);
 			line1.add(string1Label);
 			JLabel string2Label = new JLabel(string2);
@@ -177,6 +165,9 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(10));
 			vertBox.add(line2);
 			vertBox.add(Box.createVerticalStrut(20));
+			
+			System.out.println("Line 1: " + string1);
+			System.out.println("Line 2: " + string2);
 			
 		} else{
 			Box line = Box.createHorizontalBox();
@@ -191,6 +182,7 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(30));
 			
 		}
+		*/
 		
 		return vertBox;
 	}
