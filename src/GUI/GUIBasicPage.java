@@ -16,9 +16,13 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 
+import annie.*;
+
+import ELearning.*;
+
 public class GUIBasicPage extends JPanel{
 
-	public GUIBasicPage(){
+	public GUIBasicPage(OpeningPage openingpage){
 		super(new BorderLayout());
 		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
@@ -38,7 +42,7 @@ public class GUIBasicPage extends JPanel{
 		
 		//Make the username list
 		JPanel listpane = new JPanel(new BorderLayout());
-		String usernames[] = {"Freddy", "Bob", "James", "John", "Arthur", "Sam", "Jeffery", "Mary", "Margret", "Suzzy", "Samantha", "Brittney", "Deborah", "Jeana", "Sandra", "Julie", "Frankie"};
+		String usernames[] = (String[]) openingpage.getUsernames().toArray();
 		
 		Border compound = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,350,30,350), BorderFactory.createLineBorder(Color.black));
 		JList list = new JList(usernames);
