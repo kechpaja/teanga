@@ -35,6 +35,8 @@ public class GUIBasicPage extends JPanel{
 	Driver _driver;
 	JList nameList;
 	JPasswordField passField;
+	Box _passOrUser;
+	JPanel _passPanel, _newUserPanel;
 
 	public GUIBasicPage(Driver driver){
 		super(new BorderLayout());
@@ -75,16 +77,36 @@ public class GUIBasicPage extends JPanel{
 		addUserB.addActionListener(new AddUserActionListener());
 		passField = new JPasswordField(20);
 		JLabel passLabel = new JLabel("Password: ");
+		_passPanel = new JPanel(new BorderLayout());
+		_newUserPanel = new JPanel(new BorderLayout());
 		Box passBox = Box.createHorizontalBox();
 		passBox.add(Box.createHorizontalStrut(350));		
 		passBox.add(passLabel);
 		passBox.add(Box.createHorizontalStrut(10));
 		passBox.add(passField);
 		passBox.add(Box.createHorizontalStrut(350));
+		_passPanel.add(passBox, BorderLayout.CENTER);
+		
+		Box newUserBox = Box.createHorizontalBox();
+		JLabel newName = new JLabel("New Username: ");
+		JLabel newPass = new JLabel("New Password: ");
+		JTextField newNameField = new JTextField("20");
+		JTextField newPassField = new JTextField("20");
+		newUserBox.add(Box.createHorizontalStrut(200));
+		newUserBox.add(newName);
+		newUserBox.add(newNameField);
+		newUserBox.add(Box.createHorizontalStrut(20));
+		newUserBox.add(newPass);
+		newUserBox.add(newPassField);
+		newUserBox.add(Box.createHorizontalStrut(200));
+		_newUserPanel.add(newUserBox, BorderLayout.CENTER);
+		
+		_passOrUser = Box.createHorizontalBox();
+		_passOrUser.add(_passPanel);
 		
 		Box verticalBox = Box.createVerticalBox();
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
-	    verticalBox.add(passBox);
+	    verticalBox.add(_passOrUser);
 	    verticalBox.add(Box.createVerticalStrut(10));
 	    verticalBox.add(submitB);
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
@@ -108,6 +130,18 @@ public class GUIBasicPage extends JPanel{
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
+	}
+	
+	public void passBoxNewUser(){
+		_passOrUser.removeAll();
+		_passOrUser.add(_newUserPanel);
+		this.revalidate();
+	}
+	
+	public void passBoxPass(){
+		_passOrUser.removeAll();
+		_passOrUser.add(_passPanel);
+		this.revalidate();
 	}
 	
 	private class mySelectionListener implements ListSelectionListener{
