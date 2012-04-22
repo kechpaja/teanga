@@ -1,5 +1,7 @@
 package ELearning;
 
+import gfx.Rectangle;
+
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Graphics2D;
