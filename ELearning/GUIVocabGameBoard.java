@@ -1,4 +1,4 @@
-package ELearning;
+package finalGUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -10,13 +10,12 @@ import javax.swing.Timer;
 public class GUIVocabGameBoard extends JPanel {
 	
 	int _top;
-	//String _path;
-	VocabLevel _vl;
+	String _path;
 	GUIVocabGamePiece[] _pieces;
 	Timer _timer, _overallTimer;
 
 	
-	public GUIVocabGameBoard (VocabLevel vl){
+	public GUIVocabGameBoard (){
 		
 		super(new BorderLayout());
 		
@@ -25,8 +24,8 @@ public class GUIVocabGameBoard extends JPanel {
 		this.setSize(size);
 		this.setBackground(new Color(255,255,255,255));
 		
+		_path = null;
 		_top = 0; //the place to put the next piece
-		_vl = vl;
 		_pieces = new GUIVocabGamePiece[5]; //the collection of current pieces
 		
 		//The timer that speeds up the falling
@@ -39,16 +38,16 @@ public class GUIVocabGameBoard extends JPanel {
 		
 		//TODO: Simply for testing (you should change the path to a picture on your
 		// machine.
-		//_path = "C:/Users/Dede/finalImage.png";
+		_path = "C:/Users/Dede/finalImage.png";
 		addPiece();
 		
 	}
 
 	//This will have to be called everytime a new piece is made (to 
 	// prepare for the creation of the next piece)
-	/*public void setNewPath(String newPath){
+	public void setNewPath(String newPath){
 		_path = newPath;
-	}*/
+	}
 	
 	public void addPiece(){
 		//If the stack of blocks is full end the game (this will 
@@ -57,15 +56,13 @@ public class GUIVocabGameBoard extends JPanel {
 			_timer.stop();
 			System.out.println("Game Over");
 		}
-		/*else if(_path == null){
+		else if(_path == null){
 			System.out.println("Path is null!");
-		}*/
+		}
 		else{
 			//Otherwise add a new piece (and set its bottom)
-			String path = _vl.addToWaiting().getPicturePath();
-			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100);
+			_pieces[_top] = new GUIVocabGamePiece(_path, this, 395, 454-420, 454-_top*100);
 			_top++;
-			
 		}
 	}
 	
@@ -112,7 +109,7 @@ public class GUIVocabGameBoard extends JPanel {
 	}
 	
 	//This listens to the overall timer and decreases the fall timer's 
-	// delay time at a regular interval.  If the delay time cannot be
+	// delay time at a regular intereval.  If the delay time cannot be
 	// lowered again then the overall timer is stopped.
 	private class TimerListener implements java.awt.event.ActionListener {
 		
@@ -130,5 +127,3 @@ public class GUIVocabGameBoard extends JPanel {
 	}
 	
 }
-
-

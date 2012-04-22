@@ -1,6 +1,10 @@
 package nodes;
 
+import java.util.List;
+
+import parsing.Mistake;
 import parsing.Token;
+import rules.AgreementRule;
 
 public class LeafNode extends Node {
 	
@@ -23,6 +27,11 @@ public class LeafNode extends Node {
 	
 	public String toString() {
 		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + name_ + ")";
+	}
+	
+	// visit method TODO
+	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
+		// TODO I'm not sure there are any mistakes that could occur at this level. 
 	}
 	
 }

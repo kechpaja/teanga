@@ -78,6 +78,7 @@ public class ParserTests extends TestCase {
 		List<SyntacticRule> syn = new LinkedList<SyntacticRule>();
 		
 		// TODO load up the lists of rules
+		// TODO these rules should be in a file somewhere, and read in on startup. 
 		syn.add(new SyntacticRule(Type.DPN, Type.VP, Type.S));
 		syn.add(new SyntacticRule(Type.NPNSG, Type.VP, Type.S));
 		syn.add(new SyntacticRule(Type.NPNPL, Type.VP, Type.S));
