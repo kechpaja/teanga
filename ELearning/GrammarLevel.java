@@ -6,6 +6,7 @@ public class GrammarLevel extends LevelInstance {
 	private List<SentencePicturePair> upNext;
 	private SentencePicturePair current;
 	private String help;
+	private boolean isOver;
 	
 	public String getHelp(){
 		return help;
@@ -16,6 +17,7 @@ public class GrammarLevel extends LevelInstance {
 		upNext = un;
 		current = upNext.remove(0);
 		help = h;
+		this.isOver = false;
 	}
 	
 	public SentencePicturePair getCurrent(){
