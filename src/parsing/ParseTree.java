@@ -1,6 +1,8 @@
 package parsing;
 
 import java.util.*;
+
+import rules.AgreementRule;
 import nodes.*;
 
 public class ParseTree {
@@ -34,6 +36,11 @@ public class ParseTree {
 	// toString, for testing
 	public String toString() {
 		return node_.toString();
+	}
+	
+	// TODO visit method, checking for correctness in agreement
+	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
+		node_.visit(rules, mistakes);
 	}
 
 }

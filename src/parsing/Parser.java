@@ -8,6 +8,7 @@ import nodes.*;
 public class Parser {
 	
 	List<SyntacticRule> synrules_;
+	List<AgreementRule> agrules_;
 	List<SemanticRule> semrules_;
 	
 	/**
@@ -36,7 +37,8 @@ public class Parser {
 		ParseTree tree = parseTokenStream(tkn, synrules_, mistakes);
 		
 		// visit, checking for semantic issues
-		visit(tree, semrules_);
+		// TODO change this to check for agreement problems
+		visit(tree, agrules_, mistakes);
 		
 		System.out.println(tree); // For testing only TODO
 		
@@ -44,8 +46,9 @@ public class Parser {
 		return Response.responseFactory(tree, sentence);
 	}
 	
-	public Parser(List<SyntacticRule> synrules, List<SemanticRule> semrules) {
+	public Parser(List<SyntacticRule> synrules, List<AgreementRule> agrules, List<SemanticRule> semrules) {
 		synrules_ = synrules;
+		agrules_ = agrules;
 		semrules_ = semrules;
 	}
 	
@@ -118,8 +121,9 @@ public class Parser {
 	}
 	
 	// Takes a parse tree; visits nodes and adds semantic mistakes. 
-	private void visit(ParseTree tree, List<SemanticRule> rules) {
+	private void visit(ParseTree tree, List<AgreementRule> rules, List<Mistake> mistakes) {
 		// TODO fill out, currently does nothing. 
+		tree.visit(rules, mistakes);
 	}
 
 }
