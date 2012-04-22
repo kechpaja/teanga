@@ -1,11 +1,14 @@
-package ELearning;
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+
 import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+
+import ELearning.VocabLevel;
 
 
 public class GUIVocabGame extends JPanel{
