@@ -26,7 +26,7 @@ import javax.crypto.spec.PBEParameterSpec;
 public class OpeningPage {
 	private LinkedList<String> usernames= new LinkedList<String>();
 	private LinkedList<String> passwords= new LinkedList<String>();
-	private LinkedList<String> genders= new LinkedList<String>();
+	private LinkedList<Integer> genders= new LinkedList<Integer>();
 	private String userNameFile="Passwordsandusernamesicmshfonwo02udn";
 	
 	public OpeningPage() throws IOException
@@ -48,14 +48,14 @@ public class OpeningPage {
 				passwords.add(strLine);
 				if ((strLine = br.readLine()) != null)
 				{
-					genders.add(strLine);
+					genders.add(Integer.parseInt(strLine));
 				}
 			}
 		}
-		if(!usernames.isEmpty())
+		/*if(!usernames.isEmpty())
 		{
-			usernames.remove(usernames.size()-1);
-		}
+			usernames.removeLast();
+		}*/
 	}
 
 	public boolean correctPassword(String userName, String password) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException //Checks password entered
@@ -69,20 +69,26 @@ public class OpeningPage {
 			}
 			index++;
 		}
-		System.out.println("index: "+index);
+		/*System.out.println("index: "+index);
 		System.out.println("passwords.get(index): "+passwords.get(index));
 		System.out.println("encrypt(password): "+encrypt(password));
-		if(index==usernames.size())
+		System.out.println("passwords.size(): "+passwords.size());
+		System.out.println("usernames.size(): "+usernames.size());*/
+		if(index==passwords.size())
+		{
+			System.out.println("this false 2");
 			return false;
+		}
 		if(passwords.get(index).equals(encrypt(password)))	
 			return true;
+		System.out.println("this false");
 		return false;
 	}
 
 	//returns the encrypted string (used for passwords)
 	public String encrypt(String s) throws NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidKeyException, InvalidAlgorithmParameterException
 	{
-		/*s=s+"padding to spare, padding to spare, lalalala, padding to spare, my love, padding to spare. Hey!" +
+		s=s+"padding to spare, padding to spare, lalalala, padding to spare, my love, padding to spare. Hey!" +
 				"padding to spare, padding to spare, lalalala, padding to spare, my love, padding to spare!";
 		PBEKeySpec keySpec = new PBEKeySpec("this is my char array that sure as hell better be 24 bytes".toCharArray());
 		SecretKeyFactory keyFactory =SecretKeyFactory.getInstance("PBEWithMD5AndDES");
@@ -96,9 +102,12 @@ public class OpeningPage {
 		encrypt.init(Cipher.ENCRYPT_MODE, key,parameterSpec);
 		byte b1[] = Arrays.copyOfRange(s.getBytes(), 0, 64);
 		byte[] output = encrypt.update(b1, 0, 64);
-		System.out.println("s: "+ s+ " encrypted: "+new String(output));
-		return new String(output);*/
-		return s;
+		String r= new String(output);
+		r = r.replaceAll("\\r\\n|\\r|\\n|\\b", "");
+		//System.out.println("s: "+ s);
+		//System.out.println("encrypted: "+r);
+		return r;
+		//return s;
 	}
 
 	//Creates an instance of PlayerStats, calls Decode(username), and then returns the PlayerStats.
@@ -117,7 +126,7 @@ public class OpeningPage {
 		return new PlayerStats(userName);
 	}
 
-	public PlayerStats newGame(String userName, String gender) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, InvalidAlgorithmParameterException, IOException
+	public PlayerStats newGame(String userName, int gender) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, InvalidKeySpecException, InvalidAlgorithmParameterException, IOException
 	{
 		FileWriter fstream = new FileWriter(userNameFile);
 		BufferedWriter out = new BufferedWriter(fstream);
@@ -125,7 +134,7 @@ public class OpeningPage {
 		{
 			out.write(usernames.get(i)+"\n");
 			out.write(passwords.get(i)+"\n");
-			out.write(usernames.get(i)+"\n");
+			out.write(genders.get(i)+"\n");
 		}
 		out.flush();
 		out.close();
@@ -137,11 +146,18 @@ public class OpeningPage {
 		return !usernames.contains(userName);
 	}
 
-	public void newUser(String userName, String password, String gender) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException
+	public void newUser(String userName, String password, int gender) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException
 	{
 		usernames.add(userName);
+		//System.out.println("Put in passwords "+encrypt(password));
 		passwords.add(encrypt(password));
+		//passwords.add("heheh \n lasldjow");
+		//System.out.println("HERE I AM! "+passwords.size());
 		genders.add(gender);
+	}
+	
+	public LinkedList<String> getUsernames(){
+		return usernames;
 	}
 
 }
