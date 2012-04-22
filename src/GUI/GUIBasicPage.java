@@ -61,12 +61,14 @@ public class GUIBasicPage extends JPanel{
 		
 		JButton submitB = new JButton("Submit");
 		JButton addUserB = new JButton("Add User");
-		JTextField passField = new JTextField();
+		JTextField passField = new JTextField(20);
 		JLabel passLabel = new JLabel("Password: ");
 		Box passBox = Box.createHorizontalBox();
+		passBox.add(Box.createHorizontalStrut(150));		
 		passBox.add(passLabel);
 		passBox.add(Box.createHorizontalStrut(10));
 		passBox.add(passField);
+		passBox.add(Box.createHorizontalStrut(150));
 		
 		Box verticalBox = Box.createVerticalBox();
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));

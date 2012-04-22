@@ -95,7 +95,6 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
-		System.out.println("made it past cho");
 		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the cat how funny is that ~1~ what will we do with the hat ~2~ that swallowed the cat.");
 		phraseHoriz.add(choicePanel);
 		
@@ -156,7 +155,7 @@ public class GUIGrammarGame extends JPanel{
 			//fill in line1
 			while(currNum < _maxChars && !words.isEmpty()){
 				String last;
-				if((last = words.getLast()) == null){//when you get to a blank
+				if((last = words.removeLast()) == null){//when you get to a blank
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
@@ -170,10 +169,12 @@ public class GUIGrammarGame extends JPanel{
 				}
 			}
 			
+			System.out.println("made it past cho");
+			
 			//when you have finished line 1
 			while(!words.isEmpty()){
 				String last;
-				if((last = words.getLast()) == null){
+				if((last = words.removeLast()) == null){
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
@@ -220,7 +221,7 @@ public class GUIGrammarGame extends JPanel{
 			//Just have 1 line to add to
 			while(!words.isEmpty()){
 				String last;
-				if((last = words.getLast()) == null){
+				if((last = words.removeLast()) == null){
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.add(phrase);
