@@ -11,9 +11,7 @@ public class VocabLevel extends LevelInstance {
 	public String getHelp(){
 		return help;
 	}
-	/*public boolean isOver(){
-		return ((upNext.isEmpty())&&(waiting.isEmpty()));
-	}*/
+
 	public VocabLevel(List<VocabPicturePair> un, String h){
 		super();
 		help = h;
@@ -38,7 +36,7 @@ public class VocabLevel extends LevelInstance {
 	
 	public boolean tryAnswer(String answer){
 		if (waiting.peek().checkWord(answer)){
-			waiting.poll();
+			upNext.add(waiting.poll());
 			this.score++;
 			return true;
 		} else {

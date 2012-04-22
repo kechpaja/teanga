@@ -29,16 +29,15 @@ public class Exercises {
 	public List<VocabPicturePair> selectVRandomly(int level){
 		Random generator = new Random();
 		List<VocabPicturePair> toReturn = new LinkedList<VocabPicturePair>();
-		int numToChoose = GameConstants.getVNum(level);
 		List<VocabPicturePair> exercises = vocabExercises.get(level);
-		for (int i=0; i<=numToChoose; i++){
+		for (int i=0; i<=exercises.size(); i++){
 			int nextI = generator.nextInt(exercises.size());
 			toReturn.add(exercises.get(nextI));
 		}
 		return toReturn;
 	}
 	
-	
+	//stores the Vocabulary exercises from the input file
 	private void generateVExercises(String VFile) throws IOException{
 		List<VocabPicturePair> cur = new ArrayList<VocabPicturePair>();
 		BufferedReader vReader = new BufferedReader(new FileReader(VFile));
@@ -55,6 +54,7 @@ public class Exercises {
 		vocabExercises.add(cur);
 	}
 	
+	//stores the grammar exercises from the input file
 	private void generateGExercises(String GFile) throws IOException, ArrayIndexOutOfBoundsException{
 		List<SentencePicturePair> cur = new ArrayList<SentencePicturePair>();
 		BufferedReader gReader = new BufferedReader(new FileReader(GFile));

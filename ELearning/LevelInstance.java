@@ -2,15 +2,9 @@ package ELearning;
 
 public abstract class LevelInstance {
 	protected int score;
-	protected boolean isOver;
 	
 	public LevelInstance(){
 		score = 0;
-		isOver = false;
-	}
-	
-	public boolean isOver(){
-		return isOver;
 	}
 	
 	public int getScore(){
@@ -19,6 +13,6 @@ public abstract class LevelInstance {
 	
 	
 	public String getHelp(int level, boolean isVocab){
-		return "TODO";
+		return "No help available for this level";
 	}
 }
