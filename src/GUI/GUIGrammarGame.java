@@ -1,4 +1,4 @@
-package ELearning;
+package GUI;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -117,6 +117,8 @@ public class GUIGrammarGame extends JPanel{
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
+		
+		makeSentanceBox("The ~0~ ate the cat how funny is that ~1~ what will we do with the hat ~2~ that swallowed the cat.");
 	}
 	
 	public Box makeSentanceBox(String partialSentance){//update to include JTextFields for drag and drop (as opposed to blanks)
