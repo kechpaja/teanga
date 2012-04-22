@@ -25,7 +25,7 @@ public class PlayerStats {
 	//private LinkedList<String>[][] files= {{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},
 	//		{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles}};
 	private String userName;
-	private String gender;
+	private int gender;
 	private int totalPoints;
 	private Cipher encrypt;
 	private Cipher decrypt;
@@ -59,7 +59,7 @@ public class PlayerStats {
 		decode();
 	}	
 
-	public PlayerStats(String username, String gen) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IOException, InvalidKeySpecException, InvalidAlgorithmParameterException
+	public PlayerStats(String username, int gen) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IOException, InvalidKeySpecException, InvalidAlgorithmParameterException
 	{
 		gender=gen;
 		userName=username;
@@ -191,7 +191,7 @@ public class PlayerStats {
 		 String[] data=t.split(" ");
 		 //String[] data= Arrays.toString(b).split(" ");
 		 //System.out.println(t);
-		 gender= data[0];
+		 gender= Integer.parseInt(data[0]);
 		 totalPoints= Integer.parseInt(data[1]);
 		 int index=2;
 		 for(int i=0; i<levels; i++)
@@ -216,7 +216,7 @@ public class PlayerStats {
 		return userName;
 	}
 
-	public String getGender()
+	public int getGender()
 	{
 		return gender;
 	}
