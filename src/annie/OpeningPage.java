@@ -155,5 +155,9 @@ public class OpeningPage {
 		//System.out.println("HERE I AM! "+passwords.size());
 		genders.add(gender);
 	}
+	
+	public LinkedList<String> getUsernames(){
+		return usernames;
+	}
 
 }
