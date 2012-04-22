@@ -3,8 +3,6 @@ package ELearning;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 
-import javax.swing.*;
-
 import GUI.GUIGrammarGame;
 
 
@@ -16,13 +14,12 @@ import GUI.GUIGrammarGame;
      something that you need to update before running it.
 */
 public class App extends javax.swing.JFrame{
-	private Driver _driver;
-	public App(){
+
+public App(){
 		
 		super("ELearning");
 		this.setPreferredSize(new Dimension(1000, 700));
 		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
-		_driver = new Driver();
 
 		//This instantiation would actually happen in the driver (when we get
 		// everything working). The two parameters would actually become
@@ -31,7 +28,7 @@ public class App extends javax.swing.JFrame{
 		//GUIVocabGame panel = new GUIVocabGame("C:/Users/Dede/finalImage.png", "wrong");
 		//GUIBasicPage panel = new GUIBasicPage();
 		//GUIOptionsPage panel = new GUIOptionsPage();
-		JPanel panel = _driver.getCurPage();
+		GUIGrammarGame panel = new GUIGrammarGame();
 		
 		this.add(panel, BorderLayout.CENTER);
 		
@@ -39,12 +36,6 @@ public class App extends javax.swing.JFrame{
 		this.setResizable(false);
 		setVisible(true);
 
-	}
-
-	public void changePage(){
-		this.add(_driver.getCurPage());
-		this.pack();
-		this.repaint();
 	}
 
 	public static void main(String [] argv) {

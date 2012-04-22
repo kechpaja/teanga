@@ -14,14 +14,13 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import annie.*;
-
-import ELearning.*;
+import ELearning.Driver;
 
 public class GUIBasicPage extends JPanel{
 	Driver _driver;
@@ -62,9 +61,17 @@ public class GUIBasicPage extends JPanel{
 		
 		JButton submitB = new JButton("Submit");
 		JButton addUserB = new JButton("Add User");
+		JTextField passField = new JTextField();
+		JLabel passLabel = new JLabel("Password: ");
+		Box passBox = Box.createHorizontalBox();
+		passBox.add(passLabel);
+		passBox.add(Box.createHorizontalStrut(10));
+		passBox.add(passField);
 		
 		Box verticalBox = Box.createVerticalBox();
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+	    verticalBox.add(passBox);
+	    verticalBox.add(Box.createVerticalStrut(10));
 	    verticalBox.add(submitB);
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
 	    verticalBox.add(addUserB);
