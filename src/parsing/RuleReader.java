@@ -33,7 +33,7 @@ public class RuleReader {
 			
 			//TODO unary rule
 		} else if (spl.length == 3) {
-			
+			return new SyntacticRule();
 			// TODO binary rule
 		} else {
 			// TODO error of some sort
