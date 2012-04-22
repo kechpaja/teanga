@@ -1,11 +1,10 @@
-package parsingTests;
-
-import org.junit.Test;
+package tests;
 
 import parsing.*;
 import rules.*;
 import junit.framework.TestCase;
 import java.util.*;
+import org.junit.Test;
 
 public class ParserTests extends TestCase {
 
