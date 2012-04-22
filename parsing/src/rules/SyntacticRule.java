@@ -1,6 +1,6 @@
 package rules;
 
-import parsing.Type;
+import parsing.*;
 import nodes.*;
 
 public class SyntacticRule extends Rule {
@@ -8,14 +8,20 @@ public class SyntacticRule extends Rule {
 	// TODO update this 
 	
 	// rule itself
-	private Type head_;
-	private Type tail_;
-	private Type becomes_;
+	private Pos head_;
+	private Pos tail_;
+	
+	private Pos pos_;
+	private NumMarker number_;
+	private Case cm_;
+	private Tense t_;
 	
 	
 	// matching method
 	public boolean matches(Node n1, Node n2) {
-		return n1.getType() == head_ && n2.getType() == tail_;
+		// This will utilize pos only; it won't check for agreement. 
+		// That will be handled in the grammatical visitor. 
+		return n1.getPos() == pos_ && n2.getPos() == pos_;
 	}
 	
 	// combining method
@@ -24,10 +30,13 @@ public class SyntacticRule extends Rule {
 	}
 	
 	// Constructor
-	public SyntacticRule(Type head, Type tail, Type becomes) {
+	public SyntacticRule(Pos head, Pos tail, Pos pos, NumMarker num, Case c, Tense t) {
 		head_ = head;
 		tail_ = tail;
-		becomes_ = becomes;
+		pos_ = pos;
+		number_ = num;
+		cm_ = c;
+		t_ = t;
 	}
 
 }
