@@ -26,9 +26,12 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 
+import ELearning.Driver;
+
+@SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
 	
-	public GUIOptionsPage(){
+	public GUIOptionsPage(Driver d){
 		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);

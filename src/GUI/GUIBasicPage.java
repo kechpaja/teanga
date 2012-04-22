@@ -9,18 +9,27 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 import javax.swing.border.Border;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+
+import annie.*;
+
+import ELearning.*;
 
 public class GUIBasicPage extends JPanel{
+	Driver _driver;
+	JList nameList;
 
-	public GUIBasicPage(){
+	public GUIBasicPage(Driver driver){
 		super(new BorderLayout());
-		
+		_driver = driver;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -38,11 +47,14 @@ public class GUIBasicPage extends JPanel{
 		
 		//Make the username list
 		JPanel listpane = new JPanel(new BorderLayout());
-		String usernames[] = {"Freddy", "Bob", "James", "John", "Arthur", "Sam", "Jeffery", "Mary", "Margret", "Suzzy", "Samantha", "Brittney", "Deborah", "Jeana", "Sandra", "Julie", "Frankie"};
+		String usernames[] = {"Kelvin", "Annie", "Tara", "Danielle"};
+
+		//String usernames[] = (String[]) openingpage.getUsernames().toArray();
 		
 		Border compound = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,350,30,350), BorderFactory.createLineBorder(Color.black));
-		JList list = new JList(usernames);
-		JScrollPane scrollpane = new JScrollPane(list);
+		nameList = new JList(usernames);
+		nameList.addListSelectionListener(new mySelectionListener());
+		JScrollPane scrollpane = new JScrollPane(nameList);
 		scrollpane.setBorder(compound);
 		
 		JPanel buttonpane = new JPanel();
@@ -75,6 +87,33 @@ public class GUIBasicPage extends JPanel{
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
+	}
+	
+	private class mySelectionListener implements ListSelectionListener{
+
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			if (!e.getValueIsAdjusting()){
+				JList list = (JList) e.getSource();
+				String name = (String) list.getSelectedValue();
+				_driver.setUserName(name);
+				System.out.println(_driver.getUserName());
+			}
+			
+		}
+		
+	}
+	
+	public static void main(String[] args){
+		GUIBasicPage testPage = new GUIBasicPage(new Driver());
+		JFrame mainFrame = new JFrame("E Learning");
+		mainFrame.setPreferredSize(new Dimension(1000, 700));
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.add(testPage, BorderLayout.CENTER);
+		
+		mainFrame.pack();
+		mainFrame.setResizable(false);
+		mainFrame.setVisible(true);
 	}
 	
 }
