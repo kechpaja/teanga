@@ -23,59 +23,96 @@ public class Tokenizer {
 		tokens_ = new LinkedList<Token>();
 		for (String s : words) {
 			// check pos from ending
-			Type pos;
+			Pos pos = null;
+			NumMarker num = null;
+			Case c = null;
+			Tense tense = null;
 			
 			// check the endings
 			if (s.equals("la")) {
-				pos = Type.ART;
+				pos = Pos.ARTICLE;
+			//	num = null;
+			//	c = null;
 			} else if (s.equals("en") || s.equals("al") || s.equals("de")) {
-				pos = Type.PREP; //TODO we need a list of prepositions to check against
+				pos = Pos.PREPOSITION;
+			//	num = null; // sometimes we may be able to check...
+			//	c = null; // again, not entirely sure
+				//pos = Type.PREP; //TODO we need a list of prepositions to check against
 			}
 			
 			else if (s.matches(".*e$")) {
-				pos = Type.ADV;
+				pos = Pos.ADVERB;
+			//	num = null;
+			//	c = null; // TODO maybe...
 			}
 			
 			else if (s.matches(".*o$")) {
-				pos = Type.NOMSG;
+				pos = Pos.NOUN;
+				num = NumMarker.SINGULAR;
+				c = Case.NOMINATIVE;
 			} else if (s.matches(".*on$")) {
-				pos = Type.ACCSG;
+				pos = Pos.NOUN;
+				num = NumMarker.SINGULAR;
+				c = Case.ACCUSATIVE;
 			} else if (s.matches(".*oj$")) {
-				pos = Type.NOMPL;
+				pos = Pos.NOUN;
+				num = NumMarker.PLURAL;
+				c = Case.NOMINATIVE;
 			} else if (s.matches(".*ojn$")) {
-				pos = Type.ACCPL;
+				pos = Pos.NOUN;
+				num = NumMarker.PLURAL;
+				c = Case.ACCUSATIVE;
 			}
 			
 			else if (s.matches(".*a$")) {
-				pos = Type.ADJNSG;
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.SINGULAR;
+				c = Case.NOMINATIVE;
 			} else if (s.matches(".*an$")) {
-				pos = Type.ADJASG;
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.SINGULAR;
+				c = Case.ACCUSATIVE;
 			} else if (s.matches(".*aj$")) {
-				pos = Type.ADJNPL;
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.PLURAL;
+				c = Case.NOMINATIVE;
 			} else if (s.matches(".*ajn$")) {
-				pos = Type.ADJAPL;
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.PLURAL;
+				c = Case.ACCUSATIVE;
 			}
 			
 			else if (s.matches(".*as$")) {
-				pos = Type.PRES;
+				pos = Pos.VERB;
+				tense = Tense.PRESENT;
 			} else if (s.matches(".*is$")) {
-				pos = Type.PAST;
+				pos = Pos.VERB;
+				tense = Tense.PAST;
 			} else if (s.matches(".*os$")) {
-				pos = Type.FUT;
+				pos = Pos.VERB;
+				tense = Tense.FUTURE;
 			} else if (s.matches(".*us$")) {
-				pos = Type.COND;
+				pos = Pos.VERB;
+				tense = Tense.CONDITIONAL;
 			} else if (s.matches(".*u$")) {
-				pos = Type.IMP;
+				pos = Pos.VERB;
+				tense = Tense.IMPERATIVE;
 			} else if (s.matches(".*i$")) {
-				pos = Type.INF;
+				pos = Pos.VERB;
+				tense = Tense.INFINITIVE;
 			}
 			
+			// TODO mark verb as finite/non-finite? 
+			
+			// TODO correlatives
+			// TODO tenses
+			
 			else {
-				pos = Type.BAD;
+				pos = null;
 			}
 			
 			// create token
-			tk = new Token(s, pos);
+			tk = new Token(s, pos, num, c, tense);
 			
 			// add to token list
 			tokens_.add(tk);
