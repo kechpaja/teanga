@@ -95,16 +95,20 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
+		System.out.println("made it past cho");
+		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the cat how funny is that ~1~ what will we do with the hat ~2~ that swallowed the cat.");
+		phraseHoriz.add(choicePanel);
 		
-		//phrase Horiz
+		ArrayList<JLabel> blankLabels = choicePanel.getBlanks();
+		
+		//create a rectangle for each of the
+		
 		//choice Horiz
 		
 		JButton submit = new JButton("Submit Answer");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		
-		
-
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
@@ -115,10 +119,9 @@ public class GUIGrammarGame extends JPanel{
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
 		
-		makeSentanceBox("The ~0~ ate the cat how funny is that ~1~ what will we do with the hat ~2~ that swallowed the cat.");
 	}
 	
-	public Box makeSentanceBox(String partialSentance){//update to include JTextFields for drag and drop (as opposed to blanks)
+	public GUIGrammarChoicePanel makeSentanceBox(String partialSentance){//update to include JTextFields for drag and drop (as opposed to blanks)
 		
 		int numChars = partialSentance.length();
 		Box vertBox = Box.createVerticalBox();
@@ -145,8 +148,8 @@ public class GUIGrammarGame extends JPanel{
 			System.out.println("Error, grammar game sentance too long");
 			//go to next exercise
 		} else if(numChars > _maxChars){//will need 2 lines
-			ArrayList<JLabel> line1 = new ArrayList<JLabel>();
-			ArrayList<JLabel> line2 = new ArrayList<JLabel>();
+			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
+			LinkedList<JLabel> line2 = new LinkedList<JLabel>();
 			int currNum = 0;
 			String currString = "";
 			
@@ -156,9 +159,9 @@ public class GUIGrammarGame extends JPanel{
 				if((last = words.getLast()) == null){//when you get to a blank
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
-					line1.add(phrase);
+					line1.push(phrase);
 					JLabel blank = new JLabel("          ");//put a blank in the line
-					line1.add(blank);
+					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
 				} else{//otherwise, add word to line 1
@@ -173,9 +176,9 @@ public class GUIGrammarGame extends JPanel{
 				if((last = words.getLast()) == null){
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
-					line2.add(phrase);
+					line2.push(phrase);
 					JLabel blank = new JLabel("          ");//put a blank in the line
-					line2.add(blank);
+					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
 					currString += last;;
@@ -188,9 +191,30 @@ public class GUIGrammarGame extends JPanel{
 				line2.add(phrase);
 			}
 			
+			Box line1Box = Box.createHorizontalBox();
+			Box line2Box = Box.createHorizontalBox();
+			
+			line1Box.add(Box.createHorizontalStrut(20));
+			while(!line1.isEmpty()){
+				line1Box.add(line1.getLast());
+			}
+			line1Box.add(Box.createHorizontalStrut(20));
+			
+			line2Box.add(Box.createHorizontalStrut(20));
+			while(!line2.isEmpty()){
+				line2Box.add(line2.getLast());
+			}
+			line2Box.add(Box.createHorizontalStrut(20));
+			
+			vertBox.add(Box.createVerticalStrut(10));
+			vertBox.add(line1Box);
+			vertBox.add(Box.createVerticalStrut(10));
+			vertBox.add(line2Box);
+			vertBox.add(Box.createVerticalStrut(10));
+			
 			//TODO:make the actual box
 		} else{//Only 1 line
-			ArrayList<JLabel> line1 = new ArrayList<JLabel>();
+			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
 			String currString = "";
 			
 			//Just have 1 line to add to
@@ -207,39 +231,22 @@ public class GUIGrammarGame extends JPanel{
 					currString += last;;
 				}
 			}
-			//make the actual box	
-		}
-			/*
-			JLabel string1Label = new JLabel(string1);
-			line1.add(string1Label);
-			JLabel string2Label = new JLabel(string2);
-			line2.add(string2Label);
 			
-			vertBox.add(Box.createVerticalStrut(20));
-			vertBox.add(line1);
-			vertBox.add(Box.createVerticalStrut(10));
-			vertBox.add(line2);
-			vertBox.add(Box.createVerticalStrut(20));
+			Box line1Box = Box.createHorizontalBox();
 			
-			System.out.println("Line 1: " + string1);
-			System.out.println("Line 2: " + string2);
-			
-		} else{
-			Box line = Box.createHorizontalBox();
-			String string1 = actSent[0];
-			for(int i = 1; i< actSent.length; i++){
-				string1 = string1 + "          " + actSent[i];
+			line1Box.add(Box.createHorizontalStrut(20));
+			while(!line1.isEmpty()){
+				line1Box.add(line1.getLast());
 			}
-			JLabel label = new JLabel(string1);
-			line.add(label);
-			vertBox.add(Box.createVerticalStrut(30));
-			vertBox.add(line);
-			vertBox.add(Box.createVerticalStrut(30));
+			line1Box.add(Box.createHorizontalStrut(20));
 			
+			vertBox.add(Box.createVerticalStrut(20));
+			vertBox.add(line1Box);
+			vertBox.add(Box.createVerticalStrut(20));
 		}
-		*/
-		
-		return vertBox;
+			
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaces);
+		return panel;
 	}
 	
 	public Box makePossBox(){
