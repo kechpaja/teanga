@@ -21,12 +21,25 @@ public class SyntacticRule extends Rule {
 	public boolean matches(Node n1, Node n2) {
 		// This will utilize pos only; it won't check for agreement. 
 		// That will be handled in the grammatical visitor. 
-		return n1.getPos() == pos_ && n2.getPos() == pos_;
+		return n1.getPos() == head_ && n2.getPos() == tail_;
 	}
 	
 	// combining method
 	public NonTerminalNode combine(Node n1, Node n2) {
-		return new NonTerminalNode(n1, n2, pos_, number_, cm_, t_);
+		Case c = cm_;
+		NumMarker number = number_;
+		Tense t = t_;
+		if (n1.getCase() == n2.getCase()) {
+			c = n1.getCase();
+		}
+		if (n1.getNumMarker() == n2.getNumMarker()) {
+			number = n1.getNumMarker();
+		}
+		if (n1.getTense() == n2.getTense()) {
+			t = n1.getTense();
+		}
+		
+		return new NonTerminalNode(n1, n2, pos_, number, c, t);
 	}
 	
 	// Constructor
