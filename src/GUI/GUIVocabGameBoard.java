@@ -8,19 +8,23 @@ import java.awt.Graphics2D;
 import javax.swing.JPanel;
 import javax.swing.Timer;
 
+import annie.PlayerStats;
+
 import ELearning.VocabLevel;
 
 
+@SuppressWarnings("serial")
 public class GUIVocabGameBoard extends JPanel {
 
 	int _top;
 	//String _path;
 	VocabLevel _vl;
+	PlayerStats _playerStats;
 	GUIVocabGamePiece[] _pieces;
 	Timer _timer, _overallTimer;
 
 
-	public GUIVocabGameBoard (VocabLevel vl){
+	public GUIVocabGameBoard (VocabLevel vl, PlayerStats ps){
 
 		super(new BorderLayout());
 
@@ -31,6 +35,7 @@ public class GUIVocabGameBoard extends JPanel {
 
 		_top = 0; //the place to put the next piece
 		_vl = vl;
+		_playerStats = ps;
 		_pieces = new GUIVocabGamePiece[5]; //the collection of current pieces
 
 		//The timer that speeds up the falling
@@ -59,11 +64,9 @@ public class GUIVocabGameBoard extends JPanel {
 		// be more complete in the final version.
 		if(_top == 5){
 			_timer.stop();
+			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), 0);
 			System.out.println("Game Over");
 		}
-		/*else if(_path == null){
-			System.out.println("Path is null!");
-		}*/
 		else{
 			//Otherwise add a new piece (and set its bottom)
 			String path = _vl.addToWaiting().getPicturePath();

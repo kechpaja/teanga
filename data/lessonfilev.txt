@@ -1,0 +1,6 @@
+data/VocabPictures/adiau1.jpg,adiau,goodbye,"la knabo diras adiau."
+data/VocabPictures/hundo.jpg,hundo,dog,"la hundo estas bruna."
+data/VocabPictures/kato.jpg,kato,cat,"La kato persekutas la muso."
+0
+data/VocabPictures/lampo.jpg,lampo,lamp,"turni la lumo sur."
+data/VocabPictures/lito.jpg,lito,bed,"Mi dormas en mia lito."

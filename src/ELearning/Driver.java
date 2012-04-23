@@ -13,9 +13,10 @@ import annie.*;
 
 public class Driver {
 	private JFrame mainFrame;
-	private VocabGameMaker vGameMaker;
-	private GrammarGameMaker gGameMaker;
+	public VocabGameMaker vGameMaker;
+	public GrammarGameMaker gGameMaker;
 	private Exercises exercises;
+	public Lessons lessons;
 	private HelpBox helpbox;
 	public OpeningPage openingpage;
 	private JPanel curPage;
@@ -23,9 +24,11 @@ public class Driver {
 
 	private String curUserName = null;
 	private int gender = 0;
+	private PlayerStats curPlayerStats = null;
 	
 	public Driver(){
 		try{
+			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
 			exercises = new Exercises("data/testfilev", "data/testfileg.txt");
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
@@ -78,6 +81,10 @@ public class Driver {
 	
 	public static void main(String[] args){
 		Driver myDriver = new Driver();
+	}
+	
+	public PlayerStats getPlayerStats(){
+		return curPlayerStats;
 	}
 	
 
