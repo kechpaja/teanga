@@ -1,9 +1,12 @@
 package GUI;
 
+import gfx.Rectangle;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Stack;
 
 import javax.imageio.ImageIO;
 import javax.swing.Box;
@@ -25,6 +27,7 @@ public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
+	private ArrayList<Rectangle> _rectBlanks;
 
 	public GUIGrammarGame(){
 		super(new BorderLayout());
@@ -35,16 +38,16 @@ public class GUIGrammarGame extends JPanel{
 		this.setBackground(new Color(100,110,255,255));
 		
 		//Constants
-		int picheight = 300;
-		int picwidth = 400;
+		int picheight = 200;
+		int picwidth = 300;
 		_maxChars = 60;
 		
 		String picPath = "data/funpic2.gif";
-		String partial = "The ~0~ ate the bird";
 		String correct[] = {"cat"};
 		String possibilities[] = {"cat", "chair", "bee", "wasp", "frog"};
 		
 		_picLabel = null;
+		_rectBlanks = new ArrayList<Rectangle>();
 		
 		try {
 			BufferedImage pic = ImageIO.read(new File(picPath));
@@ -95,10 +98,10 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
-		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~. What will we do with the crazy ~2~ that swallowed the cat.");
+		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
 		phraseHoriz.add(choicePanel);
 		
-		ArrayList<JLabel> blankLabels = choicePanel.getBlanks();
+				
 		
 		//create a rectangle for each of the
 		
@@ -131,14 +134,12 @@ public class GUIGrammarGame extends JPanel{
 		for(int i = 0; i < actSent.length; i++){
 			if(i%2 == 1){
 				words.push(null);//if it is a blank add a null
-				System.out.print(" null ");
 			} else{
 				String smallWs[] = actSent[i].split(" ");
 				
 				//add strings 1 word at a time
 				for(int j=0; j < smallWs.length; j++){
 					words.push(smallWs[j]);
-					System.out.print(smallWs[j]);
 				}
 			}
 		}
@@ -161,7 +162,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("**********");//put a blank in the line
+					JLabel blank = new JLabel("                  ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
@@ -183,7 +184,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("**********");//put a blank in the line
+					JLabel blank = new JLabel("                  ");//put a blank in the line
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -194,7 +195,7 @@ public class GUIGrammarGame extends JPanel{
 			//make the last section into a label in line2
 			if(!currString.equals("")){
 				JLabel phrase = new JLabel(currString);
-				line2.add(phrase);
+				line2.push(phrase);
 			}
 			
 			Box line1Box = Box.createHorizontalBox();
@@ -202,13 +203,16 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.removeLast());
+				JLabel currLabel = line1.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line1Box.add(currLabel);
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
-			
 			line2Box.add(Box.createHorizontalStrut(20));
 			while(!line2.isEmpty()){
-				line2Box.add(line2.removeLast());
+				JLabel currLabel = line2.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line2Box.add(currLabel);
 			}
 			line2Box.add(Box.createHorizontalStrut(20));
 			
@@ -242,7 +246,9 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.removeLast());
+				JLabel currLabel = line1.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line1Box.add(currLabel);
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
 			
@@ -253,12 +259,6 @@ public class GUIGrammarGame extends JPanel{
 			
 		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaces);
 		return panel;
-	}
-	
-	public Box makePossBox(){
-		
-		
-		return null;
 	}
 	
 	public class SubmitListener implements ActionListener {
