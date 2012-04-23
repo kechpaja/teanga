@@ -3,6 +3,7 @@ package ELearning;
 import java.util.*;
 
 public class VocabLevel extends LevelInstance {
+	private int levelNum;
 	private String help;
 	//the exercises still to go
 	private List<VocabPicturePair> upNext;
@@ -12,10 +13,11 @@ public class VocabLevel extends LevelInstance {
 		return help;
 	}
 	
-	public VocabLevel(List<VocabPicturePair> un, String h){
+	public VocabLevel(List<VocabPicturePair> un, String h, int num){
 		super();
 		help = h;
 		upNext = un;
+		levelNum = num;
 		waiting = new LinkedList<VocabPicturePair>();
 	}
 	
@@ -47,13 +49,17 @@ public class VocabLevel extends LevelInstance {
 		}
 	}
 	
+	public int getLevelNum(){
+		return levelNum;
+	}
+	
 	public static void main(String[] args){
 		List<VocabPicturePair> levelList = new LinkedList<VocabPicturePair>();
 		levelList.add(new VocabPicturePair("path1", "hello"));
 		levelList.add(new VocabPicturePair("path2", "world"));
 		levelList.add(new VocabPicturePair("path3", "testing"));
 		levelList.add(new VocabPicturePair("path4", "word"));
-		VocabLevel myLevel = new VocabLevel(levelList, "this is the help");
+		VocabLevel myLevel = new VocabLevel(levelList, "this is the help", 1);
 			myLevel.addToWaiting();
 			myLevel.tryAnswer("hello");
 			System.out.println(myLevel.score);

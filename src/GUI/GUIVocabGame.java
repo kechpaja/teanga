@@ -3,8 +3,11 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -18,11 +21,11 @@ public class GUIVocabGame extends JPanel{
 
 	GUIVocabGameBoard _gameBoard;
 	JTextField _textField;
-	VocabLevel vl;
+	VocabLevel _vl;
 	Driver driver;
 
 	//this path and string would actually be an array of PicturePairs
-	public GUIVocabGame(VocabLevel _vl, Driver d){
+	public GUIVocabGame(VocabLevel vl, Driver d){
 		super(new BorderLayout());
 		
 		driver = d;
@@ -38,10 +41,16 @@ public class GUIVocabGame extends JPanel{
 		//Top Toolbar (empty at this point)
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		JButton back = new JButton("Back");
+		back.addActionListener(new backtoOptionsActionListener());
+		back.setSize(new Dimension(75, 35));
+
+		topBar.add(back);
+		topBar.add(Box.createHorizontalStrut(30));
 		
-		vl = _vl;
+		_vl = vl;
 		//The game board (takes care of almost everything game related)
-		_gameBoard = new GUIVocabGameBoard(vl, driver.getPlayerStats());
+		_gameBoard = new GUIVocabGameBoard(_vl, driver.getPlayerStats(), driver);
 
 		//The panel that contains the text field in which the user
 		// types their guesses.
@@ -69,7 +78,7 @@ public class GUIVocabGame extends JPanel{
 
 	//Checks a typed answers
 	public void checkAnswer(String answer){
-		if(vl.tryAnswer(answer)){
+		if(_vl.tryAnswer(answer)){
 			_gameBoard.clearPiece();
 			//Set _correctAnswer to the next correct answer
 		}
@@ -78,7 +87,7 @@ public class GUIVocabGame extends JPanel{
 	//When someone types enter, the text they typed is checked and if it
 	// is correct then the bottom piece is cleared and the correct answer
 	// is updated.  The text that was in the field is highlighted.
-	private class TextListener implements java.awt.event.ActionListener {
+	private class TextListener implements ActionListener {
 
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			String text = _textField.getText();
@@ -86,6 +95,21 @@ public class GUIVocabGame extends JPanel{
 	        	_textField.selectAll();
 		}
 
+	}
+	
+	private class backtoOptionsActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			driver.getPlayerStats().RefreshStats(_vl.getLevelNum(), 0, 51, 0);
+			System.out.println(driver.getPlayerStats().getSingleGame(0, 0).bestScore);
+			System.out.println(driver.getPlayerStats().getSingleGame(0,1).bestScore);
+			System.out.println(driver.getPlayerStats().getSingleGame(0, 0).isDefeated());
+			System.out.println(driver.getPlayerStats().getSingleGame(0, 1).isDefeated());
+			driver.changePage(new GUIOptionsPage(driver, driver.getPlayerStats()));
+			
+		}
+		
 	}
 
 }

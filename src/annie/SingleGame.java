@@ -19,6 +19,11 @@ public class SingleGame {
 		bestTime=0;
 	}
 	
+	public boolean isDefeated()
+	{
+		return bestScore>=neededScore;
+	}
+	
 
 	int updateSingleGame(int score, int time) 
 	{

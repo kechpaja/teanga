@@ -199,11 +199,34 @@ public class PlayerStats {
 	public void RefreshStats(int level, int game, int score, int time) 
 	{
 		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
+
+		System.out.println("In main if loop!");
+		Boolean before=true;
+		for(int j=0; j<games-1; j++)
+		{
+			System.out.println("j: " +
+		j+ "----"+userGames[level][j].isDefeated());
+			if(userGames[level][j].isDefeated()!=true)
+				before=false;
+		}
+		if(before)
+		{
+			System.out.println("I shouldn't be here!");
+			userGames[level][games-1].unlocked=true;
+		}
+		if(game==games-1&&level!=levels-1)
+		{
+			for(int j=0; j<games-1; j++)
+			{
+				userGames[level+1][j].unlocked=true;
+			}
+		}
 	}
 	
 	//Returns the appropriate SingleGame from the userGames array
 	public SingleGame getSingleGame(int level, int game) 
 	{
+		
 		return userGames[level][game];
 	}
 /*
