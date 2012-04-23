@@ -70,7 +70,7 @@ public class RuleReader {
 	}
 	
 	// a method to read in rules and put them into lists
-	public RuleSet ruleRead(String file) {
+	public static RuleSet ruleRead(String file) {
 		RuleSet ruleset = null;
 		
 		try {

@@ -12,6 +12,8 @@ public class LeafNode extends Node {
 	private int leftindex_;
 	private int rightindex_;
 	
+	// GETTERS
+	
 	public String getName() {
 		return name_;
 	}
@@ -27,7 +29,6 @@ public class LeafNode extends Node {
 	// Constructor
 	public LeafNode(Token t) {
 		name_ = t.getName();
-		//type_ = t.getPartOfSpeech();
 		pos_ = t.getPos();
 		number_ = t.getNumMarker();
 		cm_ = t.getCase();
@@ -36,14 +37,14 @@ public class LeafNode extends Node {
 		rightindex_ = t.getRightIndex();
 	}
 	
+	// toString
 	public String toString() {
 		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + name_ + ")";
 	}
 	
-	// visit method TODO
+	// visit method
 	public void visit(List<Mistake> mistakes) {
-		// TODO I'm not sure there are any mistakes that could occur at this level. 
-		// Does nothing
+		// Does nothing - no syntactic errors could occur at this level
 	}
 	
 }
