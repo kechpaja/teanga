@@ -1,9 +1,12 @@
 package GUI;
 
+import gfx.Rectangle;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -12,7 +15,6 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.Stack;
 
 import javax.imageio.ImageIO;
 import javax.swing.Box;
@@ -35,12 +37,11 @@ public class GUIGrammarGame extends JPanel{
 		this.setBackground(new Color(100,110,255,255));
 		
 		//Constants
-		int picheight = 300;
-		int picwidth = 400;
+		int picheight = 200;
+		int picwidth = 300;
 		_maxChars = 60;
 		
 		String picPath = "data/funpic2.gif";
-		String partial = "The ~0~ ate the bird";
 		String correct[] = {"cat"};
 		String possibilities[] = {"cat", "chair", "bee", "wasp", "frog"};
 		
@@ -95,10 +96,11 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
-		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~. What will we do with the crazy ~2~ that swallowed the cat.");
+		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
 		phraseHoriz.add(choicePanel);
 		
-		ArrayList<JLabel> blankLabels = choicePanel.getBlanks();
+		ArrayList<Rectangle> blankLabels = choicePanel.getBlanks();
+		
 		
 		//create a rectangle for each of the
 		
@@ -131,19 +133,18 @@ public class GUIGrammarGame extends JPanel{
 		for(int i = 0; i < actSent.length; i++){
 			if(i%2 == 1){
 				words.push(null);//if it is a blank add a null
-				System.out.print(" null ");
 			} else{
 				String smallWs[] = actSent[i].split(" ");
 				
 				//add strings 1 word at a time
 				for(int j=0; j < smallWs.length; j++){
 					words.push(smallWs[j]);
-					System.out.print(smallWs[j]);
 				}
 			}
 		}
 		
-		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
+		ArrayList<Integer> spaceL1 = new ArrayList<Integer>();
+		ArrayList<Integer> spaceL2 = new ArrayList<Integer>();
 		
 		if(numChars > _maxChars*2){//too long
 			System.out.println("Error, grammar game sentance too long");
@@ -158,16 +159,18 @@ public class GUIGrammarGame extends JPanel{
 			while(currNum < _maxChars && !words.isEmpty()){
 				String last;
 				if((last = words.removeLast()) == null){//when you get to a blank
+					System.out.print(" null ");
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
 					JLabel blank = new JLabel("**********");//put a blank in the line
 					line1.push(blank);
-					spaces.add(blank);//add blank label to list of blanks
+					spaceL1.add(new Integer(currNum));//add blank label to list of blanks
 					currNum += 10;
 				} else{//otherwise, add word to line 1
+					System.out.print(last);
 					currString += last + " ";
-					currNum += last.length();
+					currNum += last.length() + 1;
 				}
 			}
 			
@@ -185,16 +188,20 @@ public class GUIGrammarGame extends JPanel{
 					line2.push(phrase);
 					JLabel blank = new JLabel("**********");//put a blank in the line
 					line2.push(blank);
-					spaces.add(blank);//add blank label to list of blanks
+					spaceL2.add(new Integer(currNum));//add blank label to list of blanks
+					System.out.print(" null ");
+					currNum += 10;
 				} else{
 					currString += last + " ";
+					currNum += last.length()+1;
+					System.out.print(last);
 				}
 			}
 			
 			//make the last section into a label in line2
 			if(!currString.equals("")){
 				JLabel phrase = new JLabel(currString);
-				line2.add(phrase);
+				line2.push(phrase);
 			}
 			
 			Box line1Box = Box.createHorizontalBox();
@@ -202,13 +209,17 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.removeLast());
+				JLabel currLabel = line1.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line1Box.add(currLabel);
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
-			
+			System.out.println("Line 2:");
 			line2Box.add(Box.createHorizontalStrut(20));
 			while(!line2.isEmpty()){
-				line2Box.add(line2.removeLast());
+				JLabel currLabel = line2.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line2Box.add(currLabel);
 			}
 			line2Box.add(Box.createHorizontalStrut(20));
 			
@@ -222,6 +233,7 @@ public class GUIGrammarGame extends JPanel{
 		} else{//Only 1 line
 			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
 			String currString = "";
+			int currNum = 0;
 			
 			//Just have 1 line to add to
 			while(!words.isEmpty()){
@@ -232,9 +244,11 @@ public class GUIGrammarGame extends JPanel{
 					line1.add(phrase);
 					JLabel blank = new JLabel("**********");//put a blank in the line
 					line1.add(blank);
-					spaces.add(blank);//add blank label to list of blanks
+					spaceL1.add(new Integer(currNum));//add blank label to list of blanks
+					currNum += 10;
 				} else{
-					currString += last;;
+					currString += last;
+					currNum += last.length();
 				}
 			}
 			
@@ -242,7 +256,9 @@ public class GUIGrammarGame extends JPanel{
 			
 			line1Box.add(Box.createHorizontalStrut(20));
 			while(!line1.isEmpty()){
-				line1Box.add(line1.removeLast());
+				JLabel currLabel = line1.removeLast();
+				currLabel.setFont(new Font("Century", Font.BOLD, 25));
+				line1Box.add(currLabel);
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
 			
@@ -251,14 +267,8 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(20));
 		}
 			
-		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaces);
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaceL1, spaceL2);
 		return panel;
-	}
-	
-	public Box makePossBox(){
-		
-		
-		return null;
 	}
 	
 	public class SubmitListener implements ActionListener {
