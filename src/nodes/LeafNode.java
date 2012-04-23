@@ -9,11 +9,20 @@ import rules.AgreementRule;
 public class LeafNode extends Node {
 	
 	private String name_; // the name of this node
+	private int leftindex_;
+	private int rightindex_;
 	
 	public String getName() {
 		return name_;
 	}
-
+	
+	public int getLeftIndex() {
+		return leftindex_;
+	}
+	
+	public int getRightIndex() {
+		return rightindex_;
+	}
 	
 	// Constructor
 	public LeafNode(Token t) {
@@ -23,6 +32,8 @@ public class LeafNode extends Node {
 		number_ = t.getNumMarker();
 		cm_ = t.getCase();
 		t_ = t.getTense();
+		leftindex_ = t.getLeftIndex();
+		rightindex_ = t.getRightIndex();
 	}
 	
 	public String toString() {
@@ -30,8 +41,9 @@ public class LeafNode extends Node {
 	}
 	
 	// visit method TODO
-	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
+	public void visit(List<Mistake> mistakes) {
 		// TODO I'm not sure there are any mistakes that could occur at this level. 
+		// Does nothing
 	}
 	
 }

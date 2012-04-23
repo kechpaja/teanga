@@ -21,15 +21,19 @@ public class Tokenizer {
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
 		tokens_ = new LinkedList<Token>();
+		int left = 0;
 		for (String s : words) {
 			// check pos from ending
 			Pos pos = null;
 			NumMarker num = null;
 			Case c = null;
 			Tense tense = null;
+			if (s.equals("")) {
+				// deal with empty strings... TODO
+			}
 			
 			// check the endings
-			if (s.equals("la")) {
+			else if (s.equals("la")) {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
@@ -112,7 +116,8 @@ public class Tokenizer {
 			}
 			
 			// create token
-			tk = new Token(s, pos, num, c, tense);
+			tk = new Token(s, pos, num, c, tense, left, left + s.length() + 1);
+			left += s.length() + 1;
 			
 			// add to token list
 			tokens_.add(tk);

@@ -1,16 +1,18 @@
 package rules;
 
 import java.util.*;
+import parsing.*;
 
 public class RuleSet {
 	
 	// private fields (lists)
-	private final List<BinarySyntacticRule> birules_;
-	private final List<UnarySyntacticRule> unrules_;
-	private final List<AgreementRule> agrules_;
-	private final List<SemanticRule> semrules_;
+	private final HashMap<Pos, List<BinarySyntacticRule>> birules_;
+	private final HashMap<Pos, List<UnarySyntacticRule>> unrules_;
+	private final HashMap<Pos, List<AgreementRule>> agrules_;
+	private final HashMap<Pos, List<SemanticRule>> semrules_;
 
-	public RuleSet(List<BinarySyntacticRule> birules, List<UnarySyntacticRule> unrules, List<AgreementRule> agrules, List<SemanticRule> semrules) {
+	public RuleSet(HashMap<Pos, List<BinarySyntacticRule>> birules, HashMap<Pos, List<UnarySyntacticRule>> unrules,
+			HashMap<Pos, List<AgreementRule>> agrules, HashMap<Pos, List<SemanticRule>> semrules) {
 		birules_ = birules;
 		unrules_ = unrules;
 		agrules_ = agrules;
@@ -18,19 +20,19 @@ public class RuleSet {
 	}
 	
 	// GETTERS
-	public List<BinarySyntacticRule> getBiRules() {
+	public HashMap<Pos, List<BinarySyntacticRule>> getBiRules() {
 		return birules_;
 	}
 	
-	public List<UnarySyntacticRule> getUnRules() {
+	public HashMap<Pos, List<UnarySyntacticRule>> getUnRules() {
 		return unrules_;
 	}
 	
-	public List<AgreementRule> getAgRules() {
+	public HashMap<Pos, List<AgreementRule>> getAgRules() {
 		return agrules_;
 	}
 	
-	public List<SemanticRule> getSemRules() {
+	public HashMap<Pos, List<SemanticRule>> getSemRules() {
 		return semrules_;
 	}
 	
