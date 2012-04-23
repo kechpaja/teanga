@@ -1,0 +1,4 @@
+data/VocabPictures/hundo.jpg,All verbs in esperanto in the present tense end in "as.","La hundo estAS bruno"
+data/VocabPictures/muso.jpg,Adjectives like "malgranda" (small) end in "a.","La muso estas malgrandA"
+0
+data/VocabPictures/hundo.jpg,Esperanto has a nominative and accusative case. This means a noun looks different when it is the subject of a verb and when it is the object: like the pronouns "I" and "me" in English,"li satas la kato"/"la kato satas gin"
