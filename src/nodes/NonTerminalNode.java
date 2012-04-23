@@ -40,25 +40,38 @@ public class NonTerminalNode extends Node {
 		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_.toString() + " " + tail_.toString() + ")";
 	}
 	
+	// methods to return left and right indices
+	public int getLeftIndex() {
+		return head_.getLeftIndex();
+	}
+	
+	public int getRightIndex() {
+		if (tail_ == null) {
+			return head_.getRightIndex();
+		} else {
+			return tail_.getRightIndex();
+		}
+	}
+	
 	// visit method
-	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
+	public void visit(List<Mistake> mistakes) {
 		// check for errors at this level
 		if (!head_.agreesInCase(tail_)) {
-			// TODO get indicies and add mistake
+			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Case Agreement"));
 		}
 		
 		if (!head_.agreesInNumber(tail_)) {
-			// TODO ...
+			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Number Agreement"));
 		}
 		
 		if (!head_.agreesInTense(tail_)) {
-			// TODO
+			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Tense Agreement"));
 		}
 		
 		// recur on children
-		head_.visit(rules, mistakes);
+		head_.visit(mistakes);
 		if (tail_ != null) {
-			tail_.visit(rules, mistakes);
+			tail_.visit(mistakes);
 		}
 	}
 

@@ -9,6 +9,8 @@ public class Token {
 	private NumMarker number_;
 	private Case cm_;
 	private Tense t_;
+	private int leftindex_;
+	private int rightindex_;
 	
 	
 	
@@ -33,16 +35,27 @@ public class Token {
 		return t_;
 	}
 	
-	protected Token(String name, Pos pos, NumMarker num, Case c, Tense tense) {
+	public int getLeftIndex() {
+		return leftindex_;
+	}
+	
+	public int getRightIndex() {
+		return rightindex_;
+	}
+	
+	// constructor
+	protected Token(String name, Pos pos, NumMarker num, Case c, Tense tense, int leftindex, int rightindex) {
 		name_ = name;
 		pos_ = pos;
 		number_ = num;
 		cm_ = c;
 		t_ = tense;
+		leftindex_ = leftindex;
+		rightindex_ = rightindex;
 	}
 	
 	public String toString() {
-		return pos_.toString() + " " + number_ + " " + cm_ + " " + t_;
+		return pos_.toString() + " " + number_ + " " + cm_ + " " + t_ + " from " + leftindex_ + " to " + rightindex_;
 	}
 
 }
