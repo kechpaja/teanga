@@ -45,6 +45,7 @@ public class RuleReader {
 		return null;
 	}
 	
+	
 	// parses out an agreement rule
 	private AgreementRule parseAgRule(String line) {
 		return null;

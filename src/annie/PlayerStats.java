@@ -13,16 +13,16 @@ public class PlayerStats {
 	// Stores all of the vocab and grammar games for each user.  
 	//Instantiated with all of the SingleGames avaialable and intialized to locked, 
 	//also initializes all of the other key pieces of data for each game.
-	int levels=4;
+	int levels=6;
 	int games=3;
 	//private LinkedList<String> tempFiles= new LinkedList<String>() {{add("String1"); add("String2");}};
 	private SingleGame[][] userGames = new SingleGame[levels][games];
 	private Boolean[][] unlocked = {{true,true,false},{false,false,false},
-			{false,false,false},{false,false,false},{false,false,false}};
+			{false,false,false},{false,false,false},{false,false,false},{false,false,false}};
 	private Boolean[][] timeRelevent = {{true,false,false},{true,false,false},
-			{true,false,false},{true,false,false},{true,false,false}};
-	private int[][] time = {{5,0,0},{5,0,0},{5,0,0},{5,0,0},{5,0,0}};
-	private int[][] points = {{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100}};
+			{true,false,false},{true,false,false},{true,false,false},{true,false,false}};
+	private int[][] time = {{5,0,0},{5,0,0},{5,0,0},{5,0,0},{5,0,0},{5,0,0}};
+	private int[][] points = {{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100}};
 	//private LinkedList<String>[][] files= {{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},
 	//		{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles}};
 	private String userName;
@@ -227,6 +227,15 @@ public class PlayerStats {
 		return totalPoints;
 	}
 
+	public boolean isUnlocked(int i, int j)
+	{
+		if(j<2)
+		{
+			return true;
+		}
+		return userGames[i][j-2].unlocked;
+	}
+	
 	//Refreshes the entire PlayerStats file, updating total points 
 	//and and top points for the given game in the given level if necessary
 	public void RefreshStats(int level, int game, int score, int time) 

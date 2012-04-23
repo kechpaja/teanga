@@ -27,7 +27,7 @@ public class OpeningPage {
 	private LinkedList<String> usernames= new LinkedList<String>();
 	private LinkedList<String> passwords= new LinkedList<String>();
 	private LinkedList<Integer> genders= new LinkedList<Integer>();
-	private String userNameFile="Passwordsandusernamesicmshfonwo02udn";
+	private String userNameFile="data/Passwordsandusernamesicmshfonwo02udn";
 	
 	public OpeningPage() throws IOException
 	{
@@ -119,7 +119,7 @@ public class OpeningPage {
 		{
 			out.write(usernames.get(i)+"\n");
 			out.write(passwords.get(i)+"\n");
-			out.write(usernames.get(i)+"\n");
+			out.write(genders.get(i)+"\n");
 		}
 		out.flush();
 		out.close();
@@ -148,6 +148,7 @@ public class OpeningPage {
 
 	public void newUser(String userName, String password, int gender) throws InvalidKeyException, NoSuchAlgorithmException, InvalidKeySpecException, NoSuchPaddingException, InvalidAlgorithmParameterException
 	{
+		System.out.println("NEW USER BITCH!");
 		usernames.add(userName);
 		//System.out.println("Put in passwords "+encrypt(password));
 		passwords.add(encrypt(password));
