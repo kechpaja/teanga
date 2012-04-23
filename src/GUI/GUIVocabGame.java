@@ -103,6 +103,9 @@ public class GUIVocabGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			driver.getPlayerStats().RefreshStats(_vl.getLevelNum(), 0, 51, 0);
 			System.out.println(driver.getPlayerStats().getSingleGame(0, 0).bestScore);
+			System.out.println(driver.getPlayerStats().getSingleGame(0,1).bestScore);
+			System.out.println(driver.getPlayerStats().getSingleGame(0, 0).isDefeated());
+			System.out.println(driver.getPlayerStats().getSingleGame(0, 1).isDefeated());
 			driver.changePage(new GUIOptionsPage(driver, driver.getPlayerStats()));
 			
 		}

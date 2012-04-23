@@ -43,7 +43,6 @@ public class GUIOptionsPage extends JPanel{
 	Driver driver;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
-		
 		try {
 			stats.encode();
 		} catch (IllegalBlockSizeException e) {

@@ -6,16 +6,22 @@ public class GrammarLevel extends LevelInstance {
 	private List<SentencePicturePair> upNext;
 	private SentencePicturePair current;
 	private String help;
+	private int levelNum;
+	
+	public int getLevelNum(){
+		return levelNum;
+	}
 	
 	public String getHelp(){
 		return help;
 	}
 	
-	public GrammarLevel(List<SentencePicturePair> un, String h){
+	public GrammarLevel(List<SentencePicturePair> un, String h, int ln){
 		super();
 		upNext = un;
 		current = upNext.remove(0);
 		help = h;
+		levelNum = ln;
 	}
 	
 	public SentencePicturePair getCurrent(){
@@ -55,7 +61,7 @@ public class GrammarLevel extends LevelInstance {
 		levelList.add(new SentencePicturePair("path2", "this is fine the way it is", three, four));
 		levelList.add(new SentencePicturePair("path3", "how ~0~ ~1~ one", five, six));
 		
-		GrammarLevel myLevel = new GrammarLevel(levelList, "this is the help");
+		GrammarLevel myLevel = new GrammarLevel(levelList, "this is the help", 1);
 		myLevel.submitPart(1, 0);
 		System.out.println(myLevel.submitWhole());
 		myLevel.submitPart(0, 0);

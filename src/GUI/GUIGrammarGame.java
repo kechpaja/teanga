@@ -286,6 +286,8 @@ public class GUIGrammarGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, 21, 0);
 			System.out.println(_driver.getPlayerStats().getSingleGame(0,1).bestScore);
+			System.out.println(_driver.getPlayerStats().getSingleGame(0, 0).isDefeated());
+			System.out.println(_driver.getPlayerStats().getSingleGame(0, 1).isDefeated());
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}
