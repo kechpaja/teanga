@@ -198,13 +198,13 @@ public class PlayerStats {
 	//and and top points for the given game in the given level if necessary
 	public void RefreshStats(int level, int game, int score, int time) 
 	{
-		Boolean before=userGames[level][game].unlocked;
+		Boolean before=userGames[level][game].isDefeated();
 		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
-		if(before!=userGames[level][game].unlocked)
+		if(before!=userGames[level][game].isDefeated())
 		{
 			for(int j=0; j<games-1; j++)
 			{
-				if(userGames[level][j].unlocked!=true)
+				if(userGames[level][j].isDefeated()!=true)
 					before=false;
 				if(before)
 					userGames[level][games-1].unlocked=true;
