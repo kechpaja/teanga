@@ -13,6 +13,7 @@ import ELearning.VocabLevel;
 import ELearning.VocabPicturePair;
 
 
+@SuppressWarnings("serial")
 public class GUIVocabGame extends JPanel{
 
 	GUIVocabGameBoard _gameBoard;
@@ -40,7 +41,7 @@ public class GUIVocabGame extends JPanel{
 		
 		vl = _vl;
 		//The game board (takes care of almost everything game related)
-		_gameBoard = new GUIVocabGameBoard(vl);
+		_gameBoard = new GUIVocabGameBoard(vl, driver.getPlayerStats());
 
 		//The panel that contains the text field in which the user
 		// types their guesses.

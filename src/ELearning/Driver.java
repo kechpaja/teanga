@@ -24,6 +24,7 @@ public class Driver {
 
 	private String curUserName = null;
 	private int gender = 0;
+	private PlayerStats curPlayerStats = null;
 	
 	public Driver(){
 		try{
@@ -80,6 +81,10 @@ public class Driver {
 	
 	public static void main(String[] args){
 		Driver myDriver = new Driver();
+	}
+	
+	public PlayerStats getPlayerStats(){
+		return curPlayerStats;
 	}
 	
 
