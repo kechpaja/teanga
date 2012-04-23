@@ -202,7 +202,8 @@ public class GUIBasicPage extends JPanel{
 				} else {
 				try {
 					if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
-						_driver.changePage(new GUIOptionsPage(_driver, _driver.openingpage.bootGame(_driver.getUserName())));
+						_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
+						_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 
 					} else {
 						String infoMessage = "Incorrect Password";
@@ -244,7 +245,8 @@ public class GUIBasicPage extends JPanel{
 				if (_driver.openingpage.usernameAvailable(newName)){
 					_driver.setUserName(newName);
 					_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
-					_driver.changePage(new GUIOptionsPage(_driver, _driver.openingpage.newGame(newName, gender)));
+					_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 				} else {
 					String infoMessage = "The user name " + newName + " is already taken. Please try another.";
 					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
