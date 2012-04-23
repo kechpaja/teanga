@@ -27,6 +27,7 @@ public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
+	private ArrayList<Rectangle> _rectBlanks;
 
 	public GUIGrammarGame(){
 		super(new BorderLayout());
@@ -46,6 +47,7 @@ public class GUIGrammarGame extends JPanel{
 		String possibilities[] = {"cat", "chair", "bee", "wasp", "frog"};
 		
 		_picLabel = null;
+		_rectBlanks = new ArrayList<Rectangle>();
 		
 		try {
 			BufferedImage pic = ImageIO.read(new File(picPath));
@@ -99,8 +101,7 @@ public class GUIGrammarGame extends JPanel{
 		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
 		phraseHoriz.add(choicePanel);
 		
-		ArrayList<Rectangle> blankLabels = choicePanel.getBlanks();
-		
+				
 		
 		//create a rectangle for each of the
 		
@@ -143,8 +144,7 @@ public class GUIGrammarGame extends JPanel{
 			}
 		}
 		
-		ArrayList<Integer> spaceL1 = new ArrayList<Integer>();
-		ArrayList<Integer> spaceL2 = new ArrayList<Integer>();
+		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
 		
 		if(numChars > _maxChars*2){//too long
 			System.out.println("Error, grammar game sentance too long");
@@ -159,18 +159,16 @@ public class GUIGrammarGame extends JPanel{
 			while(currNum < _maxChars && !words.isEmpty()){
 				String last;
 				if((last = words.removeLast()) == null){//when you get to a blank
-					System.out.print(" null ");
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("**********");//put a blank in the line
+					JLabel blank = new JLabel("                  ");//put a blank in the line
 					line1.push(blank);
-					spaceL1.add(new Integer(currNum));//add blank label to list of blanks
+					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
 				} else{//otherwise, add word to line 1
-					System.out.print(last);
 					currString += last + " ";
-					currNum += last.length() + 1;
+					currNum += last.length();
 				}
 			}
 			
@@ -186,15 +184,11 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("**********");//put a blank in the line
+					JLabel blank = new JLabel("                  ");//put a blank in the line
 					line2.push(blank);
-					spaceL2.add(new Integer(currNum));//add blank label to list of blanks
-					System.out.print(" null ");
-					currNum += 10;
+					spaces.add(blank);//add blank label to list of blanks
 				} else{
 					currString += last + " ";
-					currNum += last.length()+1;
-					System.out.print(last);
 				}
 			}
 			
@@ -214,7 +208,6 @@ public class GUIGrammarGame extends JPanel{
 				line1Box.add(currLabel);
 			}
 			line1Box.add(Box.createHorizontalStrut(20));
-			System.out.println("Line 2:");
 			line2Box.add(Box.createHorizontalStrut(20));
 			while(!line2.isEmpty()){
 				JLabel currLabel = line2.removeLast();
@@ -233,7 +226,6 @@ public class GUIGrammarGame extends JPanel{
 		} else{//Only 1 line
 			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
 			String currString = "";
-			int currNum = 0;
 			
 			//Just have 1 line to add to
 			while(!words.isEmpty()){
@@ -244,11 +236,9 @@ public class GUIGrammarGame extends JPanel{
 					line1.add(phrase);
 					JLabel blank = new JLabel("**********");//put a blank in the line
 					line1.add(blank);
-					spaceL1.add(new Integer(currNum));//add blank label to list of blanks
-					currNum += 10;
+					spaces.add(blank);//add blank label to list of blanks
 				} else{
-					currString += last;
-					currNum += last.length();
+					currString += last;;
 				}
 			}
 			
@@ -267,7 +257,7 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(20));
 		}
 			
-		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaceL1, spaceL2);
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaces);
 		return panel;
 	}
 	
