@@ -11,6 +11,7 @@ import javax.swing.Timer;
 import ELearning.VocabLevel;
 
 
+@SuppressWarnings("serial")
 public class GUIVocabGameBoard extends JPanel {
 
 	int _top;

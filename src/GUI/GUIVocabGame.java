@@ -8,7 +8,9 @@ import javax.swing.Box;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import ELearning.Driver;
 import ELearning.VocabLevel;
+import ELearning.VocabPicturePair;
 
 
 public class GUIVocabGame extends JPanel{
@@ -16,11 +18,13 @@ public class GUIVocabGame extends JPanel{
 	GUIVocabGameBoard _gameBoard;
 	JTextField _textField;
 	VocabLevel vl;
+	Driver driver;
 
 	//this path and string would actually be an array of PicturePairs
-	public GUIVocabGame(VocabLevel _vl){
+	public GUIVocabGame(VocabLevel _vl, Driver d){
 		super(new BorderLayout());
-
+		
+		driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -33,11 +37,11 @@ public class GUIVocabGame extends JPanel{
 		//Top Toolbar (empty at this point)
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
-
+		
+		vl = _vl;
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(vl);
 
-		vl = _vl;
 		//The panel that contains the text field in which the user
 		// types their guesses.
 		JPanel enterAnswers = new JPanel();
