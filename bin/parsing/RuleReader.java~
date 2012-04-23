@@ -3,17 +3,14 @@ package parsing;
 import java.io.*;
 import java.util.*;
 import rules.*;
-//import parsing.*;
 
 public class RuleReader {
 	
 	/*
 	 * Format for storing rules in a file:
 	 * 
-	 * binary:
+	 * syntactic:
 	 * <syntactic rules, one per line>
-	 * unary:
-	 * <unary syntactic rules>
 	 * agreement:
 	 * <agreement rules>
 	 * semantic:
@@ -28,28 +25,28 @@ public class RuleReader {
 	 * The words "unary" and "binary" are not included, since one can tell from the number of items...
 	 * 
 	 */
-	
-	private BinarySyntacticRule parseBiRule(String line) {
-		String[] spl = line.split("\\s"); 
-		if (spl.length == 3) {
-			//String[] s = spl[0].split(":");
-			return new BinarySyntacticRule(Pos.strToPos(spl[1]), Pos.strToPos(spl[2]), Pos.strToPos(spl[0]));
-			// binary rule
-		} else {
-			// TODO error of some sort
-			return null;
-		}
-	}
-	
-	// parses a unary syntactic rule
-	private UnarySyntacticRule parseUnRule(String line) {
+	/*
+	private SyntacticRule parseSynRule(String line) {
 		String[] spl = line.split("\\s");
+		
 		if (spl.length == 2) {
 			
+			//TODO unary rule
+		} else if (spl.length == 3) {
+<<<<<<< HEAD
+			String[] s = spl[0].split(":");
+			return new SyntacticRule();
+=======
+			//return new SyntacticRule();
+>>>>>>> d589509d203e36dfb4066e43cac9538e16b8c8d6
+			// TODO binary rule
 		} else {
-			// TODO error case
-			return null;
+			// TODO error of some sort
 		}
+		
+		
+		// TODO finish
+		return null;
 	}
 	
 	
@@ -71,30 +68,24 @@ public class RuleReader {
 			BufferedReader r = new BufferedReader(new FileReader(file));
 			
 			// create lists
-			List<BinarySyntacticRule> birules = new LinkedList<BinarySyntacticRule>();
-			List<UnarySyntacticRule> unrules = new LinkedList<UnarySyntacticRule>();
+			List<SyntacticRule> synrules = new LinkedList<SyntacticRule>();
 			List<AgreementRule> agrules = new LinkedList<AgreementRule>();
 			List<SemanticRule> semrules = new LinkedList<SemanticRule>();
 			
 			String line = r.readLine();
 			
-			if (!line.equals("binary:")) {
+			if (!line.equals("syntactic:")) {
 				// TODO some error message
 			}
 			
 			// iterate through the lines of syntactic rules; 
-			while (!line.equals("unary:")) {
-				birules.add(parseBiRule(line));
+			while (!line.equals("agreement:")) {
+				synrules.add(parseSynRule(line));
 				line = r.readLine();
 			}
 			
 			// move forward one
 			line = r.readLine();
-			
-			while (!line.equals("agreement:")) {
-				unrules.add(parseUnRule(line));
-				line = r.readLine();
-			}
 			
 			while (!line.equals("semantic:")) {
 				agrules.add(parseAgRule(line));
@@ -109,7 +100,7 @@ public class RuleReader {
 				line = r.readLine();
 			}
 			
-			ruleset = new RuleSet(birules, unrules, agrules, semrules);
+			ruleset = new RuleSet(synrules, agrules, semrules);
 			
 		} catch (FileNotFoundException e) {
 			// TODO Auto-generated catch block
@@ -121,5 +112,7 @@ public class RuleReader {
 		
 		return ruleset;
 	}
+	
+	*/
 
 }

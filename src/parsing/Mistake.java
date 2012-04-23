@@ -1,14 +1,30 @@
 package parsing;
 
-public interface Mistake {
+public abstract class Mistake {
+	
+	private final int startindex_;
+	private final int endindex_;
+	private final String message_;
+	
+	public Mistake(int startindex, int endindex, String message) {
+		startindex_ = startindex;
+		endindex_ = endindex;
+		message_ = message;
+	}
 	
 	// gets the start index of the error in the given sentence
-	public int getStartIndex();
+	public int getStartIndex() {
+		return startindex_;
+	}
 	
 	// gets the end index of the error in the given sentence
-	public int getEndIndex();
+	public int getEndIndex() {
+		return endindex_;
+	}
 	
 	// gets the message - a short description of what went wrong. 
-	public String getMessage();
+	public String getMessage() {
+		return message_;
+	}
 
 }

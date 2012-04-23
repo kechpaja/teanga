@@ -5,19 +5,25 @@ import java.util.*;
 public class RuleSet {
 	
 	// private fields (lists)
-	private List<SyntacticRule> synrules_;
-	private List<AgreementRule> agrules_;
-	private List<SemanticRule> semrules_;
+	private final List<BinarySyntacticRule> birules_;
+	private final List<UnarySyntacticRule> unrules_;
+	private final List<AgreementRule> agrules_;
+	private final List<SemanticRule> semrules_;
 
-	public RuleSet(List<SyntacticRule> synrules, List<AgreementRule> agrules, List<SemanticRule> semrules) {
-		synrules_ = synrules;
+	public RuleSet(List<BinarySyntacticRule> birules, List<UnarySyntacticRule> unrules, List<AgreementRule> agrules, List<SemanticRule> semrules) {
+		birules_ = birules;
+		unrules_ = unrules;
 		agrules_ = agrules;
 		semrules_ = semrules;
 	}
 	
 	// GETTERS
-	public List<SyntacticRule> getSynRules() {
-		return synrules_;
+	public List<BinarySyntacticRule> getBiRules() {
+		return birules_;
+	}
+	
+	public List<UnarySyntacticRule> getUnRules() {
+		return unrules_;
 	}
 	
 	public List<AgreementRule> getAgRules() {
