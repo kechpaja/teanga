@@ -87,5 +87,9 @@ public class Driver {
 		return curPlayerStats;
 	}
 	
+	public void setPlayerStats(PlayerStats ps){
+		curPlayerStats = ps;
+	}
+	
 
 }

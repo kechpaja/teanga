@@ -10,6 +10,7 @@ import javax.swing.Timer;
 
 import annie.PlayerStats;
 
+import ELearning.Driver;
 import ELearning.VocabLevel;
 
 
@@ -22,9 +23,10 @@ public class GUIVocabGameBoard extends JPanel {
 	PlayerStats _playerStats;
 	GUIVocabGamePiece[] _pieces;
 	Timer _timer, _overallTimer;
+	Driver _driver;
 
 
-	public GUIVocabGameBoard (VocabLevel vl, PlayerStats ps){
+	public GUIVocabGameBoard (VocabLevel vl, PlayerStats ps, Driver d){
 
 		super(new BorderLayout());
 
@@ -35,6 +37,7 @@ public class GUIVocabGameBoard extends JPanel {
 
 		_top = 0; //the place to put the next piece
 		_vl = vl;
+		_driver = d;
 		_playerStats = ps;
 		_pieces = new GUIVocabGamePiece[5]; //the collection of current pieces
 
@@ -64,8 +67,9 @@ public class GUIVocabGameBoard extends JPanel {
 		// be more complete in the final version.
 		if(_top == 5){
 			_timer.stop();
+			System.out.println(_playerStats == null);
 			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), 0);
-			System.out.println("Game Over");
+			_driver.changePage(new GUIOptionsPage(_driver, _playerStats));
 		}
 		else{
 			//Otherwise add a new piece (and set its bottom)

@@ -13,7 +13,7 @@ public class VocabGameMaker implements GameMaker{
 	public VocabLevel makeLevel(int levelNum){
 		List<VocabPicturePair> vpps = exercises.selectVRandomly(levelNum);
 		String h = helpBox.getVHelp(levelNum);
-		return new VocabLevel(vpps, h);
+		return new VocabLevel(vpps, h, levelNum);
 	}
 
 }
