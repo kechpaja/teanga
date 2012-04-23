@@ -23,16 +23,23 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ELearning.Driver;
+import ELearning.GrammarLevel;
+
 @SuppressWarnings("serial")
 public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
 	private ArrayList<Rectangle> _rectBlanks;
+	private GrammarLevel _grammarLevel;
+	private Driver _driver;
 
-	public GUIGrammarGame(){
+	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
 
+		_driver = d;
+		_grammarLevel = gl;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -112,8 +119,11 @@ public class GUIGrammarGame extends JPanel{
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		
+		JButton back = new JButton("back");
+		back.addActionListener(new backtoOptionsActionListener());
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
+		topBar.add(back);
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
@@ -262,12 +272,24 @@ public class GUIGrammarGame extends JPanel{
 		return panel;
 	}
 	
-	public class SubmitListener implements ActionListener {
+	private class SubmitListener implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			//check answers
 		}
+	}
+	
+	private class backtoOptionsActionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, 21, 0);
+			System.out.println(_driver.getPlayerStats().getSingleGame(0,1).bestScore);
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			
+		}
+		
 	}
 
 }
