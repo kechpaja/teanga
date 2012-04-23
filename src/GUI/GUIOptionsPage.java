@@ -40,6 +40,7 @@ import ELearning.Driver;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
+	Driver driver;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		
@@ -55,6 +56,8 @@ public class GUIOptionsPage extends JPanel{
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		
+		driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -205,6 +208,7 @@ public class GUIOptionsPage extends JPanel{
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createHorizontalStrut(830));
 		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoBasicActionListener());
 		back.setSize(new Dimension(75, 35));
 		topBar.add(back);
 		topBar.add(Box.createHorizontalStrut(30));
@@ -231,7 +235,14 @@ public class GUIOptionsPage extends JPanel{
 		add(fullBar, BorderLayout.CENTER);
 	}
 	
-	
+	public class BacktoBasicActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			driver.changePage(new GUIBasicPage(driver));			
+		}
+		
+	}
 	
 	//Creates a Vocab Game
 	public class MakePageListener implements ActionListener {
@@ -255,6 +266,7 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 3:
 				//create a vocab game
+				driver.changePage(new GUIVocabGame(driver.vGameMaker.makeLevel(_levelNum), driver));
 				break;
 			case 4:
 				//create a grammar game
