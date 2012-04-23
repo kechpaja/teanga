@@ -67,6 +67,22 @@ public enum Pos {
 			return PUNCTUATION;
 		} 
 		
+		else if (str.equals("NP")) {
+			return NP;
+		} else if (str.equals("VP")) {
+			return VP;
+		} else if (str.equals("PP")) {
+			return PP;
+		} else if (str.equals("DP")) {
+			return DP;
+		} else if (str.equals("ADJP")) {
+			return ADJP;
+		} else if (str.equals("ADVP")) {
+			return ADVP;
+		} else if (str.equals("S")) {
+			return S;
+		}
+		
 		
 		else {
 			// TODO some error case...
