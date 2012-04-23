@@ -27,10 +27,18 @@ public class SingleGame {
 		{
 			ret=score-bestScore;
 			bestScore=score;
+			if(bestScore>=neededScore)
+			{
+				unlocked=true;
+			}
 		}
-		if(time>bestTime)
+		if(timeRelevent)
 		{
-			bestTime=time;
+			if(time>bestTime)
+			{
+				bestTime=time;
+				
+			}
 		}
 		return ret;
 	}
