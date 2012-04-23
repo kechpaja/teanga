@@ -20,6 +20,7 @@ public class HelpBox {
 			while (helpLine2 != null){
 				helpLinesG.add(helpLine2);
 				helpLine = helpReaderG.readLine();
+				helpLine2 = helpReaderG.readLine();
 			}
 		}catch (IOException e){
 			System.out.println("Could not find the help file");

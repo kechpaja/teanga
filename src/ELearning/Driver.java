@@ -1,6 +1,7 @@
 package ELearning;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.Dimension;
 import java.io.*;
@@ -16,16 +17,17 @@ public class Driver {
 	private GrammarGameMaker gGameMaker;
 	private Exercises exercises;
 	private HelpBox helpbox;
-	private OpeningPage openingpage;
+	public OpeningPage openingpage;
 	private JPanel curPage;
 	
 
 	private String curUserName = null;
+	private int gender = 0;
 	
 	public Driver(){
 		try{
-			exercises = new Exercises("Insert vfile here", "Insert gfile here");
-			helpbox = new HelpBox("insert v file here", "insert gfile here");
+			exercises = new Exercises("data/testfilev", "data/testfileg.txt");
+			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
 			gGameMaker = new GrammarGameMaker(exercises, helpbox);
 			openingpage = new OpeningPage();
@@ -46,6 +48,14 @@ public class Driver {
 		
 	}
 	
+	public void changePage(JPanel newPage){
+		System.out.println("here");
+		mainFrame.getContentPane().removeAll();
+		curPage = newPage;
+		mainFrame.getContentPane().add(curPage, BorderLayout.CENTER);
+		((JPanel)mainFrame.getContentPane()).revalidate();
+	}
+	
 	public String getUserName(){
 		return curUserName;
 	}
@@ -56,6 +66,14 @@ public class Driver {
 	
 	public JPanel getCurPage(){
 		return curPage;
+	}
+	
+	public void setGender(int g){
+		gender = g;
+	}
+	
+	public int getGender(){
+		return gender;
 	}
 	
 	public static void main(String[] args){

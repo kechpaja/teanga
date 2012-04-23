@@ -15,24 +15,46 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
+
+import annie.PlayerStats;
 
 import ELearning.Driver;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
 	
-	public GUIOptionsPage(Driver d){
+	public GUIOptionsPage(Driver d, PlayerStats stats){
 		
+		try {
+			stats.encode();
+		} catch (IllegalBlockSizeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BadPaddingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -81,6 +103,7 @@ public class GUIOptionsPage extends JPanel{
 			        buttons[i][j] = new JButton(newIcon);
 			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 			        buttons[i][j].setBackground(new Color(0,0,0,0));
+			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
@@ -243,4 +266,15 @@ public class GUIOptionsPage extends JPanel{
 		}
 	}
 	
+	public static void main(String[] args){
+		/*GUIOptionsPage myPage = new GUIOptionsPage(new Driver());
+		JFrame mainFrame = new JFrame("E Learning");
+		mainFrame.setPreferredSize(new Dimension(1000, 700));
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.add(myPage, BorderLayout.CENTER);
+		
+		mainFrame.pack();
+		mainFrame.setResizable(false);
+		mainFrame.setVisible(true);*/
+	}
 }
