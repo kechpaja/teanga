@@ -5,11 +5,20 @@ import java.util.*;
 import rules.*;
 import nodes.*;
 
+// TODO I need to check for agreement issues in the parser as well. 
+// "la knabo feliĉan knabinon karesas" should parse so that the adjective goes with
+// the following noun; that currently isn't what would happen. 
+// make two passes?
+// For now, this is an edge case. However, we need to deal with it. 
+
+
+// This parser will NOT handle "poetic" language - it is rather strict. But strict is good. 
+
+// TODO make it "disprefer" rules that break agreement, but allow them as a last resort.
+// If we need to use them, we'll catch them later. 
+
 public class Parser {
 	
-	//List<BinarySyntacticRule> synrules_;
-	//List<AgreementRule> agrules_;
-	//List<SemanticRule> semrules_;
 	private RuleSet rules_;
 	
 	/**
@@ -58,7 +67,7 @@ public class Parser {
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 
 	private ParseTree parseTokenStream(Tokenizer tkn, HashMap<Pos, List<BinarySyntacticRule>> rules, 
-							HashMap<Pos, List<UnarySyntacticRule>> unrules, List<Mistake> mistakes) {
+							HashMap<Pos, UnarySyntacticRule> unrules, List<Mistake> mistakes) {
 		
 		Node node = null;
 		Stack<Node> prev = new Stack<Node>();
@@ -72,6 +81,8 @@ public class Parser {
 		}
 		
 		boolean advanced = true;
+		
+		// TODO can we get rid of the "advanced" boolean value?
 		
 		// TODO go through, at each step if curr & next can combine by some rule,
 		while (tkn.hasNext() || !prev.empty()) {
@@ -106,14 +117,21 @@ public class Parser {
 						
 						// advance
 						advanced = true;
+						
+						// TODO break?
+						break;
 					}
 				}
 			}
 			
 			// TODO unary rules go in here somewhere...
+			// TODO TODO TODO this is very suspect! I'm not sure if it will work...
+			if (unrules.containsKey(node.getPos())) {
+				node = unrules.get(node.getPos()).combine(node);
+			}
 			
 			
-			if (!advanced && tkn.hasNext()) {
+			if (tkn.hasNext()) {
 				// advance
 				prev.push(node);
 				node = new LeafNode(tkn.getNextToken());

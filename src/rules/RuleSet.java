@@ -7,11 +7,11 @@ public class RuleSet {
 	
 	// private fields (lists)
 	private final HashMap<Pos, List<BinarySyntacticRule>> birules_;
-	private final HashMap<Pos, List<UnarySyntacticRule>> unrules_;
+	private final HashMap<Pos, UnarySyntacticRule> unrules_;
 	private final HashMap<Pos, List<AgreementRule>> agrules_;
 	private final HashMap<Pos, List<SemanticRule>> semrules_;
 
-	public RuleSet(HashMap<Pos, List<BinarySyntacticRule>> birules, HashMap<Pos, List<UnarySyntacticRule>> unrules,
+	public RuleSet(HashMap<Pos, List<BinarySyntacticRule>> birules, HashMap<Pos, UnarySyntacticRule> unrules,
 			HashMap<Pos, List<AgreementRule>> agrules, HashMap<Pos, List<SemanticRule>> semrules) {
 		birules_ = birules;
 		unrules_ = unrules;
@@ -24,7 +24,7 @@ public class RuleSet {
 		return birules_;
 	}
 	
-	public HashMap<Pos, List<UnarySyntacticRule>> getUnRules() {
+	public HashMap<Pos, UnarySyntacticRule> getUnRules() {
 		return unrules_;
 	}
 	

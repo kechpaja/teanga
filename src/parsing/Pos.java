@@ -10,6 +10,16 @@ public enum Pos {
 	PREPOSITION,
 	ARTICLE,
 	PUNCTUATION,
+	
+	// "higher-level" parts of speech
+	NP,
+	VP,
+	PP,
+	DP,
+	ADJP,
+	ADVP,
+	S,
+	
 	BAD;
 	// Correlatives?
 	// TODO more - higher-level pos's as well. 
@@ -25,6 +35,13 @@ public enum Pos {
 		case PREPOSITION: return "PREPOSITION";
 		case ARTICLE: return "ARTICLE";
 		case PUNCTUATION: return "PUNCTUATION";
+		case NP: return "NP";
+		case VP: return "VP";
+		case PP: return "PP";
+		case DP: return "DP";
+		case ADJP: return "ADJP";
+		case ADVP: return "ADVP";
+		case S: return "S";
 		default: return "BAD";
 		}
 	}

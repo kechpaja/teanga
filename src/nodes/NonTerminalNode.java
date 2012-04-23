@@ -9,7 +9,8 @@ public class NonTerminalNode extends Node {
 	
 	private Node head_; // every node must have a head
 	private Node tail_; // the tail, however, may be null. 
-//	private Type type_;
+	// head and tail are just the left and right children of the node.
+	// They have no relation to the linguistic notion of the head of a phrase. 
 	
 	
 	// Getters

@@ -1,0 +1,40 @@
+binary:
+S DP VP
+S NP VP
+
+# PP's combine with sentences directly. 
+S PP S
+S S PP
+
+DP ART NP
+
+
+VP VP ADV
+VP ADV VP
+
+VP VP NP
+VP VP DP
+
+VP VP PP
+
+
+# VP's break down into these things...
+VP V PP
+VP V DP
+VP V NP
+
+
+
+unary:
+NP N
+
+
+DP P
+# Pronouns become DP's so they can't combine with la...
+
+VP V
+
+
+ADJP ADJ
+
+ADVP ADV
