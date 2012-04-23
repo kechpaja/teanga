@@ -198,12 +198,31 @@ public class PlayerStats {
 	//and and top points for the given game in the given level if necessary
 	public void RefreshStats(int level, int game, int score, int time) 
 	{
+		Boolean before=userGames[level][game].unlocked;
 		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
+		if(before!=userGames[level][game].unlocked)
+		{
+			for(int j=0; j<games-1; j++)
+			{
+				if(userGames[level][j].unlocked!=true)
+					before=false;
+				if(before)
+					userGames[level][games-1].unlocked=true;
+			}
+			if(game==games-1&&level!=levels-1)
+			{
+				for(int j=0; j<games-1; j++)
+				{
+					userGames[level+1][j].unlocked=true;
+				}
+			}
+		}
 	}
 	
 	//Returns the appropriate SingleGame from the userGames array
 	public SingleGame getSingleGame(int level, int game) 
 	{
+		
 		return userGames[level][game];
 	}
 /*

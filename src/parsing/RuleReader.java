@@ -29,7 +29,7 @@ public class RuleReader {
 	 * 
 	 */
 	
-	private BinarySyntacticRule parseBiRule(String line) {
+	/*private BinarySyntacticRule parseBiRule(String line) {
 		String[] spl = line.split("\\s"); 
 		if (spl.length == 3) {
 			//String[] s = spl[0].split(":");
@@ -45,36 +45,42 @@ public class RuleReader {
 	private UnarySyntacticRule parseUnRule(String line) {
 		String[] spl = line.split("\\s");
 		if (spl.length == 2) {
-			
+			return new UnarySyntacticRule(Pos.strToPos(spl[1]), Pos.strToPos(spl[0]));
 		} else {
 			// TODO error case
 			return null;
 		}
-	}
+	}*/
 	
 	
 	// parses out an agreement rule
 	private AgreementRule parseAgRule(String line) {
+		
+		
+		// TODO I *think* I can live without these...
 		return null;
 	}
 	
 	// parses out a semantic rule
 	private SemanticRule parseSemRule(String line) {
+		
+		
+		// TODO I don't know if we're doing this yet...
 		return null;
 	}
 	
 	// a method to read in rules and put them into lists
-	public RuleSet ruleRead(String file) {
+	public static RuleSet ruleRead(String file) {
 		RuleSet ruleset = null;
 		
 		try {
 			BufferedReader r = new BufferedReader(new FileReader(file));
 			
 			// create lists
-			List<BinarySyntacticRule> birules = new LinkedList<BinarySyntacticRule>();
-			List<UnarySyntacticRule> unrules = new LinkedList<UnarySyntacticRule>();
-			List<AgreementRule> agrules = new LinkedList<AgreementRule>();
-			List<SemanticRule> semrules = new LinkedList<SemanticRule>();
+			HashMap<Pos, List<BinarySyntacticRule>> birules = new HashMap<Pos, List<BinarySyntacticRule>>();
+			HashMap<Pos, List<UnarySyntacticRule>> unrules = new HashMap<Pos, List<UnarySyntacticRule>>();
+			HashMap<Pos, List<AgreementRule>> agrules = new HashMap<Pos, List<AgreementRule>>();
+			HashMap<Pos, List<SemanticRule>> semrules = new HashMap<Pos, List<SemanticRule>>();
 			
 			String line = r.readLine();
 			
@@ -84,20 +90,45 @@ public class RuleReader {
 			
 			// iterate through the lines of syntactic rules; 
 			while (!line.equals("unary:")) {
-				birules.add(parseBiRule(line));
+				String[] spl = line.split("\\s");
+				if (spl.length != 3) {
+					//TODO error case
+					continue;
+				}
+				Pos h = Pos.strToPos(spl[1]);
+				Pos t = Pos.strToPos(spl[2]);
+				Pos p = Pos.strToPos(spl[0]);
+				if (!birules.containsKey(h)) {
+					birules.put(h, new LinkedList<BinarySyntacticRule>());
+				}
+				
+				birules.get(h).add(new BinarySyntacticRule(h, t, p));
 				line = r.readLine();
 			}
 			
 			// move forward one
 			line = r.readLine();
 			
+			// unary rules
 			while (!line.equals("agreement:")) {
-				unrules.add(parseUnRule(line));
+				String[] spl = line.split("\\s");
+				if (spl.length != 2) {
+					//TODO error case
+					continue;
+				}
+				Pos c = Pos.strToPos(spl[1]);
+				Pos p = Pos.strToPos(spl[0]);
+				if (!birules.containsKey(c)) {
+					unrules.put(c, new LinkedList<UnarySyntacticRule>());
+				}
+				
+				unrules.get(c).add(new UnarySyntacticRule(c, p));
 				line = r.readLine();
 			}
 			
 			while (!line.equals("semantic:")) {
-				agrules.add(parseAgRule(line));
+			//	agrules.add(parseAgRule(line));
+				//TODO
 				line = r.readLine();
 			}
 			
@@ -105,7 +136,8 @@ public class RuleReader {
 			line = r.readLine();
 			
 			while (line != null) {
-				semrules.add(parseSemRule(line));
+			//	semrules.add(parseSemRule(line));
+				//TODO
 				line = r.readLine();
 			}
 			

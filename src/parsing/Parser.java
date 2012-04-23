@@ -39,7 +39,7 @@ public class Parser {
 		
 		// visit, checking for semantic issues
 		// TODO change this to check for agreement problems
-		visit(tree, rules_.getAgRules(), mistakes);
+		visit(tree, mistakes);
 		
 		System.out.println(tree); // For testing only TODO
 		
@@ -57,7 +57,8 @@ public class Parser {
 	// PRIVATE METHODS
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 
-	private ParseTree parseTokenStream(Tokenizer tkn, List<BinarySyntacticRule> rules, List<UnarySyntacticRule> unrules, List<Mistake> mistakes) {
+	private ParseTree parseTokenStream(Tokenizer tkn, HashMap<Pos, List<BinarySyntacticRule>> rules, 
+							HashMap<Pos, List<UnarySyntacticRule>> unrules, List<Mistake> mistakes) {
 		
 		Node node = null;
 		Stack<Node> prev = new Stack<Node>();
@@ -66,7 +67,9 @@ public class Parser {
 		
 		if (tkn.hasNext()) {
 			node = new LeafNode(tkn.getNextToken());
-		} 
+		} else {
+			// TODO error case
+		}
 		
 		boolean advanced = true;
 		
@@ -79,7 +82,7 @@ public class Parser {
 			advanced = false;
 			// Do below, but for prev and curr = node
 			if (!prev.empty()) {
-				for (BinarySyntacticRule r : rules) {
+				for (BinarySyntacticRule r : rules.get(prev.peek().getPos())) {
 					if (r.matches(prev.peek(), node)) {
 						// replace constituent
 						node = r.combine(prev.pop(), node);
@@ -96,7 +99,7 @@ public class Parser {
 			// if possible, put in place of curr and get next into next
 			// else, move curr to prev (stack) and next to curr and fetch next
 			else {
-				for (BinarySyntacticRule r : rules) {
+				for (BinarySyntacticRule r : rules.get(node.getPos())) {
 					if (r.matches(node, new LeafNode(tkn.peek()))) {
 						// replace contituent
 						node = r.combine(node, new LeafNode(tkn.getNextToken()));
@@ -108,6 +111,7 @@ public class Parser {
 			}
 			
 			// TODO unary rules go in here somewhere...
+			
 			
 			if (!advanced && tkn.hasNext()) {
 				// advance
@@ -122,9 +126,9 @@ public class Parser {
 	}
 	
 	// Takes a parse tree; visits nodes and adds semantic mistakes. 
-	private void visit(ParseTree tree, List<AgreementRule> rules, List<Mistake> mistakes) {
+	private void visit(ParseTree tree, List<Mistake> mistakes) {
 		// TODO fill out, currently does nothing. 
-		tree.visit(rules, mistakes);
+		tree.visit(mistakes);
 	}
 
 }
