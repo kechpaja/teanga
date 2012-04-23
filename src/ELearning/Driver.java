@@ -13,8 +13,8 @@ import annie.*;
 
 public class Driver {
 	private JFrame mainFrame;
-	private VocabGameMaker vGameMaker;
-	private GrammarGameMaker gGameMaker;
+	public VocabGameMaker vGameMaker;
+	public GrammarGameMaker gGameMaker;
 	private Exercises exercises;
 	private HelpBox helpbox;
 	public OpeningPage openingpage;
