@@ -7,9 +7,10 @@ import nodes.*;
 
 public class Parser {
 	
-	List<SyntacticRule> synrules_;
-	List<AgreementRule> agrules_;
-	List<SemanticRule> semrules_;
+	//List<BinarySyntacticRule> synrules_;
+	//List<AgreementRule> agrules_;
+	//List<SemanticRule> semrules_;
+	private RuleSet rules_;
 	
 	/**
 	 * @author kechpaja
@@ -34,11 +35,11 @@ public class Parser {
 		tkn.init(mistakes); // this will put lexical mistakes into the mistakes list
 		
 		// parse
-		ParseTree tree = parseTokenStream(tkn, synrules_, mistakes);
+		ParseTree tree = parseTokenStream(tkn, rules_.getBiRules(), rules_.getUnRules(), mistakes);
 		
 		// visit, checking for semantic issues
 		// TODO change this to check for agreement problems
-		visit(tree, agrules_, mistakes);
+		visit(tree, rules_.getAgRules(), mistakes);
 		
 		System.out.println(tree); // For testing only TODO
 		
@@ -46,10 +47,8 @@ public class Parser {
 		return Response.responseFactory(tree, sentence);
 	}
 	
-	public Parser(List<SyntacticRule> synrules, List<AgreementRule> agrules, List<SemanticRule> semrules) {
-		synrules_ = synrules;
-		agrules_ = agrules;
-		semrules_ = semrules;
+	public Parser(RuleSet rules) {
+		rules_ = rules;
 	}
 	
 	//TODO parse tree could contain a list of mistakes... and a boolean telling whether the 
@@ -58,7 +57,7 @@ public class Parser {
 	// PRIVATE METHODS
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 
-	private ParseTree parseTokenStream(Tokenizer tkn, List<SyntacticRule> rules, List<Mistake> mistakes) {
+	private ParseTree parseTokenStream(Tokenizer tkn, List<BinarySyntacticRule> rules, List<UnarySyntacticRule> unrules, List<Mistake> mistakes) {
 		
 		Node node = null;
 		Stack<Node> prev = new Stack<Node>();
@@ -80,7 +79,7 @@ public class Parser {
 			advanced = false;
 			// Do below, but for prev and curr = node
 			if (!prev.empty()) {
-				for (SyntacticRule r : rules) {
+				for (BinarySyntacticRule r : rules) {
 					if (r.matches(prev.peek(), node)) {
 						// replace constituent
 						node = r.combine(prev.pop(), node);
@@ -97,7 +96,7 @@ public class Parser {
 			// if possible, put in place of curr and get next into next
 			// else, move curr to prev (stack) and next to curr and fetch next
 			else {
-				for (SyntacticRule r : rules) {
+				for (BinarySyntacticRule r : rules) {
 					if (r.matches(node, new LeafNode(tkn.peek()))) {
 						// replace contituent
 						node = r.combine(node, new LeafNode(tkn.getNextToken()));
@@ -107,6 +106,8 @@ public class Parser {
 					}
 				}
 			}
+			
+			// TODO unary rules go in here somewhere...
 			
 			if (!advanced && tkn.hasNext()) {
 				// advance

@@ -27,4 +27,23 @@ public enum Pos {
 		}
 	}
 
+	// converts a string back into a POS
+	public static Pos strToPos(String string) {
+		String str = string.toUpperCase();
+		if (str.equals("N") || str.equals("NOUN")) {
+			return NOUN;
+		} else if (str.equals("V") || str.equals("VERB")) {
+			return VERB;
+		} else if (str.equals("ADJ") || str.equals("ADJECTIVE")) {
+			
+		} else if (str.equals("ADV") || str.equals("ADVERB")) {
+			
+		} else if (str.equals())
+		
+		
+		
+		// TODO write this!
+		
+	}
+
 }
