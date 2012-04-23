@@ -16,6 +16,7 @@ public class Driver {
 	public VocabGameMaker vGameMaker;
 	public GrammarGameMaker gGameMaker;
 	private Exercises exercises;
+	public Lessons lessons;
 	private HelpBox helpbox;
 	public OpeningPage openingpage;
 	private JPanel curPage;
@@ -26,6 +27,7 @@ public class Driver {
 	
 	public Driver(){
 		try{
+			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
 			exercises = new Exercises("data/testfilev", "data/testfileg.txt");
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
