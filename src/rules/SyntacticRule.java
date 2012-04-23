@@ -12,9 +12,9 @@ public class SyntacticRule extends Rule {
 	private Pos tail_;
 	
 	private Pos pos_;
-	private NumMarker number_;
-	private Case cm_;
-	private Tense t_;
+	//private NumMarker number_;
+	//private Case cm_;
+	//private Tense t_;
 	
 	
 	// matching method
@@ -26,9 +26,9 @@ public class SyntacticRule extends Rule {
 	
 	// combining method
 	public NonTerminalNode combine(Node n1, Node n2) {
-		Case c = cm_;
-		NumMarker number = number_;
-		Tense t = t_;
+		Case c = null;
+		NumMarker number = null;
+		Tense t = null; // TODO do we want to handle case here?
 		if (n1.getCase() == n2.getCase()) {
 			c = n1.getCase();
 		}
@@ -42,7 +42,13 @@ public class SyntacticRule extends Rule {
 		return new NonTerminalNode(n1, n2, pos_, number, c, t);
 	}
 	
-	// Constructor
+	public SyntacticRule(Pos head, Pos tail, Pos pos) {
+		head_ = head;
+		tail_ = tail;
+		pos_ = pos;
+	}
+	
+	// Constructor TODO this is old
 	public SyntacticRule(Pos head, Pos tail, Pos pos, NumMarker num, Case c, Tense t) {
 		head_ = head;
 		tail_ = tail;

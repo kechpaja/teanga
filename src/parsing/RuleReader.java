@@ -33,6 +33,7 @@ public class RuleReader {
 			
 			//TODO unary rule
 		} else if (spl.length == 3) {
+			String[] s = spl[0].split(":");
 			return new SyntacticRule();
 			// TODO binary rule
 		} else {
