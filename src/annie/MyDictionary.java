@@ -33,22 +33,22 @@ public class MyDictionary {
 					if(((strLine = br.readLine()) != null))
 					{
 						String exSent=strLine;
+						System.out.println("espToEng: "+theWord+" to-- "+translation.get(0)+" "+ pos+" "+exSent);
 						Word w=new Word(translation, pos, exSent);
-						engToEspDict.put(theWord, w);
+						espToEngDict.put(theWord, w);
 						for(String esp:translation)
 						{
 							LinkedList<String> t;
-							if(espToEngDict.containsKey(esp))
+							if(engToEspDict.containsKey(esp))
 							{
-								t= espToEngDict.get(esp).translations;
+								t= engToEspDict.get(esp).translations;
 							}
 							else
 							{
 								t= new LinkedList<String>();
 							}
 							t.add(theWord);
-							espToEngDict.put(esp, new Word(t, pos, 
-									null));
+							engToEspDict.put(esp, new Word(t, pos, exSent));
 						}
 					}
 				}
