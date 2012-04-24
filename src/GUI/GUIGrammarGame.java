@@ -28,6 +28,7 @@ public class GUIGrammarGame extends JPanel{
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
 	private ArrayList<Rectangle> _rectBlanks;
+	private String[] _possible;
 
 	public GUIGrammarGame(){
 		super(new BorderLayout());
@@ -43,8 +44,9 @@ public class GUIGrammarGame extends JPanel{
 		_maxChars = 60;
 		
 		String picPath = "data/funpic2.gif";
-		String correct[] = {"cat"};
-		String possibilities[] = {"cat", "chair", "bee", "wasp", "frog"};
+		String correct[] = {"cat", "chair", "bee"};
+		String arr[] = {"cat", "chair", "bee", "wasp", "frog"};
+		_possible = arr;
 		
 		_picLabel = null;
 		_rectBlanks = new ArrayList<Rectangle>();
@@ -70,7 +72,6 @@ public class GUIGrammarGame extends JPanel{
 		Box topHoriz = Box.createHorizontalBox();
 		Box picHoriz = Box.createHorizontalBox();
 		Box phraseHoriz = Box.createHorizontalBox();
-		Box choiceHoriz = Box.createHorizontalBox();
 		Box submitHoriz = Box.createHorizontalBox();
 		
 		mainVertical.add(Box.createVerticalStrut(20));
@@ -79,8 +80,6 @@ public class GUIGrammarGame extends JPanel{
 		mainVertical.add(picHoriz);
 		mainVertical.add(Box.createVerticalStrut(10));
 		mainVertical.add(phraseHoriz);
-		mainVertical.add(Box.createVerticalStrut(10));
-		mainVertical.add(choiceHoriz);
 		mainVertical.add(Box.createVerticalStrut(10));
 		mainVertical.add(submitHoriz);
 		mainVertical.add(Box.createVerticalStrut(20));
@@ -101,11 +100,10 @@ public class GUIGrammarGame extends JPanel{
 		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
 		phraseHoriz.add(choicePanel);
 		
-				
+		ArrayList<GUIGrammarBlank> rects = choicePanel.getBlanks();
+
+		/////////////////////////////////////////////////////
 		
-		//create a rectangle for each of the
-		
-		//choice Horiz
 		
 		JButton submit = new JButton("Submit Answer");
 		submit.addActionListener(new SubmitListener());
@@ -234,7 +232,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.add(phrase);
-					JLabel blank = new JLabel("**********");//put a blank in the line
+					JLabel blank = new JLabel("               ");//put a blank in the line
 					line1.add(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -257,7 +255,7 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(20));
 		}
 			
-		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(vertBox, spaces);
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _possible);
 		return panel;
 	}
 	
