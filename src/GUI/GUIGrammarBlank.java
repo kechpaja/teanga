@@ -8,12 +8,14 @@ public class GUIGrammarBlank extends Rectangle{
 	
 	private GUIGrammarChoice _filler;
 	private int _blankNum;
+	private String _correct;
 	
-	public GUIGrammarBlank(JPanel container, int blankNum) {
+	public GUIGrammarBlank(JPanel container, int blankNum, String correct) {
 		super(container);
 		
 		_filler = null;
 		_blankNum = blankNum;
+		_correct = correct;
 		
 	}
 	
@@ -31,6 +33,10 @@ public class GUIGrammarBlank extends Rectangle{
 	
 	public int getBlankNum(){
 		return _blankNum;
+	}
+	
+	public String getCorrect(){
+		return _correct;
 	}
 
 }

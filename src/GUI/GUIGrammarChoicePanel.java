@@ -25,9 +25,9 @@ public class GUIGrammarChoicePanel extends JPanel {
 	private ArrayList<GUIGrammarBlank> _rectBlanks;
 	private ArrayList<GUIGrammarChoice> _rectChoices;
 	private JPanel _panel, _container;
-	private String[] _choices, _answers;
+	private String[] _choices;
 	
-	public GUIGrammarChoicePanel(JPanel container, Box layout, ArrayList<JLabel> blankPlace, String[] possible){
+	public GUIGrammarChoicePanel(JPanel container, Box layout, ArrayList<JLabel> blankPlace, String[] possible, String[] answers){
 		super(new BorderLayout());
 		
 		_layout = layout;
@@ -37,7 +37,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 		_container = container;
 		_rectBlanks = new ArrayList<GUIGrammarBlank>();
 		_rectChoices = new ArrayList<GUIGrammarChoice>();
-		_answers = new String[_rectBlanks.size()];
 		this.add(_layout, BorderLayout.CENTER);
 		this.setPreferredSize(new Dimension(1000, 200));
 		this.setBackground(new Color(0,0,0,0));
@@ -52,7 +51,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 			
 			JLabel currLabel = _blanks.get(k);
 			currLabel.addComponentListener(new MyComponentListener(k));
-			GUIGrammarBlank currRect = new GUIGrammarBlank(this, k);
+			GUIGrammarBlank currRect = new GUIGrammarBlank(this, k, answers[k]);
 			currRect.setSize(140,30);
 			currRect.setLocation(0, 0);
 			currRect.setColor(new Color(150,150,150,255));
@@ -65,7 +64,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 			GUIGrammarChoice currRect = new GUIGrammarChoice(this, _choices[j]);
 			currRect.setSize(135,26);
 			currRect.setLocation((1000-(_choices.length*135 + (_choices.length-1)*20))/2+j*155,207);
-			currRect.setColor(new Color(0,0,200,255));
+			currRect.setColor(new Color(100,100,200,255));
 			_rectChoices.add(currRect);
 			
 		}
@@ -114,6 +113,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 		}
 		for (int j = 0; j < _rectChoices.size(); j++){
 			_rectChoices.get(j).paint(brush);
+			_rectChoices.get(j).getText().paint(brush);
 		}
 
 	}
@@ -180,13 +180,11 @@ public class GUIGrammarChoicePanel extends JPanel {
 
 		private int x;
 		private int y;
-		private int currRectNum;
-		private Rectangle currRect;
+		private GUIGrammarChoice currRect;
 		
 		public MovingAdapter(){
 			x = 0;
 			y = 0;
-			currRectNum = -1;
 			currRect = null;
 		}
 		
@@ -196,7 +194,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 			for(int k = 0; k < _rectChoices.size(); k++){
 				if(_rectChoices.get(k).contains(e.getPoint())){
 					currRect = _rectChoices.get(k);
-					currRectNum = k;
 					x = e.getX();
 					y = e.getY();
 					break;
@@ -207,7 +204,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 
 		public void mouseDragged(MouseEvent e) {
 			
-			if (currRect != null){
+			if (currRect != null && e.getX() > 0 && e.getX() < _panel.getWidth() && e.getY() > 0 && e.getY() < _panel.getHeight()){
 				int dx = e.getX() - x;
 				int dy = e.getY() - y;
 				
@@ -221,17 +218,31 @@ public class GUIGrammarChoicePanel extends JPanel {
 		
 		public void mouseReleased(MouseEvent e){
 			try{
+				//remove it from its container
+				if(currRect.isContained()){
+					currRect.getContainer().setFill(null);
+					currRect.setContainer(null);
+				}
+				//add it to its new container
 				for(int i = 0; i< _rectBlanks.size(); i++){
 					if(checkOverlap(_rectBlanks.get(i), x, y)){
-						currRect.setLocation(_rectBlanks.get(i).getX()+2, _rectBlanks.get(i).getY()+2);
-						_container.repaint();
-						_answers[i] = _choices[currRectNum];
+						if(_rectBlanks.get(i).isFull()){
+							currRect.setLocation(_rectBlanks.get(i).getX()+3, currRect.getY()+40);
+							_container.repaint();
+						} else{
+							currRect.setLocation(_rectBlanks.get(i).getX()+2, _rectBlanks.get(i).getY()+2);
+							currRect.setContainer(_rectBlanks.get(i));
+							_rectBlanks.get(i).setFill(currRect);
+							_container.repaint();
+						}
 						break;
 					}
 				}
 			} catch(NullPointerException exception){
 				System.out.println("Exception");
 			}
+			
+
 		}
 		
 	}

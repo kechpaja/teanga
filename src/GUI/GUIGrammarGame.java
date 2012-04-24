@@ -29,16 +29,17 @@ public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
-	private ArrayList<Rectangle> _rectBlanks;
-	private String[] _possible;
+	private ArrayList<GUIGrammarBlank> _rectBlanks;
+	private GUIGrammarChoicePanel _choicePanel;
+	private String[] _possible, _correct;
 	private GrammarLevel _grammarLevel;
 	private Driver _driver;
 
-	public GUIGrammarGame(GrammarLevel gl, Driver d){
+	public GUIGrammarGame(){//(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
 
-		_driver = d;
-		_grammarLevel = gl;
+		//_driver = d;
+		//_grammarLevel = gl;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -53,9 +54,9 @@ public class GUIGrammarGame extends JPanel{
 		String correct[] = {"cat", "chair", "bee"};
 		String arr[] = {"cat", "chair", "bee", "wasp", "frog"};
 		_possible = arr;
+		_correct = correct;
 		
 		_picLabel = null;
-		_rectBlanks = new ArrayList<Rectangle>();
 		
 		try {
 			BufferedImage pic = ImageIO.read(new File(picPath));
@@ -103,13 +104,8 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
 		picHoriz.add(_picLabel);
-		GUIGrammarChoicePanel choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
-		phraseHoriz.add(choicePanel);
-		
-		ArrayList<GUIGrammarBlank> rects = choicePanel.getBlanks();
-
-		/////////////////////////////////////////////////////
-		
+		_choicePanel = makeSentanceBox("The ~0~ ate the bird how funny is that ~1~ what will we do with the crazy ~2~ that swallowed the bat.");
+		phraseHoriz.add(_choicePanel);
 		
 		JButton submit = new JButton("Submit Answer");
 		submit.addActionListener(new SubmitListener());
@@ -261,7 +257,7 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(20));
 		}
 			
-		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _possible);
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _possible, _correct);
 		return panel;
 	}
 	
@@ -269,7 +265,20 @@ public class GUIGrammarGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//check answers
+			
+			_rectBlanks = _choicePanel.getBlanks();
+			boolean correct = true;
+			for(int i = 0; i < _rectBlanks.size(); i++){
+				String guess = _rectBlanks.get(i).getFill().getWord();
+				String ans = _rectBlanks.get(i).getCorrect();
+				
+				if(!guess.equals(ans)){
+					correct = false;
+					break;
+				}
+			}
+			
+			//TODO: pass correct to grammarLevel
 		}
 	}
 	
