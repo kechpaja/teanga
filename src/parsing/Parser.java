@@ -20,6 +20,7 @@ import nodes.*;
 public class Parser {
 	
 	private RuleSet rules_;
+	// TODO need dictionary
 	
 	/**
 	 * @author kechpaja
@@ -29,25 +30,26 @@ public class Parser {
 	 * @return Response
 	 * An instance of the class Response
 	 * 
-	 * Contract?
+	 * Takes in a sentence in Esperanto, and returns a Response containing a list of mistakes
+	 * in the sentence, a boolean indicating whether the sentence is correct or not, and the
+	 * sentence itself. 
 	 */
 	public Response parse(String sentence) {
-		//TODO probably runs through the list of rules, checking each one against the string. 
+		// probably runs through the list of rules, checking each one against the string. 
 		// alternatively, we go through and parse the sentence (NOT like in compiler, though). 
 		// Try to do bottom-up parsing, rather than top-down (maybe). If something fails, 
 		// this method will exit gracefully - it should never throw an exception. 
 		
 		List<Mistake> mistakes = new LinkedList<Mistake>();
 		
-		//TODO tokenize the string. Figure out tokenizer. 
-		Tokenizer tkn = new Tokenizer(sentence);
+		// tokenize the string.
+		Tokenizer tkn = new Tokenizer(sentence); // TODO will need to take in dictionary
 		tkn.init(mistakes); // this will put lexical mistakes into the mistakes list
 		
 		// parse
 		ParseTree tree = parseTokenStream(tkn, rules_.getBiRules(), rules_.getUnRules(), mistakes);
 		
-		// visit, checking for semantic issues
-		// TODO change this to check for agreement problems
+		// visit, checking for agreement problems
 		visit(tree, mistakes);
 		
 		System.out.println(tree); // For testing only TODO
@@ -56,6 +58,19 @@ public class Parser {
 		return Response.responseFactory(tree, sentence);
 	}
 	
+	/**
+	 * @author kechpaja
+	 * 
+	 * This is the constructor you should be using. It takes in two strings; the first is the
+	 * path to the ruleset, and the second the path to the dictionary file. 
+	 * 
+	 */
+	public Parser(String rulefile, String dictfile) {
+		rules_ = RuleReader.ruleRead(rulefile);
+		// TODO initialize dictionary
+	}
+	
+	// One constructor
 	public Parser(RuleSet rules) {
 		rules_ = rules;
 	}
@@ -90,10 +105,10 @@ public class Parser {
 			
 			advanced = false;
 			
-			System.out.println(node);
+			//System.out.println(node);
 			// Do below, but for prev and curr = node
 			if (!prev.empty()) {
-				System.out.println("left " + node.getPos());
+		//		System.out.println("left " + node.getPos());
 				
 				List<BinarySyntacticRule> lst = rules.get(prev.peek().getPos());
 				if (lst != null) {
@@ -104,7 +119,6 @@ public class Parser {
 
 							// advance
 							advanced = true;
-						
 							break;
 						}
 					}
@@ -115,7 +129,7 @@ public class Parser {
 			// if possible, put in place of curr and get next into next
 			// else, move curr to prev (stack) and next to curr and fetch next
 			if (!advanced && tkn.hasNext()) {
-				System.out.println("right " + node.getPos());
+	//			System.out.println("right " + node.getPos());
 				// TODO this fails if no rule matches. Need getOrElse, or something similar...
 				List<BinarySyntacticRule> lst = rules.get(node.getPos());
 				if (lst != null) {
@@ -126,25 +140,16 @@ public class Parser {
 						
 							// advance
 							advanced = true;
-						
-							// TODO break?
 							break;
 						}
 					}
 				}
-				
-			/*	if (unrules.containsKey(node.getPos())) {
-					System.out.println("unary");
-					
-					node = unrules.get(node.getPos()).combine(node);
-					advanced = true;
-				} */
 			}
 			
-			// TODO unary rules go in here somewhere...
+			// unary rules go in here somewhere...
 			// TODO TODO TODO this is very suspect! I'm not sure if it will work...
 			if (!advanced && unrules.containsKey(node.getPos())) {
-				System.out.println("unary");
+	//			System.out.println("unary");
 				
 				node = unrules.get(node.getPos()).combine(node);
 				advanced = true;
@@ -159,13 +164,16 @@ public class Parser {
 			}
 		}
 		
-		
-		return new ParseTree(node, mistakes);
+		// TODO include boolean or something to convey results if string does not parse. 
+		// Or maybe just add mistakes. Not sure yet which is best.
+		// Can just hand in "prev".
+		return new ParseTree(node, mistakes, prev);
 	}
+	
+	// TODO it might be worth it to save a visit EVERY subtree produced...
 	
 	// Takes a parse tree; visits nodes and adds semantic mistakes. 
 	private void visit(ParseTree tree, List<Mistake> mistakes) {
-		// TODO fill out, currently does nothing. 
 		tree.visit(mistakes);
 	}
 

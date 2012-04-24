@@ -123,6 +123,12 @@ public class Tokenizer {
 			tokens_.add(tk);
 		}
 		
+		// go through dictionary and make sure every word is present
+		for (Token t : tokens_) {
+			// TODO lookup word
+		}
+		
+		// Add punctuation. Punctuation won't be in the dictionary. 
 		if (punct != null) {
 			tokens_.add(new Token(punct, Pos.PUNCTUATION, null, null, null, sentence_.length() - 1, sentence_.length()));
 		}

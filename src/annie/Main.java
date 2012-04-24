@@ -37,11 +37,11 @@ public class Main {
 		o= new OpeningPage();
 		//System.out.println("Annie:"+o.correctPassword("Annie", "mypassword"));
 		//System.out.println("Andrew2:"+o.correctPassword("Andrew", "passy"));*/
-		MyDictionary dict=new MyDictionary("data/dictionary.txt");
+		/*MyDictionary dict=new MyDictionary("data/dictionary.txt");
 		Word esp= dict.getWord("goodbye",false);
 		System.out.println(esp.translations.get(0)+" "+esp.translations.get(1)+" "+esp.partOfSpeech+" "+esp.exampleSentence);
 		esp= dict.getWord("adiau",true);
-		System.out.println(esp.translations.get(0)+" "+esp.partOfSpeech+" "+esp.exampleSentence);
+		System.out.println(esp.translations.get(0)+" "+esp.partOfSpeech+" "+esp.exampleSentence);*/
 		
 	}
 }

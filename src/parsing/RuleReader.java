@@ -55,7 +55,7 @@ public class RuleReader {
 				String[] spl = line.split("\\s");
 				if (line.equals("") || line.startsWith("#")) {
 					// bad input.
-					System.out.println("Skipped Comment or Blank Line.");
+					//System.out.println("Skipped Comment or Blank Line.");
 				} else if (spl.length != 3) {
 					System.out.println("ERROR IN BINARY RULES");
 					System.out.println(line);

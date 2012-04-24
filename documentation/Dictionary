@@ -1,0 +1,14 @@
+The dictionary constructor takes a path to dictionary.txt. dictionary.txt should have the following format:
+esperantoWord1
+englishTranslation1 englishTranslation2
+partOfSpeech
+example sentence
+esperantoWord2
+englishTranslation1
+partOfSpeech
+example sentence
+...
+
+myDictionary has a single method, getWord(String s, Boolean esp2eng). s is the String to translate, 
+esp2Eng should be true if you are translating from Esperanto to English, false if from English to Esperanto.
+It will return a Word.

@@ -10,15 +10,14 @@ public class TestIO {
 		
 		Parser parser = new Parser(RuleReader.ruleRead("data/parserules.txt"));
 		
+		Response resp = null;
+		
 		try {
 			String line = r.readLine();
 			
 			while (line != null) {
-				if (line.equals("end") || line.equals("")) {
-					break;
-				} else {
-					parser.parse(line);
-				}
+				resp = parser.parse(line);
+				System.out.println(resp);
 				line = r.readLine();
 			}
 			

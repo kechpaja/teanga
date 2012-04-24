@@ -38,7 +38,8 @@ public class NonTerminalNode extends Node {
 	
 	// toString()
 	public String toString() {
-		return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_ + " " + tail_ + ")";
+		return "(" + pos_ + " " + head_ + (tail_ == null ? "" : " " + tail_) + ")";
+		//return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_ + " " + tail_ + ")";
 	}
 	
 	// methods to return left and right indices
