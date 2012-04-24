@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -40,7 +42,7 @@ public class GUIBasicPage extends JPanel{
 	Driver _driver;
 	JList nameList;
 	JPasswordField passField;
-	JButton submitB;
+	JButton submitB, addUserB;
 	Box _passOrUser;
 	JPanel _passPanel, _newUserPanel;
 	JTextField newNameField;
@@ -85,7 +87,7 @@ public class GUIBasicPage extends JPanel{
 		
 		submitB = new JButton("Submit");
 		submitB.addActionListener(new SubmitActionListener());
-		JButton addUserB = new JButton("Add User");
+		addUserB = new JButton("Add User");
 		addUserB.addActionListener(new AddUserActionListener());
 		passField = new JPasswordField(20);
 		JLabel passLabel = new JLabel("Password: ");
@@ -158,8 +160,10 @@ public class GUIBasicPage extends JPanel{
 	public void passBoxPass(){
 		_passOrUser.removeAll();
 		_passOrUser.add(_passPanel);
+		isSelectedUser = true;
 		this.revalidate();
 	}
+	
 	
 	private class mySelectionListener implements ListSelectionListener{
 
@@ -174,6 +178,7 @@ public class GUIBasicPage extends JPanel{
 		}
 		
 	}
+
 		
 	private class AddUserActionListener implements ActionListener{
 

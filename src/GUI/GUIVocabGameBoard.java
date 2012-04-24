@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
 
 import javax.swing.JPanel;
 import javax.swing.Timer;
@@ -22,8 +23,10 @@ public class GUIVocabGameBoard extends JPanel {
 	VocabLevel _vl;
 	PlayerStats _playerStats;
 	GUIVocabGamePiece[] _pieces;
-	Timer _timer, _overallTimer;
+	Timer _timer, _overallTimer, _countUp;
 	Driver _driver;
+	int seconds;
+	
 
 
 	public GUIVocabGameBoard (VocabLevel vl, PlayerStats ps, Driver d){
@@ -48,26 +51,23 @@ public class GUIVocabGameBoard extends JPanel {
 		//The timer that causes the falling
 		_timer = new Timer(500, new DropListener());
 		_timer.start();
+		
+		//The timer that keeps track of how long they have been playing
+		_countUp = new Timer(1000, new CountUpListener());
+		seconds = 0;
+		_countUp.start();
 
-		//TODO: Simply for testing (you should change the path to a picture on your
-		// machine.
-		//_path = "C:/Users/Dede/finalImage.png";
+
 		addPiece();
 
 	}
 
-	//This will have to be called everytime a new piece is made (to 
-	// prepare for the creation of the next piece)
-	/*public void setNewPath(String newPath){
-		_path = newPath;
-	}*/
 
 	public void addPiece(){
 		//If the stack of blocks is full end the game (this will 
 		// be more complete in the final version.
 		if(_top == 5){
 			_timer.stop();
-			System.out.println(_playerStats == null);
 			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), 0);
 			_driver.changePage(new GUIOptionsPage(_driver, _playerStats));
 		}
@@ -138,6 +138,15 @@ public class GUIVocabGameBoard extends JPanel {
 			}
 		}
 
+	}
+	
+	private class CountUpListener implements java.awt.event.ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			seconds++;
+		}
+		
 	}
 
 }
