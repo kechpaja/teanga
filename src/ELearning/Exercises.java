@@ -7,12 +7,25 @@ public class Exercises {
 	public List<List<VocabPicturePair>> vocabExercises;
 	//contains the vocab exercises, sorted by level
 	private List<List<SentencePicturePair>> grammarExercises;
+	private List<List<BossQuestionPair>> bossExercises;
+	private List<String> bossPictures;
 	
-	public Exercises(String VFile, String GFile) throws IOException{
+	public Exercises(String VFile, String GFile, String BFile) throws IOException{
 		vocabExercises = new ArrayList<List<VocabPicturePair>>();
 		grammarExercises = new ArrayList<List<SentencePicturePair>>();
+		bossExercises = new ArrayList<List<BossQuestionPair>>();
+		bossPictures = new ArrayList<String>();
 		generateVExercises(VFile);
 		generateGExercises(GFile);
+		generateBExercises(BFile);
+	}
+	
+	public List<BossQuestionPair> getBLevel(int level){
+		return bossExercises.get(level);
+	}
+	
+	public String getBPic(int level){
+		return bossPictures.get(level);
 	}
 	
 	public List<SentencePicturePair> selectGRandomly(int level){
@@ -62,6 +75,7 @@ public class Exercises {
 			String[] split = line.split(",");
 			if (split.length == 1){
 				grammarExercises.add(cur);
+				cur = new ArrayList<SentencePicturePair>();
 			} else cur.add(new SentencePicturePair(split[0], split[1], split[2].split(" "), split[3].split(" ")));
 			
 			line = gReader.readLine();
@@ -69,9 +83,24 @@ public class Exercises {
 		grammarExercises.add(cur);
 	}
 	
+	private void generateBExercises(String BFile) throws IOException, ArrayIndexOutOfBoundsException, NumberFormatException{
+		List<BossQuestionPair> cur = new ArrayList<BossQuestionPair>();
+		BufferedReader bReader = new BufferedReader(new FileReader(BFile));
+		String line = bReader.readLine();
+		while (line != null){
+			String[] split = line.split(",");
+			if (split.length == 1){
+				bossPictures.add(split[0]);
+				bossExercises.add(cur);
+				cur = new ArrayList<BossQuestionPair>();
+			} else cur.add(new BossQuestionPair(split[0], Integer.parseInt(split[1])));
+			line = bReader.readLine();
+		}
+	}
+	
 	public static void main(String[] args){
 		try {
-			Exercises myExercises = new Exercises("data/testfilev", "data/testfileg.txt");
+			Exercises myExercises = new Exercises("data/testfilev", "data/testfileg.txt", "blahhh");
 			System.out.println(myExercises.vocabExercises.get(0).get(0));
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

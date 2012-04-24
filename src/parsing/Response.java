@@ -8,9 +8,14 @@ public class Response {
 	private boolean correct_;
 	private List<Mistake> mistakes_;
 	private String sentence_;
+	private boolean containsFatal_;
 	
 	// getters
 
+	//returns true if the given sentence had a fatal error.
+	public boolean containsFatal(){
+		return containsFatal_;
+	}
 	// returns true if the given sentence was correctly formed. 
 	public boolean isCorrect() {
 		return correct_;
@@ -34,6 +39,7 @@ public class Response {
 		response.correct_ = tree.isCorrect();
 		response.mistakes_ = tree.getMistakes();
 		response.sentence_ = sentence;
+		response.containsFatal_ = tree.atLeastOneFatal();
 		return response;
 		
 	}
