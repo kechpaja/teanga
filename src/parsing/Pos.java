@@ -10,6 +10,16 @@ public enum Pos {
 	PREPOSITION,
 	ARTICLE,
 	PUNCTUATION,
+	
+	// "higher-level" parts of speech
+	NP,
+	VP,
+	PP,
+	DP,
+	ADJP,
+	ADVP,
+	S,
+	
 	BAD;
 	// Correlatives?
 	// TODO more - higher-level pos's as well. 
@@ -25,6 +35,13 @@ public enum Pos {
 		case PREPOSITION: return "PREPOSITION";
 		case ARTICLE: return "ARTICLE";
 		case PUNCTUATION: return "PUNCTUATION";
+		case NP: return "NP";
+		case VP: return "VP";
+		case PP: return "PP";
+		case DP: return "DP";
+		case ADJP: return "ADJP";
+		case ADVP: return "ADVP";
+		case S: return "S";
 		default: return "BAD";
 		}
 	}
@@ -49,6 +66,22 @@ public enum Pos {
 		} else if (str.equals("PUNCT") || str.equals("PUNCTUATION")) {
 			return PUNCTUATION;
 		} 
+		
+		else if (str.equals("NP")) {
+			return NP;
+		} else if (str.equals("VP")) {
+			return VP;
+		} else if (str.equals("PP")) {
+			return PP;
+		} else if (str.equals("DP")) {
+			return DP;
+		} else if (str.equals("ADJP")) {
+			return ADJP;
+		} else if (str.equals("ADVP")) {
+			return ADVP;
+		} else if (str.equals("S")) {
+			return S;
+		}
 		
 		
 		else {

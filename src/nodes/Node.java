@@ -15,14 +15,7 @@ public abstract class Node {
 	Case cm_;
 	Tense t_;
 	
-	
-	// getters 
-	
-//	public Type getType() {
-//		return type_;
-//	}
-	
-	// new getters
+	// GETTERS
 
 	public Pos getPos() {
 		return pos_;

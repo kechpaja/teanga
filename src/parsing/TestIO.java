@@ -5,6 +5,7 @@ import java.io.*;
 public class TestIO {
 	
 	public static void main(String[] args) {
+		
 		BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
 		
 		Parser parser = new Parser(RuleReader.ruleRead("data/parserules.txt"));

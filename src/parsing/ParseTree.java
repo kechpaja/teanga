@@ -39,8 +39,8 @@ public class ParseTree {
 	}
 	
 	// TODO visit method, checking for correctness in agreement
-	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
-		node_.visit(rules, mistakes);
+	public void visit(List<Mistake> mistakes) {
+		node_.visit(mistakes);
 	}
 
 }
