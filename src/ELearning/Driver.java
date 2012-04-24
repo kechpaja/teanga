@@ -8,6 +8,8 @@ import java.io.*;
 
 import javax.swing.*;
 
+import parsing.Parser;
+
 import GUI.*;
 import annie.*;
 
@@ -16,11 +18,13 @@ public class Driver {
 	private JFrame mainFrame;
 	public VocabGameMaker vGameMaker;
 	public GrammarGameMaker gGameMaker;
+	public BossGameMaker bGameMaker;
 	private Exercises exercises;
 	public Lessons lessons;
 	private HelpBox helpbox;
 	public OpeningPage openingpage;
 	private JPanel curPage;
+	private Parser parser;
 	
 
 	private String curUserName = null;
@@ -29,11 +33,13 @@ public class Driver {
 	
 	public Driver(){
 		try{
+			parser = new Parser("data/dictionary.txt", "add parser input here");
 			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
-			exercises = new Exercises("data/testfilev", "data/testfileg.txt");
-			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt");
+			exercises = new Exercises("data/testfilev", "data/testfileg.txt", "data/testfileb.txt");
+			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
 			gGameMaker = new GrammarGameMaker(exercises, helpbox);
+			bGameMaker = new BossGameMaker(exercises, helpbox, parser);
 			dictionary = new MyDictionary("data/dictionary.txt");
 			openingpage = new OpeningPage();
 			curPage = new GUIBasicPage(this);
