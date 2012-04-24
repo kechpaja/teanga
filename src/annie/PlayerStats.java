@@ -200,18 +200,14 @@ public class PlayerStats {
 	{
 		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
 
-		System.out.println("In main if loop!");
 		Boolean before=true;
 		for(int j=0; j<games-1; j++)
 		{
-			System.out.println("j: " +
-		j+ "----"+userGames[level][j].isDefeated());
 			if(userGames[level][j].isDefeated()!=true)
 				before=false;
 		}
 		if(before)
 		{
-			System.out.println("I shouldn't be here!");
 			userGames[level][games-1].unlocked=true;
 		}
 		if(game==games-1&&level!=levels-1)
