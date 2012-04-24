@@ -21,12 +21,14 @@ public class DictionaryInternalFrame extends JFrame{
 	private Box searchBar;
 	private Boolean isFromEsperanto;
 	private JScrollPane resultScrollPane;
+	JPanel overall = new JPanel(new BorderLayout());
 	
 	public DictionaryInternalFrame(MyDictionary dictionary){
 		super("Dictionary");
 		_dictionary = dictionary;
 		
 		this.setBackground(new Color(100,110,255,255));
+		//overall.setSize(500, 500);
 
 		isFromEsperanto = true;
 		input = new JTextField();
@@ -35,26 +37,32 @@ public class DictionaryInternalFrame extends JFrame{
 		searchBar = new Box(BoxLayout.X_AXIS);
 		searchBar.add(input);
 		EsperantoToEnglish = new JButton("Eo -> Eng");
+		EsperantoToEnglish.addActionListener(new Eo2EngActionListener());
 		EnglishToEsperanto = new JButton("Eng -> Eo");
+		EnglishToEsperanto.addActionListener(new Eng2EoActionListener());
 		searchBar.add(EsperantoToEnglish);
 		result = new JTextArea();
-		result.setSize(500, 500);
+		result.setSize(250, 300);
 		//Make overall container
-		JPanel overall = new JPanel(new BorderLayout());
 		resultScrollPane = new JScrollPane();
 		result.setEditable(false);
+		result.setLineWrap(true);
+		result.setWrapStyleWord(true);
+		resultScrollPane.setSize(250, 200);
 		resultScrollPane.add(result);
 		overall.add(searchBar, BorderLayout.NORTH);
 		overall.add(resultScrollPane, BorderLayout.CENTER);
 		overall.add(search, BorderLayout.SOUTH);
+		overall.revalidate();
 		
 		
 		this.add(overall);
 		this.pack();
 		this.setVisible(true);
 		this.setLocation(30, 30);
-		this.setPreferredSize(new Dimension(500, 500));
+		this.setSize(250, 250);
 		this.setVisible(true);
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 	private class SearchActionListener implements ActionListener{
@@ -62,18 +70,68 @@ public class DictionaryInternalFrame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			Word w = _dictionary.getWord(input.getText(), isFromEsperanto);
-			result.setText(w.getEx());
+			if(w!=null)
+			{
+				String translations="";
+				for(String t: w.getTranslations())
+				{
+					translations=t+"\n";
+				}
+				//translations=translations.substring(0, translations.length()-2);
+				result.setText("Translates to: \n"+ translations+"Part of speech: \n"+w.getPOS()
+						+"\nExample sentence: \n"+w.getEx());
+			}
+			else
+			{
+				String eorEo="English to Esperanto";
+				String other="Esperanto to English";
+				if(isFromEsperanto)
+				{
+					eorEo="Esperanto to English";
+					other="English to Esperanto";
+				}
+				result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n\n\n\n\n\n\n\n"
+						+"You are translating from "+eorEo+". If you meant to translate from "+
+						other+", click the toggle transation button button, above.");
+			}
 			resultScrollPane.removeAll();
 			resultScrollPane.add(result);
-			resultScrollPane.revalidate();		
+			resultScrollPane.revalidate();	
+			
+		}
+	}
+
+	
+	private class Eo2EngActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			searchBar.remove(EsperantoToEnglish);
+			searchBar.add(EnglishToEsperanto);
+			overall.revalidate();
+			isFromEsperanto = false;
 		}
 		
 	}
+	
+	private class Eng2EoActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			searchBar.remove(EnglishToEsperanto);
+			searchBar.add(EsperantoToEnglish);
+			overall.revalidate();
+			isFromEsperanto = true;
+		}
+		
+	}
+
 	 
 	
 	public static void main(String[] args){
 		try {
 			DictionaryInternalFrame dif = new DictionaryInternalFrame(new MyDictionary("data/dictionary.txt"));
+			//dif.setSize(100, 100);
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
