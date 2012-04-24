@@ -220,18 +220,21 @@ public class GUIOptionsPage extends JPanel{
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createHorizontalStrut(830));
 		JButton help = new JButton("Help");
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(75, 35));
 		help.setSize(new Dimension(75, 35));
 		bottomBar.add(help);
-		bottomBar.add(Box.createHorizontalStrut(30));
+		bottomBar.add(dictionary);
+		bottomBar.add(Box.createHorizontalStrut(15));
 		
-		fullBar.add(topBar);
+		add(topBar,BorderLayout.NORTH);
 		fullBar.add(topCushion);
 		fullBar.add(scrollbar);
 		fullBar.add(bottomCushion);
-		fullBar.add(bottomBar);
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
+		add(bottomBar,BorderLayout.SOUTH);
 	}
 	
 	public class BacktoBasicActionListener implements ActionListener{
