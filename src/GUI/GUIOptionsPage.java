@@ -226,6 +226,7 @@ public class GUIOptionsPage extends JPanel{
 		bottomBar.add(help);
 		bottomBar.add(dictionary);
 		bottomBar.add(Box.createHorizontalStrut(15));
+		dictionary.addActionListener(new DictionaryButtonListener());
 		
 		add(topBar,BorderLayout.NORTH);
 		fullBar.add(topCushion);
@@ -246,8 +247,20 @@ public class GUIOptionsPage extends JPanel{
 		
 	}
 	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(driver.dictionary);
+			driver.getCurPage().add(dictFrame);
+			driver.getCurPage().repaint();
+			revalidate();
+		}
+		
+	}
+	
 	//Creates a Vocab Game
-	public class MakePageListener implements ActionListener {
+	private class MakePageListener implements ActionListener {
 		private int _levelNum;
 		private int _type;
 		
