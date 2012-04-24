@@ -1,11 +1,11 @@
 adiau
 goodbye
 noun
-Adiau, amiko!
+Adiau, hundo!
 saluton
 hello 
 noun
-Saluton, amiko!
+Saluton, hundo!
 hundo
 dog
 noun

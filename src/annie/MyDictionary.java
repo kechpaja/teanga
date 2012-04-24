@@ -33,7 +33,6 @@ public class MyDictionary {
 					if(((strLine = br.readLine()) != null))
 					{
 						String exSent=strLine;
-						System.out.println("espToEng: "+theWord+" to-- "+translation.get(0)+" "+ pos+" "+exSent);
 						Word w=new Word(translation, pos, exSent);
 						espToEngDict.put(theWord, w);
 						for(String esp:translation)
@@ -41,7 +40,7 @@ public class MyDictionary {
 							LinkedList<String> t;
 							if(engToEspDict.containsKey(esp))
 							{
-								t= engToEspDict.get(esp).translations;
+								t= engToEspDict.get(esp).getTranslations();
 							}
 							else
 							{
@@ -59,6 +58,7 @@ public class MyDictionary {
 	
 	public Word getWord(String s, Boolean esp2eng)
 	{
+		s.toLowerCase();
 		if(esp2eng)
 		{
 			return espToEngDict.get(s);
