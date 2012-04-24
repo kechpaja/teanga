@@ -20,6 +20,7 @@ import nodes.*;
 public class Parser {
 	
 	private RuleSet rules_;
+	// TODO need dictionary
 	
 	/**
 	 * @author kechpaja
@@ -29,7 +30,9 @@ public class Parser {
 	 * @return Response
 	 * An instance of the class Response
 	 * 
-	 * Contract?
+	 * Takes in a sentence in Esperanto, and returns a Response containing a list of mistakes
+	 * in the sentence, a boolean indicating whether the sentence is correct or not, and the
+	 * sentence itself. 
 	 */
 	public Response parse(String sentence) {
 		// probably runs through the list of rules, checking each one against the string. 
@@ -40,7 +43,7 @@ public class Parser {
 		List<Mistake> mistakes = new LinkedList<Mistake>();
 		
 		// tokenize the string.
-		Tokenizer tkn = new Tokenizer(sentence);
+		Tokenizer tkn = new Tokenizer(sentence); // TODO will need to take in dictionary
 		tkn.init(mistakes); // this will put lexical mistakes into the mistakes list
 		
 		// parse
@@ -55,6 +58,19 @@ public class Parser {
 		return Response.responseFactory(tree, sentence);
 	}
 	
+	/**
+	 * @author kechpaja
+	 * 
+	 * This is the constructor you should be using. It takes in two strings; the first is the
+	 * path to the ruleset, and the second the path to the dictionary file. 
+	 * 
+	 */
+	public Parser(String rulefile, String dictfile) {
+		rules_ = RuleReader.ruleRead(rulefile);
+		// TODO initialize dictionary
+	}
+	
+	// One constructor
 	public Parser(RuleSet rules) {
 		rules_ = rules;
 	}
@@ -149,8 +165,9 @@ public class Parser {
 		}
 		
 		// TODO include boolean or something to convey results if string does not parse. 
-		// Or maybe just add mistakes. Not sure yet which is best. 
-		return new ParseTree(node, mistakes);
+		// Or maybe just add mistakes. Not sure yet which is best.
+		// Can just hand in "prev".
+		return new ParseTree(node, mistakes, prev);
 	}
 	
 	// TODO it might be worth it to save a visit EVERY subtree produced...

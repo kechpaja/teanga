@@ -15,6 +15,7 @@ public class ParseTree {
 	// there will be a few other things I'm sure...)
 	protected Node node_;
 	protected List<Mistake> mistakes_; // we store this list of mistakes here
+	protected Stack<Node> prev_;
 	
 	
 	// Getter for mistakes
@@ -28,9 +29,10 @@ public class ParseTree {
 	}
 	
 	// Constructor
-	protected ParseTree(Node node, List<Mistake> mistakes) {
+	protected ParseTree(Node node, List<Mistake> mistakes, Stack<Node> prev) {
 		node_ = node;
 		mistakes_ = mistakes;
+		prev_ = prev;
 	}
 	
 	// toString, for testing
@@ -38,9 +40,11 @@ public class ParseTree {
 		return node_.toString();
 	}
 	
-	// TODO visit method, checking for correctness in agreement
+	// visit method, checking for correctness in agreement
 	public void visit(List<Mistake> mistakes) {
-		node_.visit(mistakes);
+		node_.visit(mistakes); // TODO visit everything in all trees as well. 
+		
+		// TODO visit things in prev!
 	}
 
 }
