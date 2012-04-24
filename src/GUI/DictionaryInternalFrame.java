@@ -20,6 +20,7 @@ public class DictionaryInternalFrame extends JFrame{
 	private JTextArea result;
 	private Box searchBar;
 	private Boolean isFromEsperanto;
+	private JScrollPane resultScrollPane;
 	
 	public DictionaryInternalFrame(MyDictionary dictionary){
 		super("Dictionary");
@@ -40,7 +41,7 @@ public class DictionaryInternalFrame extends JFrame{
 		result.setSize(500, 500);
 		//Make overall container
 		JPanel overall = new JPanel(new BorderLayout());
-		JScrollPane resultScrollPane = new JScrollPane();
+		resultScrollPane = new JScrollPane();
 		result.setEditable(false);
 		resultScrollPane.add(result);
 		overall.add(searchBar, BorderLayout.NORTH);
@@ -60,13 +61,15 @@ public class DictionaryInternalFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Word w = _dictionary.getWord(input.getText(), true);
-			result.setText(w.exampleSentence);
-			
-			
+			Word w = _dictionary.getWord(input.getText(), isFromEsperanto);
+			result.setText(w.getEx());
+			resultScrollPane.removeAll();
+			resultScrollPane.add(result);
+			resultScrollPane.revalidate();		
 		}
 		
 	}
+	 
 	
 	public static void main(String[] args){
 		try {
