@@ -16,6 +16,7 @@ public class ParseTree {
 	protected Node node_;
 	protected List<Mistake> mistakes_; // we store this list of mistakes here
 	protected Stack<Node> prev_;
+	protected boolean atLeastOneFatal_;
 	
 	
 	// Getter for mistakes
@@ -26,6 +27,11 @@ public class ParseTree {
 	// Getter for correctness
 	protected boolean isCorrect() {
 		return mistakes_.isEmpty();
+	}
+	
+	// Getter for fatal mstake
+	protected boolean atLeastOneFatal() {
+		return atLeastOneFatal_;
 	}
 	
 	// Constructor

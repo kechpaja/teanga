@@ -41,14 +41,16 @@ public class BossLevel extends LevelInstance{
 		parser = p;
 	}
 	
-	public String tryAnswer(String response){
-		Response parsed = parseAnswer(response);
-		return "not implemented";
-	}
 	
 	
-	private Response parseAnswer(String input){
-		return parser.parse(input);
+	public Response tryAnswer(String input){
+		Response response = parser.parse(input);
+		if (!response.containsFatal()){
+			if (questions.isEmpty()){
+				this.isOver = true;
+			} else curQuestion = questions.remove(0);
+		}
+		return response;
 	}
 
 }
