@@ -282,7 +282,8 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 4:
 				//create a grammar game
-				//TODO:driver.changePage(new GUIGrammarGame(driver.gGameMaker.makeLevel(_levelNum), driver));
+				System.out.println(_levelNum);
+				driver.changePage(new GUIGrammarGame(driver.gGameMaker.makeLevel(_levelNum), driver));
 				break;
 			case 5:
 				//create a boss game

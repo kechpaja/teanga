@@ -1,31 +1,18 @@
-pp1,La domo est~0~ bela.,as,is as an un
-pp2,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-pp3,La hundo ir~0~ en la domon.,as, i as un an
-pp4,Ŝi skrib~0~.,as,un i as an
-pp5,Ŝi volas skrib~0~.,i,as i an a
-pp6,Ŝi est~0~ bel~1~.,as a,a o as os
+data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
+data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
+data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
+data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
+data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
+data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
 0
-pp7,Mi vidas ~0~,lin,lin mi li min
-pp8, ~0~ vid~1~ min,li as,as mi li min
-pp9,la hundo vidas ~0~,min,mi min li lin
-pp10, ~0~ kato vidas ~1~,la ŝin,ŝin ŝi lin mi la
-pp11, ~0~ manĝu frukto.,ili,ili li mi la
-pp12,mi amas ~0~,vin,vi vin
+data/VocabPictures/kato.jpg,Mi vidas ~0~,lin,lin mi li min
+data/VocabPictures/kato.jpg, ~0~ vid~1~ min,li as,as mi li min
+data/VocabPictures/kato.jpg,la hundo vidas ~0~,min,mi min li lin
+data/VocabPictures/kato.jpg, ~0~ kato vidas ~1~,la ŝin,ŝin ŝi lin mi la
+data/VocabPictures/kato.jpg, ~0~ manĝu frukto.,ili,ili li mi la
+data/VocabPictures/kato.jpg,mi amas ~0~,vin,vi vin
 1
-pp13,Mi manĝ~0~,as,as is a i
-pp14,Mi manĝ~0~ la frukto,is,as is a i os
-pp15,Li manĝ~0~ la frukto,os,os as is
-pp16,la hundo ir~0~ en la domon,as,os as is o
-pp17,la hundo ir~0~ en la domon,is,os is as a
-pp18,la hundo ir~0~ en la domon,os,is os as o
-pp19,Mi iris ~0~,hieraŭ,hodiaŭ morgaŭ hieraŭ
-2
-pp20,Mi estas ~0~ la domo,en,sur en sub kun
-pp21,Li estas ~0~ ŝi,kun,en sub sur kun
-pp22, ~0~ estas ~1~ la domo,Mi en,en sub Li Mi kun
-pp23,la kato estas ~0~ ~1~ lito,en la,la lo as en
-pp24,la kato estas ~0~ la suno,en,kun en la as
-pp25,la nutraĵo estas ~0~ la tablo,sur,en sur kun
+
 
 
 

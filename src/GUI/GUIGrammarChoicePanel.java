@@ -18,6 +18,8 @@ import javax.swing.Box;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ELearning.GrammarLevel;
+
 @SuppressWarnings("serial")
 public class GUIGrammarChoicePanel extends JPanel {
 	private Box _layout;
@@ -26,13 +28,15 @@ public class GUIGrammarChoicePanel extends JPanel {
 	private ArrayList<GUIGrammarChoice> _rectChoices;
 	private JPanel _panel, _container;
 	private String[] _choices;
+	private GrammarLevel _grammarLevel;
 	
-	public GUIGrammarChoicePanel(JPanel container, Box layout, ArrayList<JLabel> blankPlace, String[] possible, String[] answers){
+	public GUIGrammarChoicePanel(JPanel container, Box layout, ArrayList<JLabel> blankPlace, GrammarLevel gl){
 		super(new BorderLayout());
 		
+		_grammarLevel = gl;
 		_layout = layout;
 		_blanks = blankPlace;
-		_choices = possible;
+		_choices = gl.getCurrent().getPossibilities();
 		_panel = this;
 		_container = container;
 		_rectBlanks = new ArrayList<GUIGrammarBlank>();
@@ -51,7 +55,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 			
 			JLabel currLabel = _blanks.get(k);
 			currLabel.addComponentListener(new MyComponentListener(k));
-			GUIGrammarBlank currRect = new GUIGrammarBlank(this, k, answers[k]);
+			GUIGrammarBlank currRect = new GUIGrammarBlank(this, k, gl.getCurrent().getCorrectAnswers()[k]);
 			currRect.setSize(140,30);
 			currRect.setLocation(0, 0);
 			currRect.setColor(new Color(150,150,150,255));
@@ -61,7 +65,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 		}
 		
 		for(int j=0; j< _choices.length; j++){
-			GUIGrammarChoice currRect = new GUIGrammarChoice(this, _choices[j]);
+			GUIGrammarChoice currRect = new GUIGrammarChoice(this, _choices[j], j);
 			currRect.setSize(135,26);
 			currRect.setLocation((1000-(_choices.length*135 + (_choices.length-1)*20))/2+j*155,207);
 			currRect.setColor(new Color(100,100,200,255));
@@ -102,6 +106,10 @@ public class GUIGrammarChoicePanel extends JPanel {
 		
 		return isTrue;
 		
+	}
+	
+	public void notCorrect(){
+		//TODO
 	}
 	
 	//Paint all of the pieces when painting the panel
@@ -221,6 +229,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 				//remove it from its container
 				if(currRect.isContained()){
 					currRect.getContainer().setFill(null);
+					_grammarLevel.getCurrent().removeAnswer(currRect.getContainer().getBlankNum());
 					currRect.setContainer(null);
 				}
 				//add it to its new container
@@ -233,6 +242,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 							currRect.setLocation(_rectBlanks.get(i).getX()+2, _rectBlanks.get(i).getY()+2);
 							currRect.setContainer(_rectBlanks.get(i));
 							_rectBlanks.get(i).setFill(currRect);
+							_grammarLevel.getCurrent().submitAnswer(currRect.getIndex(), i);
 							_container.repaint();
 						}
 						break;

@@ -23,8 +23,8 @@ public class SentencePicturePair extends PicturePair{
 		return partialSentence;
 	}
 	
-	public String[] getAnswersGiven(){
-		return answersGiven;
+	public String[] getCorrectAnswers(){
+		return correctAnswers;
 	}
 	
 	public String[] getPossibilities(){
@@ -39,6 +39,10 @@ public class SentencePicturePair extends PicturePair{
 			return false;
 		}
 
+	}
+	
+	public void removeAnswer(int blank){
+		answersGiven[blank] = null;
 	}
 	
 	public boolean isFinished(){
@@ -62,9 +66,9 @@ public class SentencePicturePair extends PicturePair{
 		SentencePicturePair pair1 = new SentencePicturePair("path1", "this ~0~ the samp~1~ sentence", one, two);
 		System.out.println(pair1.getPicturePath());
 		System.out.println(pair1.getPartialSentence());
-		System.out.println(pair1.getAnswersGiven()[0]);
+		System.out.println(pair1.getCorrectAnswers()[0]);
 		pair1.submitAnswer(1, 0);
-		System.out.println(pair1.getAnswersGiven()[0]);
+		System.out.println(pair1.getCorrectAnswers()[0]);
 		System.out.println(pair1.isFinished());
 		pair1.submitAnswer(0, 0);
 		pair1.submitAnswer(3, 1);

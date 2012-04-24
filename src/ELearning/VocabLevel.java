@@ -37,6 +37,7 @@ public class VocabLevel extends LevelInstance {
 	}
 	
 	public boolean tryAnswer(String answer){
+		answer.toLowerCase();
 		if (waiting.peek().checkWord(answer)){
 			upNext.add(waiting.poll());
 			this.score++;

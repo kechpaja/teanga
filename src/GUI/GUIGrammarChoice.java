@@ -13,10 +13,12 @@ public class GUIGrammarChoice extends Rectangle{
 	private String _word;
 	private ColorText _string;
 	private int _yoffset;
+	private int _index;
 	
-	public GUIGrammarChoice(JPanel jpan, String word) {
+	public GUIGrammarChoice(JPanel jpan, String word, int index) {
 		super(jpan);
 		
+		_index = index;
 		_container = null;
 		_word = word;
 		_string = new ColorText(jpan, word);
@@ -31,6 +33,10 @@ public class GUIGrammarChoice extends Rectangle{
 	
 	public GUIGrammarBlank getContainer(){
 		return _container;
+	}
+	
+	public int getIndex(){
+		return _index;
 	}
 	
 	public boolean isContained(){
