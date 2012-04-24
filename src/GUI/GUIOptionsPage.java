@@ -252,9 +252,6 @@ public class GUIOptionsPage extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(driver.dictionary);
-			driver.getCurPage().add(dictFrame);
-			driver.getCurPage().repaint();
-			revalidate();
 		}
 		
 	}
