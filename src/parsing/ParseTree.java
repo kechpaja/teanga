@@ -1,22 +1,14 @@
 package parsing;
 
 import java.util.*;
-
-import rules.AgreementRule;
 import nodes.*;
 
 public class ParseTree {
 	
-	// TODO this should hold a sentence; there's nothing else that can occur at this level. 
-	// Except for a few basic interjections. 
-	
-	// TopLevelNode encompasses "sentence" (S), as well as some other things
-	// (interjections like "yes"/"no", which are valid at this level but not really sentences,
-	// there will be a few other things I'm sure...)
 	protected Node node_;
 	protected List<Mistake> mistakes_; // we store this list of mistakes here
 	protected Stack<Node> prev_;
-	protected boolean atLeastOneFatal_;
+	protected boolean atLeastOneFatal_ = false;
 	
 	
 	// Getter for mistakes
@@ -29,7 +21,7 @@ public class ParseTree {
 		return mistakes_.isEmpty();
 	}
 	
-	// Getter for fatal mstake
+	// Getter for fatal mistake
 	protected boolean atLeastOneFatal() {
 		return atLeastOneFatal_;
 	}
@@ -39,18 +31,37 @@ public class ParseTree {
 		node_ = node;
 		mistakes_ = mistakes;
 		prev_ = prev;
+		for (Mistake m : mistakes) {
+			if (m.isFatal()) {
+				atLeastOneFatal_ = true;
+				break;
+			}
+		}
 	}
 	
 	// toString, for testing
 	public String toString() {
-		return node_.toString();
+		String acc = "";
+		acc += node_ + "\n";
+		for (Node node : prev_) {
+			acc += node + "\n";
+		}
+		return acc;
 	}
 	
 	// visit method, checking for correctness in agreement
 	public void visit(List<Mistake> mistakes) {
-		node_.visit(mistakes); // TODO visit everything in all trees as well. 
+		if (node_ == null) {
+			return;
+		}
 		
-		// TODO visit things in prev!
+		node_.visit(mistakes); 
+		
+		// visit things in prev!
+		for (Node node : prev_) {
+			node.visit(mistakes);
+			mistakes.add(new FatalMistake(node.getLeftIndex(), node.getRightIndex(), "Error - Cannot Combine with Rest of Sentence"));
+		}
 	}
 
 }

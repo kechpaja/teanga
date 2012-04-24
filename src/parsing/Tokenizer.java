@@ -16,6 +16,12 @@ public class Tokenizer {
 	
 	// initialize the tokenizer
 	public void init(List<Mistake> mistakes) {
+		tokens_ = new LinkedList<Token>();
+		
+		if (sentence_.equals("")) {
+			return;
+		}
+		
 		//TODO split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
@@ -25,7 +31,6 @@ public class Tokenizer {
 		}
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
-		tokens_ = new LinkedList<Token>();
 		int left = 0;
 		for (String s : words) {
 			// check pos from ending
