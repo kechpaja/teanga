@@ -30,6 +30,7 @@ public class DictionaryInternalFrame extends JFrame{
 		this.setBackground(new Color(100,110,255,255));
 		//overall.setSize(500, 500);
 
+		//top and bottom bar
 		isFromEsperanto = true;
 		input = new JTextField();
 		search = new JButton("Search");
@@ -41,20 +42,19 @@ public class DictionaryInternalFrame extends JFrame{
 		EnglishToEsperanto = new JButton("Eng -> Eo");
 		EnglishToEsperanto.addActionListener(new Eng2EoActionListener());
 		searchBar.add(EsperantoToEnglish);
-		result = new JTextArea();
-		result.setSize(250, 300);
-		//Make overall container
-		resultScrollPane = new JScrollPane();
+		
+		result = new JTextArea(" ", 10, 10);
 		result.setEditable(false);
 		result.setLineWrap(true);
 		result.setWrapStyleWord(true);
-		resultScrollPane.setSize(250, 200);
-		resultScrollPane.add(result);
+		result.setBorder(BorderFactory.createEmptyBorder(0,3,0,0));
+		resultScrollPane = new JScrollPane(result);
+		resultScrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
+		
 		overall.add(searchBar, BorderLayout.NORTH);
 		overall.add(resultScrollPane, BorderLayout.CENTER);
 		overall.add(search, BorderLayout.SOUTH);
 		overall.revalidate();
-		
 		
 		this.add(overall);
 		this.pack();
@@ -80,6 +80,7 @@ public class DictionaryInternalFrame extends JFrame{
 				//translations=translations.substring(0, translations.length()-2);
 				result.setText("Translates to: \n"+ translations+"Part of speech: \n"+w.getPOS()
 						+"\nExample sentence: \n"+w.getEx());
+				result.setCaretPosition(0);
 			}
 			else
 			{
@@ -93,10 +94,8 @@ public class DictionaryInternalFrame extends JFrame{
 				result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n\n\n\n\n\n\n\n"
 						+"You are translating from "+eorEo+". If you meant to translate from "+
 						other+", click the toggle transation button button, above.");
+				result.setCaretPosition(0);
 			}
-			resultScrollPane.removeAll();
-			resultScrollPane.add(result);
-			resultScrollPane.revalidate();	
 			
 		}
 	}
