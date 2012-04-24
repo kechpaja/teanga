@@ -119,7 +119,7 @@ public class GUIGrammarGame extends JPanel{
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		
-		JButton back = new JButton("back");
+		JButton back = new JButton("Back to Home");
 		back.addActionListener(new backtoOptionsActionListener());
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
@@ -284,10 +284,7 @@ public class GUIGrammarGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, 21, 0);
-			System.out.println(_driver.getPlayerStats().getSingleGame(0,1).bestScore);
-			System.out.println(_driver.getPlayerStats().getSingleGame(0, 0).isDefeated());
-			System.out.println(_driver.getPlayerStats().getSingleGame(0, 1).isDefeated());
+			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), 0);
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}
