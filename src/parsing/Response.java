@@ -46,5 +46,16 @@ public class Response {
 		response.sentence_ = sentence;
 		return response;
 	}
+	
+	// toString (for testing)
+	public String toString() {
+		String acc = "";
+		acc += correct_ + "\n";
+		for (Mistake m : mistakes_) {
+			acc += m + "\n";
+		}
+		acc += sentence_;
+		return acc;
+	}
 
 }

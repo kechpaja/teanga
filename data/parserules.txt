@@ -6,8 +6,30 @@ S NP VP
 S PP S
 S S PP
 
+
+############
+# NP Stuff #
+############
+
+# NP's need to combine with adjectives...
+NP NP ADJ
+NP NP ADJP
+
+
+############
+# DP Stuff #
+############
+
 DP ART NP
 
+# DP's can be extended by adjectives too. This is terrible linguistics-wise, but fine for our purposes. 
+DP DP ADJ
+DP DP ADJP
+
+
+############
+# VP Stuff #
+############
 
 VP VP ADV
 VP ADV VP
