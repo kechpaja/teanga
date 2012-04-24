@@ -16,13 +16,13 @@ import javax.crypto.NoSuchPaddingException;
 public class Main {
 	public static void main(String [ ] args) throws InvalidKeyException, NoSuchAlgorithmException, NoSuchPaddingException, IOException, InvalidKeySpecException, InvalidAlgorithmParameterException, IllegalBlockSizeException, BadPaddingException
 	{
-		PlayerStats annie= new PlayerStats("Annie", 0);
+		/*PlayerStats annie= new PlayerStats("Annie", 0);
 		annie.encode();
 		PlayerStats annie2= new PlayerStats("Annie");
 		/*File file= new File("Passwords and usernames icmshfonwo02udn");
 		FileWriter fstream = new FileWriter(file);
 		BufferedWriter out = new BufferedWriter(fstream);
-		out.write("");*/
+		out.write("");
 		OpeningPage o= new OpeningPage();
 		if(o.usernameAvailable("Annie"))
 			o.newUser("Annie", "mypassword", 0);
@@ -36,6 +36,12 @@ public class Main {
 		annie= o.newGame("Andrew", 1);
 		o= new OpeningPage();
 		//System.out.println("Annie:"+o.correctPassword("Annie", "mypassword"));
-		//System.out.println("Andrew2:"+o.correctPassword("Andrew", "passy"));
+		//System.out.println("Andrew2:"+o.correctPassword("Andrew", "passy"));*/
+		MyDictionary dict=new MyDictionary("data/dictionary.txt");
+		Word esp= dict.getWord("goodbye",false);
+		System.out.println(esp.translations.get(0)+" "+esp.translations.get(1)+" "+esp.partOfSpeech+" "+esp.exampleSentence);
+		esp= dict.getWord("adiau",true);
+		System.out.println(esp.translations.get(0)+" "+esp.partOfSpeech+" "+esp.exampleSentence);
+		
 	}
 }

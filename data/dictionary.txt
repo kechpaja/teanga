@@ -2,7 +2,23 @@ adiau
 goodbye
 noun
 Adiau, amiko!
-cau
-hello goodbye
+saluton
+hello 
 noun
-Cau, amiko!
+Saluton, amiko!
+hundo
+dog
+noun
+Adiau, hundo!
+kato
+cat
+noun
+Saluton, kato!
+lampo
+lamp
+noun
+Saluton, lampo!
+muso
+mouse
+noun
+Adiau, muso!
