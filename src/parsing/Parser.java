@@ -82,8 +82,6 @@ public class Parser {
 		
 		boolean advanced = true;
 		
-		// TODO can we get rid of the "advanced" boolean value?
-		
 		// TODO go through, at each step if curr & next can combine by some rule,
 		while (tkn.hasNext() || !prev.empty()) {
 			if (!advanced) {
@@ -91,17 +89,24 @@ public class Parser {
 			}
 			
 			advanced = false;
+			
+			System.out.println(node);
 			// Do below, but for prev and curr = node
 			if (!prev.empty()) {
-				for (BinarySyntacticRule r : rules.get(prev.peek().getPos())) {
-					if (r.matches(prev.peek(), node)) {
-						// replace constituent
-						node = r.combine(prev.pop(), node);
+				System.out.println("left " + node.getPos());
+				
+				List<BinarySyntacticRule> lst = rules.get(prev.peek().getPos());
+				if (lst != null) {
+					for (BinarySyntacticRule r : rules.get(prev.peek().getPos())) {
+						if (r.matches(prev.peek(), node)) {
+							// replace constituent
+							node = r.combine(prev.pop(), node);
 
-						// advance
-						advanced = true;
+							// advance
+							advanced = true;
 						
-						break;
+							break;
+						}
 					}
 				}
 			}
@@ -109,29 +114,44 @@ public class Parser {
 			// try to combine current and next
 			// if possible, put in place of curr and get next into next
 			// else, move curr to prev (stack) and next to curr and fetch next
-			else {
-				for (BinarySyntacticRule r : rules.get(node.getPos())) {
-					if (r.matches(node, new LeafNode(tkn.peek()))) {
-						// replace contituent
-						node = r.combine(node, new LeafNode(tkn.getNextToken()));
+			if (!advanced && tkn.hasNext()) {
+				System.out.println("right " + node.getPos());
+				// TODO this fails if no rule matches. Need getOrElse, or something similar...
+				List<BinarySyntacticRule> lst = rules.get(node.getPos());
+				if (lst != null) {
+					for (BinarySyntacticRule r : lst) {
+						if (r.matches(node, new LeafNode(tkn.peek()))) {
+							// replace contituent
+							node = r.combine(node, new LeafNode(tkn.getNextToken()));
 						
-						// advance
-						advanced = true;
+							// advance
+							advanced = true;
 						
-						// TODO break?
-						break;
+							// TODO break?
+							break;
+						}
 					}
 				}
+				
+			/*	if (unrules.containsKey(node.getPos())) {
+					System.out.println("unary");
+					
+					node = unrules.get(node.getPos()).combine(node);
+					advanced = true;
+				} */
 			}
 			
 			// TODO unary rules go in here somewhere...
 			// TODO TODO TODO this is very suspect! I'm not sure if it will work...
-			if (unrules.containsKey(node.getPos())) {
+			if (!advanced && unrules.containsKey(node.getPos())) {
+				System.out.println("unary");
+				
 				node = unrules.get(node.getPos()).combine(node);
+				advanced = true;
 			}
 			
 			
-			if (tkn.hasNext()) {
+			if (!advanced && tkn.hasNext()) {
 				// advance
 				prev.push(node);
 				node = new LeafNode(tkn.getNextToken());

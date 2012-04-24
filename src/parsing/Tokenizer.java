@@ -20,8 +20,8 @@ public class Tokenizer {
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
+			punct = sentence_.substring(sentence_.length() - 1);
 			sentence_ = sentence_.substring(0, sentence_.length() - 1);
-			punct = sentence_.substring(sentence_.length() - 1);;
 		}
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;

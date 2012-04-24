@@ -22,17 +22,18 @@ VP VP PP
 VP V PP
 VP V DP
 VP V NP
+VP V ADJP
 
-
+S S PUNCT
 
 unary:
-NP N
+NP NOUN
 
 
 DP P
 # Pronouns become DP's so they can't combine with la...
 
-VP V
+#VP V
 
 
 ADJP ADJ

@@ -19,6 +19,7 @@ public class TestIO {
 				} else {
 					parser.parse(line);
 				}
+				line = r.readLine();
 			}
 			
 		} catch (IOException e) {
