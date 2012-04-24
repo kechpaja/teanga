@@ -34,7 +34,7 @@ public class Driver {
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
 			gGameMaker = new GrammarGameMaker(exercises, helpbox);
-			//dictionary = new MyDictionary("data/dictionary.txt");
+			dictionary = new MyDictionary("data/dictionary.txt");
 			openingpage = new OpeningPage();
 			curPage = new GUIBasicPage(this);
 		} catch (IOException e){
