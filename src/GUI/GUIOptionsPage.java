@@ -15,24 +15,48 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.security.InvalidAlgorithmParameterException;
+import java.security.InvalidKeyException;
+import java.security.NoSuchAlgorithmException;
+import java.security.spec.InvalidKeySpecException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
+import javax.crypto.NoSuchPaddingException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 
+import annie.PlayerStats;
+
 import ELearning.Driver;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
+	Driver driver;
 	
-	public GUIOptionsPage(Driver d){
+	public GUIOptionsPage(Driver d, PlayerStats stats){
+		try {
+			stats.encode();
+		} catch (IllegalBlockSizeException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (BadPaddingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
+		driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -81,6 +105,7 @@ public class GUIOptionsPage extends JPanel{
 			        buttons[i][j] = new JButton(newIcon);
 			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 			        buttons[i][j].setBackground(new Color(0,0,0,0));
+			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
@@ -182,6 +207,7 @@ public class GUIOptionsPage extends JPanel{
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createHorizontalStrut(830));
 		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoBasicActionListener());
 		back.setSize(new Dimension(75, 35));
 		topBar.add(back);
 		topBar.add(Box.createHorizontalStrut(30));
@@ -208,7 +234,14 @@ public class GUIOptionsPage extends JPanel{
 		add(fullBar, BorderLayout.CENTER);
 	}
 	
-	
+	public class BacktoBasicActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			driver.changePage(new GUIBasicPage(driver));			
+		}
+		
+	}
 	
 	//Creates a Vocab Game
 	public class MakePageListener implements ActionListener {
@@ -232,9 +265,11 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 3:
 				//create a vocab game
+				driver.changePage(new GUIVocabGame(driver.vGameMaker.makeLevel(_levelNum), driver));
 				break;
 			case 4:
 				//create a grammar game
+				driver.changePage(new GUIGrammarGame(driver.gGameMaker.makeLevel(_levelNum), driver));
 				break;
 			case 5:
 				//create a boss game
@@ -243,4 +278,15 @@ public class GUIOptionsPage extends JPanel{
 		}
 	}
 	
+	public static void main(String[] args){
+		/*GUIOptionsPage myPage = new GUIOptionsPage(new Driver());
+		JFrame mainFrame = new JFrame("E Learning");
+		mainFrame.setPreferredSize(new Dimension(1000, 700));
+		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		mainFrame.add(myPage, BorderLayout.CENTER);
+		
+		mainFrame.pack();
+		mainFrame.setResizable(false);
+		mainFrame.setVisible(true);*/
+	}
 }

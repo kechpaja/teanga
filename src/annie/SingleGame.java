@@ -9,22 +9,21 @@ public class SingleGame {
 	public int bestScore;
 	public int neededScore;
 	public int bestTime;
-	public int neededTime;
 	
-	public SingleGame(Boolean u, Boolean t, int nS, int nT)
+	public SingleGame(Boolean u, Boolean t, int nS)
 	{
 		unlocked=u;
 		timeRelevent=t;
-		//files=f;
 		neededScore=nS;
-		neededTime=nT;
 		bestScore=0;
 		bestTime=0;
 	}
 	
-	public SingleGame()
+	public boolean isDefeated()
 	{
+		return bestScore>=neededScore;
 	}
+	
 
 	int updateSingleGame(int score, int time) 
 	{
@@ -33,10 +32,18 @@ public class SingleGame {
 		{
 			ret=score-bestScore;
 			bestScore=score;
+			if(bestScore>=neededScore)
+			{
+				unlocked=true;
+			}
 		}
-		if(time>bestTime)
+		if(timeRelevent)
 		{
-			bestTime=time;
+			if(time>bestTime)
+			{
+				bestTime=time;
+				
+			}
 		}
 		return ret;
 	}

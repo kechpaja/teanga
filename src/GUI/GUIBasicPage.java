@@ -6,16 +6,23 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
+import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.LinkedList;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.NoSuchPaddingException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JList;
@@ -35,12 +42,20 @@ public class GUIBasicPage extends JPanel{
 	Driver _driver;
 	JList nameList;
 	JPasswordField passField;
+	JButton submitB, addUserB;
 	Box _passOrUser;
 	JPanel _passPanel, _newUserPanel;
+	JTextField newNameField;
+	JPasswordField newPassField;
+	Box verticalBox;
+	String[] genderChoices = {"Male", "Female", "Other"};
+	JComboBox genderChoice;
+	boolean isSelectedUser;
 
 	public GUIBasicPage(Driver driver){
 		super(new BorderLayout());
 		_driver = driver;
+		isSelectedUser = true;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -58,9 +73,8 @@ public class GUIBasicPage extends JPanel{
 		
 		//Make the username list
 		JPanel listpane = new JPanel(new BorderLayout());
-		String usernames[] = {"Kelvin", "Annie", "Tara", "Danielle"};
 
-		//String usernames[] = (String[]) openingpage.getUsernames().toArray();
+		String[] usernames = _driver.openingpage.getUsernames().toArray(new String[0]);
 		
 		Border compound = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,350,30,350), BorderFactory.createLineBorder(Color.black));
 		nameList = new JList(usernames);
@@ -71,9 +85,9 @@ public class GUIBasicPage extends JPanel{
 		JPanel buttonpane = new JPanel();
 		buttonpane.setLayout(new BoxLayout(buttonpane, BoxLayout.Y_AXIS));
 		
-		JButton submitB = new JButton("Submit");
+		submitB = new JButton("Submit");
 		submitB.addActionListener(new SubmitActionListener());
-		JButton addUserB = new JButton("Add User");
+		addUserB = new JButton("Add User");
 		addUserB.addActionListener(new AddUserActionListener());
 		passField = new JPasswordField(20);
 		JLabel passLabel = new JLabel("Password: ");
@@ -90,26 +104,30 @@ public class GUIBasicPage extends JPanel{
 		Box newUserBox = Box.createHorizontalBox();
 		JLabel newName = new JLabel("New Username: ");
 		JLabel newPass = new JLabel("New Password: ");
-		JTextField newNameField = new JTextField("20");
-		JTextField newPassField = new JTextField("20");
+		newNameField = new JTextField();
+		newPassField = new JPasswordField();
+		genderChoice = new JComboBox(genderChoices);
 		newUserBox.add(Box.createHorizontalStrut(200));
 		newUserBox.add(newName);
 		newUserBox.add(newNameField);
 		newUserBox.add(Box.createHorizontalStrut(20));
 		newUserBox.add(newPass);
 		newUserBox.add(newPassField);
+		newUserBox.add(genderChoice);
 		newUserBox.add(Box.createHorizontalStrut(200));
 		_newUserPanel.add(newUserBox, BorderLayout.CENTER);
 		
 		_passOrUser = Box.createHorizontalBox();
 		_passOrUser.add(_passPanel);
 		
-		Box verticalBox = Box.createVerticalBox();
+		verticalBox = Box.createVerticalBox();
 	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
-	    verticalBox.add(_passOrUser);
-	    verticalBox.add(Box.createVerticalStrut(10));
-	    verticalBox.add(submitB);
-	    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+	    if (!_driver.openingpage.getUsernames().isEmpty()){
+		    verticalBox.add(_passOrUser);
+		    verticalBox.add(Box.createVerticalStrut(10));
+	    	verticalBox.add(submitB);
+	    	verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+	    }
 	    verticalBox.add(addUserB);
 	    verticalBox.add(Box.createVerticalStrut(110));
 	    submitB.setAlignmentX(CENTER_ALIGNMENT);
@@ -135,14 +153,17 @@ public class GUIBasicPage extends JPanel{
 	public void passBoxNewUser(){
 		_passOrUser.removeAll();
 		_passOrUser.add(_newUserPanel);
+		isSelectedUser = false;
 		this.revalidate();
 	}
 	
 	public void passBoxPass(){
 		_passOrUser.removeAll();
 		_passOrUser.add(_passPanel);
+		isSelectedUser = true;
 		this.revalidate();
 	}
+	
 	
 	private class mySelectionListener implements ListSelectionListener{
 
@@ -157,13 +178,20 @@ public class GUIBasicPage extends JPanel{
 		}
 		
 	}
-	
+
+		
 	private class AddUserActionListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
-			
+			passBoxNewUser();
+			verticalBox.removeAll();
+		    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+		    verticalBox.add(_passOrUser);
+		    verticalBox.add(Box.createVerticalStrut(10));
+			verticalBox.add(submitB);
+	    	verticalBox.add(Box.createVerticalStrut(75));
+			verticalBox.revalidate();
 		}
 		
 	}
@@ -171,14 +199,17 @@ public class GUIBasicPage extends JPanel{
 	private class SubmitActionListener implements ActionListener{
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (_driver.getUserName() == null){
+			if (isSelectedUser){
+				if (_driver.getUserName() == null){
 				String infoMessage = "Please select an existing user";
 				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
 				return;
-			} else {
+				} else {
 				try {
 					if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
-						
+						_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
+						_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+
 					} else {
 						String infoMessage = "Incorrect Password";
 						JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
@@ -200,8 +231,51 @@ public class GUIBasicPage extends JPanel{
 				} catch (InvalidAlgorithmParameterException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
+				} catch (IllegalBlockSizeException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				} catch (BadPaddingException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
+				} catch (IOException e2) {
+					// TODO Auto-generated catch block
+					e2.printStackTrace();
 				}
-			
+			} 
+				
+		} else {
+			int gender = genderChoice.getSelectedIndex();
+			String newName = newNameField.getText();
+			try {
+				if (_driver.openingpage.usernameAvailable(newName)){
+					_driver.setUserName(newName);
+					_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
+					_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+				} else {
+					String infoMessage = "The user name " + newName + " is already taken. Please try another.";
+					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
+					return;
+				}
+			} catch (InvalidKeyException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidKeySpecException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchPaddingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidAlgorithmParameterException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
 		}
 		
 	}

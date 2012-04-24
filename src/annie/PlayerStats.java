@@ -13,18 +13,14 @@ public class PlayerStats {
 	// Stores all of the vocab and grammar games for each user.  
 	//Instantiated with all of the SingleGames avaialable and intialized to locked, 
 	//also initializes all of the other key pieces of data for each game.
-	int levels=4;
+	int levels=6;
 	int games=3;
-	//private LinkedList<String> tempFiles= new LinkedList<String>() {{add("String1"); add("String2");}};
 	private SingleGame[][] userGames = new SingleGame[levels][games];
 	private Boolean[][] unlocked = {{true,true,false},{false,false,false},
-			{false,false,false},{false,false,false},{false,false,false}};
+			{false,false,false},{false,false,false},{false,false,false},{false,false,false}};
 	private Boolean[][] timeRelevent = {{true,false,false},{true,false,false},
-			{true,false,false},{true,false,false},{true,false,false}};
-	private int[][] time = {{5,0,0},{5,0,0},{5,0,0},{5,0,0},{5,0,0}};
-	private int[][] points = {{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100}};
-	//private LinkedList<String>[][] files= {{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},
-	//		{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles},{tempFiles,tempFiles,tempFiles}};
+			{true,false,false},{true,false,false},{true,false,false},{true,false,false}};
+	private int[][] points = {{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100},{50,20,100}};
 	private String userName;
 	private int gender;
 	private int totalPoints;
@@ -41,10 +37,7 @@ public class PlayerStats {
 		byte[] salt = new byte[8];
 		String forSalt="alwaysth";
 		salt=forSalt.getBytes();
-		//System.out.println(salt.length);
 		PBEParameterSpec parameterSpec = new PBEParameterSpec(salt, 100);
-		/*byte[] keyBytes = Arrays.copyOf(username.getBytes("utf-8"), 24);
-		SecretKey key = new SecretKeySpec(keyBytes, "DESede");*/
 		encrypt= Cipher.getInstance("PBEWithMD5AndDES");
 		decrypt = Cipher.getInstance("PBEWithMD5AndDES");
 		encrypt.init(Cipher.ENCRYPT_MODE, key,parameterSpec);
@@ -54,7 +47,7 @@ public class PlayerStats {
 	    	for(int j=0; j<games; j++)
 		    {
 	    		userGames[i][j]=new SingleGame(unlocked[i][j], timeRelevent[i][j],
-	    				points[i][j],time[i][j]);
+	    				points[i][j]);
 		    }
 		}
 		decode();
@@ -64,6 +57,7 @@ public class PlayerStats {
 	{
 		gender=gen;
 		userName=username;
+		totalPoints=0;
 		username=username+"padding to make sure it is at least 24 bytes";
 		PBEKeySpec keySpec = new PBEKeySpec(userName.toCharArray());
 		SecretKeyFactory keyFactory =SecretKeyFactory.getInstance("PBEWithMD5AndDES");
@@ -71,10 +65,7 @@ public class PlayerStats {
 		byte[] salt = new byte[8];
 		String forSalt="alwaysth";
 		salt=forSalt.getBytes();
-		//System.out.println(salt.length);
 		PBEParameterSpec parameterSpec = new PBEParameterSpec(salt, 100);
-		/*byte[] keyBytes = Arrays.copyOf(username.getBytes("utf-8"), 24);
-		SecretKey key = new SecretKeySpec(keyBytes, "DESede");*/
 		encrypt= Cipher.getInstance("PBEWithMD5AndDES");
 		decrypt = Cipher.getInstance("PBEWithMD5AndDES");
 		encrypt.init(Cipher.ENCRYPT_MODE, key,parameterSpec);
@@ -84,7 +75,7 @@ public class PlayerStats {
 	    	for(int j=0; j<games; j++)
 		    {
 	    		userGames[i][j]=new SingleGame(unlocked[i][j], timeRelevent[i][j],
-	    				points[i][j],time[i][j]);
+	    				points[i][j]);
 		    }
 		}
 	}		
@@ -97,30 +88,6 @@ public class PlayerStats {
 	    CipherOutputStream cos;
 	    
 	    fos = new FileOutputStream(userName);
-	    /*cos = new CipherOutputStream(fos, encrypt);
-	    byte[] b = gender.getBytes();
-	    cos.write(b);
-	    b = (" "+totalPoints+" ").getBytes();
-	    cos.write(b);
-	    for(int i=0; i<levels; i++)
-	    {
-	    	for(int j=0; j<games; j++)
-		    {
-	    		b = (Boolean.toString(userGames[i][j].unlocked)+" ").getBytes();
-	    	    cos.write(b);
-	    	    if(userGames[i][j].unlocked)
-	    	    {
-	    	    	b = (userGames[i][j].bestScore+" ").getBytes();
-		    	    cos.write(b);
-		    	    b = (userGames[i][j].bestTime+" ").getBytes();
-		    	    cos.write(b);    
-	    	    }
-	    	    b = ("<ENDOFGAME> ").getBytes();
-	    	    cos.write(b);
-		    }  	
-	    }	    
-	    cos.flush();
-	    cos.close();*/
 	    String toEncrypt="";
 	    toEncrypt= toEncrypt+gender;
 	    toEncrypt= toEncrypt+" "+totalPoints+" ";
@@ -136,15 +103,11 @@ public class PlayerStats {
 	    toEncrypt=toEncrypt+"So much buffer so the ending won't be messed up";
 	    //tampering with this file will have no effect on the game
 	    FileWriter fstream = new FileWriter(userName+"temp");
-	    		//new FileWriter(userName+"_temp");
 	    BufferedWriter out = new BufferedWriter(fstream);
 	    out.write(toEncrypt);
 	    out.flush();
 	    out.close();
-	    //out.write("test");
-	    //System.out.println(toEncrypt);
 	    FileInputStream inFile = new FileInputStream(userName+"temp");
-	    		//new FileInputStream(userName+"_temp");
 
 	    byte[] input = new byte[64];
 	    int bytesRead;
@@ -186,12 +149,7 @@ public class PlayerStats {
 			 t=t+new String(output);
 		  
 		 fis.close();
-		 /*byte[] b = new byte[cis.available()];
-		 cis.read(b,0, cis.available()); 
-		 String temp= new String(b);*/
 		 String[] data=t.split(" ");
-		 //String[] data= Arrays.toString(b).split(" ");
-		 //System.out.println(t);
 		 gender= Integer.parseInt(data[0]);
 		 totalPoints= Integer.parseInt(data[1]);
 		 int index=2;
@@ -227,16 +185,48 @@ public class PlayerStats {
 		return totalPoints;
 	}
 
+	public boolean isUnlocked(int i, int j)
+	{
+		if(j<2)
+		{
+			return true;
+		}
+		return userGames[i][j-2].unlocked;
+	}
+	
 	//Refreshes the entire PlayerStats file, updating total points 
 	//and and top points for the given game in the given level if necessary
 	public void RefreshStats(int level, int game, int score, int time) 
 	{
 		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
+
+		System.out.println("In main if loop!");
+		Boolean before=true;
+		for(int j=0; j<games-1; j++)
+		{
+			System.out.println("j: " +
+		j+ "----"+userGames[level][j].isDefeated());
+			if(userGames[level][j].isDefeated()!=true)
+				before=false;
+		}
+		if(before)
+		{
+			System.out.println("I shouldn't be here!");
+			userGames[level][games-1].unlocked=true;
+		}
+		if(game==games-1&&level!=levels-1)
+		{
+			for(int j=0; j<games-1; j++)
+			{
+				userGames[level+1][j].unlocked=true;
+			}
+		}
 	}
 	
 	//Returns the appropriate SingleGame from the userGames array
 	public SingleGame getSingleGame(int level, int game) 
 	{
+		
 		return userGames[level][game];
 	}
 /*

@@ -13,7 +13,7 @@ public class GrammarGameMaker implements GameMaker{
 	public GrammarLevel makeLevel(int levelNum){
 		List<SentencePicturePair> spps = exercises.selectGRandomly(levelNum);
 		String help = helpBox.getGHelp(levelNum);
-		return new GrammarLevel(spps, help);
+		return new GrammarLevel(spps, help, levelNum);
 	}
 
 }

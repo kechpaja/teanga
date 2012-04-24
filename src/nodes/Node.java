@@ -7,23 +7,15 @@ import rules.AgreementRule;
 
 public abstract class Node {
 
-	protected Type type_;
+	//protected Type type_;
 	
-	// TODO update this to work with new typing system
 	// these should be visible only to subclasses
 	Pos pos_;
 	NumMarker number_;
 	Case cm_;
 	Tense t_;
 	
-	
-	// getters 
-	
-	public Type getType() {
-		return type_;
-	}
-	
-	// new getters
+	// GETTERS
 
 	public Pos getPos() {
 		return pos_;
@@ -41,11 +33,17 @@ public abstract class Node {
 		return t_;
 	}
 	
-	public void visit(List<AgreementRule> rules, List<Mistake> mistakes) {
-		// TODO this method does nothing, will be overriden. 
+	public abstract int getLeftIndex();
+	
+	public abstract int getRightIndex();
+	
+	public void visit(List<Mistake> mistakes) {
+		// this method does nothing, will be overriden. 
 	}
 	
 	// Agreement methods
+	
+	// check for case agreement
 	public boolean agreesInCase(Node node) {
 		if (node == null) {
 			return true;
@@ -55,6 +53,7 @@ public abstract class Node {
 		return cm_ == null || node.getCase() == null || cm_ == node.getCase();
 	}
 	
+	// check for number agreement
 	public boolean agreesInNumber(Node node) {
 		if (node == null) {
 			return true;
@@ -63,6 +62,7 @@ public abstract class Node {
 		return number_ == null || node.getNumMarker() == null || number_ == node.getNumMarker();
 	}
 	
+	// check for tense agreement
 	public boolean agreesInTense(Node node) {
 		if (node == null) {
 			return true;

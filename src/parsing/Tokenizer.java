@@ -18,32 +18,39 @@ public class Tokenizer {
 	public void init(List<Mistake> mistakes) {
 		//TODO split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
+		String punct = null;
+		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
+			sentence_ = sentence_.substring(0, sentence_.length() - 1);
+			punct = sentence_.substring(sentence_.length() - 1);;
+		}
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
 		tokens_ = new LinkedList<Token>();
+		int left = 0;
 		for (String s : words) {
 			// check pos from ending
 			Pos pos = null;
 			NumMarker num = null;
 			Case c = null;
 			Tense tense = null;
+			if (s.equals("")) {
+				// deal with empty strings... TODO
+				left++;
+				continue;
+			}
 			
 			// check the endings
-			if (s.equals("la")) {
+			else if (s.equals("la")) {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
 			} else if (s.equals("en") || s.equals("al") || s.equals("de")) {
 				pos = Pos.PREPOSITION;
-			//	num = null; // sometimes we may be able to check...
-			//	c = null; // again, not entirely sure
-				//pos = Type.PREP; //TODO we need a list of prepositions to check against
+				//TODO we need a list of prepositions to check against
 			}
 			
 			else if (s.matches(".*e$")) {
 				pos = Pos.ADVERB;
-			//	num = null;
-			//	c = null; // TODO maybe...
 			}
 			
 			else if (s.matches(".*o$")) {
@@ -102,20 +109,22 @@ public class Tokenizer {
 				tense = Tense.INFINITIVE;
 			}
 			
-			// TODO mark verb as finite/non-finite? 
-			
 			// TODO correlatives
-			// TODO tenses
 			
 			else {
 				pos = null;
 			}
 			
 			// create token
-			tk = new Token(s, pos, num, c, tense);
+			tk = new Token(s, pos, num, c, tense, left, left + s.length() + 1);
+			left += s.length() + 1;
 			
 			// add to token list
 			tokens_.add(tk);
+		}
+		
+		if (punct != null) {
+			tokens_.add(new Token(punct, Pos.PUNCTUATION, null, null, null, sentence_.length() - 1, sentence_.length()));
 		}
 		
 	}

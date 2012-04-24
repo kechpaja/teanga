@@ -6,7 +6,6 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
-import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -23,16 +22,23 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 
+import ELearning.Driver;
+import ELearning.GrammarLevel;
+
 public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
 	private int _maxChars;
 	private ArrayList<Rectangle> _rectBlanks;
 	private String[] _possible;
+	private GrammarLevel _grammarLevel;
+	private Driver _driver;
 
-	public GUIGrammarGame(){
+	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
 
+		_driver = d;
+		_grammarLevel = gl;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -259,12 +265,23 @@ public class GUIGrammarGame extends JPanel{
 		return panel;
 	}
 	
-	public class SubmitListener implements ActionListener {
+	private class SubmitListener implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			//check answers
 		}
+	}
+	
+	private class backtoOptionsActionListener implements ActionListener {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), 0);
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			
+		}
+		
 	}
 
 }
