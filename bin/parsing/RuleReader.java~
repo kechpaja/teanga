@@ -1,0 +1,118 @@
+package parsing;
+
+import java.io.*;
+import java.util.*;
+import rules.*;
+
+public class RuleReader {
+	
+	/*
+	 * Format for storing rules in a file:
+	 * 
+	 * syntactic:
+	 * <syntactic rules, one per line>
+	 * agreement:
+	 * <agreement rules>
+	 * semantic:
+	 * <semantic rules>
+	 * 
+	 * Syntactic Rules are of this form:
+	 * 
+	 * Binary: A B C
+	 * 
+	 * Unary: A B
+	 * 
+	 * The words "unary" and "binary" are not included, since one can tell from the number of items...
+	 * 
+	 */
+	/*
+	private SyntacticRule parseSynRule(String line) {
+		String[] spl = line.split("\\s");
+		
+		if (spl.length == 2) {
+			
+			//TODO unary rule
+		} else if (spl.length == 3) {
+<<<<<<< HEAD
+			String[] s = spl[0].split(":");
+			return new SyntacticRule();
+=======
+			//return new SyntacticRule();
+>>>>>>> d589509d203e36dfb4066e43cac9538e16b8c8d6
+			// TODO binary rule
+		} else {
+			// TODO error of some sort
+		}
+		
+		
+		// TODO finish
+		return null;
+	}
+	
+	
+	// parses out an agreement rule
+	private AgreementRule parseAgRule(String line) {
+		return null;
+	}
+	
+	// parses out a semantic rule
+	private SemanticRule parseSemRule(String line) {
+		return null;
+	}
+	
+	// a method to read in rules and put them into lists
+	public RuleSet ruleRead(String file) {
+		RuleSet ruleset = null;
+		
+		try {
+			BufferedReader r = new BufferedReader(new FileReader(file));
+			
+			// create lists
+			List<SyntacticRule> synrules = new LinkedList<SyntacticRule>();
+			List<AgreementRule> agrules = new LinkedList<AgreementRule>();
+			List<SemanticRule> semrules = new LinkedList<SemanticRule>();
+			
+			String line = r.readLine();
+			
+			if (!line.equals("syntactic:")) {
+				// TODO some error message
+			}
+			
+			// iterate through the lines of syntactic rules; 
+			while (!line.equals("agreement:")) {
+				synrules.add(parseSynRule(line));
+				line = r.readLine();
+			}
+			
+			// move forward one
+			line = r.readLine();
+			
+			while (!line.equals("semantic:")) {
+				agrules.add(parseAgRule(line));
+				line = r.readLine();
+			}
+			
+			// move forward one
+			line = r.readLine();
+			
+			while (line != null) {
+				semrules.add(parseSemRule(line));
+				line = r.readLine();
+			}
+			
+			ruleset = new RuleSet(synrules, agrules, semrules);
+			
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		return ruleset;
+	}
+	
+	*/
+
+}
