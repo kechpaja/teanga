@@ -1,16 +1,19 @@
 -Pressing enter from password field should be the same as pressing submit.
+-Enter/Submit on first page should do more reasonable things 
+	(and you should be able to go back from add new user to choose existing user)
 -Stars/some way of indicating which games are completed
 -Some way of indicating best score/necessary score in games
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
 -padding on help and dictionary
--appropriate numbering in grammar game
--reasonable necessary scores
--skip button in grammar game?
--game completed screen
+TN-reasonable necessary scores
+TN-skip button in grammar game?
+TN-game completed screen
 -show name on all screens
 -pop incorrect answers back to original positions in the grammar game
 -show score on in-game screens
+-better error handling in case an image isn't found
+-add kelvin's text listener to all Textfield listeners
 
 -make code more consistent
 
