@@ -13,12 +13,18 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
+import ELearning.Driver;
+
 public class GUIVocabLearn extends JPanel{
+	Driver _driver;
+	int _levelNum;
 	
-	public GUIVocabLearn(){
+	public GUIVocabLearn(Driver d, int ln){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,100,255));
 		
+		_driver = d;
+		_levelNum = ln;
 		JPanel overall = new JPanel(new BorderLayout());
 		JScrollPane scrollPane = new JScrollPane(overall);
 		
@@ -61,13 +67,13 @@ public class GUIVocabLearn extends JPanel{
 	}
 
 	public static void main(String[] args){
-		GUIVocabLearn panel = new GUIVocabLearn();
+		/*GUIVocabLearn panel = new GUIVocabLearn();
 		JFrame frame = new JFrame();
 		frame.setPreferredSize(new Dimension(1000,700));
 		frame.add(panel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		frame.setVisible(true);
+		frame.setVisible(true);*/
 	}
 }

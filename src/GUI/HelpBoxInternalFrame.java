@@ -66,7 +66,9 @@ public class HelpBoxInternalFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			// TODO Auto-generated method stub
+			if (isVocab){
+				_driver.changePage(new GUIVocabLearn(_driver, lessonNum));
+			} // TODO: when there is a grammar lesson page else _driver.changePage(new GUIGrammarLearn(_driver))
 			
 		}
 		
