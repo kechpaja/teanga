@@ -101,7 +101,7 @@ public class GUIVocabGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			driver.getPlayerStats().RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), 0);
+			driver.getPlayerStats().RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), _gameBoard.getSeconds());
 			driver.changePage(new GUIOptionsPage(driver, driver.getPlayerStats()));
 			
 		}

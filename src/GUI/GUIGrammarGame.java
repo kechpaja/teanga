@@ -61,7 +61,6 @@ public class GUIGrammarGame extends JPanel{
 		
 		_picLabel = null;
 		
-		System.out.println(picPath);
 		try {
 			BufferedImage pic = ImageIO.read(new File(picPath));
 			int type = BufferedImage.TYPE_INT_RGB;
@@ -276,8 +275,8 @@ public class GUIGrammarGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			
 			_rectBlanks = _choicePanel.getBlanks();
-			boolean correct = true;
-			/*for(int i = 0; i < _rectBlanks.size(); i++){
+			/*boolean correct = true;
+			for(int i = 0; i < _rectBlanks.size(); i++){
 				System.out.println(_rectBlanks.get(i).getFill() == null);
 				String guess = _rectBlanks.get(i).getFill().getWord();
 				String ans = _rectBlanks.get(i).getCorrect();
@@ -288,12 +287,17 @@ public class GUIGrammarGame extends JPanel{
 				}
 			}*/
 			if (_grammarLevel.submitWhole()){
-				System.out.println("correct");
-				_horizontalChoice.removeAll();
-				_choicePanel = makeSentanceBox(_grammarLevel.getCurrent().getPartialSentence());
-				_horizontalChoice.add(_choicePanel);
-				_panel.revalidate();
-				} else _choicePanel.notCorrect();
+				//check if this was the last unit
+				if (_grammarLevel.isOver()){
+					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+				} else {
+					_horizontalChoice.removeAll();
+					_choicePanel = makeSentanceBox(_grammarLevel.getCurrent().getPartialSentence());
+					_horizontalChoice.add(_choicePanel);
+					_panel.revalidate();
+				}
+			} else _choicePanel.notCorrect();
 			//TODO: pass correct to grammarLevel
 		}
 	}

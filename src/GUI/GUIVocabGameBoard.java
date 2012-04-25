@@ -61,6 +61,9 @@ public class GUIVocabGameBoard extends JPanel {
 		addPiece();
 
 	}
+	public int getSeconds(){
+		return seconds;
+	}
 
 
 	public void addPiece(){
@@ -68,7 +71,7 @@ public class GUIVocabGameBoard extends JPanel {
 		// be more complete in the final version.
 		if(_top == 5){
 			_timer.stop();
-			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), 0);
+			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), getSeconds());
 			_driver.changePage(new GUIOptionsPage(_driver, _playerStats));
 		}
 		else{
