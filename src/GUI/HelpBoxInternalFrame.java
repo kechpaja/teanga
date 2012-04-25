@@ -26,20 +26,21 @@ public class HelpBoxInternalFrame extends JFrame{
 	private JButton backToLesson;
 	private JTextArea help;
 	private JScrollPane helpScrollPane;
-	private boolean isVocab;
+	private int activityType;
 	private int lessonNum;
 	JPanel overall = new JPanel(new BorderLayout());
 	
-	public HelpBoxInternalFrame(String levelHelp, boolean isV, int ln, Driver d){
+	public HelpBoxInternalFrame(String levelHelp, int at, int ln, Driver d){
 		super("Help");
 		
 		_driver = d;
-		isVocab = isV;
+		activityType = at;
 		lessonNum = ln;
 		this.setBackground(new Color(100,110,255,255));
 		//overall.setSize(500, 500);
 
-		backToLesson = new JButton("Search");
+		backToLesson = new JButton("more help");
+		backToLesson.addActionListener(new helpActionListener());
 		help = new JTextArea(levelHelp);
 		help.setSize(250, 300);
 		//Make overall container
@@ -62,13 +63,32 @@ public class HelpBoxInternalFrame extends JFrame{
 		this.setVisible(true);
 	}
 	
-	private class backToLessonActionListener implements ActionListener{
+	private class helpActionListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			if (isVocab){
+			switch (activityType){
+			//helpbox is already in a vocab lesson
+			case 0:
+				break;
+			//helpbox is in a grammar lesson
+			case 1:
+				break;
+			//helpbox is in a vocab game. goes back to relevant vocab lesson
+			case 2:
 				_driver.changePage(new GUIVocabLearn(lessonNum, _driver));
-			} // TODO: when there is a grammar lesson page else _driver.changePage(new GUIGrammarLearn(_driver))
+				break;
+			//helpbox is in a grammar game. goes back to relevant grammar lesson
+			case 3:
+				break;
+			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
+			case 4:
+				break;
+			//helpbox is not in an activity, goes back to help section of whole game
+			default:
+				break;
+				
+			}
 			
 		}
 		

@@ -40,7 +40,7 @@ import ELearning.Driver;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
-	Driver driver;
+	Driver _driver;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -56,7 +56,7 @@ public class GUIOptionsPage extends JPanel{
 			e.printStackTrace();
 		}
 		
-		driver = d;
+		_driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -226,6 +226,7 @@ public class GUIOptionsPage extends JPanel{
 		bottomBar.add(help);
 		bottomBar.add(dictionary);
 		bottomBar.add(Box.createHorizontalStrut(15));
+		help.addActionListener(new HelpButtonListener());
 		dictionary.addActionListener(new DictionaryButtonListener());
 		
 		add(topBar,BorderLayout.NORTH);
@@ -242,7 +243,7 @@ public class GUIOptionsPage extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			driver.changePage(new GUIBasicPage(driver));			
+			_driver.changePage(new GUIBasicPage(_driver));			
 		}
 		
 	}
@@ -251,7 +252,17 @@ public class GUIOptionsPage extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(driver.getDictionary());
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("Welcome to ELearning! The page you're looking at contains several vocabulary and grammar lessons (the right two columns), and corresponding games to test your knowledge of them. Start in the top left, and play the games to unlock later levels.", 
+																		-1, -1, _driver);
 		}
 		
 	}
@@ -272,22 +283,22 @@ public class GUIOptionsPage extends JPanel{
 			switch(_type){
 			case 1:
 				//create a vocab learning activity
-				driver.changePage(new GUIVocabLearn(_levelNum, driver));
+				_driver.changePage(new GUIVocabLearn(_levelNum, _driver));
 				break;
 			case 2:
 				//create a grammar learning activity
 				break;
 			case 3:
 				//create a vocab game
-				driver.changePage(new GUIVocabGame(driver.getVocabGameMaker().makeLevel(_levelNum), driver));
+				_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 4:
 				//create a grammar game
-				driver.changePage(new GUIGrammarGame(driver.getGrammarGameMaker().makeLevel(_levelNum), driver));
+				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
-				driver.changePage(new GUIBossGame(driver.getBossGameMaker().makeLevel(_levelNum), driver));
+				_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}
 		}
