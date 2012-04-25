@@ -29,10 +29,12 @@ public class HelpBoxInternalFrame extends JFrame{
 	private int activityType;
 	private int lessonNum;
 	JPanel overall = new JPanel(new BorderLayout());
+	JFrame toClose;
 	
 	public HelpBoxInternalFrame(String levelHelp, int at, int ln, Driver d){
 		super("Help");
 		
+		toClose = this;
 		_driver = d;
 		activityType = at;
 		lessonNum = ln;
@@ -68,18 +70,29 @@ public class HelpBoxInternalFrame extends JFrame{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			switch (activityType){
-			//helpbox is already in a vocab lesson
+			//helpbox is already in a vocab lesson. goes back to previous grammar lesson
 			case 0:
+				if (lessonNum>0){
+					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
+					toClose.dispose();
+				}
 				break;
-			//helpbox is in a grammar lesson
+			//helpbox is in a grammar lesson. goes back to previous grammar lesson
 			case 1:
+				if (lessonNum>0){
+					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
+					toClose.dispose();
+				}
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
 			case 2:
 				_driver.changePage(new GUIVocabLearn(lessonNum, _driver));
+				toClose.dispose();
 				break;
 			//helpbox is in a grammar game. goes back to relevant grammar lesson
 			case 3:
+				_driver.changePage(new GUIGrammarLearn(lessonNum, _driver));
+				toClose.dispose();
 				break;
 			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
 			case 4:

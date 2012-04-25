@@ -27,15 +27,14 @@ import ELearning.GrammarLevel;
 
 public class GUIGrammarGame extends JPanel{
 	
-	private JLabel _picLabel, _currNumLabel, _totalNumLabel;
+	private JLabel _picLabel, _currNumLabel, _totalNumLabel, outofLabel;
 	private int _maxChars;
 	private ArrayList<GUIGrammarBlank> _rectBlanks;
 	private GUIGrammarChoicePanel _choicePanel;
-	private String[] _possible, _correct;
 	private GrammarLevel _grammarLevel;
 	private Driver _driver;
 	private JPanel _panel;
-	private Box _horizontalChoice;
+	private Box _horizontalChoice, topHoriz;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
@@ -54,10 +53,6 @@ public class GUIGrammarGame extends JPanel{
 		_maxChars = 60;
 		
 		String picPath = gl.getCurrent().getPicturePath();
-		String correct[] = {"cat", "chair", "bee"};
-		String arr[] = {"cat", "chair", "bee", "wasp", "frog"};
-		_possible = arr;
-		_correct = correct;
 		
 		_picLabel = null;
 		
@@ -79,7 +74,7 @@ public class GUIGrammarGame extends JPanel{
 		Box mainVertical = Box.createVerticalBox();
 		overall.add(mainVertical, BorderLayout.CENTER);
 		
-		Box topHoriz = Box.createHorizontalBox();
+		topHoriz = Box.createHorizontalBox();
 		Box picHoriz = Box.createHorizontalBox();
 		_horizontalChoice = Box.createHorizontalBox();
 		Box submitHoriz = Box.createHorizontalBox();
@@ -95,9 +90,9 @@ public class GUIGrammarGame extends JPanel{
 		mainVertical.add(Box.createVerticalStrut(20));
 		
 		topHoriz.add(Box.createHorizontalStrut(750));
-		_currNumLabel = new JLabel("1");
-		_totalNumLabel = new JLabel("10");
-		JLabel outofLabel = new JLabel(" of ");
+		_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
+		_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
+		outofLabel = new JLabel(" of ");
 		_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 		_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 		outofLabel.setFont(new Font("Century", Font.BOLD, 25));
@@ -117,8 +112,22 @@ public class GUIGrammarGame extends JPanel{
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton back = new JButton("Back");
+		back.addActionListener(new backtoOptionsActionListener());
+		back.setSize(new Dimension(75, 35));
+
+		topBar.add(back);
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton help = new JButton("Help");
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(75, 35));
+		help.setSize(new Dimension(75, 35));
+		bottomBar.add(help);
+		bottomBar.add(dictionary);
+		bottomBar.add(Box.createHorizontalStrut(15));
+		help.addActionListener(new HelpButtonListener());
+		dictionary.addActionListener(new DictionaryButtonListener());
 
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
@@ -275,27 +284,31 @@ public class GUIGrammarGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			
 			_rectBlanks = _choicePanel.getBlanks();
-			/*boolean correct = true;
-			for(int i = 0; i < _rectBlanks.size(); i++){
-				System.out.println(_rectBlanks.get(i).getFill() == null);
-				String guess = _rectBlanks.get(i).getFill().getWord();
-				String ans = _rectBlanks.get(i).getCorrect();
-				
-				if(!guess.equals(ans)){
-					correct = false;
-					break;
-				}
-			}*/
 			if (_grammarLevel.submitWhole()){
 				//check if this was the last unit
 				if (_grammarLevel.isOver()){
 					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
 					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 				} else {
+					//update choicePanel
 					_horizontalChoice.removeAll();
 					_choicePanel = makeSentanceBox(_grammarLevel.getCurrent().getPartialSentence());
 					_horizontalChoice.add(_choicePanel);
+					//and update the current number
+					topHoriz.removeAll();
+					topHoriz.add(Box.createHorizontalStrut(750));
+					_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
+					_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
+					outofLabel = new JLabel(" of ");
+					_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+					_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+					outofLabel.setFont(new Font("Century", Font.BOLD, 25));
+					topHoriz.add(_currNumLabel);
+					topHoriz.add(outofLabel);
+					topHoriz.add(_totalNumLabel);
+					topHoriz.add(Box.createHorizontalStrut(30));
 					_panel.revalidate();
+					
 				}
 			} else _choicePanel.notCorrect();
 			//TODO: pass correct to grammarLevel
@@ -309,6 +322,28 @@ public class GUIGrammarGame extends JPanel{
 			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), 0);
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
+		}
+		
+	}
+	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_grammarLevel.decrementScore(2);
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+
+			
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_grammarLevel.decrementScore(2);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 1, _grammarLevel.getLevelNum(), _driver);
 		}
 		
 	}

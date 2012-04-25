@@ -7,6 +7,17 @@ public class GrammarLevel extends LevelInstance {
 	private SentencePicturePair current;
 	private String help;
 	private int levelNum;
+	private int currentNum;
+	private int totalNum;
+	
+	
+	public int getCurrentNum(){
+		return currentNum;
+	}
+	
+	public int getTotalNum(){
+		return totalNum;
+	}
 	
 	public int getLevelNum(){
 		return levelNum;
@@ -22,6 +33,8 @@ public class GrammarLevel extends LevelInstance {
 		current = upNext.remove(0);
 		help = h;
 		levelNum = ln;
+		currentNum = 1;
+		totalNum = un.size()+1;
 	}
 	
 	public SentencePicturePair getCurrent(){
@@ -36,6 +49,7 @@ public class GrammarLevel extends LevelInstance {
 		if (current.isFinished()){
 			try{
 			current = upNext.remove(0);
+			currentNum++;
 			} catch(IndexOutOfBoundsException e){
 				this.isOver = true;
 			}

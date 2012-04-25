@@ -17,6 +17,10 @@ public abstract class LevelInstance {
 		return score;
 	}
 	
+	public void decrementScore(int amt){
+		score = score - amt;
+	}
+	
 	
 	public String getHelp(int level, boolean isVocab){
 		return "TODO";

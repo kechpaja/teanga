@@ -21,14 +21,14 @@ public class GUIVocabGame extends JPanel{
 
 	GUIVocabGameBoard _gameBoard;
 	JTextField _textField;
-	VocabLevel _vl;
-	Driver driver;
+	VocabLevel _vocabLevel;
+	Driver _driver;
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
 		super(new BorderLayout());
 		
-		driver = d;
+		_driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -48,9 +48,9 @@ public class GUIVocabGame extends JPanel{
 		topBar.add(back);
 		topBar.add(Box.createHorizontalStrut(30));
 		
-		_vl = vl;
+		_vocabLevel = vl;
 		//The game board (takes care of almost everything game related)
-		_gameBoard = new GUIVocabGameBoard(_vl, driver.getPlayerStats(), driver);
+		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
 
 		//The panel that contains the text field in which the user
 		// types their guesses.
@@ -65,6 +65,15 @@ public class GUIVocabGame extends JPanel{
 		//The Bottom Toolbar (empty at this point)
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		JButton help = new JButton("Help");
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(75, 35));
+		help.setSize(new Dimension(75, 35));
+		bottomBar.add(help);
+		bottomBar.add(dictionary);
+		bottomBar.add(Box.createHorizontalStrut(15));
+		help.addActionListener(new HelpButtonListener());
+		dictionary.addActionListener(new DictionaryButtonListener());
 
 		//Add everyting to the box and then this panel
 		theBox.add(topBar);
@@ -78,7 +87,7 @@ public class GUIVocabGame extends JPanel{
 
 	//Checks a typed answers
 	public void checkAnswer(String answer){
-		if(_vl.tryAnswer(answer)){
+		if(_vocabLevel.tryAnswer(answer)){
 			_gameBoard.clearPiece();
 			//Set _correctAnswer to the next correct answer
 		}
@@ -97,12 +106,33 @@ public class GUIVocabGame extends JPanel{
 
 	}
 	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_vocabLevel.decrementScore(2);
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+
+			
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
+		}
+		
+	}
+	
 	private class backtoOptionsActionListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			driver.getPlayerStats().RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), _gameBoard.getSeconds());
-			driver.changePage(new GUIOptionsPage(driver, driver.getPlayerStats()));
+			_driver.getPlayerStats().RefreshStats(_vocabLevel.getLevelNum(), 0, _vocabLevel.getScore(), _gameBoard.getSeconds());
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}
 		
