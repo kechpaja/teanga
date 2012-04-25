@@ -3,7 +3,6 @@ package nodes;
 import java.util.List;
 
 import parsing.*;
-import rules.AgreementRule;
 
 public class NonTerminalNode extends Node {
 	
