@@ -6,5 +6,10 @@ public class FatalMistake extends Mistake {
 	public FatalMistake(int startindex, int endindex, String message) {
 		super(startindex, endindex, message);
 	}
+	
+	// override
+	public boolean isFatal() {
+		return true;
+	}
 
 }
