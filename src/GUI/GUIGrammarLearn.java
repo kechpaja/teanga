@@ -5,14 +5,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,17 +25,24 @@ import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
+import ELearning.Driver;
+import ELearning.GrammarLessonPair;
+import ELearning.VocabLessonPair;
+
 public class GUIGrammarLearn extends JPanel{
+	Driver _driver;
+	int _levelNum;
 	
-	public GUIGrammarLearn(){
+	public GUIGrammarLearn(int ln, Driver d){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,100,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
 		
+		_driver = d;
 		//Make the title
-		int levelnum = 1;
-		String label = "Level " + Integer.toString(levelnum) + " Grammar";
+		_levelNum = ln;
+		String label = "Level " + Integer.toString(_levelNum+1) + " Grammar";
 		JLabel title = new JLabel(label, SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -49,18 +60,10 @@ public class GUIGrammarLearn extends JPanel{
 		
 		int prefHeight = 100;
 		int prefWidth = 150;
-		int numWords = 10;
-		String picPath = "data/funpic2.gif";
-		String sentence = "All of the words on the page started to blend toghether (but in spanish)";
-		String expln2 = "WASHINGTON—With unemployment at its highest level in decades, the U.S. Department of Labor issued a report Tuesday suggesting the crisis is primarily the result of millions of Americans just completely blowing their job interviews.";
-        String expln1 = "According to the findings, seven out of 10 Americans could have landed their dream job last month if they had known where they see themselves in five years, and the number of unemployed could be reduced from 14.6 million to 5 ";
-        String expln3 = "million if everyone simply greeted potential employers with firmer handshakes, maintained eye contact, and stopped fiddling with their hair and face so much.";
-        String expln35 = "This economy will not recover until job candidates learn how to put their best foot forward,";
-        String expln4 = "said Labor Secretary Hilda Solis, warning that even a small increase in stuttering among applicants who are asked to describe their weaknesses could cause the entire labor market to collapse. If were going to dig ourselves out of this mess, Americans need to stop wearing blue jeans to interviews, even if theyre nice blue jeans, and even if that particular office happens to have a relaxed dress code.";
-		
-        String explanation = expln2 + "\n\n " + expln1 + " " + expln3 + "\n\n " + expln35 + " " + expln4;
+				
 		vertBox.add(Box.createVerticalStrut(10));
-		for(int i = 0; i < numWords; i++){
+		List<GrammarLessonPair> grammarLessonPairs= _driver.getLessons().getGLessons(_levelNum);
+		for(GrammarLessonPair glp : grammarLessonPairs){
 			
 			Box currVert = Box.createVerticalBox();
 			Box currHoriz = Box.createHorizontalBox();
@@ -68,7 +71,7 @@ public class GUIGrammarLearn extends JPanel{
 			//picVert
 			BufferedImage pic = null;
 			try {
-				pic = ImageIO.read(new File(picPath));
+				pic = ImageIO.read(new File(glp.getPicturePath()));
 			} catch (IOException e) {
 				System.out.println("Cannot read image (GUIVocabLearn)");
 				System.exit(0);
@@ -88,7 +91,7 @@ public class GUIGrammarLearn extends JPanel{
 			//sentenceVert
 			Box sentVert = Box.createVerticalBox();
 			Box sentHoriz = Box.createHorizontalBox();
-			JLabel sentenceLabel = new JLabel("\"" + sentence + "\"");
+			JLabel sentenceLabel = new JLabel("\"" + glp.getExampleSentence() + "\"");
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			sentVert.add(sentenceLabel);
 			sentVert.add(Box.createVerticalStrut(5));
@@ -101,7 +104,7 @@ public class GUIGrammarLearn extends JPanel{
 			//Explanation
 			Box explinHoriz = Box.createHorizontalBox();
 			JTextArea explinArea = new JTextArea();
-			explinArea.setText(explanation);
+			explinArea.setText(glp.getExplanation());
 			explinArea.setEditable(false);
 			explinArea.setBackground(new Color(0,0,0,0));
 			explinArea.setFont(new Font("Cambria", Font.PLAIN, 20));
@@ -123,8 +126,21 @@ public class GUIGrammarLearn extends JPanel{
 
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoOptionsActionListener());
+		back.setSize(new Dimension(75, 35));
+		topBar.add(back);
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton help = new JButton("Help");
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(75, 35));
+		help.setSize(new Dimension(75, 35));
+		bottomBar.add(help);
+		bottomBar.add(dictionary);
+		bottomBar.add(Box.createHorizontalStrut(15));
+		help.addActionListener(new HelpButtonListener());
+		dictionary.addActionListener(new DictionaryButtonListener());
 		
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
@@ -132,15 +148,44 @@ public class GUIGrammarLearn extends JPanel{
 		
 		
 	}
+	
+	private class BacktoOptionsActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			
+		}
+		
+	}
+	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("This page explains some basic grammar concepts! If you're having trouble understanding them, click below to review the previous grammar level.", 
+																		1, _levelNum, _driver);
+		}
+		
+	}
 
 	public static void main(String[] args){
-		GUIGrammarLearn panel = new GUIGrammarLearn();
+		/*GUIGrammarLearn panel = new GUIGrammarLearn();
 		JFrame frame = new JFrame("Grammar Learning");
 		frame.setPreferredSize(new Dimension(1000,700));
 		frame.add(panel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
-		frame.setVisible(true);
+		frame.setVisible(true);*/
 	}
 }

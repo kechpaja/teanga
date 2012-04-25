@@ -287,6 +287,8 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 2:
 				//create a grammar learning activity
+				_driver.changePage(new GUIGrammarLearn(_levelNum, _driver));
+
 				break;
 			case 3:
 				//create a vocab game

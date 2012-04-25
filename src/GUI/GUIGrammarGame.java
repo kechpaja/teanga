@@ -119,6 +119,15 @@ public class GUIGrammarGame extends JPanel{
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton help = new JButton("Help");
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(75, 35));
+		help.setSize(new Dimension(75, 35));
+		bottomBar.add(help);
+		bottomBar.add(dictionary);
+		bottomBar.add(Box.createHorizontalStrut(15));
+		help.addActionListener(new HelpButtonListener());
+		dictionary.addActionListener(new DictionaryButtonListener());
 
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
@@ -309,6 +318,28 @@ public class GUIGrammarGame extends JPanel{
 			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), 0);
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
+		}
+		
+	}
+	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_grammarLevel.decrementScore(2);
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+
+			
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_grammarLevel.decrementScore(2);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 1, _grammarLevel.getLevelNum(), _driver);
 		}
 		
 	}

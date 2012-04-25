@@ -4,3 +4,14 @@
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
 -padding on help and dictionary
+-appropriate numbering in grammar game
+-reasonable necessary scores
+-skip button in grammar game?
+-game completed screen
+-show name on all screens
+-pop incorrect answers back to original positions in the grammar game
+-show score on in-game screens
+
+-make code more consistent
+
+-when we're confident: delete commented out blocks o' code
