@@ -30,4 +30,9 @@ public abstract class Mistake {
 	public String toString() {
 		return startindex_ + " - " + endindex_ + ": " + message_;
 	}
+	
+	// will be overridden in fatal class...
+	public boolean isFatal() {
+		return false;
+	}
 }

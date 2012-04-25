@@ -4,6 +4,10 @@ import java.util.*;
 
 public class Response {
 	
+	//TO KELVIN: I added a boolean (and getter) to this class to say whether the response contains a fatal mistake
+	//I also added an equivalent boolean to the tree, but I just need you to make the tree constructor 
+	//set the boolean to the appropriate value (that might mean making the node have an equivalent boolean, whatever you think is best)
+	
 	// fields
 	private boolean correct_;
 	private List<Mistake> mistakes_;
