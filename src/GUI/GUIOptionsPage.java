@@ -251,7 +251,7 @@ public class GUIOptionsPage extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(driver.dictionary);
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(driver.getDictionary());
 		}
 		
 	}
@@ -278,15 +278,15 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 3:
 				//create a vocab game
-				driver.changePage(new GUIVocabGame(driver.vGameMaker.makeLevel(_levelNum), driver));
+				driver.changePage(new GUIVocabGame(driver.getVocabGameMaker().makeLevel(_levelNum), driver));
 				break;
 			case 4:
 				//create a grammar game
-				System.out.println(_levelNum);
-				driver.changePage(new GUIGrammarGame(driver.gGameMaker.makeLevel(_levelNum), driver));
+				driver.changePage(new GUIGrammarGame(driver.getGrammarGameMaker().makeLevel(_levelNum), driver));
 				break;
 			case 5:
 				//create a boss game
+				driver.changePage(new GUIBossGame(driver.getBossGameMaker().makeLevel(_levelNum), driver));
 				break;
 			}
 		}

@@ -62,7 +62,6 @@ public class DictionaryInternalFrame extends JFrame{
 		this.setLocation(30, 30);
 		this.setSize(250, 250);
 		this.setVisible(true);
-		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
 	}
 	
 	private class SearchActionListener implements ActionListener{

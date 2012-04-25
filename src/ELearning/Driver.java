@@ -14,13 +14,13 @@ import GUI.*;
 import annie.*;
 
 public class Driver {
-	public MyDictionary dictionary;
 	private JFrame mainFrame;
-	public VocabGameMaker vGameMaker;
-	public GrammarGameMaker gGameMaker;
-	public BossGameMaker bGameMaker;
+	private MyDictionary dictionary;
+	private VocabGameMaker vGameMaker;
+	private GrammarGameMaker gGameMaker;
+	private BossGameMaker bGameMaker;
 	private Exercises exercises;
-	public Lessons lessons;
+	private Lessons lessons;
 	private HelpBox helpbox;
 	public OpeningPage openingpage;
 	private JPanel curPage;
@@ -33,7 +33,7 @@ public class Driver {
 	
 	public Driver(){
 		try{
-			parser = new Parser("data/dictionary.txt", "add parser input here");
+			parser = new Parser("data/dictionary.txt", "data/parserules.txt");
 			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
 			exercises = new Exercises("data/testfilev", "data/testfileg.txt", "data/testfileb.txt");
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt");
@@ -87,6 +87,22 @@ public class Driver {
 		return gender;
 	}
 	
+	public MyDictionary getDictionary(){
+		return dictionary;
+	}
+	
+	public VocabGameMaker getVocabGameMaker(){
+		return vGameMaker;
+	}
+	
+	public GrammarGameMaker getGrammarGameMaker(){
+		return gGameMaker;
+	}
+	
+	public BossGameMaker getBossGameMaker(){
+		return bGameMaker;
+	}
+	
 	public static void main(String[] args){
 		Driver myDriver = new Driver();
 	}
@@ -97,6 +113,10 @@ public class Driver {
 	
 	public void setPlayerStats(PlayerStats ps){
 		curPlayerStats = ps;
+	}
+	
+	public Lessons getLessons(){
+		return lessons;
 	}
 	
 
