@@ -4,9 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics2D;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -39,18 +45,80 @@ public class GUIVocabLearn extends JPanel{
 		
 		overall.add(title, BorderLayout.NORTH);
 		
-		JPanel main = new JPanel(new BorderLayout());
-		main.setPreferredSize(new Dimension(1000,3000));
-		main.setBackground(new Color(0,0,0,255));
-		
 		Box horizBox = Box.createHorizontalBox();
 		horizBox.add(Box.createHorizontalStrut(20));
 		
 		Box picVert = Box.createVerticalBox();
 		Box wordnTranslate = Box.createVerticalBox();
-		Box sentance = Box.createVerticalBox();
+		Box sentenceVert = Box.createVerticalBox();
+		
+		horizBox.add(picVert);
+		horizBox.add(wordnTranslate);
+		horizBox.add(sentenceVert);
 		
 		horizBox.add(Box.createHorizontalStrut(20));
+		JScrollPane main = new JScrollPane(horizBox);
+		main.setSize(1000,700);
+		main.setBorder(BorderFactory.createEmptyBorder(0,0,5,0));
+		
+		int prefHeight = 100;
+		int prefWidth = 150;
+		int numWords = 10;
+		String picPath = "data/funpic2.gif";
+		String word = "word";
+		String translation = "palabra";
+		String sentence = "All of the words on the page started to blend toghether (but in spanish)";
+		
+		for(int i = 0; i < numWords; i++){
+			
+			//picVert
+			BufferedImage pic = null;
+			try {
+				pic = ImageIO.read(new File(picPath));
+			} catch (IOException e) {
+				System.out.println("Cannot read image (GUIVocabLearn)");
+				System.exit(0);
+			}
+			int type = BufferedImage.TYPE_INT_RGB;
+	        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
+	        Graphics2D g1 = dst.createGraphics();
+	        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
+	        g1.dispose();
+	        ImageIcon newIcon = new ImageIcon(dst);
+	        JLabel picLabel = new JLabel(newIcon);
+	        picVert.add(Box.createVerticalStrut(5));
+	        picVert.add(picLabel);
+	        picVert.add(Box.createVerticalStrut(5));
+			
+			//wordnTranslate
+	        Box wordsTVert = Box.createVerticalBox();
+	        Box wordsTHoriz = Box.createHorizontalBox();
+	        wordsTHoriz.add(Box.createVerticalStrut(110));
+	        wordsTHoriz.add(wordsTVert);
+			JLabel wordLabel = new JLabel(word);
+			wordLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
+			wordsTVert.add(wordLabel);
+			wordsTVert.add(Box.createVerticalStrut(5));
+			JLabel translateLabel = new JLabel(translation);
+			translateLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
+			wordsTVert.add(translateLabel);
+			wordsTVert.add(Box.createVerticalStrut(5));
+			wordnTranslate.add(wordsTHoriz);
+			
+			//sentenceVert
+			Box sentVert = Box.createVerticalBox();
+			Box sentHoriz = Box.createHorizontalBox();
+			JLabel sentenceLabel = new JLabel(sentence);
+			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
+			sentVert.add(sentenceLabel);
+			sentVert.add(Box.createVerticalStrut(5));
+			sentHoriz.add(Box.createVerticalStrut(110));
+			sentHoriz.add(sentVert);
+			sentenceVert.add(sentHoriz);
+			
+		}
+		
+				
 		
 		overall.add(main, BorderLayout.CENTER);
 
@@ -67,8 +135,13 @@ public class GUIVocabLearn extends JPanel{
 	}
 
 	public static void main(String[] args){
+<<<<<<< HEAD
 		/*GUIVocabLearn panel = new GUIVocabLearn();
 		JFrame frame = new JFrame();
+=======
+		GUIVocabLearn panel = new GUIVocabLearn();
+		JFrame frame = new JFrame("Vocab Learning");
+>>>>>>> 6e96bcc42ddcc4f3c77beb6133bc3e099c77cb38
 		frame.setPreferredSize(new Dimension(1000,700));
 		frame.add(panel);
 		frame.pack();
