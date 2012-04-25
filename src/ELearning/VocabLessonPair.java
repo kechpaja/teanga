@@ -7,7 +7,7 @@ public class VocabLessonPair {
 	private String exampleSentence;
 	
 	
-	public VocabLessonPair(String vw, String vt, String pp, String es){
+	public VocabLessonPair(String pp, String vw, String vt, String es){
 		vocabWord = vw;
 		vocabTranslation = vt;
 		picturePath = pp;
