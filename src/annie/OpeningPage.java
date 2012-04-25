@@ -119,6 +119,7 @@ public class OpeningPage {
 		BufferedWriter out = new BufferedWriter(fstream);
 		for(int i=0; i<usernames.size(); i++)
 		{
+			System.out.println(i);
 			out.write(usernames.get(i)+"\n");
 			out.write(passwords.get(i)+"\n");
 			out.write(genders.get(i)+"\n");
