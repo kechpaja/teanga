@@ -5,14 +5,18 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,23 +24,23 @@ import javax.swing.JScrollPane;
 import javax.swing.SwingConstants;
 
 import ELearning.Driver;
+import ELearning.VocabLessonPair;
+import GUI.GUIOptionsPage.BacktoBasicActionListener;
 
 public class GUIVocabLearn extends JPanel{
 	Driver _driver;
 	int _levelNum;
 	
-	public GUIVocabLearn(Driver d, int ln){
+	public GUIVocabLearn(int ln, Driver d){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,100,255));
 		
 		_driver = d;
 		_levelNum = ln;
 		JPanel overall = new JPanel(new BorderLayout());
-		JScrollPane scrollPane = new JScrollPane(overall);
 		
 		//Make the title
-		int levelnum = 1;
-		String label = "Level " + Integer.toString(levelnum) + " Vocab";
+		String label = "Level " + Integer.toString(_levelNum+1) + " Vocabulary";
 		JLabel title = new JLabel(label, SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -63,18 +67,15 @@ public class GUIVocabLearn extends JPanel{
 		
 		int prefHeight = 100;
 		int prefWidth = 150;
-		int numWords = 10;
-		String picPath = "data/funpic2.gif";
-		String word = "word";
-		String translation = "palabra";
-		String sentence = "All of the words on the page started to blend toghether (but in spanish)";
+		List<VocabLessonPair> vocabLessonPairs= _driver.getLessons().getVLessons(_levelNum);
 		
-		for(int i = 0; i < numWords; i++){
+		for(VocabLessonPair vlp : vocabLessonPairs){
 			
 			//picVert
 			BufferedImage pic = null;
 			try {
-				pic = ImageIO.read(new File(picPath));
+				System.out.println(vlp.getPicturePath());
+				pic = ImageIO.read(new File(vlp.getPicturePath()));
 			} catch (IOException e) {
 				System.out.println("Cannot read image (GUIVocabLearn)");
 				System.exit(0);
@@ -95,11 +96,11 @@ public class GUIVocabLearn extends JPanel{
 	        Box wordsTHoriz = Box.createHorizontalBox();
 	        wordsTHoriz.add(Box.createVerticalStrut(110));
 	        wordsTHoriz.add(wordsTVert);
-			JLabel wordLabel = new JLabel(word);
+			JLabel wordLabel = new JLabel(vlp.getVocabWord());
 			wordLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			wordsTVert.add(wordLabel);
 			wordsTVert.add(Box.createVerticalStrut(5));
-			JLabel translateLabel = new JLabel(translation);
+			JLabel translateLabel = new JLabel(vlp.getVocabTranslation());
 			translateLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			wordsTVert.add(translateLabel);
 			wordsTVert.add(Box.createVerticalStrut(5));
@@ -108,7 +109,7 @@ public class GUIVocabLearn extends JPanel{
 			//sentenceVert
 			Box sentVert = Box.createVerticalBox();
 			Box sentHoriz = Box.createHorizontalBox();
-			JLabel sentenceLabel = new JLabel(sentence);
+			JLabel sentenceLabel = new JLabel(vlp.getExampleSentence());
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			sentVert.add(sentenceLabel);
 			sentVert.add(Box.createVerticalStrut(5));
@@ -124,6 +125,10 @@ public class GUIVocabLearn extends JPanel{
 
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoOptionsActionListener());
+		back.setSize(new Dimension(75, 35));
+		topBar.add(back);
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		
@@ -133,15 +138,22 @@ public class GUIVocabLearn extends JPanel{
 		
 		
 	}
+	
+	private class BacktoOptionsActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			
+		}
+		
+	}
 
 	public static void main(String[] args){
-<<<<<<< HEAD
 		/*GUIVocabLearn panel = new GUIVocabLearn();
 		JFrame frame = new JFrame();
-=======
 		GUIVocabLearn panel = new GUIVocabLearn();
 		JFrame frame = new JFrame("Vocab Learning");
->>>>>>> 6e96bcc42ddcc4f3c77beb6133bc3e099c77cb38
 		frame.setPreferredSize(new Dimension(1000,700));
 		frame.add(panel);
 		frame.pack();
