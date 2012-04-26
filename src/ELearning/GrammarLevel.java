@@ -6,7 +6,6 @@ public class GrammarLevel extends LevelInstance {
 	private List<SentencePicturePair> upNext;
 	private SentencePicturePair current;
 	private String help;
-	private int levelNum;
 	private int currentNum;
 	private int totalNum;
 	
@@ -19,20 +18,16 @@ public class GrammarLevel extends LevelInstance {
 		return totalNum;
 	}
 	
-	public int getLevelNum(){
-		return levelNum;
-	}
 	
 	public String getHelp(){
 		return help;
 	}
 	
 	public GrammarLevel(List<SentencePicturePair> un, String h, int ln){
-		super(40);
+		super(29, 1, ln);
 		upNext = un;
 		current = upNext.remove(0);
 		help = h;
-		levelNum = ln;
 		currentNum = 1;
 		totalNum = un.size()+1;
 	}

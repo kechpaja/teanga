@@ -332,7 +332,7 @@ public class GUIGrammarGame extends JPanel{
 				//check if this was the last unit
 				if (_grammarLevel.isOver()){
 					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
-					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+					_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 				} else {
 					//update choicePanel
 					_horizontalChoice.removeAll();
