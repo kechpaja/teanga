@@ -18,6 +18,8 @@ import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JTextPane;
 
+import encoding.EncodingShiftListener;
+
 import ELearning.BossLevel;
 import ELearning.Driver;
 
@@ -82,7 +84,8 @@ public class GUIBossGame extends JPanel{
 		
 		qPanel.add(horizBox);
 		
-		
+		userInput = new JTextField();
+		userInput.addKeyListener(new EncodingShiftListener(userInput));
 		
 		
 	}

@@ -12,6 +12,8 @@ import annie.Word;
 
 import javax.swing.*;
 
+import encoding.EncodingShiftListener;
+
 @SuppressWarnings("serial")
 public class DictionaryInternalFrame extends JFrame{
 	private MyDictionary _dictionary;
@@ -33,6 +35,7 @@ public class DictionaryInternalFrame extends JFrame{
 		//top and bottom bar
 		isFromEsperanto = true;
 		input = new JTextField();
+		input.addKeyListener(new EncodingShiftListener(input));
 		search = new JButton("Search");
 		search.addActionListener(new SearchActionListener());
 		searchBar = new Box(BoxLayout.X_AXIS);

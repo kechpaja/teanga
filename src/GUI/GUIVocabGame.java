@@ -11,6 +11,8 @@ import javax.swing.JButton;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
+import encoding.EncodingShiftListener;
+
 import ELearning.Driver;
 import ELearning.VocabLevel;
 import ELearning.VocabPicturePair;
@@ -60,6 +62,7 @@ public class GUIVocabGame extends JPanel{
 
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
+		_textField.addKeyListener(new EncodingShiftListener(_textField));
 		enterAnswers.add(_textField);		
 
 		//The Bottom Toolbar (empty at this point)

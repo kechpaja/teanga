@@ -32,7 +32,7 @@ public class BossLevel extends LevelInstance{
 	}
 	
 	public BossLevel(List<BossQuestionPair> bqp, String h, int ln, String pp, Parser p){
-		super();
+		super(100);
 		questions = bqp;
 		curQuestion = questions.remove(0);
 		help = h;
