@@ -150,7 +150,8 @@ public class Parser {
 			// TODO TODO TODO this is very suspect! I'm not sure if it will work...
 			if (!advanced && unrules.containsKey(node.getPos())) {
 	//			System.out.println("unary");
-				
+			//	System.out.println(node.getPos());
+			//	System.out.println(unrules.get(node.getPos()));
 				node = unrules.get(node.getPos()).combine(node);
 				advanced = true;
 			}

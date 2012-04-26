@@ -68,7 +68,8 @@ public abstract class Node {
 			return true;
 		}
 		
-		return t_ == null || node.getTense() == null || t_ == node.getTense();
+		return t_ == null || node.getTense() == null || node.getTense() == Tense.INFINITIVE 
+							|| t_ == Tense.INFINITIVE;
 	}
 
 }
