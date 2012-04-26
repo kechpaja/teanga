@@ -32,10 +32,14 @@ public class BinarySyntacticRule extends SyntacticRule {
 		if (n1.getCase() == n2.getCase()) {
 			c = n1.getCase();
 		}
-		if (n1.getNumMarker() == n2.getNumMarker()) {
-			number = n1.getNumMarker();
+		
+		if (n1.getNumMarker() == n2.getNumMarker()){
+			number = n2.getNumMarker();
 		}
-		if (n1.getTense() == n2.getTense()) {
+		
+		if (n1.getTense() == null) {
+			t = n2.getTense();
+		} else {
 			t = n1.getTense();
 		}
 		
