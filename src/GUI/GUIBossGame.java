@@ -21,6 +21,10 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import parsing.Response;
+
+import encoding.EncodingShiftListener;
+
 import ELearning.BossLevel;
 import ELearning.Driver;
 
@@ -35,10 +39,10 @@ public class GUIBossGame extends JPanel{
 	private int _current;
 	
 	
-	public GUIBossGame(){//BossLevel b, Driver d){
+	public GUIBossGame(BossLevel b, Driver d){
 		super(null);
-		//_driver = d;
-		//_bossLevel = b;
+		_driver = d;
+		_bossLevel = b;
 		_current = 0;
 		panel = this;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
@@ -54,8 +58,8 @@ public class GUIBossGame extends JPanel{
 		int apanelX = 650;
 		int apanelY = 200;
 		
-		String backPic = "data/grocery.jpg";
-		String questions = "What would you normally buy in a grocery store?";
+		String backPic = b.getPicturePath();
+		String questions = b.getCurrentQuestion();
 		
 		pic = null;
 		try {
@@ -92,7 +96,7 @@ public class GUIBossGame extends JPanel{
 		
 		userInput = new JTextField(18);
 		userInput.setBorder(BorderFactory.createLineBorder(Color.black));
-		//userInput.addKeyListener(new EncodingShiftListener(userInput));
+		userInput.addKeyListener(new EncodingShiftListener(userInput));
 		
 		JPanel aPanel = new JPanel();
 		aPanel.setBackground(new Color(255,255,255,0));
@@ -250,10 +254,10 @@ public class GUIBossGame extends JPanel{
 	}
 	
 	public static void main(String[] args){
-		GUIBossGame panel = new GUIBossGame();
+		//GUIBossGame panel = new GUIBossGame();
 		JFrame frame = new JFrame("Boss Game");
 		frame.setPreferredSize(new Dimension(1000,700));
-		frame.add(panel);
+		//frame.add(panel);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setResizable(false);
@@ -264,8 +268,7 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			//need to pass info to Kelvin and then 
-			//get his error messages back
+			Response response = _bossLevel.tryAnswer(userInput.getText());
 			showErrors();
 		}
 		
