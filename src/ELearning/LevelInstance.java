@@ -3,9 +3,11 @@ package ELearning;
 public abstract class LevelInstance {
 	protected int score;
 	protected boolean isOver;
+	protected int necessaryScore;
 	
-	public LevelInstance(){
+	public LevelInstance(int necessary){
 		score = 0;
+		necessaryScore = necessary;
 		isOver = false;
 	}
 	
@@ -15,6 +17,10 @@ public abstract class LevelInstance {
 	
 	public int getScore(){
 		return score;
+	}
+	
+	public int getNecessaryScore(){
+		return necessaryScore;
 	}
 	
 	public void decrementScore(int amt){

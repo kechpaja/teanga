@@ -6,8 +6,6 @@
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
 -padding on help and dictionary
-TN-reasonable necessary scores
-TN-skip button in grammar game?
 TN-game completed screen
 -show name on all screens
 -pop incorrect answers back to original positions in the grammar game
@@ -16,6 +14,7 @@ TN-game completed screen
 TN-add kelvin's text listener to all Textfield listeners
 -username box in alphabetical order
 -username box shouldn't resize so randomly.
+-loading Bar
 
 -make code more consistent
 
