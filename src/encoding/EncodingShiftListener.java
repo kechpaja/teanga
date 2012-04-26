@@ -17,19 +17,18 @@ public class EncodingShiftListener implements KeyListener {
 	
 	@Override
 	public void keyPressed(KeyEvent arg0) {
-		field_.setText(EncodingShifter.shift(field_.getText() + arg0.getKeyChar()));
+		//field_.setText(EncodingShifter.shift(field_.getText()));
 	}
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
+		field_.setText(EncodingShifter.shift(field_.getText()));
 	}
 
 	@Override
 	public void keyTyped(KeyEvent arg0) {
 		// TODO Auto-generated method stub
-		
 	}
 
 }
