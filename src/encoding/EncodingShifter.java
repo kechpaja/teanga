@@ -18,24 +18,32 @@ public class EncodingShifter {
 		
 		if (ch1 == 'x' || ch1 == 'X') {
 			// replace the two final characters with the requisite new char
-			switch (ch0) {
-			case 'c': ret += 'ĉ';
-			case 'C': ret += 'Ĉ';
-			case 'g': ret += 'ĝ';
-			case 'G': ret += 'Ĝ';
-			case 'h': ret += 'ĥ';
-			case 'H': ret += 'Ĥ';
-			case 'j': ret += 'ĵ';
-			case 'J': ret += 'Ĵ';
-			case 's': ret += 'ŝ';
-			case 'S': ret += 'Ŝ';
-			case 'u': ret += 'ŭ';
-			case 'U': ret += 'Ŭ';
-			case 'x': ret += 'x';
-			case 'X': ret += 'X';
-			default:
+			if (ch0 == 'c')
+				ret += "ĉ";
+			else if (ch0 == 'C')
+				ret += "Ĉ";
+			else if (ch0 == 'g')
+				ret += "ĝ";
+			else if (ch0 == 'G')
+				ret += "Ĝ";
+			else if (ch0 == 'h')
+				ret += "ĥ";
+			else if (ch0 == 'H')
+				ret += "Ĥ";
+			else if (ch0 == 'j')
+				ret += "ĵ";
+			else if (ch0 == 'J')
+				ret += "Ĵ";
+			else if (ch0 == 's')
+				ret += "ŝ";
+			else if (ch0 == 'S')
+				ret += "Ŝ";
+			else if (ch0 == 'u')
+				ret += "ŭ";
+			else if (ch0 == 'U')
+				ret += "Ŭ";
+			else
 				ret = text;
-			}
 		} else {
 			// prepare to return original input
 			ret = text;

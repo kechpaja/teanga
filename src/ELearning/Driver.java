@@ -33,7 +33,7 @@ public class Driver {
 	
 	public Driver(){
 		try{
-			parser = new Parser("data/dictionary.txt", "data/parserules.txt");
+			parser = new Parser("data/parserules.txt", "data/dictionary.txt");
 			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
 			exercises = new Exercises("data/testfilev", "data/testfileg.txt", "data/testfileb.txt");
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt");
