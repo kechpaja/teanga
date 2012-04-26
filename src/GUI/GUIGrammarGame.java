@@ -35,6 +35,7 @@ public class GUIGrammarGame extends JPanel{
 	private Driver _driver;
 	private JPanel _panel;
 	private Box _horizontalChoice, topHoriz;
+	private JLabel _userName, _currentScore, _bestScore;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
@@ -112,8 +113,14 @@ public class GUIGrammarGame extends JPanel{
 		skip.addActionListener(new SkipListener());
 		submitHoriz.add(skip);
 		
+		_userName = new JLabel(_driver.getUserName());
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
+		
+		
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
+		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());

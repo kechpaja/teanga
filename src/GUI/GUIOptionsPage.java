@@ -41,6 +41,7 @@ import ELearning.Driver;
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
 	Driver _driver;
+	JLabel _userName;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -137,8 +138,11 @@ public class GUIOptionsPage extends JPanel{
 		
 		Box theTitles = Box.createHorizontalBox();
 		
+		_userName = new JLabel(_driver.getUserName());
 		JLabel learning = new JLabel("Learni");
 		JLabel games = new JLabel("Apliki");
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
 		learning.setFont(new Font("Century", Font.BOLD, 30));
 		games.setFont(new Font("Century", Font.BOLD, 30));
 		
@@ -205,6 +209,7 @@ public class GUIOptionsPage extends JPanel{
 		Box fullBar = Box.createVerticalBox();
 
 		Box topBar = Box.createHorizontalBox();
+		topBar.add(_userName);
 		topBar.add(Box.createHorizontalStrut(830));
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoBasicActionListener());

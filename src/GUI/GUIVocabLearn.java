@@ -30,6 +30,7 @@ import GUI.GUIOptionsPage.BacktoBasicActionListener;
 public class GUIVocabLearn extends JPanel{
 	Driver _driver;
 	int _levelNum;
+	private JLabel _userName;
 	
 	public GUIVocabLearn(int ln, Driver d){
 		super(new BorderLayout());
@@ -122,9 +123,14 @@ public class GUIVocabLearn extends JPanel{
 				
 		
 		overall.add(main, BorderLayout.CENTER);
+		
+		_userName = new JLabel(_driver.getUserName());
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
 
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		topBar.add(_userName);
+		topBar.add(Box.createHorizontalStrut(830));
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));

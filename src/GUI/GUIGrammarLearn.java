@@ -32,6 +32,7 @@ import ELearning.VocabLessonPair;
 public class GUIGrammarLearn extends JPanel{
 	Driver _driver;
 	int _levelNum;
+	private JLabel _userName;
 	
 	public GUIGrammarLearn(int ln, Driver d){
 		super(new BorderLayout());
@@ -123,8 +124,13 @@ public class GUIGrammarLearn extends JPanel{
 		}
 		
 		overall.add(main, BorderLayout.CENTER);
+		
+		_userName = new JLabel(_driver.getUserName());
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
 
 		Box topBar = Box.createHorizontalBox();
+		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoOptionsActionListener());
