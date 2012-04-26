@@ -49,15 +49,25 @@ public class HelpBoxInternalFrame extends JFrame{
 		helpScrollPane = new JScrollPane();
 		help.setEditable(false);
 		help.setLineWrap(true);
+		help.setVisible(true);
 		help.setWrapStyleWord(true);
 		helpScrollPane.setSize(250, 200);
 		helpScrollPane.add(help);
 		overall.add(helpScrollPane, BorderLayout.CENTER);
 		overall.add(backToLesson, BorderLayout.SOUTH);
-		overall.revalidate();
+		//Box vertBox = Box.createVerticalBox();
+		//Box horizBox = Box.createHorizontalBox();
 		
+		//vertBox.add(Box.createVerticalStrut(5));
+		//vertBox.add(horizBox);
+		//vertBox.add(Box.createVerticalStrut(5));
+		//horizBox.add(Box.createVerticalStrut(5));
+		//horizBox.add(overall);
+		//horizBox.add(Box.createVerticalStrut(5));
 		
 		this.add(overall);
+		overall.revalidate();
+		overall.repaint();
 		this.pack();
 		this.setVisible(true);
 		this.setLocation(30, 30);
