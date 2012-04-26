@@ -3,11 +3,13 @@ package GUI;
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
+import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
@@ -25,6 +27,7 @@ public class GUIVocabGame extends JPanel{
 	JTextField _textField;
 	VocabLevel _vocabLevel;
 	Driver _driver;
+	private JLabel _userName;
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
@@ -39,9 +42,14 @@ public class GUIVocabGame extends JPanel{
 
 		//Box Layout		
 		Box theBox = Box.createVerticalBox();
+		
+		_userName = new JLabel(_driver.getUserName());
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
 
 		//Top Toolbar (empty at this point)
 		Box topBar = Box.createHorizontalBox();
+		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());

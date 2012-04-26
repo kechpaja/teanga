@@ -7,6 +7,7 @@ import java.awt.Font;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -51,10 +52,20 @@ public class GUIGameCompleted extends JPanel{
 		title.setFont(new Font("Cambria", Font.PLAIN, 80));
 		title.setBorder(BorderFactory.createEmptyBorder(20,250,20,0));
 		
+		JButton tryAgain = new JButton("try again");
+		JButton backtoBasic = new JButton("return to home page");
+		
 		overall.add(title, BorderLayout.NORTH);
 		
+		Box buttons = Box.createHorizontalBox();
+		buttons.add(tryAgain);
+		buttons.add(backtoBasic);
 		
-		overall.add(gameCompleted);
+		overall.add(buttons, BorderLayout.CENTER);
+		
+		overall.add(gameCompleted, BorderLayout.CENTER);
+		
+		
 		
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
