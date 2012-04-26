@@ -6,7 +6,6 @@
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
 -padding on help and dictionary
-TN-game completed screen
 -show name on all screens
 -pop incorrect answers back to original positions in the grammar game
 -show score on in-game screens
@@ -15,6 +14,8 @@ TN-game completed screen
 -username box shouldn't resize so randomly.
 -loading Bar
 -better version of vocab game!
+-make game completed screen less heinously ugly
+
 
 -make code more consistent
 
