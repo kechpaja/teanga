@@ -108,6 +108,9 @@ public class GUIGrammarGame extends JPanel{
 		JButton submit = new JButton("Submit Answer");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
+		JButton skip = new JButton("Skip");
+		skip.addActionListener(new SkipListener());
+		submitHoriz.add(skip);
 		
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
@@ -278,6 +281,40 @@ public class GUIGrammarGame extends JPanel{
 		return panel;
 	}
 	
+	private class SkipListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_grammarLevel.skipCurrent();
+			if (_grammarLevel.isOver()){
+				_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
+				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			} else {
+				//update choicePanel
+				_horizontalChoice.removeAll();
+				_choicePanel = makeSentanceBox(_grammarLevel.getCurrent().getPartialSentence());
+				_horizontalChoice.add(_choicePanel);
+				//and update the current number
+				topHoriz.removeAll();
+				topHoriz.add(Box.createHorizontalStrut(750));
+				_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
+				_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
+				outofLabel = new JLabel(" of ");
+				_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+				_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+				outofLabel.setFont(new Font("Century", Font.BOLD, 25));
+				topHoriz.add(_currNumLabel);
+				topHoriz.add(outofLabel);
+				topHoriz.add(_totalNumLabel);
+				topHoriz.add(Box.createHorizontalStrut(30));
+				_panel.revalidate();
+				
+			}
+			
+		}
+		
+	}
+	
 	private class SubmitListener implements ActionListener {
 		
 		@Override
@@ -342,7 +379,7 @@ public class GUIGrammarGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_grammarLevel.decrementScore(2);
+			_grammarLevel.decrementScore(3);
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 1, _grammarLevel.getLevelNum(), _driver);
 		}
 		

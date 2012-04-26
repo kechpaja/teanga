@@ -6,14 +6,15 @@
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
 -padding on help and dictionary
-TN-reasonable necessary scores
-TN-skip button in grammar game?
 TN-game completed screen
 -show name on all screens
 -pop incorrect answers back to original positions in the grammar game
 -show score on in-game screens
 -better error handling in case an image isn't found
--add kelvin's text listener to all Textfield listeners
+-username box in alphabetical order
+-username box shouldn't resize so randomly.
+-loading Bar
+-better version of vocab game!
 
 -make code more consistent
 

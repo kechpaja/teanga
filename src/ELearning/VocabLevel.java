@@ -14,7 +14,7 @@ public class VocabLevel extends LevelInstance {
 	}
 	
 	public VocabLevel(List<VocabPicturePair> un, String h, int num){
-		super();
+		super(20);
 		help = h;
 		upNext = un;
 		levelNum = num;
@@ -40,10 +40,10 @@ public class VocabLevel extends LevelInstance {
 		answer.toLowerCase();
 		if (waiting.peek().checkWord(answer)){
 			upNext.add(waiting.poll());
-			this.score++;
+			score+=2;
 			return true;
 		} else {
-			if (this.score > 0){
+			if (score > 0){
 				score --;
 			}
 			return false;

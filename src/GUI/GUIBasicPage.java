@@ -36,6 +36,8 @@ import javax.swing.border.Border;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import encoding.EncodingShiftListener;
+
 import ELearning.Driver;
 
 public class GUIBasicPage extends JPanel{
@@ -116,6 +118,9 @@ public class GUIBasicPage extends JPanel{
 		newUserBox.add(genderChoice);
 		newUserBox.add(Box.createHorizontalStrut(200));
 		_newUserPanel.add(newUserBox, BorderLayout.CENTER);
+		
+		//add kelvin's text listener
+		newNameField.addKeyListener(new EncodingShiftListener(newNameField));
 		
 		_passOrUser = Box.createHorizontalBox();
 		_passOrUser.add(_passPanel);
