@@ -130,7 +130,7 @@ public class GUIGameCompleted extends JPanel{
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					_driver.changePage(new GUIBossGame());
+					_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));
 					break;
 				default:
 					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));

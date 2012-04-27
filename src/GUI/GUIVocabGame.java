@@ -100,6 +100,7 @@ public class GUIVocabGame extends JPanel{
 	public void checkAnswer(String answer){
 		if(_vocabLevel.tryAnswer(answer)){
 			_gameBoard.clearPiece();
+
 			//Set _correctAnswer to the next correct answer
 		}
 	}
@@ -112,7 +113,7 @@ public class GUIVocabGame extends JPanel{
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			String text = _textField.getText();
 			checkAnswer(text);
-	        	_textField.selectAll();
+			_textField.setText("");
 		}
 
 	}

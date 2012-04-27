@@ -305,7 +305,7 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 5:
 				//create a boss game
-				_driver.changePage(new GUIBossGame(/*_driver.getBossGameMaker().makeLevel(_levelNum), _driver*/));
+				_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}
 		}

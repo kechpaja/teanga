@@ -6,6 +6,7 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -51,19 +52,12 @@ public class HelpBoxInternalFrame extends JFrame{
 		help.setLineWrap(true);
 		help.setVisible(true);
 		help.setWrapStyleWord(true);
+		help.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
 		helpScrollPane.setSize(250, 200);
 		helpScrollPane.add(help);
 		overall.add(helpScrollPane, BorderLayout.CENTER);
 		overall.add(backToLesson, BorderLayout.SOUTH);
-		//Box vertBox = Box.createVerticalBox();
-		//Box horizBox = Box.createHorizontalBox();
-		
-		//vertBox.add(Box.createVerticalStrut(5));
-		//vertBox.add(horizBox);
-		//vertBox.add(Box.createVerticalStrut(5));
-		//horizBox.add(Box.createVerticalStrut(5));
-		//horizBox.add(overall);
-		//horizBox.add(Box.createVerticalStrut(5));
+
 		
 		this.add(overall);
 		overall.revalidate();
