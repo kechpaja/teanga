@@ -33,9 +33,11 @@ public class GUIBossGame extends JPanel{
 	private JTextField userInput;
 	private JButton back, help, dictionary, next, prev;
 	private JPanel mainPanel, rPanel, panel, aPanel, qPanel;
+	private JTextArea textArea;
 	private BufferedImage pic;
 	private int _current;
 	private Response response;
+	private boolean switched;
 	
 	
 	public GUIBossGame(BossLevel b, Driver d){
@@ -47,7 +49,7 @@ public class GUIBossGame extends JPanel{
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(100,110,255,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		//constants specified for each level (make sure the panel looks good for the length of the questions being asked)
 		int qpanelX = 50;
@@ -59,6 +61,7 @@ public class GUIBossGame extends JPanel{
 		
 		String backPic = b.getPicturePath();
 		String questions = b.getCurrentQuestion();
+		switched = false;
 		
 		pic = null;
 		try {
@@ -78,7 +81,7 @@ public class GUIBossGame extends JPanel{
 		Box horizBox = Box.createHorizontalBox();
 		horizBox.add(Box.createHorizontalStrut(10));
 		
-		JTextArea textArea = new JTextArea();
+		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setVisible(true);
 		textArea.setBackground(new Color(0,0,0,0));
@@ -112,8 +115,8 @@ public class GUIBossGame extends JPanel{
 		aPanel.add(answHoriz);
 		
 		JPanel topPanel = new JPanel(new BorderLayout());
-		topPanel.setBackground(new Color(0,0,0,255));//Make last value 0
-		topPanel.setSize(new Dimension(1000,30));
+		topPanel.setBackground(new Color(0,0,0,0));
+		topPanel.setSize(new Dimension(1000,40));
 		topPanel.setLocation(0,0);
 		
 		Box topBox = Box.createHorizontalBox();
@@ -121,11 +124,17 @@ public class GUIBossGame extends JPanel{
 		this.add(topPanel);
 		
 		JPanel bottomPanel = new JPanel(new BorderLayout());
-		bottomPanel.setBackground(new Color(0,0,0,255));//Make last value 0
-		bottomPanel.setSize(new Dimension(1000,30));
-		bottomPanel.setLocation(0,660);//EDIT THIS TO SET BOTTOM BOX LOCATION TO THE BOTTOM OF THE SCREEN
+		bottomPanel.setBackground(new Color(0,0,0,0));
+		bottomPanel.setSize(new Dimension(1000,40));
+		bottomPanel.setLocation(0,635);
+		
+		JButton nextQ = new JButton("Next Question");
+		nextQ.addActionListener(new NextQListener());
 		
 		Box bottomBox = Box.createHorizontalBox();
+		bottomBox.add(Box.createHorizontalStrut(440));
+		bottomBox.add(nextQ);
+		bottomBox.add(Box.createHorizontalStrut(440));
 		bottomPanel.add(bottomBox);
 		this.add(bottomPanel);
 		
@@ -146,6 +155,18 @@ public class GUIBossGame extends JPanel{
 		resultHoriz.add(Box.createHorizontalStrut(5));
 		
 		nrPanel.add(resultHoriz);
+		
+		if(response.getMistakes().size()-2 < mistakeNum){
+			
+			JLabel congrats = new JLabel("Congrats! You have no errors!");
+			congrats.setFont(new Font("Cambria", Font.PLAIN, 20));
+			Box conBox = Box.createHorizontalBox();
+			conBox.add(congrats);
+			resultVert.add(conBox);
+			
+			nrPanel.setVisible(true);
+			return nrPanel;
+		}
 		 
 		Mistake currMistake = response.getMistakes().get(mistakeNum);
 		int startIndex = currMistake.getStartIndex();
@@ -273,16 +294,36 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			switched = true;
 			response = _bossLevel.tryAnswer(userInput.getText());
 			JPanel nrPanel = makeRPanel(response, 0);
 			rPanel = nrPanel;
 			panel.add(nrPanel);
 			panel.revalidate();
+		}
+		
+	}
+	private class NextQListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			//move to next question...
+			//if(!switched){
+				_bossLevel.tryAnswer(" ");
+			//}
+			switched = false;
+			if(_bossLevel.isOver()){
+				//TODO: put up the over screen
+				
+			}
+			textArea.setText(_bossLevel.getCurrentQuestion());
+			rPanel.setVisible(false);
+			panel.revalidate();
+			panel.repaint();
 			
 		}
 		
 	}
-	
 	private class MyMoveListener implements ActionListener{
 
 		private int _direction;
@@ -292,6 +333,19 @@ public class GUIBossGame extends JPanel{
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			
+			if(_current == 0){
+				prev.setEnabled(false);
+			} else{
+				prev.setEnabled(true);
+			}
+			
+			if(_current == response.getMistakes().size()-1){
+				next.setEnabled(false);
+			} else{
+				next.setEnabled(true);
+			}
+			
 			if(_direction == -1){
 				_current--;
 				JPanel nrPanel = makeRPanel(response,_current);
@@ -312,18 +366,6 @@ public class GUIBossGame extends JPanel{
 				panel.repaint();
 			}
 			System.out.println(_current);
-			
-			if(_current == 0){
-				prev.setEnabled(false);
-			} else{
-				prev.setEnabled(true);
-			}
-			
-			if(_current == response.getMistakes().size()-1){
-				next.setEnabled(false);
-			} else{
-				next.setEnabled(true);
-			}
 			
 		}
 		
