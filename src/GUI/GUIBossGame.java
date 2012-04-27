@@ -196,6 +196,8 @@ public class GUIBossGame extends JPanel{
 		String part2 = null;
 		Box horizBox = Box.createHorizontalBox();
 		Font myFont = new Font("Cambria", Font.PLAIN, 20);
+
+		System.out.println("Length: " + sentence.length());
 		if(startIndex == 0){
 			error = sentence.substring(0,endIndex);
 			JLabel errorLabel = new JLabel(error);
@@ -208,7 +210,7 @@ public class GUIBossGame extends JPanel{
 			horizBox.add(errorLabel);
 			horizBox.add(part2Label);
 			horizBox.add(Box.createHorizontalStrut(5));
-		} else if(endIndex == sentence.length()){
+		} else if(endIndex >= sentence.length()-1){
 			part1 = sentence.substring(0,startIndex);
 			JLabel part1Label = new JLabel(part1);
 			part1Label.setFont(myFont);
@@ -278,8 +280,8 @@ public class GUIBossGame extends JPanel{
 				JPanel nrPanel = makeRPanel(response,_current);
 				panel.remove(rPanel);
 				rPanel = nrPanel;
-				panel.add(nrPanel);
-				panel.revalidate();
+				panel.add(rPanel);
+				panel.repaint();
 				System.out.println("Move backwards");
 
 			} else{
@@ -289,8 +291,8 @@ public class GUIBossGame extends JPanel{
 				JPanel nrPanel = makeRPanel(response,_current);
 				panel.remove(rPanel);
 				rPanel = nrPanel;
-				panel.add(nrPanel);
-				panel.revalidate();
+				panel.add(rPanel);
+				panel.repaint();
 			}
 			System.out.println(_current);
 			
@@ -300,7 +302,11 @@ public class GUIBossGame extends JPanel{
 				prev.setEnabled(true);
 			}
 			
-			//same for end of list and "next"
+			if(_current == response.getMistakes().size()-1){
+				next.setEnabled(false);
+			} else{
+				next.setEnabled(true);
+			}
 			
 		}
 		
