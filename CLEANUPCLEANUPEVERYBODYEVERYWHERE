@@ -16,12 +16,13 @@ Danielle:
 -make dictionary and help button pop up in screen in appropriate place. 
 -make help frames say useful things and link to useful pages
 -better error handling in case an image isn't found
--better images for buttons on option page
+-make boss game never break
 
 Tara:
 -make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
 -make grammar game never break.
 -add instruction page for all games the first time they are opened on the first level. make it possible to access this page from the help button within all games.
+-better images for buttons on option page
 
 Annie:
 -add vocab checking mechanism for boss game. make sure it affects score
