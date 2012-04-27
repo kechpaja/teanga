@@ -142,6 +142,8 @@ public class Tokenizer {
 			}
 			
 			// TODO make sure the word exists in the dictionary...
+			System.out.println(dict_);
+			System.out.println("done...");
 			if (dict_.getWord(s, true) == null) {
 				mistakes.add(new FatalMistake(left, left + s.length() + 1, "Error: This Word is Invalid"));
 			}
