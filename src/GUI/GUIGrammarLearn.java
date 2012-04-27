@@ -36,7 +36,7 @@ public class GUIGrammarLearn extends JPanel{
 	
 	public GUIGrammarLearn(int ln, Driver d){
 		super(new BorderLayout());
-		this.setBackground(new Color(50,50,100,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
 		
@@ -51,6 +51,7 @@ public class GUIGrammarLearn extends JPanel{
 		title.setBorder(BorderFactory.createEmptyBorder(30,0,20,0));
 		
 		overall.add(title, BorderLayout.NORTH);
+		overall.setBackground(new Color(238,238,238,255));
 		Box vertBox = Box.createVerticalBox();
 		
 		JScrollPane main = new JScrollPane(vertBox);
@@ -107,7 +108,8 @@ public class GUIGrammarLearn extends JPanel{
 			JTextArea explinArea = new JTextArea();
 			explinArea.setText(glp.getExplanation());
 			explinArea.setEditable(false);
-			explinArea.setBackground(new Color(0,0,0,0));
+			explinArea.setBackground(new Color(225,225,225,255));
+			explinArea.setBorder(BorderFactory.createEmptyBorder());
 			explinArea.setFont(new Font("Cambria", Font.PLAIN, 20));
 			explinArea.setLineWrap(true);
 			explinArea.setWrapStyleWord(true);
@@ -183,15 +185,5 @@ public class GUIGrammarLearn extends JPanel{
 		}
 		
 	}
-
-	public static void main(String[] args){
-		/*GUIGrammarLearn panel = new GUIGrammarLearn();
-		JFrame frame = new JFrame("Grammar Learning");
-		frame.setPreferredSize(new Dimension(1000,700));
-		frame.add(panel);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);*/
-	}
+	
 }

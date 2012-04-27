@@ -141,7 +141,7 @@ public class GUIBasicPage extends JPanel{
 	    	verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
 	    }
 	    verticalBox.add(addUserB);
-	    verticalBox.add(Box.createVerticalStrut(110));
+	    verticalBox.add(Box.createVerticalStrut(103));
 	    submitB.setAlignmentX(CENTER_ALIGNMENT);
 	    addUserB.setAlignmentX(CENTER_ALIGNMENT);
 		
@@ -202,7 +202,7 @@ public class GUIBasicPage extends JPanel{
 		    verticalBox.add(_passOrUser);
 		    verticalBox.add(Box.createVerticalStrut(10));
 			verticalBox.add(submitB);
-	    	verticalBox.add(Box.createVerticalStrut(75));
+	    	verticalBox.add(Box.createVerticalStrut(141));
 			verticalBox.revalidate();
 		}
 		
@@ -342,18 +342,6 @@ public class GUIBasicPage extends JPanel{
 		} 
 		}
 
-	}
-	
-	public static void main(String[] args){
-		GUIBasicPage testPage = new GUIBasicPage(new Driver());
-		JFrame mainFrame = new JFrame("E Learning");
-		mainFrame.setPreferredSize(new Dimension(1000, 700));
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(testPage, BorderLayout.CENTER);
-		
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setVisible(true);
 	}
 	
 }

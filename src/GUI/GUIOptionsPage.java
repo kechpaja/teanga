@@ -101,7 +101,7 @@ public class GUIOptionsPage extends JPanel{
 			        ImageIcon newIcon = new ImageIcon(dst);
 			        buttons[i][j] = new JButton(newIcon);
 			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
-			        buttons[i][j].setBackground(new Color(238,238,238,255));
+			        buttons[i][j].setBackground(new Color(238,238,238,0));
 			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
 				buttons[0][4].setEnabled(true);//--------------------------------------------------
@@ -136,23 +136,18 @@ public class GUIOptionsPage extends JPanel{
 		titles.setBackground(new Color(238,238,238,255));
 		
 		Box theTitles = Box.createHorizontalBox();
-		
-		_userName = new JLabel(_driver.getUserName());
 		JLabel learning = new JLabel("Learni");
 		JLabel games = new JLabel("Apliki");
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
 		learning.setFont(new Font("Century", Font.BOLD, 30));
 		games.setFont(new Font("Century", Font.BOLD, 30));
 		
 		learning.setBorder(BorderFactory.createEmptyBorder(20,50,0,60));
 		games.setBorder(BorderFactory.createEmptyBorder(20,0,0,60));
 		
-		theTitles.add(Box.createRigidArea(new Dimension(80,0)));
+		theTitles.add(Box.createRigidArea(new Dimension(69,0)));
 		theTitles.add(learning);
-		theTitles.add(Box.createRigidArea(new Dimension(75,0)));
+		theTitles.add(Box.createRigidArea(new Dimension(111,0)));
 		theTitles.add(games);
-		theTitles.add(Box.createRigidArea(new Dimension(300,0)));
 		
 		titles.add(theTitles);
 
@@ -168,11 +163,11 @@ public class GUIOptionsPage extends JPanel{
 		
 		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
 		totalBox.add(vocabLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
 		totalBox.add(grammarLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
 		totalBox.add(vocabGameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
 		totalBox.add(grammarGameColumn);
 		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
 		totalBox.add(levelNameColumn);
@@ -202,57 +197,61 @@ public class GUIOptionsPage extends JPanel{
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		scrollbar.setPreferredSize(new Dimension(1000,598));
+		scrollbar.setPreferredSize(new Dimension(1000,594));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
+		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
 		
 		Box fullBar = Box.createVerticalBox();
-
-		/*
 		
-		
-		*/
-		
-		//Box topCushion = Box.createVerticalBox();
-		//topCushion.add(Box.createVerticalStrut(8));
-		
-		//Box bottomCushion = Box.createVerticalBox();
-		//bottomCushion.add(Box.createVerticalStrut(8));
-		
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createHorizontalStrut(830));
-		JButton help = new JButton("Help");
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(75, 35));
-		help.setSize(new Dimension(75, 35));
-		bottomBar.add(help);
-		bottomBar.add(dictionary);
-		bottomBar.add(Box.createHorizontalStrut(15));
-		help.addActionListener(new HelpButtonListener());
-		dictionary.addActionListener(new DictionaryButtonListener());
-		
+		//Top Panel
 		topPanel = new JPanel(null);
 		topPanel.setPreferredSize(new Dimension(1000,35));
 		topPanel.setBackground(new Color(50,50,50,255));
-		topPanel.addComponentListener(new componentlistener());
-		topPanel.add(_userName, BorderLayout.WEST);
 		
-		JButton back = new JButton("Back");
-		back.addActionListener(new BacktoBasicActionListener());
-		back.setSize(new Dimension(75, 35));
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 0);
 		
 		Box topBar = Box.createHorizontalBox();
 		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 		topBar.add(_score);
+		topBar.setSize(400,35);
+		topBar.setLocation(435, 0);
 		
-		topPanel.add(back, BorderLayout.EAST);
-		topPanel.add(topBar, BorderLayout.CENTER);
+		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoBasicActionListener());
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,0);
 		
-		JPanel bottomPanel = new JPanel();
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
+		
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
 		bottomPanel.setPreferredSize(new Dimension(1000,35));
 		bottomPanel.setBackground(new Color(50,50,50,255));
-		bottomPanel.addComponentListener(new componentlistener());
+		
+		JButton help = new JButton("Help");
+		help.setSize(new Dimension(100, 30));
+		help.addActionListener(new HelpButtonListener());
+		help.setLocation(19, 5);
+		
+		
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
+		dictionary.addActionListener(new DictionaryButtonListener());
+		dictionary.setLocation(875, 5);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(dictionary);
 		
 		fullBar.add(topPanel);
 		fullBar.add(scrollbar);
@@ -260,7 +259,6 @@ public class GUIOptionsPage extends JPanel{
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
-		System.out.println("Panel height: " + topPanel.getHeight());
 	}
 	
 	public class BacktoBasicActionListener implements ActionListener{
@@ -268,34 +266,6 @@ public class GUIOptionsPage extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.changePage(new GUIBasicPage(_driver));			
-		}
-		
-	}
-	
-	public class componentlistener implements ComponentListener{
-
-		@Override
-		public void componentResized(ComponentEvent e) {
-			System.out.println("Panel height : "  + e.getComponent().getHeight());
-			
-		}
-
-		@Override
-		public void componentMoved(ComponentEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void componentShown(ComponentEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void componentHidden(ComponentEvent e) {
-			// TODO Auto-generated method stub
-			
 		}
 		
 	}
