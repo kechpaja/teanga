@@ -72,7 +72,7 @@ public class GUIVocabGameBoard extends JPanel {
 		if(_top == 5){
 			_timer.stop();
 			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), getSeconds());
-			_driver.changePage(new GUIGameCompleted(_driver, _vl));
+			_driver.changePage(new GUIGameCompleted(/*_driver, _vl*/));
 		}
 		else{
 			//Otherwise add a new piece (and set its bottom)

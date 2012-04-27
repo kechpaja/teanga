@@ -28,36 +28,41 @@ public class GUIGameCompleted extends JPanel{
 	Driver _driver;
 	LevelInstance _levelInstance;
 	
-	public GUIGameCompleted(Driver d, LevelInstance l){
-		_driver = d;
-		_levelInstance = l;
+	public GUIGameCompleted(){//Driver d, LevelInstance l){
+		//_driver = d;
+		//_levelInstance = l;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color (0,255,255,0));
+		overall.setBackground(new Color (245,245,250,255));
 		overall.setPreferredSize(new Dimension(950,170));
+		overall.setVisible(true);
 		
 		JLabel title;
 		JTextArea gameCompleted;
-		if (l.getScore() >= l.getNecessaryScore()){
-			title = new JLabel("Congratulations!", SwingConstants.CENTER);
-			gameCompleted = new JTextArea("You've completed this level with a score of "+ l.getScore() + ". You can play again or move on to the next game.");
+		String titleString = "Conratulations!";
+		String gameString = "You've completed this level with a score of "+ 1 + ". You can play again or move on to the next game.";
+
+		/*if (l.getScore() >= l.getNecessaryScore()){
+			title = new JLabel("Congratulations!", SwingConstants.CENTER);//l.getScore()
+			gameCompleted = new JTextArea("You've completed this level with a score of "+ 1 + ". You can play again or move on to the next game.");
 		} else {
 			title = new JLabel("Game Over");
 			gameCompleted = new JTextArea("Your score was " + l.getScore() + ". You'll need at least a score of " + l.getNecessaryScore() + " to unlock the next level");
 
-		}
+		} */
+			
+		title = new JLabel(titleString);
+		gameCompleted = new JTextArea(gameString);
+			
 		gameCompleted.setEditable(false);
 		gameCompleted.setFocusable(false);
 		gameCompleted.setFont(new Font("Cambria", Font.PLAIN, 20));
 		gameCompleted.setOpaque(false);
-		gameCompleted.setAlignmentX(SwingConstants.CENTER);
-		title.setVerticalAlignment(SwingConstants.CENTER);
-		title.setBorder(BorderFactory.createLineBorder(Color.black));
+		
 		title.setFont(new Font("Cambria", Font.PLAIN, 80));
-		title.setBorder(BorderFactory.createEmptyBorder(20,250,20,0));
 		
 		JButton tryAgain = new JButton("try again");
 		tryAgain.addActionListener(new tryAgainActionListener());
@@ -66,25 +71,21 @@ public class GUIGameCompleted extends JPanel{
 		
 		overall.add(title, BorderLayout.NORTH);
 		
-		
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createRigidArea(new Dimension(0, 30)));
-		bottomBar.add(tryAgain);
-		bottomBar.add(backtoBasic);
-		bottomBar.add(Box.createHorizontalStrut(15));
-		
-		
-		
 		overall.add(gameCompleted, BorderLayout.CENTER);
 		
 		
 		
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(Box.createRigidArea(new Dimension(20, 40)));
-		topBar.setSize(1000, 20);
-		topBar.setOpaque(true);
-		topBar.setBackground(Color.blue);
-		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		topBar.add(Box.createVerticalStrut(30));
+		
+		Box bottomBar = Box.createHorizontalBox();
+		bottomBar.add(Box.createVerticalStrut(30));
+		bottomBar.add(Box.createHorizontalStrut(30));
+		bottomBar.add(tryAgain);
+		bottomBar.add(Box.createHorizontalStrut(5));
+		bottomBar.add(backtoBasic);
+		bottomBar.add(Box.createHorizontalStrut(30));
+		
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
@@ -130,7 +131,7 @@ public class GUIGameCompleted extends JPanel{
 					} catch (IOException e1) {
 						e1.printStackTrace();
 					}
-					_driver.changePage(new GUIBossGame());
+					//_driver.changePage(new GUIBossGame());
 					break;
 				default:
 					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
@@ -153,11 +154,11 @@ public class GUIGameCompleted extends JPanel{
 	public static void main(String[] args){
 		Driver myDriver = new Driver();
 		GrammarLevel myLevel = myDriver.getGrammarGameMaker().makeLevel(1);
-		GUIGameCompleted myPage = new GUIGameCompleted(myDriver, myLevel);
+		GUIGameCompleted myPage = new GUIGameCompleted();//myDriver, myLevel);
 		JFrame mainFrame = new JFrame("E Learning");
 		mainFrame.setPreferredSize(new Dimension(1000, 700));
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(myPage, BorderLayout.CENTER);
+		mainFrame.add(myPage);
 		
 		mainFrame.pack();
 		mainFrame.setResizable(false);
