@@ -105,12 +105,13 @@ public class GUIOptionsPage extends JPanel{
 			        ImageIcon newIcon = new ImageIcon(dst);
 			        buttons[i][j] = new JButton(newIcon);
 			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
-			        buttons[i][j].setBackground(new Color(0,0,0,0));
+			        buttons[i][j].setBackground(new Color(238,238,238,255));
 			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
 				buttons[0][4].setEnabled(true);//--------------------------------------------------
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
+				levelNames[i].setBackground(new Color(238,238,238,255));
 				levelNames[i].setFont(new Font("Cambria", Font.BOLD, 25));
 				levelNames[i].setSize(new Dimension(40,15));
 				levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
@@ -130,7 +131,7 @@ public class GUIOptionsPage extends JPanel{
 		
 		//Create The Layout
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color (0,255,255,0));
+		overall.setBackground(new Color (238,238,238,255));
 		overall.setPreferredSize(new Dimension(950,100*numacts+70));
 		
 		JPanel titles = new JPanel(new BorderLayout());

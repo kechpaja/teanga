@@ -61,10 +61,11 @@ public class GUIBasicPage extends JPanel{
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(100,110,255,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		//Make overall container
 		JPanel overall = new JPanel(new BorderLayout());
+		overall.setBackground(new Color(238,238,238,255));
 		
 		//Make the title
 		JLabel title = new JLabel("ELearning", SwingConstants.CENTER);
@@ -75,6 +76,7 @@ public class GUIBasicPage extends JPanel{
 		
 		//Make the username list
 		JPanel listpane = new JPanel(new BorderLayout());
+		listpane.setBackground(new Color(238,238,238,255));
 
 		String[] usernames = _driver.openingpage.getUsernames().toArray(new String[0]);
 		
@@ -83,8 +85,10 @@ public class GUIBasicPage extends JPanel{
 		nameList.addListSelectionListener(new mySelectionListener());
 		JScrollPane scrollpane = new JScrollPane(nameList);
 		scrollpane.setBorder(compound);
+		scrollpane.setBackground(new Color(238,238,238,255));
 		
 		JPanel buttonpane = new JPanel();
+		buttonpane.setBackground(new Color(238,238,238,255));
 		buttonpane.setLayout(new BoxLayout(buttonpane, BoxLayout.Y_AXIS));
 		
 		submitB = new JButton("Submit");
@@ -95,7 +99,9 @@ public class GUIBasicPage extends JPanel{
 		passField.addActionListener(new TextListener());
 		JLabel passLabel = new JLabel("Password: ");
 		_passPanel = new JPanel(new BorderLayout());
+		_passPanel.setBackground(new Color(238,238,238,255));
 		_newUserPanel = new JPanel(new BorderLayout());
+		_newUserPanel.setBackground(new Color(238,238,238,255));
 		Box passBox = Box.createHorizontalBox();
 		passBox.add(Box.createHorizontalStrut(350));		
 		passBox.add(passLabel);
