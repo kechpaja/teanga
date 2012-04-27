@@ -18,9 +18,6 @@ data/VocabPictures/small.jpg,malgranda
 data/VocabPictures/good.jpg,bona
 data/VocabPictures/bad.jpg,malbona
 data/VocabPictures/eat.jpg,manĝi
-data/VocabPictures/be.jpg,esti
 data/VocabPictures/see.jpg,vidi
 data/VocabPictures/love.jpg,ami
-data/VocabPictures/well.jpg,bone
-data/VocabPictures/badly.jpg,malbone
 0

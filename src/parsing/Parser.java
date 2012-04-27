@@ -2,6 +2,8 @@ package parsing;
 
 import java.util.*;
 
+import annie.MyDictionary;
+
 import rules.*;
 import nodes.*;
 
@@ -20,7 +22,7 @@ import nodes.*;
 public class Parser {
 	
 	private RuleSet rules_;
-	// TODO need dictionary
+	private MyDictionary dict_;
 	
 	/**
 	 * @author kechpaja
@@ -43,7 +45,7 @@ public class Parser {
 		List<Mistake> mistakes = new LinkedList<Mistake>();
 		
 		// tokenize the string.
-		Tokenizer tkn = new Tokenizer(sentence); // TODO will need to take in dictionary
+		Tokenizer tkn = new Tokenizer(sentence, dict_); // TODO will need to take in dictionary
 		tkn.init(mistakes); // this will put lexical mistakes into the mistakes list
 		
 		// parse
@@ -67,7 +69,7 @@ public class Parser {
 	 */
 	public Parser(String rulefile, String dictfile) {
 		rules_ = RuleReader.ruleRead(rulefile);
-		// TODO initialize dictionary
+		dict_ = new MyDictionary(dictfile);
 	}
 	
 	// One constructor
