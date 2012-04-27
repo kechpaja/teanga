@@ -22,6 +22,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
+import javax.swing.JViewport;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
 
@@ -33,31 +34,33 @@ public class GUIGrammarLearn extends JPanel{
 	Driver _driver;
 	int _levelNum;
 	private JLabel _userName;
+	private boolean _even;
 	
 	public GUIGrammarLearn(int ln, Driver d){
 		super(new BorderLayout());
-		this.setBackground(new Color(50,50,100,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
+		overall.setBackground(new Color(238,238,238,255));
 		
 		_driver = d;
-		//Make the title
 		_levelNum = ln;
+		
+		//Make the title
+		Box vertBox = Box.createVerticalBox();
+		
+		Box titleBox = Box.createHorizontalBox();
 		String label = "Level " + Integer.toString(_levelNum+1) + " Grammar";
 		JLabel title = new JLabel(label, SwingConstants.CENTER);
 		title.setVerticalAlignment(SwingConstants.CENTER);
 		title.setBorder(BorderFactory.createLineBorder(Color.black));
 		title.setFont(new Font("Trebuchet MS", Font.PLAIN, 50));
 		title.setBorder(BorderFactory.createEmptyBorder(30,0,20,0));
+		titleBox.add(Box.createHorizontalStrut(315));
+		titleBox.add(title);
+		titleBox.add(Box.createHorizontalStrut(315));
+		vertBox.add(titleBox);
 		
-		overall.add(title, BorderLayout.NORTH);
-		Box vertBox = Box.createVerticalBox();
-		
-		JScrollPane main = new JScrollPane(vertBox);
-		main.setSize(1000,700);
-		main.setBorder(BorderFactory.createEmptyBorder(0,0,5,0));
-		main.getVerticalScrollBar().setUnitIncrement(16);
-		main.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		int prefHeight = 100;
 		int prefWidth = 150;
@@ -65,9 +68,6 @@ public class GUIGrammarLearn extends JPanel{
 		vertBox.add(Box.createVerticalStrut(10));
 		List<GrammarLessonPair> grammarLessonPairs= _driver.getLessons().getGLessons(_levelNum);
 		for(GrammarLessonPair glp : grammarLessonPairs){
-			
-			Box currVert = Box.createVerticalBox();
-			Box currHoriz = Box.createHorizontalBox();
 			
 			//picVert
 			BufferedImage pic = null;
@@ -84,73 +84,119 @@ public class GUIGrammarLearn extends JPanel{
 	        g1.dispose();
 	        ImageIcon newIcon = new ImageIcon(dst);
 	        JLabel picLabel = new JLabel(newIcon);
-	        
-	        currHoriz.add(Box.createHorizontalStrut(10));
-	        currHoriz.add(picLabel);
-	        currHoriz.add(Box.createHorizontalStrut(10));
 			
 			//sentenceVert
-			Box sentVert = Box.createVerticalBox();
-			Box sentHoriz = Box.createHorizontalBox();
 			JLabel sentenceLabel = new JLabel("\"" + glp.getExampleSentence() + "\"");
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
-			sentVert.add(sentenceLabel);
-			sentVert.add(Box.createVerticalStrut(5));
-			sentHoriz.add(Box.createVerticalStrut(110));
-			sentHoriz.add(sentVert);
 			
-			currHoriz.add(sentHoriz);
-			currHoriz.add(Box.createHorizontalStrut(10));
 			
 			//Explanation
-			Box explinHoriz = Box.createHorizontalBox();
 			JTextArea explinArea = new JTextArea();
 			explinArea.setText(glp.getExplanation());
 			explinArea.setEditable(false);
 			explinArea.setBackground(new Color(0,0,0,0));
+			explinArea.setBorder(BorderFactory.createEmptyBorder());
 			explinArea.setFont(new Font("Cambria", Font.PLAIN, 20));
 			explinArea.setLineWrap(true);
 			explinArea.setWrapStyleWord(true);
-			explinHoriz.add(Box.createHorizontalStrut(10));
-			explinHoriz.add(explinArea);
-			explinHoriz.add(Box.createHorizontalStrut(10));
 			
-			currVert.add(currHoriz);
-			currVert.add(Box.createVerticalStrut(2));
-			currVert.add(explinHoriz);
+			JPanel panel = new JPanel(null);
+			panel.setPreferredSize(new Dimension(950, 250));
+			if(_even){
+				panel.setBackground(new Color(245,245,245,255));
+				explinArea.setBackground(new Color(245,245,245,255));
+				_even = false;
+			} else{
+				panel.setBackground(new Color(231,231,231,255));
+				explinArea.setBackground(new Color(231,231,231,255));
+				_even = true;
+			}
 			
-			vertBox.add(currVert);
-			vertBox.add(Box.createVerticalStrut(50));
+			panel.add(picLabel);
+			picLabel.setSize(150,100);
+			picLabel.setLocation(150, 30);
+			
+			panel.add(sentenceLabel);
+			sentenceLabel.setSize(500,20);
+			sentenceLabel.setLocation(400, 70);
+
+			JScrollPane miniScroll = new JScrollPane(explinArea);
+			panel.add(miniScroll);
+			miniScroll.setSize(800, 100);
+			miniScroll.setLocation(100, 150);
+			miniScroll.setBorder(BorderFactory.createEmptyBorder());
+			
+			vertBox.add(panel);
 		}
 		
-		overall.add(main, BorderLayout.CENTER);
+		overall.add(vertBox);
 		
-		_userName = new JLabel(_driver.getUserName());
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
-
+		JScrollPane scrollbar = new JScrollPane(overall);
+		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
+		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		scrollbar.setPreferredSize(new Dimension(1000,594));
+		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
+		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
+		
+		//Create boundary Panels and put it all together
+		Box fullBar = Box.createVerticalBox();
+		
+		//Top Panel
+		JPanel topPanel = new JPanel(null);
+		topPanel.setPreferredSize(new Dimension(950,35));
+		topPanel.setBackground(new Color(50,50,50,255));
+		
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 3);
+		
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(_userName);
-		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		topBar.add(_score);
+		topBar.setSize(400,35);
+		topBar.setLocation(435, 3);
+		
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoOptionsActionListener());
-		back.setSize(new Dimension(75, 35));
-		topBar.add(back);
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
-		JButton help = new JButton("Help");
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(75, 35));
-		help.setSize(new Dimension(75, 35));
-		bottomBar.add(help);
-		bottomBar.add(dictionary);
-		bottomBar.add(Box.createHorizontalStrut(15));
-		help.addActionListener(new HelpButtonListener());
-		dictionary.addActionListener(new DictionaryButtonListener());
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,5);
 		
-		add(topBar, BorderLayout.NORTH);
-		add(overall, BorderLayout.CENTER);
-		add(bottomBar, BorderLayout.SOUTH);
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
+		
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(50,50,50,255));
+		
+		JButton help = new JButton("Help");
+		help.setSize(new Dimension(100, 30));
+		help.addActionListener(new HelpButtonListener());
+		help.setLocation(19, 5);
+		
+		
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
+		dictionary.addActionListener(new DictionaryButtonListener());
+		dictionary.setLocation(875, 5);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(dictionary);
+		
+		fullBar.add(topPanel);
+		fullBar.add(scrollbar);
+		fullBar.add(bottomPanel);
+		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		
+		add(fullBar, BorderLayout.CENTER);
 		
 		
 	}
@@ -183,15 +229,5 @@ public class GUIGrammarLearn extends JPanel{
 		}
 		
 	}
-
-	public static void main(String[] args){
-		/*GUIGrammarLearn panel = new GUIGrammarLearn();
-		JFrame frame = new JFrame("Grammar Learning");
-		frame.setPreferredSize(new Dimension(1000,700));
-		frame.add(panel);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);*/
-	}
+	
 }
