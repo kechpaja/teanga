@@ -19,6 +19,7 @@ data/VocabPictures/good.jpeg~bona~good~"Mi manĝas bonan manĝon"
 data/VocabPictures/bad.jpeg~malbona~bad~"ĉi tia verko estas malbona"
 data/VocabPictures/eat.jpeg~manĝi~eat~"la virino manĝas"
 data/VocabPictures/see.jpeg~vidi~see~"Mi vidas vin"
+<<<<<<< HEAD
 data/VocabPictures/love.jpeg~ami~love~"Mi amas mian hundon"
 data/VocabPictures/beautiful.jpeg~bela~beautiful~"tia pentraĵo estas bela"
 data/VocabPictures/large.jpeg~granda~big~"la monto estas granda"
@@ -28,6 +29,8 @@ data/VocabPictures/bad.jpeg~malbona~bad~"ĉi tia verko estas malbona"
 data/VocabPictures/eat.jpeg~manĝi~eat~"la virino manĝas"
 data/VocabPictures/see.jpeg~vidi~see~"Mi vidas vin"
 data/VocabPictures/love.jpeg~ami~love~"Mi amas mian hundon"
+=======
+>>>>>>> f457840e184c6dc47e2b281ac93a0d6c2fef8acd
 0
 data/VocabPictures/lampo.jpg~lampo~lamp~"La lampo estas sur la tablo."
 data/VocabPictures/lito.jpg~lito~bed~"Mi dormas en mia lito."

@@ -40,9 +40,7 @@ public class BossLevel extends LevelInstance{
 		picturePath = pp;
 		parser = p;
 	}
-	
-	
-	
+		
 	public Response tryAnswer(String input){
 		Response response = parser.parse(input);
 		if (!response.containsFatal()){
