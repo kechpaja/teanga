@@ -131,12 +131,6 @@ public class DictionaryInternalFrame extends JFrame{
 	 
 	
 	public static void main(String[] args){
-		try {
-			DictionaryInternalFrame dif = new DictionaryInternalFrame(new MyDictionary("data/dictionary.txt"));
-			//dif.setSize(100, 100);
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+		DictionaryInternalFrame dif = new DictionaryInternalFrame(new MyDictionary("data/dictionary.txt"));
 	}
 }
