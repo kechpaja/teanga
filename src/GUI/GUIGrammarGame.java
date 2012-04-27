@@ -35,7 +35,7 @@ public class GUIGrammarGame extends JPanel{
 	private Driver _driver;
 	private JPanel _panel;
 	private Box _horizontalChoice, topHoriz;
-	private JLabel _userName, _currentScore, _bestScore;
+	private JLabel _userName, _score;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
@@ -117,11 +117,16 @@ public class GUIGrammarGame extends JPanel{
 		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_userName.setForeground(Color.white);
 		
+		_score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		
 		
 		Box topBar = Box.createHorizontalBox();
 		topBar.setBackground(new Color(0,0,0,255));
-		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		topBar.add(_userName);
+		topBar.add(_score);
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
@@ -355,7 +360,7 @@ public class GUIGrammarGame extends JPanel{
 					
 				}
 			} else _choicePanel.notCorrect();
-			//TODO: pass correct to grammarLevel
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 		}
 	}
 	
@@ -375,6 +380,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(2);
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 
 			
@@ -387,6 +393,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(3);
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 1, _grammarLevel.getLevelNum(), _driver);
 		}
 		
