@@ -211,12 +211,16 @@ public class GUIOptionsPage extends JPanel{
 
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(_userName);
-		topBar.add(Box.createHorizontalStrut(830));
+		topBar.add(Box.createHorizontalStrut(350));
+		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		topBar.add(_score);
+		topBar.add(Box.createHorizontalStrut(350));
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoBasicActionListener());
 		back.setSize(new Dimension(75, 35));
 		topBar.add(back);
-		topBar.add(Box.createHorizontalStrut(30));
 		Box topCushion = Box.createVerticalBox();
 		topCushion.add(Box.createVerticalStrut(8));
 		
