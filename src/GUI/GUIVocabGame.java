@@ -128,10 +128,7 @@ public class GUIVocabGame extends JPanel{
 			_vocabLevel.decrementScore(2);
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 			dictFrame.addWindowListener(new WindowListener() {
-	            public void windowClosed(WindowEvent arg0) {
-	            	System.out.println("here");
-	                _gameBoard.restart();
-	            }
+	            public void windowClosed(WindowEvent arg0) {}
 	            public void windowActivated(WindowEvent arg0) {
 	                _gameBoard.pause();
 	            }
@@ -155,6 +152,20 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
+			helpFrame.addWindowListener(new WindowListener() {
+	            public void windowClosed(WindowEvent arg0) {}
+	            public void windowActivated(WindowEvent arg0) {
+	                _gameBoard.pause();
+	            }
+	            public void windowClosing(WindowEvent arg0) {}
+	            public void windowDeactivated(WindowEvent arg0) {
+	            	System.out.println("here3");
+	                _gameBoard.restart();
+	            }
+	            public void windowDeiconified(WindowEvent arg0) {}
+	            public void windowIconified(WindowEvent arg0) {}
+	            public void windowOpened(WindowEvent arg0) {}
+	        });
 		}
 		
 	}
