@@ -10,9 +10,13 @@ public class MyDictionary {
 	private HashMap<String, Word> engToEspDict= new HashMap<String, Word>();
 	private HashMap<String, Word> espToEngDict= new HashMap<String, Word>();
 	
-	public MyDictionary(String file) throws IOException
+	public MyDictionary(String file)
 	{
-		buildDictionary(file);
+		try {
+			buildDictionary(file);
+		} catch (IOException e) {
+			// TODO some error case
+		}
 	}
 
 	public void buildDictionary(String file) throws IOException

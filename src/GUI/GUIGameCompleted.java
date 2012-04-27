@@ -28,67 +28,76 @@ public class GUIGameCompleted extends JPanel{
 	Driver _driver;
 	LevelInstance _levelInstance;
 	
-	public GUIGameCompleted(){//Driver d, LevelInstance l){
-		//_driver = d;
-		//_levelInstance = l;
+	public GUIGameCompleted(Driver d, LevelInstance l){
+		_driver = d;
+		_levelInstance = l;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
 		
+		Box main = Box.createVerticalBox();
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color (245,245,250,255));
-		overall.setPreferredSize(new Dimension(950,170));
+		overall.setBackground(new Color (238,238,238,255));
 		overall.setVisible(true);
 		
-		JLabel title;
-		JTextArea gameCompleted;
-		String titleString = "Conratulations!";
-		String gameString = "You've completed this level with a score of "+ 1 + ". You can play again or move on to the next game.";
-
-		/*if (l.getScore() >= l.getNecessaryScore()){
-			title = new JLabel("Congratulations!", SwingConstants.CENTER);//l.getScore()
-			gameCompleted = new JTextArea("You've completed this level with a score of "+ 1 + ". You can play again or move on to the next game.");
+		String titleString, gameString;
+		if (l.getScore() >= l.getNecessaryScore()){
+			titleString = "Congratulations!";
+			gameString = "You've completed this level with a score of "+ l.getScore() + ". You can play again or move on to the next game.";
 		} else {
-			title = new JLabel("Game Over");
-			gameCompleted = new JTextArea("Your score was " + l.getScore() + ". You'll need at least a score of " + l.getNecessaryScore() + " to unlock the next level");
+			titleString = "Game Over";
+			gameString = "Your score was " + l.getScore() + ". You'll need at least a score of " + l.getNecessaryScore() + " to unlock the next level";
 
-		} */
-			
-		title = new JLabel(titleString);
-		gameCompleted = new JTextArea(gameString);
-			
-		gameCompleted.setEditable(false);
-		gameCompleted.setFocusable(false);
+		}
+		Box horizBox = Box.createHorizontalBox();
+		horizBox.add(Box.createVerticalStrut(600));
+		horizBox.add(Box.createHorizontalStrut(10));
+		
+		Box vertBox = Box.createVerticalBox();
+		vertBox.add(Box.createVerticalStrut(10));
+		horizBox.add(vertBox);
+		
+		Box titleBox = Box.createHorizontalBox();
+		JLabel title = new JLabel(titleString);
+		title.setFont(new Font("Cambria", Font.PLAIN, 80));
+		titleBox.add(title);
+		vertBox.add(titleBox);
+		
+		Box complBox = Box.createHorizontalBox();
+		JLabel gameCompleted = new JLabel(gameString);
 		gameCompleted.setFont(new Font("Cambria", Font.PLAIN, 20));
 		gameCompleted.setOpaque(false);
-		
-		title.setFont(new Font("Cambria", Font.PLAIN, 80));
+		complBox.add(gameCompleted);
+		vertBox.add(Box.createVerticalStrut(10));
+		vertBox.add(complBox);
 		
 		JButton tryAgain = new JButton("try again");
 		tryAgain.addActionListener(new tryAgainActionListener());
 		JButton backtoBasic = new JButton("return to home page");
 		backtoBasic.addActionListener(new backtoOptions());
 		
-		overall.add(title, BorderLayout.NORTH);
-		
-		overall.add(gameCompleted, BorderLayout.CENTER);
-		
+		horizBox.add(Box.createHorizontalStrut(10));
+		horizBox.add(Box.createVerticalStrut(600));
+		overall.add(horizBox);
 		
 		
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createVerticalStrut(30));
+		topBar.add(Box.createRigidArea(new Dimension(1000,10)));
 		
 		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createVerticalStrut(30));
-		bottomBar.add(Box.createHorizontalStrut(30));
+		Box botBar = Box.createVerticalBox();
 		bottomBar.add(tryAgain);
 		bottomBar.add(Box.createHorizontalStrut(5));
 		bottomBar.add(backtoBasic);
-		bottomBar.add(Box.createHorizontalStrut(30));
+		botBar.add(Box.createVerticalStrut(8));
+		botBar.add(bottomBar);
+		botBar.add(Box.createVerticalStrut(8));
 		
-		add(topBar, BorderLayout.NORTH);
-		add(overall, BorderLayout.CENTER);
-		add(bottomBar, BorderLayout.SOUTH);
+		main.add(topBar);
+		main.add(overall);
+		main.add(botBar);
+		this.add(main, BorderLayout.CENTER);
 
 	}
 	
@@ -150,19 +159,5 @@ public class GUIGameCompleted extends JPanel{
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 		}
 		
-	}
-	
-	public static void main(String[] args){
-		Driver myDriver = new Driver();
-		GrammarLevel myLevel = myDriver.getGrammarGameMaker().makeLevel(1);
-		GUIGameCompleted myPage = new GUIGameCompleted();//myDriver, myLevel);
-		JFrame mainFrame = new JFrame("E Learning");
-		mainFrame.setPreferredSize(new Dimension(1000, 700));
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(myPage);
-		
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setVisible(true);
 	}
 }
