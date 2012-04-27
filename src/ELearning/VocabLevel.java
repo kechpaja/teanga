@@ -75,6 +75,7 @@ public class VocabLevel extends LevelInstance {
 			{
 				upNext=new LinkedList<VocabPicturePair>(fallen);
 				Collections.copy(upNext, fallen);
+				System.out.println("In tryAnswer: "+upNext.size());
 				Collections.shuffle(upNext);
 			}
 			score+=2;
