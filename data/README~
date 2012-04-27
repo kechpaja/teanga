@@ -4,6 +4,8 @@ Esperanto uses several letters with what linguists call "diacritical marks", or 
 
 
 
+
+
 Program files:
 
 This program requires a number of data files (in the "data" folder) - they are provided for you, and need not and should not ever be modified. Please don't mess with them; you'll only be hurting yourself by messing up your program. 
