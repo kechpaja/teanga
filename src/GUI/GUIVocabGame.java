@@ -53,7 +53,7 @@ public class GUIVocabGame extends JPanel{
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 
-		//Top Toolbar (empty at this point)
+		//Top Toolbar
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
@@ -61,8 +61,6 @@ public class GUIVocabGame extends JPanel{
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
-
-
 		topBar.add(back);
 		topBar.add(Box.createHorizontalStrut(30));
 		

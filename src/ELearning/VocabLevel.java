@@ -80,9 +80,7 @@ public class VocabLevel extends LevelInstance {
 			score+=2;
 			return true;
 		} else {
-			if (score > 0){
-				score --;
-			}
+			score --;
 			return false;
 		}
 	}

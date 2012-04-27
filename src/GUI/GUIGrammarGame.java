@@ -113,7 +113,7 @@ public class GUIGrammarGame extends JPanel{
 		skip.addActionListener(new SkipListener());
 		submitHoriz.add(skip);
 		
-		_userName = new JLabel(_driver.getUserName());
+		_userName = new JLabel(_driver.getUserName()+"       ");
 		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_userName.setForeground(Color.white);
 		
@@ -121,17 +121,18 @@ public class GUIGrammarGame extends JPanel{
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 		
+		Box theBox = Box.createVerticalBox();
 		
 		Box topBar = Box.createHorizontalBox();
-		topBar.setBackground(new Color(0,0,0,255));
-		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		topBar.add(_userName);
+		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
 		topBar.add(_score);
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
-
 		topBar.add(back);
+		topBar.add(Box.createHorizontalStrut(30));
+		
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		JButton help = new JButton("Help");
@@ -144,9 +145,12 @@ public class GUIGrammarGame extends JPanel{
 		help.addActionListener(new HelpButtonListener());
 		dictionary.addActionListener(new DictionaryButtonListener());
 
-		add(topBar, BorderLayout.NORTH);
-		add(overall, BorderLayout.CENTER);
-		add(bottomBar, BorderLayout.SOUTH);
+		theBox.add(topBar);
+		theBox.add(overall);
+		theBox.add(bottomBar);
+
+		add(theBox);
+
 		
 	}
 	
