@@ -17,6 +17,7 @@ Danielle:
 -make help frames say useful things and link to useful pages
 -better error handling in case an image isn't found
 -make boss game never break
+-Add correct buttons for boss level
 
 Tara:
 -make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
@@ -29,6 +30,7 @@ Annie:
 -makes needed score/score affecting mechanisms final
 -if we can, make encryption work on PCs
 -make using the help button in game pause the game (if timer) and decriment points by 2.
+-fix vocab game
 
 
 
