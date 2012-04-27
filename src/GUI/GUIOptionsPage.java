@@ -104,7 +104,7 @@ public class GUIOptionsPage extends JPanel{
 			        buttons[i][j].setBackground(new Color(238,238,238,0));
 			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
-				buttons[0][4].setEnabled(true);//--------------------------------------------------
+				//buttons[0][4].setEnabled(true);//--------------------------------------------------
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
 				levelNames[i].setBackground(new Color(238,238,238,255));
