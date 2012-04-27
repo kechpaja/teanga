@@ -4,9 +4,15 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.io.IOException;
 
+import javax.crypto.BadPaddingException;
+import javax.crypto.IllegalBlockSizeException;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -20,9 +26,11 @@ import ELearning.LevelInstance;
 @SuppressWarnings("serial")
 public class GUIGameCompleted extends JPanel{
 	Driver _driver;
+	LevelInstance _levelInstance;
 	
 	public GUIGameCompleted(Driver d, LevelInstance l){
 		_driver = d;
+		_levelInstance = l;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -51,19 +59,95 @@ public class GUIGameCompleted extends JPanel{
 		title.setFont(new Font("Cambria", Font.PLAIN, 80));
 		title.setBorder(BorderFactory.createEmptyBorder(20,250,20,0));
 		
+		JButton tryAgain = new JButton("try again");
+		tryAgain.addActionListener(new tryAgainActionListener());
+		JButton backtoBasic = new JButton("return to home page");
+		backtoBasic.addActionListener(new backtoOptions());
+		
 		overall.add(title, BorderLayout.NORTH);
 		
 		
-		overall.add(gameCompleted);
+		Box bottomBar = Box.createHorizontalBox();
+		bottomBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		bottomBar.add(tryAgain);
+		bottomBar.add(backtoBasic);
+		bottomBar.add(Box.createHorizontalStrut(15));
+		
+		
+		
+		overall.add(gameCompleted, BorderLayout.CENTER);
+		
+		
 		
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
-		Box bottomBar = Box.createHorizontalBox();
+		topBar.add(Box.createRigidArea(new Dimension(20, 40)));
+		topBar.setSize(1000, 20);
+		topBar.setOpaque(true);
+		topBar.setBackground(Color.blue);
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
 
+	}
+	
+	private class tryAgainActionListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			switch (_levelInstance.getTypeOfGame()){
+				case 0:
+					try {
+						_driver.getPlayerStats().encode();
+					} catch (IllegalBlockSizeException e1) {
+						e1.printStackTrace();
+					} catch (BadPaddingException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));
+					break;
+				case 1:
+					try {
+						_driver.getPlayerStats().encode();
+					} catch (IllegalBlockSizeException e1) {
+						e1.printStackTrace();
+					} catch (BadPaddingException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));
+					break;
+				case 2:
+					try {
+						_driver.getPlayerStats().encode();
+					} catch (IllegalBlockSizeException e1) {
+						e1.printStackTrace();
+					} catch (BadPaddingException e1) {
+						e1.printStackTrace();
+					} catch (IOException e1) {
+						e1.printStackTrace();
+					}
+					_driver.changePage(new GUIBossGame());
+					break;
+				default:
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+					break;
+			}
+			
+		}
+		
+	}
+	
+	private class backtoOptions implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+		}
+		
 	}
 	
 	public static void main(String[] args){

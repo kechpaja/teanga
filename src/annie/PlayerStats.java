@@ -20,7 +20,7 @@ public class PlayerStats {
 			{false,false,false},{false,false,false},{false,false,false},{false,false,false}};
 	private Boolean[][] timeRelevent = {{true,false,false},{true,false,false},
 			{true,false,false},{true,false,false},{true,false,false},{true,false,false}};
-	private int[][] points = {{40,20,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100}};
+	private int[][] points = {{29,20,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100}};
 	private String userName;
 	private int gender;
 	private int totalPoints;

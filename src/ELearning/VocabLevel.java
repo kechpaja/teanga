@@ -3,7 +3,6 @@ package ELearning;
 import java.util.*;
 
 public class VocabLevel extends LevelInstance {
-	private int levelNum;
 	private String help;
 	//the exercises still to go
 	private List<VocabPicturePair> upNext;
@@ -14,10 +13,9 @@ public class VocabLevel extends LevelInstance {
 	}
 	
 	public VocabLevel(List<VocabPicturePair> un, String h, int num){
-		super(20);
+		super(20, 0, num);
 		help = h;
 		upNext = un;
-		levelNum = num;
 		waiting = new LinkedList<VocabPicturePair>();
 	}
 	
@@ -50,9 +48,6 @@ public class VocabLevel extends LevelInstance {
 		}
 	}
 	
-	public int getLevelNum(){
-		return levelNum;
-	}
 	
 	public static void main(String[] args){
 		List<VocabPicturePair> levelList = new LinkedList<VocabPicturePair>();
