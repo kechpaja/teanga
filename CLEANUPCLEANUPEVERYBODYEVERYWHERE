@@ -4,11 +4,11 @@ MUST BE COMPLETED FOR DEMO
 Kelvin:
 -completed dictionary
 -completed grammar info pages
--completed vocab lists and pictures for each level, in correct file in correct input format
--all grammar exercizes written and in correct file in correct input
+-completed vocab lists and pictures for each level, in correct file in correct input format (~25 per level)
+-all grammar exercizes written and in correct file in correct input (~90 per level)
 -pictures for vocab game (just vocab pictures), in the correct place
--all boss exercizes written and in correct file in correct input
--all boss level pictures found
+-all boss exercizes written and in correct file in correct input (15 pre level, exactly)
+-all boss level pictures found (one per level)
 -create README
 -create file for opening page when new user user (includes x convention)
 
@@ -16,6 +16,7 @@ Danielle:
 -make dictionary and help button pop up in screen in appropriate place. 
 -make help frames say useful things and link to useful pages
 -better error handling in case an image isn't found
+-better images for buttons on option page
 
 Tara:
 -make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
@@ -46,6 +47,7 @@ Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED se
 -Some way of indicating best time in games
 -picture icons for buttons
 -better version of vocab game!
+-make grammar boxes go back to position if wrong answer is submitted in grammar game
 
 
 
