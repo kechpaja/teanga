@@ -31,8 +31,8 @@ DP DP ADJP
 # VP Stuff #
 ############
 
-VP VP ADV
-VP ADV VP
+VP VP ADVP
+VP ADVP VP
 
 VP VP NP
 VP VP DP

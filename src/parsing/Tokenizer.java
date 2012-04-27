@@ -57,6 +57,17 @@ public class Tokenizer {
 				//TODO we need a list of prepositions to check against
 			}
 			
+			// Match personal pronouns
+			else if (s.equals("mi") || s.equals("ni") || s.equals("ci") || s.equals("vi")
+					|| s.equals("li") || s.equals("ŝi") || s.equals("ĝi") || s.equals("ili")) {
+				pos = Pos.PRONOUN;
+				c = Case.NOMINATIVE;
+			} else if (s.equals("min") || s.equals("nin") || s.equals("cin") || s.equals("vin")
+					|| s.equals("lin") || s.equals("ŝin") || s.equals("ĝin") || s.equals("ilin")) {
+				pos = Pos.PRONOUN;
+				c = Case.ACCUSATIVE;
+			}
+			
 			
 			// Match correlatives a, al, am, e, el, es, o, om, u
 			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
@@ -142,10 +153,10 @@ public class Tokenizer {
 			}
 			
 			// TODO make sure the word exists in the dictionary...
-			System.out.println(dict_);
-			System.out.println("done...");
+		//	System.out.println(dict_);
+		//	System.out.println("done...");
 			if (dict_.getWord(s, true) == null) {
-				mistakes.add(new FatalMistake(left, left + s.length() + 1, "Error: This Word is Invalid"));
+				mistakes.add(new FatalMistake(left, left + s.length(), "Error: This Word is Invalid"));
 			}
 			
 			// create token
