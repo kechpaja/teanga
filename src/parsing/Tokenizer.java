@@ -2,6 +2,8 @@ package parsing;
 
 import java.util.*;
 
+import annie.MyDictionary;
+
 public class Tokenizer {
 	
 	/**
@@ -12,6 +14,7 @@ public class Tokenizer {
 	 */
 	
 	private String sentence_; // the sentence to be tokenized
+	private MyDictionary dict_; // the dictionary
 	private List<Token> tokens_;
 	
 	// initialize the tokenizer
@@ -40,7 +43,6 @@ public class Tokenizer {
 			Case c = null;
 			Tense tense = null;
 			if (s.equals("")) {
-				// deal with empty strings... TODO
 				left++;
 				continue;
 			}
@@ -55,6 +57,24 @@ public class Tokenizer {
 				//TODO we need a list of prepositions to check against
 			}
 			
+			
+			// Match correlatives a, al, am, e, el, es, o, om, u
+			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
+			else if (s.equals("kial") || s.equals("tial") || s.equals("ial") || s.equals("ĉial") || s.equals("nenial")) {
+				pos = Pos.ADVERB;
+			} else if (s.equals("kiel") || s.equals("tiel") || s.equals("iel") || s.equals("ĉiel") || s.equals("neniel")) {
+				pos = Pos.ADVERB;
+			} else if (s.equals("kiam") || s.equals("tiam") || s.equals("iam") || s.equals("ĉiam") || s.equals("neniam")) {
+				pos = Pos.ADVERB;
+			} else if (s.equals("kiom") || s.equals("tiom") || s.equals("iom") || s.equals("ĉiom") || s.equals("neniom")) {
+				pos = Pos.ADVERB;
+			} else if (s.equals("kies") || s.equals("ties") || s.equals("ies") || s.equals("ĉies") || s.equals("nenies")) {
+				pos = Pos.ADJECTIVE;
+			}
+			
+			// TODO maybe we need the rest... unsure. 
+			
+			// Match regular words
 			else if (s.matches(".*e$")) {
 				pos = Pos.ADVERB;
 			}
@@ -121,6 +141,11 @@ public class Tokenizer {
 				pos = null;
 			}
 			
+			// TODO make sure the word exists in the dictionary...
+			if (dict_.getWord(s, true) == null) {
+				mistakes.add(new FatalMistake(left, left + s.length() + 1, "Error: This Word is Invalid"));
+			}
+			
 			// create token
 			tk = new Token(s, pos, num, c, tense, left, left + s.length() + 1);
 			left += s.length() + 1;
@@ -165,8 +190,9 @@ public class Tokenizer {
 	}
 	
 	// Constructor
-	public Tokenizer(String sentence) {
+	public Tokenizer(String sentence, MyDictionary dict) {
 		sentence_ = sentence;
+		dict_ = dict;
 	}
 
 }
