@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -15,33 +17,27 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 
-import annie.PlayerStats;
-
 import ELearning.Driver;
+import annie.PlayerStats;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
 	Driver _driver;
 	JLabel _userName;
+	private JPanel topPanel;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -105,12 +101,13 @@ public class GUIOptionsPage extends JPanel{
 			        ImageIcon newIcon = new ImageIcon(dst);
 			        buttons[i][j] = new JButton(newIcon);
 			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
-			        buttons[i][j].setBackground(new Color(0,0,0,0));
+			        buttons[i][j].setBackground(new Color(238,238,238,0));
 			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
 				buttons[0][4].setEnabled(true);//--------------------------------------------------
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
+				levelNames[i].setBackground(new Color(238,238,238,255));
 				levelNames[i].setFont(new Font("Cambria", Font.BOLD, 25));
 				levelNames[i].setSize(new Dimension(40,15));
 				levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
@@ -130,31 +127,27 @@ public class GUIOptionsPage extends JPanel{
 		
 		//Create The Layout
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color (0,255,255,0));
+		overall.setBackground(new Color (238,238,238,255));
 		overall.setPreferredSize(new Dimension(950,100*numacts+70));
 		
 		JPanel titles = new JPanel(new BorderLayout());
 		titles.setPreferredSize(new Dimension(1000,80));
 		titles.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		titles.setBackground(new Color(238,238,238,255));
 		
 		Box theTitles = Box.createHorizontalBox();
-		
-		_userName = new JLabel(_driver.getUserName());
 		JLabel learning = new JLabel("Learni");
 		JLabel games = new JLabel("Apliki");
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
 		learning.setFont(new Font("Century", Font.BOLD, 30));
 		games.setFont(new Font("Century", Font.BOLD, 30));
 		
 		learning.setBorder(BorderFactory.createEmptyBorder(20,50,0,60));
 		games.setBorder(BorderFactory.createEmptyBorder(20,0,0,60));
 		
-		theTitles.add(Box.createRigidArea(new Dimension(80,0)));
+		theTitles.add(Box.createRigidArea(new Dimension(69,0)));
 		theTitles.add(learning);
-		theTitles.add(Box.createRigidArea(new Dimension(75,0)));
+		theTitles.add(Box.createRigidArea(new Dimension(111,0)));
 		theTitles.add(games);
-		theTitles.add(Box.createRigidArea(new Dimension(300,0)));
 		
 		titles.add(theTitles);
 
@@ -170,11 +163,11 @@ public class GUIOptionsPage extends JPanel{
 		
 		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
 		totalBox.add(vocabLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
 		totalBox.add(grammarLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
 		totalBox.add(vocabGameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
+		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
 		totalBox.add(grammarGameColumn);
 		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
 		totalBox.add(levelNameColumn);
@@ -204,49 +197,68 @@ public class GUIOptionsPage extends JPanel{
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		scrollbar.setPreferredSize(new Dimension(1000,595));
+		scrollbar.setPreferredSize(new Dimension(1000,594));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
+		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
 		
 		Box fullBar = Box.createVerticalBox();
-
+		
+		//Top Panel
+		topPanel = new JPanel(null);
+		topPanel.setPreferredSize(new Dimension(1000,35));
+		topPanel.setBackground(new Color(50,50,50,255));
+		
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 0);
+		
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(_userName);
-		topBar.add(Box.createHorizontalStrut(350));
 		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 		topBar.add(_score);
-		topBar.add(Box.createHorizontalStrut(350));
+		topBar.setSize(400,35);
+		topBar.setLocation(435, 0);
+		
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoBasicActionListener());
-		back.setSize(new Dimension(75, 35));
-		topBar.add(back);
-		Box topCushion = Box.createVerticalBox();
-		topCushion.add(Box.createVerticalStrut(8));
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,0);
 		
-		Box bottomCushion = Box.createVerticalBox();
-		bottomCushion.add(Box.createVerticalStrut(8));
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
 		
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createHorizontalStrut(830));
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(50,50,50,255));
+		
 		JButton help = new JButton("Help");
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(75, 35));
-		help.setSize(new Dimension(75, 35));
-		bottomBar.add(help);
-		bottomBar.add(dictionary);
-		bottomBar.add(Box.createHorizontalStrut(15));
+		help.setSize(new Dimension(100, 30));
 		help.addActionListener(new HelpButtonListener());
-		dictionary.addActionListener(new DictionaryButtonListener());
+		help.setLocation(19, 5);
 		
-		add(topBar,BorderLayout.NORTH);
-		fullBar.add(topCushion);
+		
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
+		dictionary.addActionListener(new DictionaryButtonListener());
+		dictionary.setLocation(875, 5);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(dictionary);
+		
+		fullBar.add(topPanel);
 		fullBar.add(scrollbar);
-		fullBar.add(bottomCushion);
+		fullBar.add(bottomPanel);
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
-		add(bottomBar,BorderLayout.SOUTH);
 	}
 	
 	public class BacktoBasicActionListener implements ActionListener{
@@ -314,17 +326,5 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			}
 		}
-	}
-	
-	public static void main(String[] args){
-		/*GUIOptionsPage myPage = new GUIOptionsPage(new Driver());
-		JFrame mainFrame = new JFrame("E Learning");
-		mainFrame.setPreferredSize(new Dimension(1000, 700));
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(myPage, BorderLayout.CENTER);
-		
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setVisible(true);*/
 	}
 }

@@ -1,17 +1,20 @@
 package ELearning;
 
 import java.awt.BorderLayout;
-import java.awt.Container;
 import java.awt.Dimension;
-import java.awt.Dimension;
-import java.io.*;
+import java.io.IOException;
 
-import javax.swing.*;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import parsing.Parser;
-
-import GUI.*;
-import annie.*;
+import GUI.GUIBasicPage;
+import annie.MyDictionary;
+import annie.OpeningPage;
+import annie.PlayerStats;
 
 public class Driver {
 	private JFrame mainFrame;
@@ -104,6 +107,16 @@ public class Driver {
 	}
 	
 	public static void main(String[] args){
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    System.out.println("Nimbus is not available!");
+		}
 		Driver myDriver = new Driver();
 	}
 	

@@ -22,3 +22,47 @@ muso
 mouse
 noun
 Adiau, muso!
+esti
+be
+verb
+Mi volas esti bela.
+estas
+is
+verb
+Li estas kato.
+voli
+want
+verb
+Mi ne volas voli!
+volas
+wants
+verb
+Li volas esti kato.
+ne
+not
+adverb
+Mi ne estas bela.
+manĝi
+to eat
+verb
+La kato volas manĝi muson.
+manĝas
+eats
+verb
+La kato manĝas la muson.
+pomo
+apple
+noun
+Tio estas pomo.
+pomon
+apple
+noun
+Mi manĝas la pomon.
+pomoj
+apples
+noun
+Tioj estas pomoj.
+pomojn
+apples
+noun
+Mi manĝas la pomojn.

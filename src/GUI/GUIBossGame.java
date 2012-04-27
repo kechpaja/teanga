@@ -320,6 +320,7 @@ public class GUIBossGame extends JPanel{
 		}
 		
 	}
+	
 	private class NextQListener implements ActionListener{
 
 		@Override
@@ -338,8 +339,7 @@ public class GUIBossGame extends JPanel{
 			panel.revalidate();
 			panel.repaint();
 			
-		}
-		
+		}		
 	}
 private class backtoOptionsActionListener implements ActionListener {
 		
@@ -351,6 +351,7 @@ private class backtoOptionsActionListener implements ActionListener {
 		}
 		
 	}
+	
 	private class MyMoveListener implements ActionListener{
 
 		private int _direction;

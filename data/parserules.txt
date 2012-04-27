@@ -2,8 +2,6 @@ binary:
 S DP VP
 S NP VP
 
-# NOTE: verbs must keep transitivity in dictionary...
-
 # PP's combine with sentences directly. 
 S PP S
 S S PP
@@ -33,8 +31,8 @@ DP DP ADJP
 # VP Stuff #
 ############
 
-VP VP ADV
-VP ADV VP
+VP VP ADVP
+VP ADVP VP
 
 VP VP NP
 VP VP DP

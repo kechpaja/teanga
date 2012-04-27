@@ -61,10 +61,11 @@ public class GUIBasicPage extends JPanel{
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(100,110,255,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		//Make overall container
 		JPanel overall = new JPanel(new BorderLayout());
+		overall.setBackground(new Color(238,238,238,255));
 		
 		//Make the title
 		JLabel title = new JLabel("ELearning", SwingConstants.CENTER);
@@ -75,6 +76,7 @@ public class GUIBasicPage extends JPanel{
 		
 		//Make the username list
 		JPanel listpane = new JPanel(new BorderLayout());
+		listpane.setBackground(new Color(238,238,238,255));
 
 		String[] usernames = _driver.openingpage.getUsernames().toArray(new String[0]);
 		
@@ -83,8 +85,10 @@ public class GUIBasicPage extends JPanel{
 		nameList.addListSelectionListener(new mySelectionListener());
 		JScrollPane scrollpane = new JScrollPane(nameList);
 		scrollpane.setBorder(compound);
+		scrollpane.setBackground(new Color(238,238,238,255));
 		
 		JPanel buttonpane = new JPanel();
+		buttonpane.setBackground(new Color(238,238,238,255));
 		buttonpane.setLayout(new BoxLayout(buttonpane, BoxLayout.Y_AXIS));
 		
 		submitB = new JButton("Submit");
@@ -95,7 +99,9 @@ public class GUIBasicPage extends JPanel{
 		passField.addActionListener(new TextListener());
 		JLabel passLabel = new JLabel("Password: ");
 		_passPanel = new JPanel(new BorderLayout());
+		_passPanel.setBackground(new Color(238,238,238,255));
 		_newUserPanel = new JPanel(new BorderLayout());
+		_newUserPanel.setBackground(new Color(238,238,238,255));
 		Box passBox = Box.createHorizontalBox();
 		passBox.add(Box.createHorizontalStrut(350));		
 		passBox.add(passLabel);
@@ -135,7 +141,7 @@ public class GUIBasicPage extends JPanel{
 	    	verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
 	    }
 	    verticalBox.add(addUserB);
-	    verticalBox.add(Box.createVerticalStrut(110));
+	    verticalBox.add(Box.createVerticalStrut(103));
 	    submitB.setAlignmentX(CENTER_ALIGNMENT);
 	    addUserB.setAlignmentX(CENTER_ALIGNMENT);
 		
@@ -196,7 +202,7 @@ public class GUIBasicPage extends JPanel{
 		    verticalBox.add(_passOrUser);
 		    verticalBox.add(Box.createVerticalStrut(10));
 			verticalBox.add(submitB);
-	    	verticalBox.add(Box.createVerticalStrut(75));
+	    	verticalBox.add(Box.createVerticalStrut(141));
 			verticalBox.revalidate();
 		}
 		
@@ -336,18 +342,6 @@ public class GUIBasicPage extends JPanel{
 		} 
 		}
 
-	}
-	
-	public static void main(String[] args){
-		GUIBasicPage testPage = new GUIBasicPage(new Driver());
-		JFrame mainFrame = new JFrame("E Learning");
-		mainFrame.setPreferredSize(new Dimension(1000, 700));
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(testPage, BorderLayout.CENTER);
-		
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setVisible(true);
 	}
 	
 }
