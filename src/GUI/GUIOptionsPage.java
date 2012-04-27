@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.ComponentEvent;
+import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
 import java.io.BufferedReader;
 import java.io.DataInputStream;
@@ -15,33 +17,27 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.security.InvalidAlgorithmParameterException;
-import java.security.InvalidKeyException;
-import java.security.NoSuchAlgorithmException;
-import java.security.spec.InvalidKeySpecException;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
-import javax.crypto.NoSuchPaddingException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
 
-import annie.PlayerStats;
-
 import ELearning.Driver;
+import annie.PlayerStats;
 
 @SuppressWarnings("serial")
 public class GUIOptionsPage extends JPanel{
 	Driver _driver;
 	JLabel _userName;
+	private JPanel topPanel;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -137,6 +133,7 @@ public class GUIOptionsPage extends JPanel{
 		JPanel titles = new JPanel(new BorderLayout());
 		titles.setPreferredSize(new Dimension(1000,80));
 		titles.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		titles.setBackground(new Color(238,238,238,255));
 		
 		Box theTitles = Box.createHorizontalBox();
 		
@@ -205,28 +202,21 @@ public class GUIOptionsPage extends JPanel{
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		scrollbar.setPreferredSize(new Dimension(1000,595));
+		scrollbar.setPreferredSize(new Dimension(1000,598));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 		
 		Box fullBar = Box.createVerticalBox();
 
-		Box topBar = Box.createHorizontalBox();
-		topBar.add(_userName);
-		topBar.add(Box.createHorizontalStrut(350));
-		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-		topBar.add(_score);
-		topBar.add(Box.createHorizontalStrut(350));
-		JButton back = new JButton("Back");
-		back.addActionListener(new BacktoBasicActionListener());
-		back.setSize(new Dimension(75, 35));
-		topBar.add(back);
-		Box topCushion = Box.createVerticalBox();
-		topCushion.add(Box.createVerticalStrut(8));
+		/*
 		
-		Box bottomCushion = Box.createVerticalBox();
-		bottomCushion.add(Box.createVerticalStrut(8));
+		
+		*/
+		
+		//Box topCushion = Box.createVerticalBox();
+		//topCushion.add(Box.createVerticalStrut(8));
+		
+		//Box bottomCushion = Box.createVerticalBox();
+		//bottomCushion.add(Box.createVerticalStrut(8));
 		
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createHorizontalStrut(830));
@@ -240,14 +230,37 @@ public class GUIOptionsPage extends JPanel{
 		help.addActionListener(new HelpButtonListener());
 		dictionary.addActionListener(new DictionaryButtonListener());
 		
-		add(topBar,BorderLayout.NORTH);
-		fullBar.add(topCushion);
+		topPanel = new JPanel(null);
+		topPanel.setPreferredSize(new Dimension(1000,35));
+		topPanel.setBackground(new Color(50,50,50,255));
+		topPanel.addComponentListener(new componentlistener());
+		topPanel.add(_userName, BorderLayout.WEST);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new BacktoBasicActionListener());
+		back.setSize(new Dimension(75, 35));
+		
+		Box topBar = Box.createHorizontalBox();
+		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		topBar.add(_score);
+		
+		topPanel.add(back, BorderLayout.EAST);
+		topPanel.add(topBar, BorderLayout.CENTER);
+		
+		JPanel bottomPanel = new JPanel();
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(50,50,50,255));
+		bottomPanel.addComponentListener(new componentlistener());
+		
+		fullBar.add(topPanel);
 		fullBar.add(scrollbar);
-		fullBar.add(bottomCushion);
+		fullBar.add(bottomPanel);
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
-		add(bottomBar,BorderLayout.SOUTH);
+		System.out.println("Panel height: " + topPanel.getHeight());
 	}
 	
 	public class BacktoBasicActionListener implements ActionListener{
@@ -255,6 +268,34 @@ public class GUIOptionsPage extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.changePage(new GUIBasicPage(_driver));			
+		}
+		
+	}
+	
+	public class componentlistener implements ComponentListener{
+
+		@Override
+		public void componentResized(ComponentEvent e) {
+			System.out.println("Panel height : "  + e.getComponent().getHeight());
+			
+		}
+
+		@Override
+		public void componentMoved(ComponentEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void componentShown(ComponentEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void componentHidden(ComponentEvent e) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 	}
@@ -315,17 +356,5 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			}
 		}
-	}
-	
-	public static void main(String[] args){
-		/*GUIOptionsPage myPage = new GUIOptionsPage(new Driver());
-		JFrame mainFrame = new JFrame("E Learning");
-		mainFrame.setPreferredSize(new Dimension(1000, 700));
-		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		mainFrame.add(myPage, BorderLayout.CENTER);
-		
-		mainFrame.pack();
-		mainFrame.setResizable(false);
-		mainFrame.setVisible(true);*/
 	}
 }
