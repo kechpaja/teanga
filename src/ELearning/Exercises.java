@@ -20,6 +20,7 @@ public class Exercises {
 		generateBExercises(BFile);
 	}
 	
+	
 	public List<BossQuestionPair> getBLevel(int level){
 		System.out.println(bossExercises.size());
 		return bossExercises.get(level);
@@ -31,23 +32,19 @@ public class Exercises {
 	
 	public List<SentencePicturePair> selectGRandomly(int level){
 		Random generator = new Random();
-		List<SentencePicturePair> toReturn = new LinkedList<SentencePicturePair>();
 		int numToChoose = GameConstants.getGNum(level);
-		List<SentencePicturePair> exercises = grammarExercises.get(level);
-		for (int i=0; i<=numToChoose; i++){
-			toReturn.add(exercises.get(generator.nextInt(exercises.size())));
-		}
+		List<SentencePicturePair> toReturn = new LinkedList(grammarExercises.get(level));
+		Collections.copy(toReturn, grammarExercises.get(level));
+		Collections.shuffle(toReturn);
 		return toReturn;
 	}
 	
 	public List<VocabPicturePair> selectVRandomly(int level){
 		Random generator = new Random();
-		List<VocabPicturePair> toReturn = new LinkedList<VocabPicturePair>();
-		List<VocabPicturePair> exercises = vocabExercises.get(level);
-		for (int i=0; i<exercises.size(); i++){
-			int nextI = generator.nextInt(exercises.size());
-			toReturn.add(exercises.get(nextI));
-		}
+		int numToChoose = GameConstants.getGNum(level);
+		List<VocabPicturePair> toReturn = new LinkedList(vocabExercises.get(level));
+		Collections.copy(toReturn, vocabExercises.get(level));
+		Collections.shuffle(toReturn);
 		return toReturn;
 	}
 	
