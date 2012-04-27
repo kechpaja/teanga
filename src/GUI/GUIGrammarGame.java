@@ -35,7 +35,7 @@ public class GUIGrammarGame extends JPanel{
 	private Driver _driver;
 	private JPanel _panel;
 	private Box _horizontalChoice, topHoriz;
-	private JLabel _userName, _currentScore, _bestScore;
+	private JLabel _userName, _score;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
@@ -113,20 +113,26 @@ public class GUIGrammarGame extends JPanel{
 		skip.addActionListener(new SkipListener());
 		submitHoriz.add(skip);
 		
-		_userName = new JLabel(_driver.getUserName());
+		_userName = new JLabel(_driver.getUserName()+"       ");
 		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_userName.setForeground(Color.white);
 		
+		_score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		
+		Box theBox = Box.createVerticalBox();
 		
 		Box topBar = Box.createHorizontalBox();
-		topBar.setBackground(new Color(0,0,0,255));
 		topBar.add(_userName);
-		topBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		topBar.add(_score);
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
-
 		topBar.add(back);
+		topBar.add(Box.createHorizontalStrut(30));
+		
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
 		JButton help = new JButton("Help");
@@ -139,9 +145,12 @@ public class GUIGrammarGame extends JPanel{
 		help.addActionListener(new HelpButtonListener());
 		dictionary.addActionListener(new DictionaryButtonListener());
 
-		add(topBar, BorderLayout.NORTH);
-		add(overall, BorderLayout.CENTER);
-		add(bottomBar, BorderLayout.SOUTH);
+		theBox.add(topBar);
+		theBox.add(overall);
+		theBox.add(bottomBar);
+
+		add(theBox);
+
 		
 	}
 	
@@ -355,7 +364,7 @@ public class GUIGrammarGame extends JPanel{
 					
 				}
 			} else _choicePanel.notCorrect();
-			//TODO: pass correct to grammarLevel
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 		}
 	}
 	
@@ -375,6 +384,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(2);
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 
 			
@@ -387,6 +397,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(3);
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 1, _grammarLevel.getLevelNum(), _driver);
 		}
 		

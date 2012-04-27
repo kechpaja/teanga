@@ -6,6 +6,8 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -27,7 +29,7 @@ public class GUIVocabGame extends JPanel{
 	JTextField _textField;
 	VocabLevel _vocabLevel;
 	Driver _driver;
-	private JLabel _userName;
+	private JLabel _userName, _score;
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
@@ -43,18 +45,22 @@ public class GUIVocabGame extends JPanel{
 		//Box Layout		
 		Box theBox = Box.createVerticalBox();
 		
-		_userName = new JLabel(_driver.getUserName());
+		_userName = new JLabel(_driver.getUserName()+"       ");
 		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_userName.setForeground(Color.white);
+		
+		_score = new JLabel(vl.getScore() + "/" + vl.getNecessaryScore()+"       ");
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
 
-		//Top Toolbar (empty at this point)
+		//Top Toolbar
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		topBar.add(_score);
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
-
 		topBar.add(back);
 		topBar.add(Box.createHorizontalStrut(30));
 		
@@ -101,9 +107,9 @@ public class GUIVocabGame extends JPanel{
 	public void checkAnswer(String answer){
 		if(_vocabLevel.tryAnswer(answer)){
 			_gameBoard.clearPiece();
-
-			//Set _correctAnswer to the next correct answer
 		}
+		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
+
 	}
 
 	//When someone types enter, the text they typed is checked and if it
@@ -118,14 +124,28 @@ public class GUIVocabGame extends JPanel{
 		}
 
 	}
-	
+
 	private class DictionaryButtonListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
-			_gameBoard.pause();
+			_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+			dictFrame.addWindowListener(new WindowListener() {
+	            public void windowClosed(WindowEvent arg0) {}
+	            public void windowActivated(WindowEvent arg0) {
+	                _gameBoard.pause();
+	            }
+	            public void windowClosing(WindowEvent arg0) {}
+	            public void windowDeactivated(WindowEvent arg0) {
+	            	System.out.println("here3");
+	                _gameBoard.restart();
+	            }
+	            public void windowDeiconified(WindowEvent arg0) {}
+	            public void windowIconified(WindowEvent arg0) {}
+	            public void windowOpened(WindowEvent arg0) {}
+	        });
 
 			
 		}
@@ -137,6 +157,20 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
+			helpFrame.addWindowListener(new WindowListener() {
+	            public void windowClosed(WindowEvent arg0) {}
+	            public void windowActivated(WindowEvent arg0) {
+	                _gameBoard.pause();
+	            }
+	            public void windowClosing(WindowEvent arg0) {}
+	            public void windowDeactivated(WindowEvent arg0) {
+	            	System.out.println("here3");
+	                _gameBoard.restart();
+	            }
+	            public void windowDeiconified(WindowEvent arg0) {}
+	            public void windowIconified(WindowEvent arg0) {}
+	            public void windowOpened(WindowEvent arg0) {}
+	        });
 		}
 		
 	}

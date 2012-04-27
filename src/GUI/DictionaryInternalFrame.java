@@ -5,6 +5,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.WindowEvent;
+import java.awt.event.WindowListener;
 import java.io.IOException;
 
 import annie.MyDictionary;
@@ -133,4 +135,5 @@ public class DictionaryInternalFrame extends JFrame{
 	public static void main(String[] args){
 		DictionaryInternalFrame dif = new DictionaryInternalFrame(new MyDictionary("data/dictionary.txt"));
 	}
+
 }

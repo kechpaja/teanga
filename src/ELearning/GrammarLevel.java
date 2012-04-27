@@ -51,9 +51,7 @@ public class GrammarLevel extends LevelInstance {
 			score+=5;
 			return true;
 		} else {
-			if (score > 0){
-				score -= 3;
-			}
+			score -= 3;
 			return false;
 		}
 	}
@@ -65,9 +63,7 @@ public class GrammarLevel extends LevelInstance {
 		} catch(IndexOutOfBoundsException e){
 			this.isOver = true;
 		}
-		if (this.score > 1){
 			score -=2;
-		}
 	}
 	
 	public static void main(String[] args){
