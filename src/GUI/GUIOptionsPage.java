@@ -108,6 +108,7 @@ public class GUIOptionsPage extends JPanel{
 			        buttons[i][j].setBackground(new Color(0,0,0,0));
 			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 				}
+				buttons[0][4].setEnabled(true);//--------------------------------------------------
 				
 				levelNames[i] = new JLabel(picturePaths[4]);
 				levelNames[i].setFont(new Font("Cambria", Font.BOLD, 25));

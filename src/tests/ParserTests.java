@@ -22,7 +22,7 @@ public class ParserTests extends TestCase {
 	
 	// TODO there will be assert() statements here eventually. However, for now it's easier
 	// to just have the program print out the output. 
-	
+	/*
 	@Test
 	public void testTokenizer() {
 		Tokenizer tkn1 = new Tokenizer("kato");
@@ -64,7 +64,7 @@ public class ParserTests extends TestCase {
 			System.out.println("---");
 		}
 	}
-	
+	*/
 	
 	/**
 	 * Test the method parseTokenStream, which parses the token stream (no way!)
