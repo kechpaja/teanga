@@ -24,4 +24,9 @@ public class Word {
 	{
 		return exampleSentence;
 	}
+	
+	// toString()
+	public String toString() {
+		return partOfSpeech + "\n" + translations + "\n" + exampleSentence;
+	}
 }

@@ -26,18 +26,10 @@ esti
 be
 verb
 Mi volas esti bela.
-estas
-is
-verb
-Li estas kato.
 voli
 want
 verb
 Mi ne volas voli!
-volas
-wants
-verb
-Li volas esti kato.
 ne
 not
 adverb
@@ -46,23 +38,47 @@ manĝi
 to eat
 verb
 La kato volas manĝi muson.
-manĝas
-eats
-verb
-La kato manĝas la muson.
 pomo
 apple
 noun
 Tio estas pomo.
-pomon
-apple
+birdo
+bird
 noun
-Mi manĝas la pomon.
-pomoj
-apples
+La kato manĝas birdojn.
+fiŝo
+fish
 noun
-Tioj estas pomoj.
-pomojn
-apples
-noun
-Mi manĝas la pomojn.
+La fiŝo estas en la kato. 
+vidi
+to see
+verb
+Mi vidas vin.
+mi
+I 
+pronoun
+Mi estas humano.
+ci
+thou
+pronoun
+Ci estas humano.
+li
+he
+pronoun
+Li volas manĝi cin!
+ŝi
+she
+pronoun
+Ŝi manĝas musojn.
+ĝi
+it
+pronoun
+Ĝi estas tablo.
+ri
+he/she
+pronoun
+Ri ne volas usi vorton "li".
+ni
+we
+pronoun
+Ni estas la grupo "Teanga".
