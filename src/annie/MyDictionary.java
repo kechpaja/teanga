@@ -27,15 +27,35 @@ public class MyDictionary {
 		String strLine;
 		while ((strLine = br.readLine()) != null)  
 		{
+			// skip comments and blank lines
+			if (strLine.equals("") || strLine.startsWith("#")) {
+				continue;
+			}
+			
 			String theWord=strLine;
 			if(((strLine = br.readLine()) != null))
 			{
+				// skip comments and blank lines
+				while (strLine.equals("") || strLine.startsWith("#")) {
+					strLine = br.readLine();
+				}
+				
 				LinkedList<String> translation=new LinkedList<String>(Arrays.asList(strLine.split(" ")));
 				if(((strLine = br.readLine()) != null))
 				{
+					// skip comments and blank lines
+					while (strLine.equals("") || strLine.startsWith("#")) {
+						strLine = br.readLine();
+					}
+					
 					String pos=strLine;
 					if(((strLine = br.readLine()) != null))
 					{
+						// skip comments and blank lines
+						while (strLine.equals("") || strLine.startsWith("#")) {
+							strLine = br.readLine();
+						}
+						
 						String exSent=strLine;
 						Word w=new Word(translation, pos, exSent);
 						espToEngDict.put(theWord, w);

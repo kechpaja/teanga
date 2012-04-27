@@ -396,7 +396,7 @@ public class GUIGrammarGame extends JPanel{
 		}
 	}
 	
-	private class backtoOptionsActionListener implements ActionListener {
+	public class backtoOptionsActionListener implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {

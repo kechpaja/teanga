@@ -82,3 +82,11 @@ ni
 we
 pronoun
 Ni estas la grupo "Teanga".
+vi
+you
+pronoun
+Vi estas en la domo.
+ili
+they
+pronoun
+Ili volas min.
