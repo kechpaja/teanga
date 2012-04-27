@@ -1,4 +1,5 @@
-data/VocabPictures/hundo.jpg,All verbs in esperanto in the present tense end in "as.",La hundo estAS bruno
-data/VocabPictures/muso.jpg,Adjectives like "malgranda" (small) end in "a.",La muso estas malgrandA
+data/VocabPictures/hundo.jpg~All verbs in esperanto in the present tense end in "as." This means that, if you want to make a statement about the present, you can take the verb form ending in "i" and replace it with "as."~La hundo estAS bruno.
+data/VocabPictures/muso.jpg~Adjectives, such as "malgranda" (small) and "amuza" (funny), end in "a." This is true no matter what noun they are modifying. Just remember, whenever you want to modify anything, you can do so by adding an adjective before the noun.~La amuzA muso estas malgrandA.
+data/VocabPictures/eat.jpeg~The verb form ending in "i" that you see in the vocab lists is called the infinitive. It is equivalent to the form of a verb beginning with "to" in English. It has many uses, but for now you'll be using it after verbs like "want" which are followed by another verb.~Mi volas manĝi.
 0
-data/VocabPictures/hundo.jpg,Esperanto has a nominative and accusative case. This means a noun looks different when it is the subject of a verb and when it is the object: like the pronouns "I" and "me" in English,"li satas la kato"/"la kato satas gin"
+data/VocabPictures/hundo.jpg~Esperanto has a nominative and accusative case. This means a noun looks different when it is the subject of a verb and when it is the object: like the pronouns "I" and "me" in English~"li satas la kato"/"la kato satas gin"
