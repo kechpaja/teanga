@@ -4,7 +4,6 @@
 -Some way of indicating best score/necessary score in games
 -picture icons for buttons
 -make sure help and back buttons are in the same place on every page
--pop incorrect answers back to original positions in the grammar game
 -better error handling in case an image isn't found
 -username box in alphabetical order
 -username box shouldn't resize so randomly.

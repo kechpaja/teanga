@@ -365,7 +365,9 @@ public class GUIGrammarGame extends JPanel{
 					_panel.revalidate();
 					
 				}
-			} else _choicePanel.notCorrect();
+			} else {
+				_driver.changePage(new GUIGrammarGame(_grammarLevel, _driver));
+			}
 			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 		}
 	}
