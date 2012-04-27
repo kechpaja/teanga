@@ -27,15 +27,35 @@ public class MyDictionary {
 		String strLine;
 		while ((strLine = br.readLine()) != null)  
 		{
+			// skip comments and blank lines
+			if (strLine.equals("") || strLine.startsWith("#")) {
+				continue;
+			}
+			
 			String theWord=strLine;
 			if(((strLine = br.readLine()) != null))
 			{
+				// skip comments and blank lines
+				while (strLine.equals("") || strLine.startsWith("#")) {
+					strLine = br.readLine();
+				}
+				
 				LinkedList<String> translation=new LinkedList<String>(Arrays.asList(strLine.split(" ")));
 				if(((strLine = br.readLine()) != null))
 				{
+					// skip comments and blank lines
+					while (strLine.equals("") || strLine.startsWith("#")) {
+						strLine = br.readLine();
+					}
+					
 					String pos=strLine;
 					if(((strLine = br.readLine()) != null))
 					{
+						// skip comments and blank lines
+						while (strLine.equals("") || strLine.startsWith("#")) {
+							strLine = br.readLine();
+						}
+						
 						String exSent=strLine;
 						Word w=new Word(translation, pos, exSent);
 						espToEngDict.put(theWord, w);
@@ -65,9 +85,34 @@ public class MyDictionary {
 		s.toLowerCase();
 		if(esp2eng)
 		{
-			return espToEngDict.get(s);
+			return espToEngDict.get(deinflect(s));
 		}
 		return engToEspDict.get(s);
+	}
+	
+	public static String deinflect(String s) {
+		String ret = null;
+		
+		// Check endings
+		if (s.endsWith("jn")) {
+			// plural accusatives
+			ret = s.substring(0, s.length() - 2);
+		} else if (s.endsWith("j") || s.endsWith("n")) {
+			// plurals and accusatives
+			ret = s.substring(0, s.length() - 1);
+		} else if (s.endsWith("s") && s.length() >= 2) {
+			// finite verbs
+			ret = s.substring(0, s.length() - 2) + "i";
+		} else if (s.endsWith("u") && !s.equals("kiu") && !s.equals("tiu") && !s.equals("iu")
+				&& !s.equals("ĉiu") && !s.equals("neniu")) {
+			// imperatives; screen out correlatives
+			ret = s.substring(0, s.length() - 1) + "i";
+		} else {
+			// otherwise, just return the input. 
+			ret = s;
+		}
+		
+		return ret;
 	}
 
 }

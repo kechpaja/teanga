@@ -9,6 +9,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -29,44 +30,19 @@ public class GUIVocabGame extends JPanel{
 	JTextField _textField;
 	VocabLevel _vocabLevel;
 	Driver _driver;
-	private JLabel _userName, _score;
+	private JLabel _score;
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
 		super(new BorderLayout());
-		
+		_vocabLevel = vl;
 		_driver = d;
+		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(50,50,200,255));
-
-
-		//Box Layout		
-		Box theBox = Box.createVerticalBox();
+		this.setBackground(new Color(50,50,50,255));
 		
-		_userName = new JLabel(_driver.getUserName()+"       ");
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
-		
-		_score = new JLabel(vl.getScore() + "/" + vl.getNecessaryScore()+"       ");
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-
-		//Top Toolbar
-		Box topBar = Box.createHorizontalBox();
-		topBar.add(_userName);
-		topBar.add(Box.createRigidArea(new Dimension(0,30)));
-		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
-		topBar.add(_score);
-		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
-		JButton back = new JButton("Back");
-		back.addActionListener(new backtoOptionsActionListener());
-		back.setSize(new Dimension(75, 35));
-		topBar.add(back);
-		//topBar.add(Box.createHorizontalStrut(30));
-		
-		_vocabLevel = vl;
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
 
@@ -74,33 +50,74 @@ public class GUIVocabGame extends JPanel{
 		// types their guesses.
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
-		enterAnswers.setBackground(new Color(200,200,200,255));
+		enterAnswers.setBackground(new Color(238,238,238,255));
 
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
-		enterAnswers.add(_textField);		
-
-		//The Bottom Toolbar (empty at this point)
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		enterAnswers.add(_textField);	
+		
+		
+		//Creating the Boundaries and Putting it all together
+		Box fullBar = Box.createVerticalBox();
+		
+		//Top Panel
+		JPanel topPanel = new JPanel(null);
+		topPanel.setPreferredSize(new Dimension(950,40));
+		topPanel.setBackground(new Color(50,50,50,255));
+		
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 0);
+		
+		Box topBar = Box.createHorizontalBox();
+		_score = new JLabel(vl.getScore() + "/" + vl.getNecessaryScore());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		topBar.add(_score);
+		topBar.setSize(400,40);
+		topBar.setLocation(475, -2);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new backtoOptionsActionListener());
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,3);
+		
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
+		
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(50,50,50,255));
+		
 		JButton help = new JButton("Help");
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(75, 35));
-		help.setSize(new Dimension(75, 35));
-		bottomBar.add(help);
-		bottomBar.add(dictionary);
-		bottomBar.add(Box.createHorizontalStrut(15));
+		help.setSize(new Dimension(100, 30));
 		help.addActionListener(new HelpButtonListener());
+		help.setLocation(19, 3);
+		
+		
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
-
-		//Add everyting to the box and then this panel
-		theBox.add(topBar);
-		theBox.add(_gameBoard);
-		theBox.add(enterAnswers);
-		theBox.add(bottomBar);
-
-		add(theBox);
+		dictionary.setLocation(875, 3);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(dictionary);
+		
+		fullBar.add(topPanel);
+		fullBar.add(_gameBoard);
+		fullBar.add(enterAnswers);
+		fullBar.add(bottomPanel);
+		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		
+		add(fullBar, BorderLayout.CENTER);
 
 	}
 	

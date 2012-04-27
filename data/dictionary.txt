@@ -1,24 +1,111 @@
-adiau
+adiaŭ
 goodbye
 noun
 Adiau, hundo!
+
 saluton
 hello 
 noun
 Saluton, hundo!
+
 hundo
 dog
 noun
-Adiau, hundo!
+Adiaŭ, hundo!
+
 kato
 cat
 noun
 Saluton, kato!
+
 lampo
 lamp
 noun
 Saluton, lampo!
+
 muso
 mouse
 noun
 Adiau, muso!
+
+esti
+be
+verb
+Mi volas esti bela.
+
+voli
+want
+verb
+Mi ne volas voli!
+
+ne
+not
+adverb
+Mi ne estas bela.
+
+manĝi
+to eat
+verb
+La kato volas manĝi muson.
+
+pomo
+apple
+noun
+Tio estas pomo.
+
+birdo
+bird
+noun
+La kato manĝas birdojn.
+
+fiŝo
+fish
+noun
+La fiŝo estas en la kato. 
+
+vidi
+to see
+verb
+Mi vidas vin.
+
+mi
+I 
+pronoun
+Mi estas humano.
+
+ci
+thou
+pronoun
+Ci estas humano.
+
+li
+he
+pronoun
+Li volas manĝi cin!
+
+ŝi
+she
+pronoun
+Ŝi manĝas musojn.
+
+ĝi
+it
+pronoun
+Ĝi estas tablo.
+
+ri
+he/she
+pronoun
+Ri ne volas usi vorton "li".
+ni
+we
+pronoun
+Ni estas la grupo "Teanga".
+vi
+you
+pronoun
+Vi estas en la domo.
+ili
+they
+pronoun
+Ili volas min.

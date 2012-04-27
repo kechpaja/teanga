@@ -33,10 +33,10 @@ public class GUIVocabGameBoard extends JPanel {
 
 		super(new BorderLayout());
 
-		java.awt.Dimension size = new java.awt.Dimension(1000, 590);
+		java.awt.Dimension size = new java.awt.Dimension(1000, 575);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(255,255,255,255));
+		this.setBackground(new Color(238,238,238,255));
 
 		_top = 0; //the place to put the next piece
 		_vl = vl;

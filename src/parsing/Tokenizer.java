@@ -6,6 +6,8 @@ import annie.MyDictionary;
 
 public class Tokenizer {
 	
+	// TODO conjunctions and subordinate clauses!
+	
 	/**
 	 * This tokenizer will be a little bit different from the one used in our
 	 * compiler for 31 - it will tokenize the entire string at once, and return it 
@@ -25,7 +27,7 @@ public class Tokenizer {
 			return;
 		}
 		
-		//TODO split on whitespace. 
+		// split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
@@ -57,6 +59,17 @@ public class Tokenizer {
 				//TODO we need a list of prepositions to check against
 			}
 			
+			// Match personal pronouns
+			else if (s.equals("mi") || s.equals("ni") || s.equals("ci") || s.equals("vi") || s.equals("ri")
+					|| s.equals("li") || s.equals("ŝi") || s.equals("ĝi") || s.equals("ili")) {
+				pos = Pos.PRONOUN;
+				c = Case.NOMINATIVE;
+			} else if (s.equals("min") || s.equals("nin") || s.equals("cin") || s.equals("vin")
+					|| s.equals("lin") || s.equals("ŝin") || s.equals("ĝin") || s.equals("ilin")) {
+				pos = Pos.PRONOUN;
+				c = Case.ACCUSATIVE;
+			}
+			
 			
 			// Match correlatives a, al, am, e, el, es, o, om, u
 			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
@@ -79,6 +92,7 @@ public class Tokenizer {
 				pos = Pos.ADVERB;
 			}
 			
+			// noun stuff
 			else if (s.matches(".*o$")) {
 				pos = Pos.NOUN;
 				num = NumMarker.SINGULAR;
@@ -97,6 +111,7 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// adjective stuff
 			else if (s.matches(".*a$")) {
 				pos = Pos.ADJECTIVE;
 				num = NumMarker.SINGULAR;
@@ -115,6 +130,7 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// verb stuff
 			else if (s.matches(".*as$")) {
 				pos = Pos.VERB;
 				tense = Tense.PRESENT;
@@ -135,28 +151,22 @@ public class Tokenizer {
 				tense = Tense.INFINITIVE;
 			}
 			
-			// TODO correlatives
-			
+			// unknown POS
 			else {
 				pos = null;
 			}
 			
-			// TODO make sure the word exists in the dictionary...
+			// make sure the word exists in the dictionary...
 			if (dict_.getWord(s, true) == null) {
-				mistakes.add(new FatalMistake(left, left + s.length() + 1, "Error: This Word is Invalid"));
+				mistakes.add(new FatalMistake(left, left + s.length(), "Error: This Word is Invalid"));
 			}
 			
-			// create token
+			// create token 
 			tk = new Token(s, pos, num, c, tense, left, left + s.length() + 1);
 			left += s.length() + 1;
 			
 			// add to token list
 			tokens_.add(tk);
-		}
-		
-		// go through dictionary and make sure every word is present
-		for (Token t : tokens_) {
-			// TODO lookup word
 		}
 		
 		// Add punctuation. Punctuation won't be in the dictionary. 

@@ -25,6 +25,7 @@ import parsing.Mistake;
 import parsing.Response;
 import ELearning.BossLevel;
 import ELearning.Driver;
+import GUI.GUIGrammarGame.backtoOptionsActionListener;
 import encoding.EncodingShiftListener;
 
 public class GUIBossGame extends JPanel{
@@ -45,6 +46,7 @@ public class GUIBossGame extends JPanel{
 		_driver = d;
 		_bossLevel = b;
 		_current = 0;
+		rPanel = null;
 		panel = this;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
@@ -85,6 +87,7 @@ public class GUIBossGame extends JPanel{
 		textArea.setEditable(false);
 		textArea.setVisible(true);
 		textArea.setBackground(new Color(0,0,0,0));
+		textArea.setBorder(BorderFactory.createEmptyBorder());
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setText(questions);
@@ -114,9 +117,25 @@ public class GUIBossGame extends JPanel{
 		answHoriz.add(uiButton);
 		aPanel.add(answHoriz);
 		
+		JLabel _score = new JLabel(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore()+"       ");
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		
 		JPanel topPanel = new JPanel(new BorderLayout());
 		topPanel.setBackground(new Color(0,0,0,0));
 		topPanel.setSize(new Dimension(1000,40));
+		JLabel _userName = new JLabel(_driver.getUserName()+"       ");
+		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_userName.setForeground(Color.white);
+		topPanel.add(_userName);
+		topPanel.add(Box.createRigidArea(new Dimension(0, 30)));
+		topPanel.add(Box.createRigidArea(new Dimension(370, 0)));
+		topPanel.add(_score);
+		topPanel.add(Box.createRigidArea(new Dimension(370, 0)));
+		JButton back = new JButton("Back");
+		back.addActionListener(new backtoOptionsActionListener());
+		back.setSize(new Dimension(75, 35));
+		topPanel.add(back);
 		topPanel.setLocation(0,0);
 		
 		Box topBox = Box.createHorizontalBox();
@@ -321,11 +340,23 @@ public class GUIBossGame extends JPanel{
 				
 			}
 			textArea.setText(_bossLevel.getCurrentQuestion());
-			rPanel.setVisible(false);
+			if(rPanel != null){
+				rPanel.setVisible(false);
+			}
 			panel.revalidate();
 			panel.repaint();
 			
 		}		
+	}
+private class backtoOptionsActionListener implements ActionListener {
+		
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore(), 0);
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			
+		}
+		
 	}
 	
 	private class MyMoveListener implements ActionListener{
