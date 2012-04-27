@@ -214,7 +214,7 @@ public class GUIOptionsPage extends JPanel{
 		_un.setForeground(Color.white);
 		userBox.add(_un);
 		userBox.setSize(200,35);
-		userBox.setLocation(20, 0);
+		userBox.setLocation(20, -2);
 		
 		Box topBar = Box.createHorizontalBox();
 		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
@@ -222,7 +222,7 @@ public class GUIOptionsPage extends JPanel{
 		_score.setForeground(Color.white);
 		topBar.add(_score);
 		topBar.setSize(400,35);
-		topBar.setLocation(435, 0);
+		topBar.setLocation(435, -2);
 		
 		JButton back = new JButton("Back");
 		back.addActionListener(new BacktoBasicActionListener());

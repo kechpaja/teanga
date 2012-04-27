@@ -134,7 +134,7 @@ public class GUIGrammarGame extends JPanel{
 		userBox.setLocation(20, 3);
 		
 		Box topBar = Box.createHorizontalBox();
-		JLabel _score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
+		_score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 		topBar.add(_score);
