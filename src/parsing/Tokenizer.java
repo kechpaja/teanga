@@ -6,6 +6,8 @@ import annie.MyDictionary;
 
 public class Tokenizer {
 	
+	// TODO conjunctions!
+	
 	/**
 	 * This tokenizer will be a little bit different from the one used in our
 	 * compiler for 31 - it will tokenize the entire string at once, and return it 
@@ -58,7 +60,7 @@ public class Tokenizer {
 			}
 			
 			// Match personal pronouns
-			else if (s.equals("mi") || s.equals("ni") || s.equals("ci") || s.equals("vi")
+			else if (s.equals("mi") || s.equals("ni") || s.equals("ci") || s.equals("vi") || s.equals("ri")
 					|| s.equals("li") || s.equals("ŝi") || s.equals("ĝi") || s.equals("ili")) {
 				pos = Pos.PRONOUN;
 				c = Case.NOMINATIVE;
