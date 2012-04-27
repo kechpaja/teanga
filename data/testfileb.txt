@@ -1,3 +1,4 @@
+Saluton!~10
 What do you buy at the grocery store?~20
 What is your favorite food?~15
 data/grocery.jpg

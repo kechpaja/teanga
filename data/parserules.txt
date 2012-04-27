@@ -48,6 +48,7 @@ VP V DP
 VP V NP
 VP V ADJP
 
+# handle punctuation
 S S PUNCT
 
 # PP rules

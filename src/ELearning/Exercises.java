@@ -22,8 +22,9 @@ public class Exercises {
 	
 	
 	public List<BossQuestionPair> getBLevel(int level){
-		System.out.println(bossExercises.size());
-		return bossExercises.get(level);
+		List<BossQuestionPair> toReturn = new ArrayList<BossQuestionPair>(bossExercises.get(level));
+		Collections.copy(toReturn, bossExercises.get(level));
+		return toReturn;
 	}
 	
 	public String getBPic(int level){
