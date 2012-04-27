@@ -69,6 +69,7 @@ public class GUIVocabLearn extends JPanel{
 		int prefHeight = 100;
 		int prefWidth = 150;
 		List<VocabLessonPair> vocabLessonPairs= _driver.getLessons().getVLessons(_levelNum);
+		picVert.add(Box.createVerticalStrut(10));
 		
 		for(VocabLessonPair vlp : vocabLessonPairs){
 			
@@ -97,6 +98,7 @@ public class GUIVocabLearn extends JPanel{
 	        Box wordsTHoriz = Box.createHorizontalBox();
 	        wordsTHoriz.add(Box.createVerticalStrut(110));
 	        wordsTHoriz.add(wordsTVert);
+	        wordsTHoriz.add(Box.createVerticalStrut(110));
 			JLabel wordLabel = new JLabel(vlp.getVocabWord());
 			wordLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			wordsTVert.add(wordLabel);
@@ -104,7 +106,6 @@ public class GUIVocabLearn extends JPanel{
 			JLabel translateLabel = new JLabel(vlp.getVocabTranslation());
 			translateLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			wordsTVert.add(translateLabel);
-			wordsTVert.add(Box.createVerticalStrut(5));
 			wordnTranslate.add(wordsTHoriz);
 			
 			//sentenceVert
@@ -113,9 +114,9 @@ public class GUIVocabLearn extends JPanel{
 			JLabel sentenceLabel = new JLabel(vlp.getExampleSentence());
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			sentVert.add(sentenceLabel);
-			sentVert.add(Box.createVerticalStrut(5));
 			sentHoriz.add(Box.createVerticalStrut(110));
 			sentHoriz.add(sentVert);
+			sentHoriz.add(Box.createVerticalStrut(110));
 			sentenceVert.add(sentHoriz);
 			
 		}
@@ -181,18 +182,5 @@ public class GUIVocabLearn extends JPanel{
 																		1, _levelNum, _driver);
 		}
 		
-	}
-
-	public static void main(String[] args){
-		/*GUIVocabLearn panel = new GUIVocabLearn();
-		JFrame frame = new JFrame();
-		GUIVocabLearn panel = new GUIVocabLearn();
-		JFrame frame = new JFrame("Vocab Learning");
-		frame.setPreferredSize(new Dimension(1000,700));
-		frame.add(panel);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);*/
 	}
 }
