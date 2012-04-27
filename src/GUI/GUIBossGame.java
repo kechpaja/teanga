@@ -310,6 +310,7 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			userInput.setText("");
 			//move to next question...
 			//if(!switched){
 				_bossLevel.tryAnswer(" ");

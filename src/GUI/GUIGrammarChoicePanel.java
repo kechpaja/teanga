@@ -68,7 +68,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 			GUIGrammarChoice currRect = new GUIGrammarChoice(this, _choices[j], j);
 			currRect.setSize(135,26);
 			currRect.setLocation((1000-(_choices.length*135 + (_choices.length-1)*20))/2+j*155,207);
-			currRect.setColor(new Color(80,80,80,255));
+			currRect.setColor(new Color(60,60,60,255));
 			_rectChoices.add(currRect);
 			
 		}

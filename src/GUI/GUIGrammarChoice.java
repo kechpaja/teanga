@@ -3,6 +3,7 @@ package GUI;
 import gfx.ColorText;
 import gfx.Rectangle;
 
+import java.awt.Color;
 import java.awt.Font;
 
 import javax.swing.JPanel;
@@ -22,7 +23,8 @@ public class GUIGrammarChoice extends Rectangle{
 		_container = null;
 		_word = word;
 		_string = new ColorText(jpan, word);
-		_string.setFont("Cambria", Font.BOLD, 20);
+		_string.setFont("Cambria", Font.PLAIN, 20);
+		_string.setColor(new Color(220,220,255,255));
 		_yoffset = (135 - _word.length()*10)/2;
 		
 	}
