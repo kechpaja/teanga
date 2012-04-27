@@ -46,11 +46,12 @@ public class DictionaryInternalFrame extends JFrame{
 		EnglishToEsperanto.addActionListener(new Eng2EoActionListener());
 		searchBar.add(EsperantoToEnglish);
 		
+		
 		result = new JTextArea(" ", 10, 10);
 		result.setEditable(false);
 		result.setLineWrap(true);
 		result.setWrapStyleWord(true);
-		result.setBorder(BorderFactory.createEmptyBorder(0,3,0,0));
+		result.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
 		resultScrollPane = new JScrollPane(result);
 		resultScrollPane.setVerticalScrollBarPolicy( JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		

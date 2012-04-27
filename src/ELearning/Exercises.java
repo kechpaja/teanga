@@ -21,6 +21,7 @@ public class Exercises {
 	}
 	
 	public List<BossQuestionPair> getBLevel(int level){
+		System.out.println(bossExercises.size());
 		return bossExercises.get(level);
 	}
 	
