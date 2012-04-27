@@ -92,6 +92,7 @@ public class GUIBasicPage extends JPanel{
 		addUserB = new JButton("Add User");
 		addUserB.addActionListener(new AddUserActionListener());
 		passField = new JPasswordField(20);
+		passField.addActionListener(new TextListener());
 		JLabel passLabel = new JLabel("Password: ");
 		_passPanel = new JPanel(new BorderLayout());
 		_newUserPanel = new JPanel(new BorderLayout());
@@ -284,6 +285,57 @@ public class GUIBasicPage extends JPanel{
 		}
 		
 	}
+	}
+	
+	//this is redundant code with the submit listener, but its just to make enter do the same thing.
+	//it can be cleaned up later
+	private class TextListener implements ActionListener {
+
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			if (_driver.getUserName() == null){
+			String infoMessage = "Please select an existing user";
+			JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
+			return;
+			} else {
+			try {
+				if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
+					_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+
+				} else {
+					String infoMessage = "Incorrect Password";
+					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
+					//try to figure out how to zero the passfield
+					return;
+				}
+			} catch (InvalidKeyException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidKeySpecException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchPaddingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidAlgorithmParameterException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalBlockSizeException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (BadPaddingException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			}
+		} 
+		}
+
 	}
 	
 	public static void main(String[] args){

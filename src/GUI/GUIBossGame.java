@@ -15,12 +15,12 @@ import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 
+import parsing.Mistake;
 import parsing.Response;
 
 import encoding.EncodingShiftListener;
@@ -31,12 +31,12 @@ import ELearning.Driver;
 public class GUIBossGame extends JPanel{
 	private Driver _driver;
 	private BossLevel _bossLevel;
-	private JTextArea speechBubble, parsedResponse;
 	private JTextField userInput;
 	private JButton back, help, dictionary, next, prev;
 	private JPanel mainPanel, rPanel, panel, aPanel, qPanel;
 	private BufferedImage pic;
 	private int _current;
+	private Response response;
 	
 	
 	public GUIBossGame(BossLevel b, Driver d){
@@ -112,12 +112,15 @@ public class GUIBossGame extends JPanel{
 		answHoriz.add(uiButton);
 		aPanel.add(answHoriz);
 		
-		rPanel = new JPanel();
-		rPanel.setBackground(new Color(255,255,255,180));
-        rPanel.setLocation(190,405);
-        rPanel.setSize(600,230);
-        this.add(rPanel);
-        rPanel.setVisible(false);
+	}
+	
+	public JPanel makeRPanel(Response response, int mistakeNum){
+		JPanel nrPanel = new JPanel();
+		nrPanel.setBackground(new Color(255,255,255,180));
+        nrPanel.setLocation(190,405);
+        nrPanel.setSize(600,230);
+        panel.add(nrPanel);
+        nrPanel.setVisible(false);
 		
 		Box resultHoriz = Box.createHorizontalBox();
 		Box resultVert = Box.createVerticalBox();
@@ -125,12 +128,13 @@ public class GUIBossGame extends JPanel{
 		resultHoriz.add(resultVert);
 		resultHoriz.add(Box.createHorizontalStrut(5));
 		
-		rPanel.add(resultHoriz);
-		
-		int startIndex = 11;
-		int endIndex = 21;
-		String sentence = "This is my incredible sentance in which part of it is wrong!";
-		String message = "Whatever word is highlighted is very very incorrect. I am making this message super long just in case ...";
+		nrPanel.add(resultHoriz);
+		 
+		Mistake currMistake = response.getMistakes().get(mistakeNum);
+		int startIndex = currMistake.getStartIndex();
+		int endIndex = currMistake.getEndIndex();
+		String sentence = response.getSentence();
+		String message = currMistake.getMessage();
 		
 		Box titleHoriz = Box.createHorizontalBox();
 		JLabel errorLabel = new JLabel("Errors: ");
@@ -146,7 +150,6 @@ public class GUIBossGame extends JPanel{
 		Box explinBox = Box.createHorizontalBox();
 		JLabel explination = new JLabel("Explanation: ");
 		explination.setFont(new Font("Cambria", Font.BOLD, 20));
-		//explinBox.add(Box.createHorizontalStrut(20));
 		explinBox.add(explination);
 		explinBox.add(Box.createHorizontalStrut(360));
 		
@@ -182,15 +185,9 @@ public class GUIBossGame extends JPanel{
 		resultVert.add(moveBox);
 		resultVert.add(Box.createVerticalStrut(5));
 		
-	}
-	
-	public void showErrors(){
-		//panel.removeAll();
-		//panel.add(aPanel);
-		//panel.add(qPanel);
-		rPanel.setVisible(true);
-		//panel.repaint();
-		this.revalidate();
+		nrPanel.setVisible(true);
+		
+		return nrPanel;
 	}
 	
 	public Box parseResponse(String sentence, int startIndex, int endIndex){
@@ -253,23 +250,16 @@ public class GUIBossGame extends JPanel{
 
 	}
 	
-	public static void main(String[] args){
-		//GUIBossGame panel = new GUIBossGame();
-		JFrame frame = new JFrame("Boss Game");
-		frame.setPreferredSize(new Dimension(1000,700));
-		//frame.add(panel);
-		frame.pack();
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setResizable(false);
-		frame.setVisible(true);
-	}
-	
 	private class MySubmitListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Response response = _bossLevel.tryAnswer(userInput.getText());
-			showErrors();
+			response = _bossLevel.tryAnswer(userInput.getText());
+			JPanel nrPanel = makeRPanel(response, 0);
+			rPanel = nrPanel;
+			panel.add(nrPanel);
+			panel.revalidate();
+			
 		}
 		
 	}
@@ -284,13 +274,23 @@ public class GUIBossGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			if(_direction == -1){
-				//move backwards in list of mistakes
-				System.out.println("Move backwards");
 				_current--;
+				JPanel nrPanel = makeRPanel(response,_current);
+				panel.remove(rPanel);
+				rPanel = nrPanel;
+				panel.add(nrPanel);
+				panel.revalidate();
+				System.out.println("Move backwards");
+
 			} else{
 				//move forwards in list of mistakes
 				System.out.println("Move forwards");
 				_current++;
+				JPanel nrPanel = makeRPanel(response,_current);
+				panel.remove(rPanel);
+				rPanel = nrPanel;
+				panel.add(nrPanel);
+				panel.revalidate();
 			}
 			System.out.println(_current);
 			
