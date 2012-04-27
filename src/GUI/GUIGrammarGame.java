@@ -126,12 +126,14 @@ public class GUIGrammarGame extends JPanel{
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(_userName);
 		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
+		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
 		topBar.add(_score);
+		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(75, 35));
 		topBar.add(back);
-		topBar.add(Box.createHorizontalStrut(30));
+		//topBar.add(Box.createHorizontalStrut(30));
 		
 		Box bottomBar = Box.createHorizontalBox();
 		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
@@ -363,7 +365,9 @@ public class GUIGrammarGame extends JPanel{
 					_panel.revalidate();
 					
 				}
-			} else _choicePanel.notCorrect();
+			} else {
+				_driver.changePage(new GUIGrammarGame(_grammarLevel, _driver));
+			}
 			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
 		}
 	}

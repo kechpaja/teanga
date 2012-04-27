@@ -96,7 +96,7 @@ public class DictionaryInternalFrame extends JFrame{
 					eorEo="Esperanto to English";
 					other="English to Esperanto";
 				}
-				result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n\n\n\n\n\n\n\n"
+				result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n"
 						+"You are translating from "+eorEo+". If you meant to translate from "+
 						other+", click the toggle transation button button, above.");
 				result.setCaretPosition(0);

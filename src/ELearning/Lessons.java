@@ -24,7 +24,7 @@ public class Lessons {
 		BufferedReader vReader = new BufferedReader(new FileReader(VFile));
 		String line = vReader.readLine();
 		while (line != null){
-			String[] split = line.split(",");
+			String[] split = line.split("~");
 			if (split.length == 1){
 				vocabLessons.add(cur);
 				cur = new ArrayList<VocabLessonPair>();
@@ -40,7 +40,7 @@ public class Lessons {
 		BufferedReader gReader = new BufferedReader(new FileReader(GFile));
 		String line = gReader.readLine();
 		while (line != null){
-			String[] split = line.split(",");
+			String[] split = line.split("~");
 			if (split.length == 1){
 				grammarLessons.add(cur);
 				cur = new ArrayList<GrammarLessonPair>();
