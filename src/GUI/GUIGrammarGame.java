@@ -16,6 +16,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 import javax.imageio.ImageIO;
+import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -46,7 +47,7 @@ public class GUIGrammarGame extends JPanel{
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
-		this.setBackground(new Color(100,110,255,255));
+		this.setBackground(new Color(50,50,50,255));
 		
 		//Constants
 		int picheight = 200;
@@ -71,7 +72,7 @@ public class GUIGrammarGame extends JPanel{
 			System.exit(0);
 		}
 		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color(200,200,200,255));
+		overall.setBackground(new Color(238,238,238,255));
 		Box mainVertical = Box.createVerticalBox();
 		overall.add(mainVertical, BorderLayout.CENTER);
 		
@@ -109,49 +110,72 @@ public class GUIGrammarGame extends JPanel{
 		JButton submit = new JButton("Submit Answer");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
+		submit.setSize(120,35);
 		JButton skip = new JButton("Skip");
+		skip.setSize(120,35);
 		skip.addActionListener(new SkipListener());
 		submitHoriz.add(skip);
+
 		
-		_userName = new JLabel(_driver.getUserName()+"       ");
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
 		
-		_score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
+		Box fullBar = Box.createVerticalBox();
 		
-		Box theBox = Box.createVerticalBox();
+		//Top Panel
+		JPanel topPanel = new JPanel(null);
+		topPanel.setPreferredSize(new Dimension(950,40));
+		topPanel.setBackground(new Color(50,50,50,255));
+		
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 3);
 		
 		Box topBar = Box.createHorizontalBox();
-		topBar.add(_userName);
-		topBar.add(Box.createRigidArea(new Dimension(0, 30)));
-		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
+		JLabel _score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
 		topBar.add(_score);
-		topBar.add(Box.createRigidArea(new Dimension(370, 0)));
+		topBar.setSize(400,35);
+		topBar.setLocation(475, 3);
+		
 		JButton back = new JButton("Back");
 		back.addActionListener(new backtoOptionsActionListener());
-		back.setSize(new Dimension(75, 35));
-		topBar.add(back);
-		//topBar.add(Box.createHorizontalStrut(30));
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,5);
 		
-		Box bottomBar = Box.createHorizontalBox();
-		bottomBar.add(Box.createRigidArea(new Dimension(0, 40)));
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
+		
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(50,50,50,255));
+		
 		JButton help = new JButton("Help");
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(75, 35));
-		help.setSize(new Dimension(75, 35));
-		bottomBar.add(help);
-		bottomBar.add(dictionary);
-		bottomBar.add(Box.createHorizontalStrut(15));
+		help.setSize(new Dimension(100, 30));
 		help.addActionListener(new HelpButtonListener());
+		help.setLocation(19, 5);
+		
+		
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
-
-		theBox.add(topBar);
-		theBox.add(overall);
-		theBox.add(bottomBar);
-
-		add(theBox);
+		dictionary.setLocation(875, 5);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(dictionary);
+		
+		fullBar.add(topPanel);
+		fullBar.add(overall);
+		fullBar.add(bottomPanel);
+		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
+		
+		add(fullBar, BorderLayout.CENTER);
 
 		
 	}
@@ -195,7 +219,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                  ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
@@ -217,7 +241,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("                  ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -266,7 +290,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                     ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -368,7 +392,7 @@ public class GUIGrammarGame extends JPanel{
 			} else {
 				_driver.changePage(new GUIGrammarGame(_grammarLevel, _driver));
 			}
-			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 		}
 	}
 	

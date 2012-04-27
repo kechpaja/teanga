@@ -45,6 +45,7 @@ public class GUIBossGame extends JPanel{
 		_driver = d;
 		_bossLevel = b;
 		_current = 0;
+		rPanel = null;
 		panel = this;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
@@ -85,6 +86,7 @@ public class GUIBossGame extends JPanel{
 		textArea.setEditable(false);
 		textArea.setVisible(true);
 		textArea.setBackground(new Color(0,0,0,0));
+		textArea.setBorder(BorderFactory.createEmptyBorder());
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setText(questions);
@@ -318,7 +320,9 @@ public class GUIBossGame extends JPanel{
 				
 			}
 			textArea.setText(_bossLevel.getCurrentQuestion());
-			rPanel.setVisible(false);
+			if(rPanel != null){
+				rPanel.setVisible(false);
+			}
 			panel.revalidate();
 			panel.repaint();
 			
