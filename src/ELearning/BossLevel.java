@@ -46,10 +46,11 @@ public class BossLevel extends LevelInstance{
 	public Response tryAnswer(String input){
 		Response response = parser.parse(input);
 		if (!response.containsFatal()){
+			this.score += (curQuestion.getPoints() - response.getMistakes().size());
 			if (questions.isEmpty()){
 				this.isOver = true;
 			} else curQuestion = questions.remove(0);
-		}
+		} else score -= 3;
 		return response;
 	}
 

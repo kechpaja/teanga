@@ -151,5 +151,17 @@ public class GUIVocabGameBoard extends JPanel {
 		}
 		
 	}
+	
+	public void pause(){
+		_timer.stop();
+		_countUp.stop();
+		_overallTimer.stop();
+	}
+	
+	public void restart(){
+		_timer.start();
+		_countUp.start();
+		_overallTimer.start();
+	}
 
 }

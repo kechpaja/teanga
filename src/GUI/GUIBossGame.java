@@ -1,5 +1,6 @@
 package GUI;
 
+import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
@@ -22,11 +23,9 @@ import javax.swing.JTextField;
 
 import parsing.Mistake;
 import parsing.Response;
-
-import encoding.EncodingShiftListener;
-
 import ELearning.BossLevel;
 import ELearning.Driver;
+import encoding.EncodingShiftListener;
 
 public class GUIBossGame extends JPanel{
 	private Driver _driver;
@@ -111,6 +110,24 @@ public class GUIBossGame extends JPanel{
 		answHoriz.add(userInput);
 		answHoriz.add(uiButton);
 		aPanel.add(answHoriz);
+		
+		JPanel topPanel = new JPanel(new BorderLayout());
+		topPanel.setBackground(new Color(0,0,0,255));//Make last value 0
+		topPanel.setSize(new Dimension(1000,30));
+		topPanel.setLocation(0,0);
+		
+		Box topBox = Box.createHorizontalBox();
+		topPanel.add(topBox, BorderLayout.CENTER);
+		this.add(topPanel);
+		
+		JPanel bottomPanel = new JPanel(new BorderLayout());
+		bottomPanel.setBackground(new Color(0,0,0,255));//Make last value 0
+		bottomPanel.setSize(new Dimension(1000,30));
+		bottomPanel.setLocation(0,660);//EDIT THIS TO SET BOTTOM BOX LOCATION TO THE BOTTOM OF THE SCREEN
+		
+		Box bottomBox = Box.createHorizontalBox();
+		bottomPanel.add(bottomBox);
+		this.add(bottomPanel);
 		
 	}
 	

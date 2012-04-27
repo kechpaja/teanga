@@ -95,6 +95,7 @@ public class GUIVocabGame extends JPanel{
 		add(theBox);
 
 	}
+	
 
 	//Checks a typed answers
 	public void checkAnswer(String answer){
@@ -123,6 +124,7 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
+			_gameBoard.pause();
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 
 			
