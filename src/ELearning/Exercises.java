@@ -54,7 +54,7 @@ public class Exercises {
 		BufferedReader vReader = new BufferedReader(new FileReader(VFile));
 		String line = vReader.readLine();
 		while (line != null){
-			String[] split = line.split(",");
+			String[] split = line.split("~");
 			if (split.length == 1){
 				vocabExercises.add(cur);
 				cur = new ArrayList<VocabPicturePair>();
@@ -86,7 +86,7 @@ public class Exercises {
 		BufferedReader bReader = new BufferedReader(new FileReader(BFile));
 		String line = bReader.readLine();
 		while (line != null){
-			String[] split = line.split(",");
+			String[] split = line.split("~");
 			if (split.length == 1){
 				bossPictures.add(split[0]);
 				bossExercises.add(cur);
