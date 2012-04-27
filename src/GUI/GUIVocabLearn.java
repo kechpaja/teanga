@@ -58,8 +58,6 @@ public class GUIVocabLearn extends JPanel{
 		vertBox.add(titleBox);
 		
 		
-		//----------------------------------------------------------------------------------------
-		
 		int prefHeight = 100;
 		int prefWidth = 150;
 		List<VocabLessonPair> vocabLessonPairs= _driver.getLessons().getVLessons(_levelNum);
