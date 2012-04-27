@@ -6,7 +6,7 @@ import annie.MyDictionary;
 
 public class Tokenizer {
 	
-	// TODO conjunctions!
+	// TODO conjunctions and subordinate clauses!
 	
 	/**
 	 * This tokenizer will be a little bit different from the one used in our
@@ -27,7 +27,7 @@ public class Tokenizer {
 			return;
 		}
 		
-		//TODO split on whitespace. 
+		// split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
@@ -92,6 +92,7 @@ public class Tokenizer {
 				pos = Pos.ADVERB;
 			}
 			
+			// noun stuff
 			else if (s.matches(".*o$")) {
 				pos = Pos.NOUN;
 				num = NumMarker.SINGULAR;
@@ -110,6 +111,7 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// adjective stuff
 			else if (s.matches(".*a$")) {
 				pos = Pos.ADJECTIVE;
 				num = NumMarker.SINGULAR;
@@ -128,6 +130,7 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// verb stuff
 			else if (s.matches(".*as$")) {
 				pos = Pos.VERB;
 				tense = Tense.PRESENT;
@@ -148,30 +151,22 @@ public class Tokenizer {
 				tense = Tense.INFINITIVE;
 			}
 			
-			// TODO correlatives
-			
+			// unknown POS
 			else {
 				pos = null;
 			}
 			
-			// TODO make sure the word exists in the dictionary...
-		//	System.out.println(dict_);
-		//	System.out.println("done...");
+			// make sure the word exists in the dictionary...
 			if (dict_.getWord(s, true) == null) {
 				mistakes.add(new FatalMistake(left, left + s.length(), "Error: This Word is Invalid"));
 			}
 			
-			// create token
+			// create token 
 			tk = new Token(s, pos, num, c, tense, left, left + s.length() + 1);
 			left += s.length() + 1;
 			
 			// add to token list
 			tokens_.add(tk);
-		}
-		
-		// go through dictionary and make sure every word is present
-		for (Token t : tokens_) {
-			// TODO lookup word
 		}
 		
 		// Add punctuation. Punctuation won't be in the dictionary. 
