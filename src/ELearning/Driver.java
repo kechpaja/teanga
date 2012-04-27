@@ -35,7 +35,7 @@ public class Driver {
 		try{
 			parser = new Parser("data/parserules.txt", "data/dictionary.txt");
 			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
-			exercises = new Exercises("data/vocabData.txt", "data/testfileg.txt", "data/testfileb.txt");
+			exercises = new Exercises("data/lessonfilev.txt", "data/testfileg.txt", "data/testfileb.txt");
 			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
 			gGameMaker = new GrammarGameMaker(exercises, helpbox);
