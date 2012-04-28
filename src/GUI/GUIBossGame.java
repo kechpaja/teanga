@@ -39,6 +39,7 @@ public class GUIBossGame extends JPanel{
 	private int _current;
 	private Response response;
 	private boolean switched;
+	private JLabel _score;
 	
 	
 	public GUIBossGame(BossLevel b, Driver d){
@@ -117,45 +118,67 @@ public class GUIBossGame extends JPanel{
 		answHoriz.add(uiButton);
 		aPanel.add(answHoriz);
 		
-		JLabel _score = new JLabel(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore()+"       ");
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
+		//Update Boundary Panels and put everything toghether
 		
-		JPanel topPanel = new JPanel(new BorderLayout());
-		topPanel.setBackground(new Color(0,0,0,0));
+		//Top Panel
+		JPanel topPanel = new JPanel(null);
 		topPanel.setSize(new Dimension(1000,40));
-		JLabel _userName = new JLabel(_driver.getUserName()+"       ");
-		_userName.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_userName.setForeground(Color.white);
-		topPanel.add(_userName);
-		topPanel.add(Box.createRigidArea(new Dimension(0, 30)));
-		topPanel.add(Box.createRigidArea(new Dimension(370, 0)));
-		topPanel.add(_score);
-		topPanel.add(Box.createRigidArea(new Dimension(370, 0)));
-		JButton back = new JButton("Back");
-		back.addActionListener(new backtoOptionsActionListener());
-		back.setSize(new Dimension(75, 35));
-		topPanel.add(back);
+		topPanel.setBackground(new Color(50,50,50,255));
 		topPanel.setLocation(0,0);
 		
-		Box topBox = Box.createHorizontalBox();
-		topPanel.add(topBox, BorderLayout.CENTER);
-		this.add(topPanel);
+		Box userBox = Box.createHorizontalBox();
+		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
+		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_un.setForeground(Color.white);
+		userBox.add(_un);
+		userBox.setSize(200,35);
+		userBox.setLocation(20, 3);
 		
-		JPanel bottomPanel = new JPanel(new BorderLayout());
-		bottomPanel.setBackground(new Color(0,0,0,0));
-		bottomPanel.setSize(new Dimension(1000,40));
-		bottomPanel.setLocation(0,635);
+		Box topBar = Box.createHorizontalBox();
+		_score = new JLabel(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
+		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
+		_score.setForeground(Color.white);
+		topBar.add(_score);
+		topBar.setSize(400,35);
+		topBar.setLocation(475, 3);
+		
+		JButton back = new JButton("Back");
+		back.addActionListener(new backtoOptionsActionListener());
+		back.setSize(new Dimension(100, 30));
+		back.setLocation(875,5);
+		
+		topPanel.add(userBox);
+		topPanel.add(topBar);
+		topPanel.add(back);
+		
+		
+		//Bottom Panel
+		JPanel bottomPanel = new JPanel(null);
+		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setBackground(new Color(100,0,0,255));
+		bottomPanel.setLocation(0,680);
+		
+		JButton help = new JButton("Help");
+		help.setSize(new Dimension(100, 30));
+		help.addActionListener(new HelpButtonListener());
+		help.setLocation(19, 5);
 		
 		JButton nextQ = new JButton("Next Question");
 		nextQ.addActionListener(new NextQListener());
+		nextQ.setSize(new Dimension(100,30));
+		nextQ.setLocation(475,5);
 		
-		Box bottomBox = Box.createHorizontalBox();
-		bottomBox.add(Box.createHorizontalStrut(440));
-		bottomBox.add(nextQ);
-		bottomBox.add(Box.createHorizontalStrut(440));
-		bottomPanel.add(bottomBox);
-		this.add(bottomPanel);
+		JButton dictionary = new JButton("Dictionary");
+		dictionary.setSize(new Dimension(100, 30));
+		dictionary.addActionListener(new DictionaryButtonListener());
+		dictionary.setLocation(875, 5);
+		
+		bottomPanel.add(help);
+		bottomPanel.add(nextQ);
+		bottomPanel.add(dictionary);
+		
+		add(topPanel);
+		add(bottomPanel);
 		
 	}
 	
@@ -327,13 +350,11 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
+			
 			userInput.setText("");
-=======
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
->>>>>>> 7f896ccfed4d8090f3a59d610051185306dabda4
 			//move to next question...
 			//if(!switched){
 				_bossLevel.tryAnswer(" ");
@@ -352,7 +373,32 @@ public class GUIBossGame extends JPanel{
 			
 		}		
 	}
-private class backtoOptionsActionListener implements ActionListener {
+	
+	private class DictionaryButtonListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_bossLevel.decrementScore(2);
+			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
+			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
+
+			
+		}
+		
+	}
+	
+	private class HelpButtonListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_bossLevel.decrementScore(3);
+			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore()+"       ");
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_bossLevel.getHelp(), 1, _bossLevel.getLevelNum(), _driver);
+		}
+		
+	}
+	
+	private class backtoOptionsActionListener implements ActionListener {
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
