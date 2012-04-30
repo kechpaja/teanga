@@ -27,7 +27,7 @@ public class HelpBoxInternalFrame extends JFrame{
 	private JButton backToLesson;
 	private JTextArea help;
 	private JScrollPane helpScrollPane;
-	private int activityType;
+	private int _activityType;
 	private int lessonNum;
 	JPanel overall = new JPanel(new BorderLayout());
 	JFrame toClose;
@@ -37,7 +37,7 @@ public class HelpBoxInternalFrame extends JFrame{
 		
 		toClose = this;
 		_driver = d;
-		activityType = at;
+		_activityType = at;
 		lessonNum = ln;
 		this.setBackground(new Color(100,110,255,255));
 		//overall.setSize(500, 500);
@@ -73,12 +73,14 @@ public class HelpBoxInternalFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			switch (activityType){
-			//helpbox is already in a vocab lesson. goes back to previous grammar lesson
+			switch (_activityType){
+			//helpbox is already in a vocab lesson. goes back to previous vocab lesson
 			case 0:
 				if (lessonNum>0){
 					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
 					toClose.dispose();
+				} else {
+					//TODO: go back to general help page
 				}
 				break;
 			//helpbox is in a grammar lesson. goes back to previous grammar lesson
@@ -86,6 +88,8 @@ public class HelpBoxInternalFrame extends JFrame{
 				if (lessonNum>0){
 					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
 					toClose.dispose();
+				} else {
+					//TODO: go back to general help page
 				}
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
