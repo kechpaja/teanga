@@ -89,7 +89,6 @@ public class GUIGrammarLearn extends JPanel{
 			JLabel sentenceLabel = new JLabel("\"" + glp.getExampleSentence() + "\"");
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			
-			
 			//Explanation
 			JTextArea explinArea = new JTextArea();
 			explinArea.setText(glp.getExplanation());
@@ -100,33 +99,38 @@ public class GUIGrammarLearn extends JPanel{
 			explinArea.setLineWrap(true);
 			explinArea.setWrapStyleWord(true);
 			
-			JPanel panel = new JPanel(null);
-			panel.setPreferredSize(new Dimension(950, 250));
+			JPanel picpanel = new JPanel(null);
+			JPanel pan = new JPanel(new BorderLayout());
+			picpanel.setPreferredSize(new Dimension(950, 170));
 			if(_even){
-				panel.setBackground(new Color(245,245,245,255));
+				picpanel.setBackground(new Color(245,245,245,255));
+				pan.setBackground(new Color(245,245,245,255));
 				explinArea.setBackground(new Color(245,245,245,255));
 				_even = false;
 			} else{
-				panel.setBackground(new Color(231,231,231,255));
+				picpanel.setBackground(new Color(231,231,231,255));
+				pan.setBackground(new Color(231,231,231,255));
 				explinArea.setBackground(new Color(231,231,231,255));
 				_even = true;
 			}
 			
-			panel.add(picLabel);
+			picpanel.add(picLabel);
 			picLabel.setSize(150,100);
 			picLabel.setLocation(150, 30);
 			
-			panel.add(sentenceLabel);
+			picpanel.add(sentenceLabel);
 			sentenceLabel.setSize(500,20);
 			sentenceLabel.setLocation(400, 70);
-
-			JScrollPane miniScroll = new JScrollPane(explinArea);
-			panel.add(miniScroll);
-			miniScroll.setSize(800, 100);
-			miniScroll.setLocation(100, 150);
-			miniScroll.setBorder(BorderFactory.createEmptyBorder());
 			
-			vertBox.add(panel);
+			Box explinBox = Box.createVerticalBox();
+			explinBox.add(Box.createVerticalStrut(10));
+			explinBox.add(explinArea);
+			explinBox.add(Box.createVerticalStrut(10));
+			
+			pan.add(picpanel, BorderLayout.NORTH);
+			pan.add(explinBox, BorderLayout.CENTER);
+
+			vertBox.add(pan);
 		}
 		
 		overall.add(vertBox);
