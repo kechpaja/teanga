@@ -122,13 +122,17 @@ public class GUIGrammarLearn extends JPanel{
 			sentenceLabel.setSize(500,20);
 			sentenceLabel.setLocation(400, 70);
 			
+			Box explinHoriz = Box.createHorizontalBox();
 			Box explinBox = Box.createVerticalBox();
 			explinBox.add(Box.createVerticalStrut(10));
 			explinBox.add(explinArea);
 			explinBox.add(Box.createVerticalStrut(10));
+			explinHoriz.add(Box.createHorizontalStrut(20));
+			explinHoriz.add(explinBox);
+			explinHoriz.add(Box.createHorizontalStrut(20));
 			
 			pan.add(picpanel, BorderLayout.NORTH);
-			pan.add(explinBox, BorderLayout.CENTER);
+			pan.add(explinHoriz, BorderLayout.CENTER);
 
 			vertBox.add(pan);
 		}
