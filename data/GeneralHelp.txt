@@ -1,0 +1,7 @@
+Welcome to ELearning!
+This software is designed to help you learn the basics of Esperanto quickly and easily. 
+Esperanto is a language that blahblahblahblahblabh
+Once you've created an account, you will be taken to the main options page. Here you will see 5 columns of icons. Each icon represents an activity or game, and each row a level. The Learni section contains a vocab lesson and a grammar lesson, followed by a corresponding vocab game and grammar game.
+The final row contains links to the boss level for each game. This will test you on both vocabulary and grammar you've learned in the lesson, and it will only be unlocked once you've completed the vocabulary and grammar games of that level.
+Completing the boss game unlocks the next level. You may need to try each level several times before unlocking the next, but don't worry - you'll be learning the WHOLE TIME!
+A few words about special characters. BLAHBHSLLDFHSDLFGHSOIGFHJOSJFSO.
