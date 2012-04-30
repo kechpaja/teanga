@@ -41,6 +41,7 @@ SHOULD BE COMPLETED BY DEMO
 (Ideally, this stuff should be finished by Friday night as well, although falling back a bit to Saturday is fine)
 
 Kelvin:
+-Fix dictionary to take words of multiple formats (Will be used by Annie to make vocab checking better in boss game as well)
 -Make buttons in Esperanto
 -Add conjunctions to parser 
 
