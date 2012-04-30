@@ -30,7 +30,7 @@ public class RuleReader {
 	 */	
 	
 	// a method to read in rules and put them into lists
-	public static RuleSet ruleRead(String file) {
+	public static RuleSet ruleRead(String file) throws FileNotFoundException {
 		RuleSet ruleset = null;
 		
 		try {
@@ -120,9 +120,6 @@ public class RuleReader {
 			
 			ruleset = new RuleSet(birules, unrules, agrules, semrules);
 			
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
