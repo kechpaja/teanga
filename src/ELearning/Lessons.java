@@ -45,10 +45,8 @@ public class Lessons {
 				grammarLessons.add(cur);
 				cur = new ArrayList<GrammarLessonPair>();
 			} else cur.add(new GrammarLessonPair(split[0], split[1], split[2]));
-			System.out.println(line);
 			
 			line = gReader.readLine();
-			System.out.println("AFTER READ LINE:"+line);
 		}
 		grammarLessons.add(cur);		
 	}
