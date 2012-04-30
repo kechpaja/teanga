@@ -66,7 +66,7 @@ public class GUIFullFrameHelp extends JPanel{
 				explinArea.setLineWrap(true);
 				explinArea.setWrapStyleWord(true);
 				
-				JPanel panel = new JPanel(null);
+				JPanel panel = new JPanel(new BorderLayout());
 				panel.setPreferredSize(new Dimension(950, 250));
 				if(_even){
 					panel.setBackground(new Color(245,245,245,255));
@@ -127,6 +127,11 @@ public class GUIFullFrameHelp extends JPanel{
 				back.setSize(new Dimension(100, 30));
 				back.setLocation(875,5);
 				
+				JButton forward = new JButton("Go!");
+				forward.addActionListener(new OntoOptionsActionListener());
+				forward.setSize(new Dimension(100, 30));
+				
+				
 				topPanel.add(userBox);
 				topPanel.add(topBar);
 				topPanel.add(back);
@@ -136,6 +141,7 @@ public class GUIFullFrameHelp extends JPanel{
 				JPanel bottomPanel = new JPanel(null);
 				bottomPanel.setPreferredSize(new Dimension(1000,35));
 				bottomPanel.setBackground(new Color(50,50,50,255));
+				bottomPanel.add(forward);
 				
 				fullBar.add(topPanel);
 				fullBar.add(scrollbar);
@@ -151,6 +157,16 @@ public class GUIFullFrameHelp extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.changePage(new GUIBasicPage(_driver));
+			
+		}
+		
+	}
+	
+	private class OntoOptionsActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}
 		
