@@ -13,6 +13,7 @@ public class BossLevel extends LevelInstance{
 	private BossQuestionPair curQuestion;
 	private String help;
 	private Parser parser;
+	private List<String> vocabWords;
 	
 	
 	public int getLevelNum(){
