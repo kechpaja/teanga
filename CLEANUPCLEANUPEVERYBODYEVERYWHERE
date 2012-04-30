@@ -24,10 +24,15 @@ Danielle:
 >>>>>>> 87ff1c55a3d183fa82f99e92b66aa034d3895d1b
 
 Tara:
+<<<<<<< HEAD
+-make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
+=======
 -make help frames say useful things and link to useful pages
 -make grammar game never break.
+>>>>>>> 2d2f46be9b19ce5f6a6e9ae9053d6acf524ee7cf
 -add instruction page for all games the first time they are opened on the first level. make it possible to access this page from the help button within all games.
 -better images for buttons on option page
+-hint button on help box
 
 Annie:
 -add vocab checking mechanism for boss game. make sure it affects score
