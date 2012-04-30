@@ -9,14 +9,17 @@ import java.util.List;
 public class Lessons {
 	//contains the vocab exercises, sorted by level
 	public List<List<VocabLessonPair>> vocabLessons;
-	//contains the vocab exercises, sorted by level
+	//contains the grammar exercises, sorted by level
 	private List<List<GrammarLessonPair>> grammarLessons;
+
 	
 	public Lessons(String VFile, String GFile) throws IOException{
 		vocabLessons = new ArrayList<List<VocabLessonPair>>();
 		grammarLessons = new ArrayList<List<GrammarLessonPair>>();
+
 		generateVLessons(VFile);
 		generateGLessons(GFile);
+
 	}
 	
 	private void generateVLessons(String VFile) throws IOException{
@@ -39,7 +42,6 @@ public class Lessons {
 		List<GrammarLessonPair> cur = new ArrayList<GrammarLessonPair>();
 		BufferedReader gReader = new BufferedReader(new FileReader(GFile));
 		String line = gReader.readLine();
-		int count = 0;
 		while (line != null){
 			String[] split = line.split("~");
 			if(split.length == 2){
@@ -55,6 +57,7 @@ public class Lessons {
 		grammarLessons.add(cur);		
 	}
 	
+	
 	public List<VocabLessonPair> getVLessons(int level){
 		return vocabLessons.get(level);
 	}
@@ -62,4 +65,5 @@ public class Lessons {
 	public List<GrammarLessonPair> getGLessons(int level){
 		return grammarLessons.get(level);
 	}
+	
 }

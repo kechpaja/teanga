@@ -246,7 +246,7 @@ public class GUIVocabLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("This page is teaching you some basic vocabulary. Don't worry if you don't understand every word in the example sentence, but feel free to click below to see the previous section", 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getVLessHelp(_levelNum), 
 																		1, _levelNum, _driver);
 		}
 		

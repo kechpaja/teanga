@@ -67,13 +67,10 @@ public class OpeningPage {
 		}
 		if(index==passwords.size())
 		{
-			System.out.println("this false 2");
 			return false;
 		}
-		if(passwords.get(index).equals(encrypt(password)))	
-			return true;
-		System.out.println("this false");
-		return false;
+		return (passwords.get(index).equals(encrypt(password)));
+		
 	}
 
 	//returns the encrypted string (used for passwords)
@@ -92,8 +89,17 @@ public class OpeningPage {
 		encrypt.init(Cipher.ENCRYPT_MODE, key,parameterSpec);
 		byte b1[] = Arrays.copyOfRange(s.getBytes(), 0, 64);
 		byte[] output = encrypt.update(b1, 0, 64);
+<<<<<<< HEAD
+		/*for(int n=0; n<output.length; n++)
+			System.out.print(output[n]+" ");*/
+		//String r= new String(output);
+		String r= "";
+		for(int n=0; n<output.length; n++)
+			r=r+output[n];
+=======
 		String r= new String(output);
-		r = r.replaceAll("\\r\\n|\\r|\\n|\\b|\\s", "");
+		r = r.replaceAll("\\r\\n|\\r|\\n|\\b|\\s|\uFFFD", "");
+>>>>>>> f8e14c6103b5eda4fc5a0cddfad02a51d0a27cdf
 		return r;
 	}
 

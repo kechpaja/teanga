@@ -101,6 +101,7 @@ public class GUIGrammarLearn extends JPanel{
 			
 			JPanel picpanel = new JPanel(null);
 			JPanel pan = new JPanel(new BorderLayout());
+
 			picpanel.setPreferredSize(new Dimension(950, 170));
 			if(_even){
 				picpanel.setBackground(new Color(245,245,245,255));
@@ -232,7 +233,7 @@ public class GUIGrammarLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("This page explains some basic grammar concepts! If you're having trouble understanding them, click below to review the previous grammar level.", 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
 																		1, _levelNum, _driver);
 		}
 		
