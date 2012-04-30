@@ -24,12 +24,13 @@ import ELearning.HelpBox;
 
 public class HelpBoxInternalFrame extends JFrame{
 	private Driver _driver;
-	private JButton backToLesson;
+	private JButton backToLesson, genHelp;
 	private JTextArea help;
 	private JScrollPane helpScrollPane;
 	private int _activityType;
 	private int lessonNum;
 	JPanel overall = new JPanel(new BorderLayout());
+	JPanel buttons = new JPanel(new BorderLayout());
 	JFrame toClose;
 	
 	public HelpBoxInternalFrame(String levelHelp, int at, int ln, Driver d){
@@ -44,6 +45,10 @@ public class HelpBoxInternalFrame extends JFrame{
 
 		backToLesson = new JButton("more help");
 		backToLesson.addActionListener(new helpActionListener());
+		genHelp = new JButton("How To Use ELearning");
+		genHelp.addActionListener(new genHelpActionListener());
+		buttons.add(backToLesson, BorderLayout.CENTER);
+		buttons.add(genHelp, BorderLayout.SOUTH);
 		help = new JTextArea(levelHelp);
 		help.setSize(250, 300);
 		//Make overall container
@@ -56,7 +61,7 @@ public class HelpBoxInternalFrame extends JFrame{
 		helpScrollPane.setSize(250, 200);
 		helpScrollPane.add(help);
 		overall.add(helpScrollPane, BorderLayout.CENTER);
-		overall.add(backToLesson, BorderLayout.SOUTH);
+		overall.add(buttons, BorderLayout.SOUTH);
 
 		
 		this.add(overall);
@@ -69,6 +74,16 @@ public class HelpBoxInternalFrame extends JFrame{
 		this.setVisible(true);
 	}
 	
+	private class genHelpActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+			toClose.dispose();
+		}
+		
+	}
+	
 	private class helpActionListener implements ActionListener{
 
 		@Override
@@ -78,38 +93,39 @@ public class HelpBoxInternalFrame extends JFrame{
 			case 0:
 				if (lessonNum>0){
 					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
-					toClose.dispose();
 				} else {
-					//TODO: go back to general help page
+					//change the general help file!
+					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
 				}
 				break;
 			//helpbox is in a grammar lesson. goes back to previous grammar lesson
 			case 1:
 				if (lessonNum>0){
 					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
-					toClose.dispose();
 				} else {
-					//TODO: go back to general help page
+					//change the general help file!
+					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
 				}
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
 			case 2:
 				_driver.changePage(new GUIVocabLearn(lessonNum, _driver));
-				toClose.dispose();
 				break;
 			//helpbox is in a grammar game. goes back to relevant grammar lesson
 			case 3:
 				_driver.changePage(new GUIGrammarLearn(lessonNum, _driver));
-				toClose.dispose();
 				break;
 			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
 			case 4:
+				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
 				break;
 			//helpbox is not in an activity, goes back to help section of whole game
 			default:
+				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
 				break;
 				
 			}
+			toClose.dispose();
 			
 		}
 		
