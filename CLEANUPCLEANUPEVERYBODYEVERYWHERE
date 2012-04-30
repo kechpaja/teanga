@@ -22,11 +22,9 @@ Danielle:
 
 Tara:
 -make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
-<<<<<<< HEAD
-=======
 -make help frames say useful things and link to useful pages
 -make grammar game never break.
->>>>>>> 96886db403467962c8f1cd5df58da1f5df5e5383
+
 -add instruction page for all games the first time they are opened on the first level. make it possible to access this page from the help button within all games.
 -better images for buttons on option page
 -hint button on help box
