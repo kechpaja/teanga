@@ -137,3 +137,83 @@ viando
 meat
 noun
 Ŝi ne manĝas la viandon.
+
+bongusta
+tasty, delicious
+adjective
+La viando estas bongusta!
+
+gluti
+to swallow
+verb
+La kato glutas musojn.
+
+ananaso
+pineapple
+noun
+Ĝi estas ananaso.
+
+porkaĵo
+pork (meat)
+noun
+Mi manĝas porkaĵon.
+
+kokaĵo
+chicken (meat)
+noun
+Ĉu vi manĝas kokaĵon?
+
+bovaĵo
+beef (meat)
+noun
+Mi ne manĝas bovaĵon.
+
+frukto
+fruit
+noun
+Ĝi estas frukto bongusta.
+
+legomo
+vegetable
+noun
+La legomoj ne estas bongustaj.
+
+pizo
+pea (vegetable)
+noun
+Mi amas la pizojn.
+
+laktuko
+lettuce
+noun
+La laktuko estas la legomo de la salato.
+
+karoto
+carrot
+noun
+La kunikloj manĝas la karotojn.
+
+brokolo
+broccoli
+noun
+Ĉu vi volas brokolon?
+
+salato
+salad
+noun
+La salato estas de laktuko.
+
+kuniklo
+rabbit
+noun
+La kunikloj manĝas la karotojn.
+
+stomako
+stomach
+noun
+La manĝaĵo estas en mi stomako.
+
+doni
+to give
+verb
+Donu tion al mi!

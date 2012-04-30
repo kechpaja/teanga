@@ -8,8 +8,11 @@ data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
 data/VocabPictures/kato.jpg,Mi vol~0~ manĝi bel~1~ pom~2~.,as an on,as o aj on i an
 data/VocabPictures/kato.jpg,La kato manĝas mus~0~.,on,a o on oj is
 data/VocabPictures/kato.jpg,Ŝi glutas vinber~0~ bongust~1~.,on an,is an os on in
-data/VocabPictures/kato.jpg,Mi vidas ~0~,lin,lin mi li min
-data/VocabPictures/kato.jpg, ~0~ vid~1~ min,li as,as mi li min
+data/VocabPictures/kato.jpg,
+data/VocabPictures/kato.jpg,
+data/VocabPictures/kato.jpg,
+data/VocabPictures/kato.jpg,Mi vidas ~0~,lin,lin mi li mia
+data/VocabPictures/kato.jpg, ~0~ vid~1~ min,li as,as mis li min
 data/VocabPictures/kato.jpg,la hundo vidas ~0~,min,mi min li lin
 data/VocabPictures/kato.jpg, ~0~ kato vidas ~1~,la ŝin,ŝin ŝi lin mi la
 data/VocabPictures/kato.jpg, ~0~ manĝu frukto.,ili,ili li mi la
