@@ -93,7 +93,7 @@ public class OpeningPage {
 		byte b1[] = Arrays.copyOfRange(s.getBytes(), 0, 64);
 		byte[] output = encrypt.update(b1, 0, 64);
 		String r= new String(output);
-		r = r.replaceAll("\\r\\n|\\r|\\n|\\b", "");
+		r = r.replaceAll("\\r\\n|\\r|\\n|\\b|\\s", "");
 		return r;
 	}
 
