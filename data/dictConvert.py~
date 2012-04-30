@@ -5,14 +5,14 @@ import sys
 conjunctions = ['kaj', 'aŭ']
 pronouns = ['mi', 'ci', 'li', 'ĝi', 'ŝi', 'ri', 'ni', 'vi', 'ili', \
 		'tio', 'kio', 'io', 'nenio', 'ĉio', \
-		'tia', 'kia', 'io', 'nenio', 'ĉio', \
-		'tiu', 'kio', 'io', 'nenio', 'ĉio', \
-		'tie', 'kio', 'io', 'nenio', 'ĉio', \
-		'tiam', 'kio', 'io', 'nenio', 'ĉio', \
-		'tiom', 'kio', 'io', 'nenio', 'ĉio', \
-		'tial', 'kio', 'io', 'nenio', 'ĉio', \
-		'tiel', 'kio', 'io', 'nenio', 'ĉio', \
-		'ties', 'kio', 'io', 'nenio', 'ĉio', \
+		'tia', 'kia', 'ia', 'nenia', 'ĉia', \
+		'tiu', 'kiu', 'iu', 'neniu', 'ĉiu', \
+		'tie', 'kie', 'ie', 'nenie', 'ĉie', \
+		'tiam', 'kiam', 'iam', 'neniam', 'ĉiam', \
+		'tiom', 'kiom', 'iom', 'neniom', 'ĉiom', \
+		'tial', 'kial', 'ial', 'nenial', 'ĉial', \
+		'tiel', 'kiel', 'iel', 'neniel', 'ĉiel', \
+		'ties', 'kies', 'ies', 'nenies', 'ĉies']
 
 def pos(word):
 	if word == 'la':
@@ -36,13 +36,15 @@ f = open(sys.argv[1], 'r')
 dest = open(sys.argv[2], 'w')
 
 for line in f:
-	spl = string.split(line)
+	spl = line.split()
+	if (len(spl) < 2):
+		continue
 	eng = spl[1]
 	eo = spl[0]
-	dest.write(eo)
-	dest.write(eng)
-	dest.write(pos(eo))
-	dest.write("[None Given]")
+	dest.write(eo + "\n")
+	dest.write(eng + "\n")
+	dest.write(pos(eo) + "\n")
+	dest.write("[None Given]\n")
 	dest.write("")
 
 f.close()
