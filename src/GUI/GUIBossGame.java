@@ -327,13 +327,11 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-<<<<<<< HEAD
+
 			userInput.setText("");
-=======
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
->>>>>>> 7f896ccfed4d8090f3a59d610051185306dabda4
 			//move to next question...
 			//if(!switched){
 				_bossLevel.tryAnswer(" ");
