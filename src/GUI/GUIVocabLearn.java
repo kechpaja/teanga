@@ -246,7 +246,7 @@ public class GUIVocabLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getLessons().getVLessonHelp(_levelNum), 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getVLessHelp(_levelNum), 
 																		1, _levelNum, _driver);
 		}
 		

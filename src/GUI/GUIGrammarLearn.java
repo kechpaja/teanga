@@ -232,7 +232,7 @@ public class GUIGrammarLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getLessons().getGlessonHelp(_levelNum), 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
 																		1, _levelNum, _driver);
 		}
 		

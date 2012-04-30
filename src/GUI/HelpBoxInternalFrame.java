@@ -15,6 +15,8 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.UIManager;
+import javax.swing.UIManager.LookAndFeelInfo;
 
 import annie.MyDictionary;
 
@@ -52,21 +54,20 @@ public class HelpBoxInternalFrame extends JFrame{
 		help = new JTextArea(levelHelp);
 		help.setSize(250, 300);
 		//Make overall container
-		helpScrollPane = new JScrollPane();
+		helpScrollPane = new JScrollPane(help);
 		help.setEditable(false);
 		help.setLineWrap(true);
 		help.setVisible(true);
 		help.setWrapStyleWord(true);
 		help.setBorder(BorderFactory.createEmptyBorder(4,4,4,4));
 		helpScrollPane.setSize(250, 200);
-		helpScrollPane.add(help);
 		overall.add(helpScrollPane, BorderLayout.CENTER);
 		overall.add(buttons, BorderLayout.SOUTH);
 
 		
 		this.add(overall);
-		overall.revalidate();
-		overall.repaint();
+		//overall.revalidate();
+		//overall.repaint();
 		this.pack();
 		this.setVisible(true);
 		this.setLocation(30, 30);
@@ -78,7 +79,7 @@ public class HelpBoxInternalFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+			_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
 			toClose.dispose();
 		}
 		
@@ -95,7 +96,7 @@ public class HelpBoxInternalFrame extends JFrame{
 					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
 				} else {
 					//change the general help file!
-					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
 				}
 				break;
 			//helpbox is in a grammar lesson. goes back to previous grammar lesson
@@ -104,7 +105,7 @@ public class HelpBoxInternalFrame extends JFrame{
 					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
 				} else {
 					//change the general help file!
-					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
 				}
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
@@ -117,11 +118,11 @@ public class HelpBoxInternalFrame extends JFrame{
 				break;
 			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
 			case 4:
-				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
 				break;
 			//helpbox is not in an activity, goes back to help section of whole game
 			default:
-				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver));
+				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
 				break;
 				
 			}
@@ -129,6 +130,20 @@ public class HelpBoxInternalFrame extends JFrame{
 			
 		}
 		
+	}
+	
+	public static void main(String[] args){
+		try {
+		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
+		        if ("Nimbus".equals(info.getName())) {
+		            UIManager.setLookAndFeel(info.getClassName());
+		            break;
+		        }
+		    }
+		} catch (Exception e) {
+		    System.out.println("Nimbus is not available!");
+		}
+		HelpBoxInternalFrame newFrame = new HelpBoxInternalFrame("why cant I see you?", 0, 0, new Driver());
 	}
 	
 }

@@ -37,9 +37,9 @@ public class Driver {
 	public Driver(){
 		try{
 			parser = new Parser("data/parserules.txt", "data/dictionary.txt");
-			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt", "data/GenVocabLessonHelp.txt", "data/GenGrammarHelp.txt");
+			lessons = new Lessons("data/lessonfilev.txt", "data/lessonfileg.txt");
 			exercises = new Exercises("data/lessonfilev.txt", "data/testfileg.txt", "data/testfileb.txt");
-			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt");
+			helpbox = new HelpBox("data/testhelpv.txt", "data/testhelpg.txt", "data/testhelpb.txt", "data/GenVocabLessonHelp.txt", "data/GenGrammarHelp.txt");
 			vGameMaker = new VocabGameMaker(exercises, helpbox);
 			gGameMaker = new GrammarGameMaker(exercises, helpbox);
 			bGameMaker = new BossGameMaker(exercises, helpbox, parser);
@@ -130,6 +130,10 @@ public class Driver {
 	
 	public Lessons getLessons(){
 		return lessons;
+	}
+	
+	public HelpBox getHelpBox(){
+		return helpbox;
 	}
 	
 

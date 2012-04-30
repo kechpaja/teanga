@@ -11,20 +11,15 @@ public class Lessons {
 	public List<List<VocabLessonPair>> vocabLessons;
 	//contains the grammar exercises, sorted by level
 	private List<List<GrammarLessonPair>> grammarLessons;
-	//contains the helpbox contents for each vocab lesson
-	private List<String> vocabHelp;
-	//contains the helpbox contents for each grammar lesson
-	private List<String> grammarHelp;
+
 	
-	public Lessons(String VFile, String GFile, String VHFile, String GHFile) throws IOException{
+	public Lessons(String VFile, String GFile) throws IOException{
 		vocabLessons = new ArrayList<List<VocabLessonPair>>();
 		grammarLessons = new ArrayList<List<GrammarLessonPair>>();
-		vocabHelp = new ArrayList<String>();
-		grammarHelp = new ArrayList<String>();
+
 		generateVLessons(VFile);
 		generateGLessons(GFile);
-		generateVHelp(VHFile);
-		generateGHelp(GHFile);
+
 	}
 	
 	private void generateVLessons(String VFile) throws IOException{
@@ -62,23 +57,6 @@ public class Lessons {
 		grammarLessons.add(cur);		
 	}
 	
-	private void generateVHelp(String VHFile) throws IOException{
-		BufferedReader vhReader = new BufferedReader(new FileReader(VHFile));
-		String hLine = vhReader.readLine();
-		while (hLine != null){
-			vocabHelp.add(hLine);
-			hLine = vhReader.readLine();
-		}
-	}
-	
-	private void generateGHelp(String GHFile) throws IOException{
-		BufferedReader ghReader = new BufferedReader(new FileReader(GHFile));
-		String hLine = ghReader.readLine();
-		while (hLine != null){
-			grammarHelp.add(hLine);
-			hLine = ghReader.readLine();
-		}
-	}
 	
 	public List<VocabLessonPair> getVLessons(int level){
 		return vocabLessons.get(level);
@@ -88,11 +66,4 @@ public class Lessons {
 		return grammarLessons.get(level);
 	}
 	
-	public String getVLessonHelp(int level){
-		return vocabHelp.get(level);
-	}
-	
-	public String getGlessonHelp(int level){
-		return grammarHelp.get(level);
-	}
 }
