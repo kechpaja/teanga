@@ -39,13 +39,17 @@ public class Lessons {
 		List<GrammarLessonPair> cur = new ArrayList<GrammarLessonPair>();
 		BufferedReader gReader = new BufferedReader(new FileReader(GFile));
 		String line = gReader.readLine();
+		int count = 0;
 		while (line != null){
 			String[] split = line.split("~");
+			if(split.length == 2){
+				System.out.println(line);
+			}
 			if (split.length == 1){
 				grammarLessons.add(cur);
 				cur = new ArrayList<GrammarLessonPair>();
 			} else cur.add(new GrammarLessonPair(split[0], split[1], split[2]));
-			
+
 			line = gReader.readLine();
 		}
 		grammarLessons.add(cur);		
