@@ -117,7 +117,7 @@ public class GUIGrammarGame extends JPanel{
 		submitHoriz.add(skip);
 
 		
-		
+		//Update Boundary Panels and put everything toghether
 		Box fullBar = Box.createVerticalBox();
 		
 		//Top Panel
@@ -219,7 +219,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                   ");//put a blank in the line
+					JLabel blank = new JLabel("                      ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
@@ -241,7 +241,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("                   ");//put a blank in the line
+					JLabel blank = new JLabel("                      ");//put a blank in the line
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -290,7 +290,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                   ");//put a blank in the line
+					JLabel blank = new JLabel("                      ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -330,7 +330,7 @@ public class GUIGrammarGame extends JPanel{
 			_grammarLevel.skipCurrent();
 			if (_grammarLevel.isOver()){
 				_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
-				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+				_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 			} else {
 				//update choicePanel
 				_horizontalChoice.removeAll();
@@ -352,6 +352,7 @@ public class GUIGrammarGame extends JPanel{
 				_panel.revalidate();
 				
 			}
+			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 			
 		}
 		
