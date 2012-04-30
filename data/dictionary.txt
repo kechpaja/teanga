@@ -113,6 +113,11 @@ they
 pronoun
 Ili volas min.
 
+la
+the
+article
+La kato estas bona.
+
 oranĝo
 orange
 noun
