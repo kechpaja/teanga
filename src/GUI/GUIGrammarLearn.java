@@ -101,6 +101,7 @@ public class GUIGrammarLearn extends JPanel{
 			
 			JPanel picpanel = new JPanel(null);
 			JPanel pan = new JPanel(new BorderLayout());
+
 			picpanel.setPreferredSize(new Dimension(950, 170));
 			if(_even){
 				picpanel.setBackground(new Color(245,245,245,255));
