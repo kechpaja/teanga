@@ -233,7 +233,7 @@ public class GUIGrammarLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("This page explains some basic grammar concepts! If you're having trouble understanding them, click below to review the previous grammar level.", 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
 																		1, _levelNum, _driver);
 		}
 		

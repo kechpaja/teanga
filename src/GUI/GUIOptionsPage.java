@@ -314,11 +314,14 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 3:
 				//create a vocab game
-				_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
+				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
+					_driver.changePage(new GUIFullFrameHelp("GenVocabLessonHelp.txt", _driver, 1, 0));
+				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 4:
-				//create a grammar game
-				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
+				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
+					_driver.changePage(new GUIFullFrameHelp("GenGrammarHelp.txt", _driver, 2, 0));
+				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
