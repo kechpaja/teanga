@@ -15,7 +15,3 @@ data/VocabPictures/kato.jpg, ~0~ kato vidas ~1~,la ŝin,ŝin ŝi lin mi la
 data/VocabPictures/kato.jpg, ~0~ manĝu frukto.,ili,ili li mi la
 data/VocabPictures/kato.jpg,mi amas ~0~,vin,vi vin
 1
-
-
-
-
