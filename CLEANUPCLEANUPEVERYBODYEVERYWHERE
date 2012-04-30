@@ -23,6 +23,11 @@ Danielle:
 Tara:
 -make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
 -make help frames say useful things and link to useful pages
+<<<<<<< HEAD
+=======
+-make grammar game never break.
+
+>>>>>>> f784dbb3bdb73371f7878e6d8d589ec796dde1a6
 -add instruction page for all games the first time they are opened on the first level. make it possible to access this page from the help button within all games.
 -better images for buttons on option page
 -hint button on help box
@@ -31,7 +36,6 @@ Annie:
 -add vocab checking mechanism for boss game. make sure it affects score
 -makes needed score/score affecting mechanisms final
 -if we can, make encryption work on PCs
--make using the help button in game pause the game (if timer) and decriment points by 2.
 -fix vocab game
 
 
@@ -50,8 +54,6 @@ Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED se
 -Some way of indicating best score/necessary score in games
 -Some way of indicating best time in games
 -picture icons for buttons
--better version of vocab game!
--make grammar boxes go back to position if wrong answer is submitted in grammar game
 
 
 
@@ -59,7 +61,6 @@ WOULD BE NICE TO BE COMPLETED BY DEMO:
 (If this stuff doesn't happen, life will go one)
 
 Everyone:
--username box shouldn't resize so randomly.
 -loading Bar
 -make final pages (end of game) a bit prettier
 -suggest code for dictionary

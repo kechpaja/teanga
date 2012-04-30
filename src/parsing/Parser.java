@@ -1,5 +1,6 @@
 package parsing;
 
+import java.io.FileNotFoundException;
 import java.util.*;
 
 import annie.MyDictionary;
@@ -66,7 +67,7 @@ public class Parser {
 	 * path to the ruleset, and the second the path to the dictionary file. 
 	 * 
 	 */
-	public Parser(String rulefile, String dictfile) {
+	public Parser(String rulefile, String dictfile) throws FileNotFoundException{
 		rules_ = RuleReader.ruleRead(rulefile);
 		dict_ = new MyDictionary(dictfile);
 	}
