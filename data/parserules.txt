@@ -14,6 +14,7 @@ S S PP
 # NP's need to combine with adjectives...
 NP NP ADJ
 NP NP ADJP
+NP ADJP NP
 
 
 ############
@@ -52,8 +53,8 @@ VP V ADJP
 S S PUNCT
 
 # PP rules
-PP P NP
-PP P DP
+PP PREP NP
+PP PREP DP
 
 unary:
 NP NOUN

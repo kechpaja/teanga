@@ -27,10 +27,15 @@ import ELearning.Driver;
 public class GUIFullFrameHelp extends JPanel{
 	Driver _driver;
 	boolean _even;
+	//int to switch on (0 means it should go to options page, 1 should go to VocabGame, 2 should go to Grammar Game
+	int _toGoTo;
+	int _curLevel;
 	
-	public GUIFullFrameHelp(String helpFile, Driver d){
+	public GUIFullFrameHelp(String helpFile, Driver d, int toGoTo, int levelNum){
 		super(new BorderLayout());
 		_driver = d;
+		_toGoTo = toGoTo;
+		_curLevel = levelNum;
 		this.setBackground(new Color(50,50,50,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
@@ -66,7 +71,7 @@ public class GUIFullFrameHelp extends JPanel{
 				explinArea.setLineWrap(true);
 				explinArea.setWrapStyleWord(true);
 				
-				JPanel panel = new JPanel(null);
+				JPanel panel = new JPanel(new BorderLayout());
 				panel.setPreferredSize(new Dimension(950, 250));
 				if(_even){
 					panel.setBackground(new Color(245,245,245,255));
@@ -127,6 +132,11 @@ public class GUIFullFrameHelp extends JPanel{
 				back.setSize(new Dimension(100, 30));
 				back.setLocation(875,5);
 				
+				JButton forward = new JButton("Go!");
+				forward.addActionListener(new OntoOptionsActionListener());
+				forward.setSize(new Dimension(100, 30));
+				
+				
 				topPanel.add(userBox);
 				topPanel.add(topBar);
 				topPanel.add(back);
@@ -136,6 +146,7 @@ public class GUIFullFrameHelp extends JPanel{
 				JPanel bottomPanel = new JPanel(null);
 				bottomPanel.setPreferredSize(new Dimension(1000,35));
 				bottomPanel.setBackground(new Color(50,50,50,255));
+				bottomPanel.add(forward);
 				
 				fullBar.add(topPanel);
 				fullBar.add(scrollbar);
@@ -151,6 +162,29 @@ public class GUIFullFrameHelp extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.changePage(new GUIBasicPage(_driver));
+			
+		}
+		
+	}
+	
+	private class OntoOptionsActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			switch(_toGoTo){
+			case 0:
+				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+				break;
+			case 1:
+				_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_curLevel), _driver));
+				break;
+			case 2:
+				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_curLevel), _driver));
+				break;
+			default:
+				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));;
+				break;
+			}
 			
 		}
 		
