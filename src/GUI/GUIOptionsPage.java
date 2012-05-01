@@ -315,12 +315,12 @@ public class GUIOptionsPage extends JPanel{
 			case 3:
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("GenVocabLessonHelp.txt", _driver, 1, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, 0));
 				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, 0));
 				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:

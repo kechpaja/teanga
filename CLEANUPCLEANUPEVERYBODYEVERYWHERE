@@ -24,7 +24,7 @@ Tara:
 -make help frames say useful things and link to useful pages
 -add instruction page for all games the first time they are opened on the first level. make it possible to access this page from the help button within all games.
 -better images for buttons on option page
--hint button on help box
+-hint button on help box (?)
 
 Annie:
 -add vocab checking mechanism for boss game. make sure it affects score
