@@ -185,6 +185,19 @@ public class GUIBasicPage extends JPanel{
 				JList list = (JList) e.getSource();
 				String name = (String) list.getSelectedValue();
 				_driver.setUserName(name);
+				passBoxPass();
+				verticalBox.removeAll();
+				verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+			    if (!_driver.openingpage.getUsernames().isEmpty()){
+				    verticalBox.add(_passOrUser);
+				    verticalBox.add(Box.createVerticalStrut(10));
+			    	verticalBox.add(submitB);
+			    	verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+			    }
+			    verticalBox.add(addUserB);
+			    verticalBox.add(Box.createVerticalStrut(103));
+			    verticalBox.revalidate();
+
 			}
 			
 		}
@@ -207,6 +220,7 @@ public class GUIBasicPage extends JPanel{
 		}
 		
 	}
+
 	
 	private class SubmitActionListener implements ActionListener{
 		@Override
