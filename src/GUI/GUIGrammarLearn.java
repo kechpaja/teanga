@@ -17,7 +17,6 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -28,7 +27,6 @@ import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 import ELearning.GrammarLessonPair;
-import ELearning.VocabLessonPair;
 
 public class GUIGrammarLearn extends JPanel{
 	Driver _driver;
@@ -91,17 +89,21 @@ public class GUIGrammarLearn extends JPanel{
 			
 			//Explanation
 			JTextArea explinArea = new JTextArea();
-			explinArea.setText(glp.getExplanation());
 			explinArea.setEditable(false);
 			explinArea.setBackground(new Color(0,0,0,0));
 			explinArea.setBorder(BorderFactory.createEmptyBorder());
 			explinArea.setFont(new Font("Cambria", Font.PLAIN, 20));
 			explinArea.setLineWrap(true);
 			explinArea.setWrapStyleWord(true);
+			explinArea.setMaximumSize(new Dimension(900, Integer.MAX_VALUE));
+			
+			explinArea.setText(glp.getExplanation());
 			
 			JPanel picpanel = new JPanel(null);
 			JPanel pan = new JPanel(new BorderLayout());
-			picpanel.setPreferredSize(new Dimension(950, 170));
+
+			picpanel.setPreferredSize(new Dimension(850, 170));
+			
 			if(_even){
 				picpanel.setBackground(new Color(245,245,245,255));
 				pan.setBackground(new Color(245,245,245,255));
@@ -124,9 +126,8 @@ public class GUIGrammarLearn extends JPanel{
 			
 			Box explinHoriz = Box.createHorizontalBox();
 			Box explinBox = Box.createVerticalBox();
-			explinBox.add(Box.createVerticalStrut(10));
 			explinBox.add(explinArea);
-			explinBox.add(Box.createVerticalStrut(10));
+			explinBox.add(Box.createVerticalStrut(20));
 			explinHoriz.add(Box.createHorizontalStrut(20));
 			explinHoriz.add(explinBox);
 			explinHoriz.add(Box.createHorizontalStrut(20));
@@ -145,6 +146,7 @@ public class GUIGrammarLearn extends JPanel{
 		scrollbar.setPreferredSize(new Dimension(1000,594));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
+		scrollbar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		//Create boundary Panels and put it all together
 		Box fullBar = Box.createVerticalBox();
