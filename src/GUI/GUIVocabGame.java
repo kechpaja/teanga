@@ -26,11 +26,12 @@ import ELearning.VocabPicturePair;
 @SuppressWarnings("serial")
 public class GUIVocabGame extends JPanel{
 
-	GUIVocabGameBoard _gameBoard;
-	JTextField _textField;
-	VocabLevel _vocabLevel;
-	Driver _driver;
+	private GUIVocabGameBoard _gameBoard;
+	private JTextField _textField;
+	private VocabLevel _vocabLevel;
+	private Driver _driver;
 	private JLabel _score;
+	
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
@@ -199,6 +200,9 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.getPlayerStats().RefreshStats(_vocabLevel.getLevelNum(), 0, _vocabLevel.getScore(), _gameBoard.getSeconds());
+			_gameBoard.pause();
+			_gameBoard = null;
+			_vocabLevel = null;
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}

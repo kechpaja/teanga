@@ -108,8 +108,12 @@ public class GUIGrammarChoicePanel extends JPanel {
 		
 	}
 	
-	public void notCorrect(){
-		//TODO
+	public void notCorrect(){	
+		for (GUIGrammarBlank blank : _rectBlanks){
+			blank.setColor(new Color(100, 0, 0, 255));
+			blank.setBorderColor(new Color(50,0,100,255));
+		}
+		this.repaint();
 	}
 	
 	//Paint all of the pieces when painting the panel
@@ -256,5 +260,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 		}
 		
 	}
+	
 	
 }
