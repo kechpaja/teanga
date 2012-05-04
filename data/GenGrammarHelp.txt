@@ -1,2 +1,7 @@
-This is how to learn grammar.
-Blahdiblahdiblahblfdsaofdaso.
+This game will test your knowledge of the grammar taught in this level. You'll be shown a picture and given a sentence related to that picture. The sentence will have one or more blanks which you need to fill in from the appropriate tiles below.
+
+Simply drag and drop the tiles to the appropriate spots and press submit. If you're correct, you'll be taken to the next sentence. If not, you'll be required to try again. 
+
+You can skip any given sentence, but this may make it difficult to get a high enough score to unlock the Boss level.
+
+Bona sorto!
