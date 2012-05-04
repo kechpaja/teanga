@@ -13,6 +13,7 @@ import annie.PlayerStats;
 
 import ELearning.Driver;
 import ELearning.VocabLevel;
+import ELearning.VocabPicturePair;
 
 
 @SuppressWarnings("serial")
@@ -76,7 +77,8 @@ public class GUIVocabGameBoard extends JPanel {
 		}
 		else{
 			//Otherwise add a new piece (and set its bottom)
-			String path = _vl.addToWaiting().getPicturePath();
+			VocabPicturePair newPair = _vl.addToWaiting();
+			String path = newPair.getPicturePath();
 			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100, null);
 			_top++;
 

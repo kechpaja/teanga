@@ -59,7 +59,7 @@ public class Exercises {
 			if (split.length == 1){
 				vocabExercises.add(cur);
 				cur = new ArrayList<VocabPicturePair>();
-			} else cur.add(new VocabPicturePair(split[0], split[1]));
+			} else cur.add(new VocabPicturePair(split[0], split[1], split[2]));
 			
 			line = vReader.readLine();
 		}
