@@ -77,7 +77,7 @@ public class GUIVocabGameBoard extends JPanel {
 		else{
 			//Otherwise add a new piece (and set its bottom)
 			String path = _vl.addToWaiting().getPicturePath();
-			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100);
+			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100, null);
 			_top++;
 
 		}
