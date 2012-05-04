@@ -82,7 +82,7 @@ public class MyDictionary {
 	
 	public Word getWord(String s, Boolean esp2eng)
 	{
-		s.toLowerCase();
+		s=s.toLowerCase();
 		if(esp2eng)
 		{
 			return espToEngDict.get(deinflect(s));
