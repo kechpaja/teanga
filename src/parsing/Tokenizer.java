@@ -27,12 +27,48 @@ public class Tokenizer {
 			return;
 		}
 		
-		
 		// create set of prepositions
 		HashSet<String> set = new HashSet<String>();
-		set.add("de");
 		set.add("al");
+		set.add("ankaŭ");
+		set.add("anstataŭ");
+		set.add("antaŭ");
+		set.add("apud");
+		set.add("ĉe");
+		set.add("ĉirkaŭ");
+		set.add("de");
+		set.add("dum");
+		set.add("ekde");
+		set.add("ekster");
+		set.add("eksteren");
+		set.add("el");
 		set.add("en");
+		set.add("ĝis");
+		set.add("inter");
+		set.add("kontraû");
+		set.add("krom");
+		set.add("kun");
+		set.add("laŭ");
+		set.add("malgraŭ");
+		set.add("malkiel");
+		set.add("malsupren");
+		set.add("ol");
+		set.add("per");
+		set.add("plus");
+		set.add("po");
+		set.add("por");
+		set.add("post");
+		set.add("preter");
+		set.add("pri");
+		set.add("pro");
+		set.add("sekva");
+		set.add("sen");
+		set.add("sub");
+		set.add("suben");
+		set.add("super");
+		set.add("sur");
+		set.add("tra");
+		set.add("trans");
 		// fill it up
 		
 		// split on whitespace. 
@@ -98,7 +134,7 @@ public class Tokenizer {
 			// TODO maybe we need the rest... unsure. 
 			
 			// Match regular words
-			else if (s.matches(".*e$")) {
+			else if (s.equals("for") || s.matches(".*e$") || s.matches(".*aŭ$")) {
 				pos = Pos.ADVERB;
 			}
 			

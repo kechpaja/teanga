@@ -223,4 +223,153 @@ big, large
 adjective
 La kato estas granda.
 
+en
+in, into
+preposition
+La kokaĵo estas sur mia tablo. 
+
+al
+to, toward, towards
+preposition
+Mi iras al domo.
+
+anstataŭ
+instead of
+preposition
+Mi iras anstataŭ vi.
+
+antaŭ
+before
+preposition
+Mi volas iri antaŭ vi.
+
+apud
+near, beside, next to
+preposition
+Mi volas seĝi apud vi :).
+
+ĉe
+at
+preposition
+[None Given]
+
+ĉirkaŭ
+around, about
+preposition
+Ili iras ĉirkaŭ la lago.
+
+lago
+lake
+noun
+Ili naĝas en la lago. 
+
+naĝi
+to swim
+verb
+Ili naĝas en la lago. 
+
+de
+of, from
+preposition
+Tio estas la domo de la kato.
+
+dum
+while, during
+preposition
+Mi manĝas dum la nokto.
+
+nokto
+night
+preposition
+Estas nokto! Dormu!
+
+dormi
+to sleep
+verb
+Mi dormas.
+
+ekde
+from, since
+preposition
+[None Given]
+
+ekster
+outside, outside of
+preposition
+Ni estas ekster la domo.
+
+el
+from, out of
+preposition
+Mi iras el la domo.
+
+ĝis
+until
+preposition
+Ĝis la revido!
+
+inter
+among, between
+preposition
+Li estas muso inter katoj.
+
+kontraŭ
+across from, against
+preposition
+Vi batalas kontraŭ mi!
+
+krom
+without
+preposition
+Mi ne volas vivi krom li!
+
+kun
+with
+preposition
+Mi vivas kun li.
+
+laŭ
+
+malgraŭ
+
+malkiel
+
+malsupren
+
+ol
+
+per
+
+plus
+
+po
+
+por
+
+post
+
+preter
+
+pri
+
+pro
+
+sekva
+
+
+sen
+
+sub
+
+suben
+
+
+super
+
+sur
+
+
+tra
+
+trans
 
