@@ -141,10 +141,23 @@ public class GUIGrammarGame extends JPanel{
 		topBar.setSize(400,35);
 		topBar.setLocation(475, 3);
 		
-		JButton back = new JButton("Back");
+		BufferedImage backpic = null;
+		try {
+			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
+		} catch (IOException e){
+			
+		}
+		int type3 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst3 = new BufferedImage(20, 20, type3);
+        Graphics2D g3 = dst3.createGraphics();
+        g3.drawImage(backpic, 0, 0, 20, 20, this);
+        g3.dispose();
+        ImageIcon newIcon3 = new ImageIcon(dst3);
+		
+		JButton back = new JButton("Back",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,5);
+		back.setLocation(875,0);
 		
 		topPanel.add(userBox);
 		topPanel.add(topBar);
