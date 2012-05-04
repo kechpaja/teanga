@@ -72,16 +72,9 @@ public class GUIFullFrameHelp extends JPanel{
 				explinArea.setWrapStyleWord(true);
 				
 				JPanel panel = new JPanel(new BorderLayout());
-				panel.setPreferredSize(new Dimension(950, 250));
-				if(_even){
-					panel.setBackground(new Color(245,245,245,255));
-					explinArea.setBackground(new Color(245,245,245,255));
-					_even = false;
-				} else{
-					panel.setBackground(new Color(231,231,231,255));
-					explinArea.setBackground(new Color(231,231,231,255));
-					_even = true;
-				}
+				panel.setBackground(new Color(238,238,238,255));
+				explinArea.setBackground(new Color(238,238,238,255));
+
 				
 				panel.add(explinArea);
 				
@@ -94,7 +87,12 @@ public class GUIFullFrameHelp extends JPanel{
 			System.out.println("couldn't find general help file");
 		}
 		
-		overall.add(vertBox);
+		Box horizBox = Box.createHorizontalBox();
+		horizBox.add(Box.createHorizontalStrut(10));
+		horizBox.add(vertBox);
+		horizBox.add(Box.createHorizontalStrut(10));
+		
+		overall.add(horizBox);
 		
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
@@ -127,14 +125,11 @@ public class GUIFullFrameHelp extends JPanel{
 				topBar.setSize(400,35);
 				topBar.setLocation(435, 3);
 				
-				JButton back = new JButton("Back");
-				back.addActionListener(new BacktoBasicActionListener());
+				JButton back = new JButton("Go!");
+				back.addActionListener(new OntoOptionsActionListener());
 				back.setSize(new Dimension(100, 30));
 				back.setLocation(875,5);
 				
-				JButton forward = new JButton("Go!");
-				forward.addActionListener(new OntoOptionsActionListener());
-				forward.setSize(new Dimension(100, 30));
 				
 				
 				topPanel.add(userBox);
@@ -146,7 +141,6 @@ public class GUIFullFrameHelp extends JPanel{
 				JPanel bottomPanel = new JPanel(null);
 				bottomPanel.setPreferredSize(new Dimension(1000,35));
 				bottomPanel.setBackground(new Color(50,50,50,255));
-				bottomPanel.add(forward);
 				
 				fullBar.add(topPanel);
 				fullBar.add(scrollbar);
@@ -157,15 +151,6 @@ public class GUIFullFrameHelp extends JPanel{
 		
 	}
 	
-	private class BacktoBasicActionListener implements ActionListener{
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIBasicPage(_driver));
-			
-		}
-		
-	}
 	
 	private class OntoOptionsActionListener implements ActionListener{
 

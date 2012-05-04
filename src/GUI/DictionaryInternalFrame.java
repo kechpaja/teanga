@@ -65,7 +65,7 @@ public class DictionaryInternalFrame extends JFrame{
 		this.add(overall);
 		this.pack();
 		this.setVisible(true);
-		this.setLocation(30, 30);
+		this.setLocation(748, 407);
 		this.setSize(250, 250);
 		this.setVisible(true);
 	}

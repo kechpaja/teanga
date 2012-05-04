@@ -26,7 +26,7 @@ import ELearning.HelpBox;
 
 public class HelpBoxInternalFrame extends JFrame{
 	private Driver _driver;
-	private JButton backToLesson, genHelp;
+	private JButton backToLesson, genHelp, howToPlay;
 	private JTextArea help;
 	private JScrollPane helpScrollPane;
 	private int _activityType;
@@ -45,12 +45,17 @@ public class HelpBoxInternalFrame extends JFrame{
 		this.setBackground(new Color(100,110,255,255));
 		//overall.setSize(500, 500);
 
-		backToLesson = new JButton("more help");
+		backToLesson = new JButton("More Help");
 		backToLesson.addActionListener(new helpActionListener());
 		genHelp = new JButton("How To Use ELearning");
 		genHelp.addActionListener(new genHelpActionListener());
+		howToPlay = new JButton("How to play this game");
+		howToPlay.addActionListener(new levelHelpActionListener());
 		buttons.add(backToLesson, BorderLayout.CENTER);
 		buttons.add(genHelp, BorderLayout.SOUTH);
+		if (at > 1){
+			buttons.add(howToPlay);
+		}
 		help = new JTextArea(levelHelp);
 		help.setSize(250, 300);
 		//Make overall container
@@ -70,9 +75,31 @@ public class HelpBoxInternalFrame extends JFrame{
 		//overall.repaint();
 		this.pack();
 		this.setVisible(true);
-		this.setLocation(30, 30);
+		this.setLocation(3, 407);
 		this.setSize(250, 250);
 		this.setVisible(true);
+	}
+	
+	private class levelHelpActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			switch (_activityType){
+			case 2:
+				_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, lessonNum));				
+				break;
+			case 3:
+				_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, lessonNum));
+				break;
+			case 4:
+				_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, lessonNum));
+				break;
+			default:
+				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+				break;
+			}
+		}
+		
 	}
 	
 	private class genHelpActionListener implements ActionListener{
