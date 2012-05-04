@@ -442,3 +442,8 @@ flugi
 to fly
 verb
 La birdo flugas. 
+
+saluto
+greeting
+noun
+Saluton!
