@@ -223,4 +223,190 @@ big, large
 adjective
 La kato estas granda.
 
+en
+in, into
+preposition
+La kokaĵo estas sur mia tablo. 
+
+al
+to, toward, towards
+preposition
+Mi iras al domo.
+
+anstataŭ
+instead of
+preposition
+Mi iras anstataŭ vi.
+
+antaŭ
+before
+preposition
+Mi volas iri antaŭ vi.
+
+apud
+near, beside, next to
+preposition
+Mi volas seĝi apud vi :).
+
+ĉe
+at
+preposition
+[None Given]
+
+ĉirkaŭ
+around, about
+preposition
+Ili iras ĉirkaŭ la lago.
+
+lago
+lake
+noun
+Ili naĝas en la lago. 
+
+naĝi
+to swim
+verb
+Ili naĝas en la lago. 
+
+de
+of, from
+preposition
+Tio estas la domo de la kato.
+
+dum
+while, during
+preposition
+Mi manĝas dum la nokto.
+
+nokto
+night
+preposition
+Estas nokto! Dormu!
+
+dormi
+to sleep
+verb
+Mi dormas.
+
+ekde
+from, since
+preposition
+[None Given]
+
+ekster
+outside, outside of
+preposition
+Ni estas ekster la domo.
+
+el
+from, out of
+preposition
+Mi iras el la domo.
+
+ĝis
+until
+preposition
+Ĝis la revido!
+
+inter
+among, between
+preposition
+Li estas muso inter katoj.
+
+kontraŭ
+across from, against
+preposition
+Vi batalas kontraŭ mi!
+
+krom
+except
+preposition
+Ni ĉiuj iras krom vi.
+
+kun
+with
+preposition
+Mi vivas kun li.
+
+laŭ
+according to
+preposition
+Laŭ li, mi ne estas en mia domo.
+
+malgraŭ
+despite
+preposition
+[None Given]
+
+malsupren
+down
+preposition
+Iru malsupren!
+
+ol
+than
+preposition
+[None Given]
+
+per
+by, by means of, with
+preposition
+Ni iras per la aŭto.
+
+plus
+plus
+preposition
+[None Given]
+
+po
+at, at the rate of, by
+preposition
+[None Given]
+
+por
+for, to, in order to
+preposition
+[None Given]
+
+post
+after
+preposition
+Mi iras post vi.
+
+preter
+beyond, by, past
+preposition
+Ie, preter la oceano...
+
+pri
+about, concerning, on
+preposition
+[None Given]
+
+pro
+because of, for, on account of
+preposition
+[None Given]
+
+sen
+without
+preposition
+Ne iru sen mi!
+
+sub
+under
+preposition
+Mi estas sub la tablo.
+
+suben
+down, underneath, to under
+
+super
+
+sur
+
+
+tra
+
+trans
 

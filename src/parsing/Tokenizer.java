@@ -27,14 +27,59 @@ public class Tokenizer {
 			return;
 		}
 		
+		// create set of prepositions
+		HashSet<String> set = new HashSet<String>();
+		set.add("al");
+		set.add("ankaŭ");
+		set.add("anstataŭ");
+		set.add("antaŭ");
+		set.add("apud");
+		set.add("ĉe");
+		set.add("ĉirkaŭ");
+		set.add("de");
+		set.add("dum");
+		set.add("ekde");
+		set.add("ekster");
+		set.add("eksteren");
+		set.add("el");
+		set.add("en");
+		set.add("ĝis");
+		set.add("inter");
+		set.add("kontraû");
+		set.add("krom");
+		set.add("kun");
+		set.add("laŭ");
+		set.add("malgraŭ");
+		set.add("malkiel");
+		set.add("malsupren");
+		set.add("ol");
+		set.add("per");
+		set.add("plus");
+		set.add("po");
+		set.add("por");
+		set.add("post");
+		set.add("preter");
+		set.add("pri");
+		set.add("pro");
+		set.add("sen");
+		set.add("sub");
+		set.add("suben");
+		set.add("super");
+		set.add("sur");
+		set.add("tra");
+		set.add("trans");
+		// fill it up
+		
 		// split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
 			punct = sentence_.substring(sentence_.length() - 1);
 			sentence_ = sentence_.substring(0, sentence_.length() - 1);
-			System.out.println(sentence_);
+			//System.out.println(sentence_);
 		}
+		
+		sentence_ = sentence_.replaceAll("\\p{Punct}", "");
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
 		int left = 0;
@@ -54,7 +99,9 @@ public class Tokenizer {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
-			} else if (s.equals("en") || s.equals("al") || s.equals("de")) {
+			} else if (s.equals("kaj") || s.equals("aŭ")) {
+				pos = Pos.CONJUNCTION;
+			} else if (set.contains(s)) {
 				pos = Pos.PREPOSITION;
 				//TODO we need a list of prepositions to check against
 			}
@@ -88,7 +135,7 @@ public class Tokenizer {
 			// TODO maybe we need the rest... unsure. 
 			
 			// Match regular words
-			else if (s.matches(".*e$")) {
+			else if (s.equals("for") || s.matches(".*e$") || s.matches(".*aŭ$")) {
 				pos = Pos.ADVERB;
 			}
 			

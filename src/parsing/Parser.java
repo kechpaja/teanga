@@ -49,7 +49,7 @@ public class Parser {
 		tkn.init(mistakes); // this will put lexical mistakes into the mistakes list
 		
 		// parse
-		ParseTree tree = parseTokenStream(tkn, rules_.getBiRules(), rules_.getUnRules(), mistakes);
+		ParseTree tree = parseTokenStream(tkn, rules_.getBiRules(), rules_.getUnRules(), rules_.getTeRules(), mistakes);
 		
 		// visit, checking for agreement problems
 		visit(tree, mistakes);
@@ -84,7 +84,7 @@ public class Parser {
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 
 	private ParseTree parseTokenStream(Tokenizer tkn, HashMap<Pos, List<BinarySyntacticRule>> rules, 
-							HashMap<Pos, UnarySyntacticRule> unrules, List<Mistake> mistakes) {
+		HashMap<Pos, UnarySyntacticRule> unrules, List<TernarySyntacticRule> terules, List<Mistake> mistakes) {
 		
 		Node node = null;
 		Stack<Node> prev = new Stack<Node>();
@@ -107,9 +107,38 @@ public class Parser {
 			
 			advanced = false;
 			
+			// match with the ternary rules...
+			if (!prev.empty() && tkn.hasNext()) {
+				//System.out.println("in ternary matching");
+				
+				for (TernarySyntacticRule r : terules) {
+					if (r.matches(prev.peek(), node, new LeafNode(tkn.peek()))) {
+						// replace constituent
+						node = r.combine(prev.pop(), node, new LeafNode(tkn.getNextToken()));
+						
+						// advance
+						advanced = true;
+						break;
+					} else if (prev.size() >= 2){
+						Node last = prev.pop();
+						if (r.matches(prev.peek(), last, node)) {
+							// replace node
+							node = r.combine(prev.pop(), last, node);
+							
+							// advance
+							advanced = true;
+							break;
+						} else {
+							// clean up
+							prev.push(last);
+						}
+					}
+				}
+			}
+			
 			//System.out.println(node);
 			// Do below, but for prev and curr = node
-			if (!prev.empty()) {
+			if (!advanced && !prev.empty()) {
 				List<BinarySyntacticRule> lst = rules.get(prev.peek().getPos());
 				if (lst != null) {
 					for (BinarySyntacticRule r : rules.get(prev.peek().getPos())) {

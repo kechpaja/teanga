@@ -197,8 +197,11 @@ public class GUIGrammarGame extends JPanel{
 				//add strings 1 word at a time
 				for(int j=0; j < smallWs.length; j++){
 					words.push(smallWs[j]);
+					System.out.println("blahblahone");
 				}
+				
 			}
+			System.out.println("blahblahtwo");
 		}
 		
 		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
@@ -227,6 +230,7 @@ public class GUIGrammarGame extends JPanel{
 					currString += last + " ";
 					currNum += last.length();
 				}
+				System.out.println("blahblahthree");
 			}
 			
 			if(!currString.equals("")){
@@ -367,6 +371,9 @@ public class GUIGrammarGame extends JPanel{
 			if (_grammarLevel.submitWhole()){
 				//check if this was the last unit
 				if (_grammarLevel.isOver()){
+					System.out.println("this is the problem. IT MUST BE HERE.");
+					System.out.println(_grammarLevel.getTypeOfGame());
+					System.out.println(_grammarLevel.getLevelNum());
 					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
 					_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 				} else {
@@ -389,12 +396,19 @@ public class GUIGrammarGame extends JPanel{
 					topHoriz.add(Box.createHorizontalStrut(30));
 					_panel.revalidate();
 					
+					
 				}
 			} else {
-				_driver.changePage(new GUIGrammarGame(_grammarLevel, _driver));
+				GUIGrammarGame reloaded = new GUIGrammarGame(_grammarLevel, _driver);
+				reloaded.getChoicePanel().notCorrect();
+				_driver.changePage(reloaded);
 			}
 			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 		}
+	}
+	
+	public GUIGrammarChoicePanel getChoicePanel(){
+		return _choicePanel;
 	}
 	
 	public class backtoOptionsActionListener implements ActionListener {
