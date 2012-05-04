@@ -27,13 +27,21 @@ public class Tokenizer {
 			return;
 		}
 		
+		
+		// create set of prepositions
+		HashSet<String> set = new HashSet<String>();
+		set.add("de");
+		set.add("al");
+		set.add("en");
+		// fill it up
+		
 		// split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
 			punct = sentence_.substring(sentence_.length() - 1);
 			sentence_ = sentence_.substring(0, sentence_.length() - 1);
-			System.out.println(sentence_);
+			//System.out.println(sentence_);
 		}
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
@@ -54,7 +62,9 @@ public class Tokenizer {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
-			} else if (s.equals("en") || s.equals("al") || s.equals("de")) {
+			} else if (s.equals("kaj") || s.equals("aŭ")) {
+				pos = Pos.CONJUNCTION;
+			} else if (set.contains(s)) {
 				pos = Pos.PREPOSITION;
 				//TODO we need a list of prepositions to check against
 			}

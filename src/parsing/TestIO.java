@@ -2,8 +2,6 @@ package parsing;
 
 import java.io.*;
 
-import annie.MyDictionary;
-
 public class TestIO {
 	
 	public static void main(String[] args) {

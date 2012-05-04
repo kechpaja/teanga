@@ -10,10 +10,12 @@ public enum Pos {
 	PREPOSITION,
 	ARTICLE,
 	PUNCTUATION,
+	CONJUNCTION,
 	
 	// "higher-level" parts of speech
 	NP,
 	VP,
+	SVP,
 	PP,
 	DP,
 	ADJP,
@@ -35,8 +37,10 @@ public enum Pos {
 		case PREPOSITION: return "PREPOSITION";
 		case ARTICLE: return "ARTICLE";
 		case PUNCTUATION: return "PUNCTUATION";
+		case CONJUNCTION: return "CONJUNCTION";
 		case NP: return "NP";
 		case VP: return "VP";
+		case SVP: return "SVP";
 		case PP: return "PP";
 		case DP: return "DP";
 		case ADJP: return "ADJP";
@@ -65,12 +69,16 @@ public enum Pos {
 			return ARTICLE;
 		} else if (str.equals("PUNCT") || str.equals("PUNCTUATION")) {
 			return PUNCTUATION;
-		} 
+		} else if (str.equals("CONJ") || str.equals("C") || str.equals("CONJUNCTION")) {
+			return CONJUNCTION;
+		}
 		
 		else if (str.equals("NP")) {
 			return NP;
 		} else if (str.equals("VP")) {
 			return VP;
+		} else if (str.equals("SVP")) {
+			return SVP;
 		} else if (str.equals("PP")) {
 			return PP;
 		} else if (str.equals("DP")) {
