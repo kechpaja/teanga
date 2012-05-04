@@ -224,7 +224,20 @@ public class GUIOptionsPage extends JPanel{
 		topBar.setSize(400,35);
 		topBar.setLocation(435, -2);
 		
-		JButton back = new JButton("Back");
+		BufferedImage backpic = null;
+		try {
+			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
+		} catch (IOException e){
+			
+		}
+		int type3 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst3 = new BufferedImage(20, 20, type3);
+        Graphics2D g3 = dst3.createGraphics();
+        g3.drawImage(backpic, 0, 0, 20, 20, this);
+        g3.dispose();
+        ImageIcon newIcon3 = new ImageIcon(dst3);
+		
+		JButton back = new JButton("Back",newIcon3);
 		back.addActionListener(new BacktoBasicActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
@@ -236,19 +249,45 @@ public class GUIOptionsPage extends JPanel{
 		
 		//Bottom Panel
 		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
+		bottomPanel.setPreferredSize(new Dimension(1000,45));
 		bottomPanel.setBackground(new Color(50,50,50,255));
 		
-		JButton help = new JButton("Help");
-		help.setSize(new Dimension(100, 30));
+		BufferedImage dictpic = null;
+		try {
+			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
+		} catch (IOException e){
+			
+		}
+		int type = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst = new BufferedImage(27, 27, type);
+        Graphics2D g1 = dst.createGraphics();
+        g1.drawImage(dictpic, 0, 0, 27, 27, this);
+        g1.dispose();
+        ImageIcon newIcon = new ImageIcon(dst);
+        
+		BufferedImage helppic = null;
+		try {
+			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
+		} catch (IOException e){
+			
+		}
+		int type2 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst2 = new BufferedImage(23, 23, type2);
+        Graphics2D g2 = dst2.createGraphics();
+        g2.drawImage(helppic, 0, 0, 23, 23, this);
+        g2.dispose();
+        ImageIcon newIcon2 = new ImageIcon(dst2);
+        
+		JButton help = new JButton("Help",newIcon2);
+		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
 		
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(100, 30));
+		JButton dictionary = new JButton("Dictionary",newIcon);
+		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(875, 5);
+		dictionary.setLocation(850, 5);
 		
 		bottomPanel.add(help);
 		bottomPanel.add(dictionary);
@@ -326,7 +365,7 @@ public class GUIOptionsPage extends JPanel{
 			case 5:
 				//create a boss game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, 0));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}

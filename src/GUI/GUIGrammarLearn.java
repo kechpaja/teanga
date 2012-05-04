@@ -75,7 +75,7 @@ public class GUIGrammarLearn extends JPanel{
 				System.out.println("Cannot read image (GUIVocabLearn)");
 				System.exit(0);
 			}
-			int type = BufferedImage.TYPE_INT_RGB;
+			int type = BufferedImage.TYPE_INT_ARGB;
 	        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
 	        Graphics2D g1 = dst.createGraphics();
 	        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
@@ -181,22 +181,47 @@ public class GUIGrammarLearn extends JPanel{
 		topPanel.add(topBar);
 		topPanel.add(back);
 		
+		BufferedImage dictpic = null;
+		try {
+			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
+		} catch (IOException e){
+			
+		}
 		
+		int type = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst = new BufferedImage(27, 27, type);
+        Graphics2D g1 = dst.createGraphics();
+        g1.drawImage(dictpic, 0, 0, 27, 27, this);
+        g1.dispose();
+        ImageIcon newIcon = new ImageIcon(dst);
+        
 		//Bottom Panel
 		JPanel bottomPanel = new JPanel(null);
 		bottomPanel.setPreferredSize(new Dimension(1000,35));
 		bottomPanel.setBackground(new Color(50,50,50,255));
 		
-		JButton help = new JButton("Help");
-		help.setSize(new Dimension(100, 30));
+		BufferedImage helppic = null;
+		try {
+			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
+		} catch (IOException e){
+			
+		}
+		int type2 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst2 = new BufferedImage(23, 23, type2);
+        Graphics2D g2 = dst2.createGraphics();
+        g2.drawImage(helppic, 0, 0, 23, 23, this);
+        g2.dispose();
+        ImageIcon newIcon2 = new ImageIcon(dst2);
+        
+		JButton help = new JButton("Help",newIcon2);
+		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
-		
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(100, 30));
+		JButton dictionary = new JButton("Dictionary",newIcon);
+		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(875, 5);
+		dictionary.setLocation(850, 5);
 		
 		bottomPanel.add(help);
 		bottomPanel.add(dictionary);
