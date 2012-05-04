@@ -61,7 +61,6 @@ public class Tokenizer {
 		set.add("preter");
 		set.add("pri");
 		set.add("pro");
-		set.add("sekva");
 		set.add("sen");
 		set.add("sub");
 		set.add("suben");
@@ -79,6 +78,8 @@ public class Tokenizer {
 			sentence_ = sentence_.substring(0, sentence_.length() - 1);
 			//System.out.println(sentence_);
 		}
+		
+		sentence_ = sentence_.replaceAll("\\p{Punct}", "");
 		String[] words = sentence_.toLowerCase().split("\\s");
 		Token tk = null;
 		int left = 0;
