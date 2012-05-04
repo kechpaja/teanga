@@ -67,6 +67,11 @@ public class VocabLevel extends LevelInstance {
 		}
 	}
 	*/
+		
+	public String getCurEnglish(){
+		return waiting.peek().getEnglish();
+	}
+	
 	public boolean tryAnswer(String answer){
 		answer.toLowerCase();
 		if (waiting.peek().checkWord(answer)){
@@ -89,10 +94,10 @@ public class VocabLevel extends LevelInstance {
 	
 	public static void main(String[] args){
 		List<VocabPicturePair> levelList = new LinkedList<VocabPicturePair>();
-		levelList.add(new VocabPicturePair("path1", "hello"));
-		levelList.add(new VocabPicturePair("path2", "world"));
-		levelList.add(new VocabPicturePair("path3", "testing"));
-		levelList.add(new VocabPicturePair("path4", "word"));
+		levelList.add(new VocabPicturePair("path1", "hello", "hi"));
+		levelList.add(new VocabPicturePair("path2", "world", "world"));
+		levelList.add(new VocabPicturePair("path3", "testing", "test"));
+		levelList.add(new VocabPicturePair("path4", "word", "word"));
 		VocabLevel myLevel = new VocabLevel(levelList, "this is the help", 1);
 			myLevel.addToWaiting();
 			myLevel.tryAnswer("hello");
