@@ -1,9 +1,11 @@
 package GUI;
 
+import gfx.ColorText;
 import gfx.Rectangle;
 
 import java.awt.AlphaComposite;
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
 import java.awt.image.BufferedImage;
@@ -15,18 +17,21 @@ import javax.swing.JPanel;
 
 public class GUIVocabGamePiece {
 	
-	int _bottom;
-	double _x, _y;
-	JPanel _panel;
-	Rectangle _rect1;
-	BufferedImage _image;
+	private int _bottom;
+	private double _x, _y;
+	private JPanel _panel;
+	private Rectangle _rect1;
+	private BufferedImage _image;
+	private ColorText _word;
+	private boolean _paintPic;
 	
-	public GUIVocabGamePiece(String imagePath, JPanel panel, double x, double y, int bottom){
+	public GUIVocabGamePiece(String imagePath, JPanel panel, double x, double y, int bottom, String word){
 		
 		_x = x;
 		_y = y;
 		_bottom = bottom;
 		_panel = panel;
+		_paintPic = true;
 
 		//The actual piece
 		_rect1 = new Rectangle(panel);
@@ -34,6 +39,12 @@ public class GUIVocabGamePiece {
 		_rect1.setFillColor(new Color(50, 50, 50, 255));
 		_rect1.setBorderColor(new Color(0, 0, 0, 255));
 		_rect1.setLocation(_x, _y);
+		
+		_word = new ColorText(_panel, word);
+		_word.setFont("Cambria", Font.PLAIN, 20);
+		_word.setColor(new Color(220,220,255,255));
+		_word.setLocation((int)Math.floor(_x)+10, (int)Math.floor(_y)+10);
+		_word.setVisible(false);
 		
 		//Load the image and reset size
 		try {                
@@ -57,6 +68,11 @@ public class GUIVocabGamePiece {
 
 	}
 	
+	public void replacePicWithWord(){
+		_word.setVisible(true);
+		_paintPic = false;
+	}
+	
 	//Gets called everytime the timer ticks
 	public void move(){
 		
@@ -65,6 +81,7 @@ public class GUIVocabGamePiece {
 		if(_y < _bottom){
 			_y = _y+10;
 			_rect1.setLocation(_x, _y);
+			_word.setLocation((int)Math.floor(_x)+10, (int)Math.floor(_y)+10);
 			_panel.repaint();
 		}
 				
@@ -93,7 +110,11 @@ public class GUIVocabGamePiece {
 	// rectangle and the actual image.
 	public void paint(Graphics2D brush){
 		_rect1.paint(brush);
-		brush.drawImage(_image, null, (int) Math.round(_x+55), (int) Math.round(_y+5));
+		if(_paintPic){
+			brush.drawImage(_image, null, (int) Math.round(_x+55), (int) Math.round(_y+5));
+		} else{
+			_word.paint(brush);
+		}
 	}
 
 }

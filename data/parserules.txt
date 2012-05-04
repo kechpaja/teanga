@@ -1,12 +1,4 @@
 binary:
-S DP VP
-S NP VP
-
-# PP's combine with sentences directly. 
-S PP S
-S S PP
-
-
 ############
 # NP Stuff #
 ############
@@ -15,6 +7,8 @@ S S PP
 NP NP ADJ
 NP NP ADJP
 NP ADJP NP
+
+NP NP PP
 
 
 ############
@@ -27,6 +21,8 @@ DP ART NP
 DP DP ADJ
 DP DP ADJP
 
+DP DP PP
+
 
 ############
 # VP Stuff #
@@ -37,9 +33,7 @@ VP ADVP VP
 
 VP VP NP
 VP VP DP
-
 VP VP PP
-
 VP V VP
 
 
@@ -49,6 +43,12 @@ VP V DP
 VP V NP
 VP V ADJP
 
+
+# SVP's are also usable...
+SVP NP V
+SVP DP V
+
+
 # handle punctuation
 S S PUNCT
 
@@ -56,6 +56,22 @@ S S PUNCT
 PP PREP NP
 PP PREP DP
 
+S DP VP
+S NP VP
+
+S SVP NP
+S SVP DP
+S SVP PP
+S SVP ADJP
+
+# PP's combine with sentences directly. 
+S PP S
+S S PP
+
+
+###############
+# Unary Rules #
+###############
 unary:
 NP NOUN
 
@@ -69,3 +85,12 @@ DP P
 ADJP ADJ
 
 ADVP ADV
+
+ternary:
+# This will handle all conjunctions, and stuff...
+# comment
+
+NP NP C NP
+NP NP C DP
+DP DP C NP
+DP DP C DP

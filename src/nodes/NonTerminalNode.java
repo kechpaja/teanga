@@ -21,10 +21,6 @@ public class NonTerminalNode extends Node {
 		return tail_;
 	}
 	
-//	public Type getType() {
-	//	return type_;
-//	}
-	
 	// Constructor
 	public NonTerminalNode(Node head, Node tail, Pos pos, NumMarker num, Case c, Tense tense) {
 		head_ = head;
