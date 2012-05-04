@@ -72,15 +72,9 @@ public class GUIFullFrameHelp extends JPanel{
 				explinArea.setWrapStyleWord(true);
 				
 				JPanel panel = new JPanel(new BorderLayout());
-				if(_even){
-					panel.setBackground(new Color(245,245,245,255));
-					explinArea.setBackground(new Color(245,245,245,255));
-					_even = false;
-				} else{
-					panel.setBackground(new Color(231,231,231,255));
-					explinArea.setBackground(new Color(231,231,231,255));
-					_even = true;
-				}
+				panel.setBackground(new Color(238,238,238,255));
+				explinArea.setBackground(new Color(238,238,238,255));
+
 				
 				panel.add(explinArea);
 				
@@ -93,7 +87,12 @@ public class GUIFullFrameHelp extends JPanel{
 			System.out.println("couldn't find general help file");
 		}
 		
-		overall.add(vertBox);
+		Box horizBox = Box.createHorizontalBox();
+		horizBox.add(Box.createHorizontalStrut(10));
+		horizBox.add(vertBox);
+		horizBox.add(Box.createHorizontalStrut(10));
+		
+		overall.add(horizBox);
 		
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);

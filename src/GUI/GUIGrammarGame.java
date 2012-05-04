@@ -219,7 +219,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                      ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
@@ -241,7 +241,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line2.push(phrase);
-					JLabel blank = new JLabel("                      ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -290,7 +290,7 @@ public class GUIGrammarGame extends JPanel{
 					JLabel phrase = new JLabel(currString);//put the beginning phrase in line
 					currString = "";
 					line1.push(phrase);
-					JLabel blank = new JLabel("                      ");//put a blank in the line
+					JLabel blank = new JLabel("                   ");//put a blank in the line
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{

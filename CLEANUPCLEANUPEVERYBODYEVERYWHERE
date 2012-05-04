@@ -14,11 +14,7 @@ Kelvin:
 -create pronunciation guide
 
 Danielle:
--make "intro to game page" that new users are brought to before going to options page (Kelvin is working on text)
 -better error handling in case an image isn't found
--make boss game never break
--make dictionary and help button pop up in screen in appropriate place. 
--Add correct buttons for boss level
 
 Tara:
 -make help frames say useful things and link to useful pages
@@ -30,7 +26,8 @@ Annie:
 -add vocab checking mechanism for boss game. make sure it affects score
 -makes needed score/score affecting mechanisms final
 -fix vocab game
-
+-make it so the program doesn't crash when you submit an empty password (since it is possible to create a user with an empty password).
+(NEW THING ABOVE!)
 
 
 SHOULD BE COMPLETED BY DEMO
@@ -41,7 +38,7 @@ Kelvin:
 -Add conjunctions to parser 
 
 Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED sections)
--Enter/Submit on first page should do more reasonable things 
+-Enter/Submit on first page should do more reasonable things
 -Stars/checks/some way of indicating which games are completed
 -Some way of indicating best score/necessary score in games
 -Some way of indicating best time in games

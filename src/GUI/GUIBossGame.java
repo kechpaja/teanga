@@ -15,6 +15,7 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.BoxLayout;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -25,7 +26,6 @@ import parsing.Mistake;
 import parsing.Response;
 import ELearning.BossLevel;
 import ELearning.Driver;
-import GUI.GUIGrammarGame.backtoOptionsActionListener;
 import encoding.EncodingShiftListener;
 
 public class GUIBossGame extends JPanel{
@@ -57,8 +57,6 @@ public class GUIBossGame extends JPanel{
 		//constants specified for each level (make sure the panel looks good for the length of the questions being asked)
 		int qpanelX = 50;
 		int qpanelY = 50;
-		int qpanelH = 120;
-		int qpanelW = 240;
 		int apanelX = 650;
 		int apanelY = 200;
 		
@@ -75,30 +73,31 @@ public class GUIBossGame extends JPanel{
 		}
 		
 		JPanel qPanel = new JPanel();
-		qPanel.setBackground(new Color(255,255,255,180));
+		qPanel.setLayout(new BorderLayout());
+		qPanel.setBackground(new Color(255,255,255,0));
         qPanel.setLocation(qpanelX, qpanelY+35);
-        qPanel.setSize(qpanelW,qpanelH);
+        qPanel.setSize(300,400);
         this.add(qPanel);
-		this.setOpaque(true);
-		
-		Box horizBox = Box.createHorizontalBox();
-		horizBox.add(Box.createHorizontalStrut(10));
 		
 		textArea = new JTextArea();
 		textArea.setEditable(false);
 		textArea.setVisible(true);
-		textArea.setBackground(new Color(0,0,0,0));
-		textArea.setBorder(BorderFactory.createEmptyBorder());
+		textArea.setBackground(new Color(255,255,255,180));
+		textArea.setBorder(BorderFactory.createEmptyBorder(7,7,7,0));
 		textArea.setLineWrap(true);
 		textArea.setWrapStyleWord(true);
 		textArea.setText(questions);
 		textArea.setFont(new Font("Calibri", Font.BOLD, 30));
-		textArea.setSize(new Dimension(qPanel.getWidth()-20, qPanel.getHeight()));
+		textArea.setSize(100,100);
 		
-		horizBox.add(textArea);
-		horizBox.add(Box.createHorizontalStrut(10));
-		
-		qPanel.add(horizBox);
+		JTextArea textArea2 = new JTextArea();
+		textArea2.setEditable(false);
+		textArea2.setBackground(new Color(0,0,0,0));
+		textArea2.setBorder(BorderFactory.createEmptyBorder(0,7,7,7));
+		textArea2.setText("              ");
+
+		qPanel.add(textArea, BorderLayout.NORTH);
+		qPanel.add(textArea2, BorderLayout.SOUTH);
 		
 		userInput = new JTextField(18);
 		userInput.setBorder(BorderFactory.createLineBorder(Color.black));
@@ -154,9 +153,9 @@ public class GUIBossGame extends JPanel{
 		
 		//Bottom Panel
 		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
-		bottomPanel.setBackground(new Color(100,0,0,255));
-		bottomPanel.setLocation(0,680);
+		bottomPanel.setSize(new Dimension(1000,40));
+		bottomPanel.setBackground(new Color(20,20,20,255));
+		bottomPanel.setLocation(0,635);
 		
 		JButton help = new JButton("Help");
 		help.setSize(new Dimension(100, 30));
@@ -165,8 +164,8 @@ public class GUIBossGame extends JPanel{
 		
 		JButton nextQ = new JButton("Next Question");
 		nextQ.addActionListener(new NextQListener());
-		nextQ.setSize(new Dimension(100,30));
-		nextQ.setLocation(475,5);
+		nextQ.setSize(new Dimension(120,30));
+		nextQ.setLocation(445,5);
 		
 		JButton dictionary = new JButton("Dictionary");
 		dictionary.setSize(new Dimension(100, 30));
@@ -336,12 +335,15 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			switched = true;
-			response = _bossLevel.tryAnswer(userInput.getText());
-			JPanel nrPanel = makeRPanel(response, 0);
-			rPanel = nrPanel;
-			panel.add(nrPanel);
-			panel.revalidate();
+			
+			if(!switched){
+				switched = true;
+				response = _bossLevel.tryAnswer(userInput.getText());
+				JPanel nrPanel = makeRPanel(response, 0);
+				rPanel = nrPanel;
+				panel.add(nrPanel);
+				panel.revalidate();
+			}
 		}
 		
 	}
