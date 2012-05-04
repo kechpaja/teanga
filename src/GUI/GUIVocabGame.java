@@ -4,13 +4,19 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
 
+import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -21,6 +27,7 @@ import encoding.EncodingShiftListener;
 import ELearning.Driver;
 import ELearning.VocabLevel;
 import ELearning.VocabPicturePair;
+import GUI.GUIGrammarGame.backtoOptionsActionListener;
 
 
 @SuppressWarnings("serial")
@@ -83,10 +90,23 @@ public class GUIVocabGame extends JPanel{
 		topBar.setSize(400,40);
 		topBar.setLocation(475, -2);
 		
-		JButton back = new JButton("Back");
+		BufferedImage backpic = null;
+		try {
+			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
+		} catch (IOException e){
+			
+		}
+		int type3 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst3 = new BufferedImage(20, 20, type3);
+        Graphics2D g3 = dst3.createGraphics();
+        g3.drawImage(backpic, 0, 0, 20, 20, this);
+        g3.dispose();
+        ImageIcon newIcon3 = new ImageIcon(dst3);
+		
+		JButton back = new JButton("Back",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,3);
+		back.setLocation(875,0);
 		
 		topPanel.add(userBox);
 		topPanel.add(topBar);
@@ -98,16 +118,42 @@ public class GUIVocabGame extends JPanel{
 		bottomPanel.setPreferredSize(new Dimension(1000,35));
 		bottomPanel.setBackground(new Color(50,50,50,255));
 		
-		JButton help = new JButton("Help");
-		help.setSize(new Dimension(100, 30));
+		BufferedImage dictpic = null;
+		try {
+			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
+		} catch (IOException e){
+			
+		}
+		int type = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst = new BufferedImage(27, 27, type);
+        Graphics2D g1 = dst.createGraphics();
+        g1.drawImage(dictpic, 0, 0, 27, 27, this);
+        g1.dispose();
+        ImageIcon newIcon = new ImageIcon(dst);
+		
+        BufferedImage helppic = null;
+		try {
+			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
+		} catch (IOException e){
+			
+		}
+		int type2 = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage dst2 = new BufferedImage(23, 23, type2);
+        Graphics2D g2 = dst2.createGraphics();
+        g2.drawImage(helppic, 0, 0, 23, 23, this);
+        g2.dispose();
+        ImageIcon newIcon2 = new ImageIcon(dst2);
+        
+		JButton help = new JButton("Help",newIcon2);
+		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
-		help.setLocation(19, 3);
+		help.setLocation(19, 5);
 		
 		
-		JButton dictionary = new JButton("Dictionary");
-		dictionary.setSize(new Dimension(100, 30));
+		JButton dictionary = new JButton("Dictionary",newIcon);
+		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(875, 3);
+		dictionary.setLocation(850, 5);
 		
 		bottomPanel.add(help);
 		bottomPanel.add(dictionary);
