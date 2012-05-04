@@ -8,6 +8,8 @@ NP NP ADJ
 NP NP ADJP
 NP ADJP NP
 
+NP NP PP
+
 
 ############
 # DP Stuff #
@@ -18,6 +20,8 @@ DP ART NP
 # DP's can be extended by adjectives too. This is terrible linguistics-wise, but fine for our purposes. 
 DP DP ADJ
 DP DP ADJP
+
+DP DP PP
 
 
 ############
