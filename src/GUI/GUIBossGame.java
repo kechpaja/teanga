@@ -400,9 +400,9 @@ public class GUIBossGame extends JPanel{
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
 			//move to next question...
-			//if(!switched){
+			if(!switched){
 				_bossLevel.tryAnswer(" ");
-			//}
+			}
 			switched = false;
 			if(_bossLevel.isOver()){
 				//TODO: put up the over screen
