@@ -24,7 +24,7 @@ public class GrammarLevel extends LevelInstance {
 	}
 	
 	public GrammarLevel(List<SentencePicturePair> un, String h, int ln){
-		super(29, 1, ln);
+		super(100, 1, ln);
 		upNext = un;
 		current = upNext.remove(0);
 		help = h;
@@ -48,10 +48,10 @@ public class GrammarLevel extends LevelInstance {
 			} catch(IndexOutOfBoundsException e){
 				this.isOver = true;
 			}
-			score+=5;
+			score+=4;
 			return true;
 		} else {
-			score -= 3;
+			score -= 2;
 			return false;
 		}
 	}

@@ -14,7 +14,7 @@ public class VocabLevel extends LevelInstance {
 		}
 		
 		public VocabLevel(List<VocabPicturePair> un, String h, int num){
-			super(20, 0, num);
+			super(100, 0, num);
 			help = h;
 			upNext = un;
 			fallen=new LinkedList<VocabPicturePair>(upNext);

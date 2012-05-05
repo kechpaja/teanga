@@ -446,7 +446,7 @@ public class GUIBossGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore(), 0);
+			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore());
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}

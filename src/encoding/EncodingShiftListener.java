@@ -22,7 +22,8 @@ public class EncodingShiftListener implements KeyListener {
 
 	@Override
 	public void keyReleased(KeyEvent arg0) {
-		// does nothing
+		// updates text field with new string
+		field_.setText(EncodingShifter.shift(field_.getText()));
 	}
 
 	@Override

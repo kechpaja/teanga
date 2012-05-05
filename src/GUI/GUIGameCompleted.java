@@ -48,7 +48,7 @@ public class GUIGameCompleted extends JPanel{
 			titleString = "Game Over";
 			gameString = "Your score was " + l.getScore() + ". You'll need at least a score of " + l.getNecessaryScore() + " to unlock the next level.";
 		}
-		d.getPlayerStats().RefreshStats(l.getLevelNum(), l.getTypeOfGame(), l.getScore(),0);
+		d.getPlayerStats().RefreshStats(l.getLevelNum(), l.getTypeOfGame(), l.getScore());
 		
 		Box horizBox = Box.createHorizontalBox();
 		horizBox.add(Box.createVerticalStrut(600));
