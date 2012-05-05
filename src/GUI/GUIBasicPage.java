@@ -8,6 +8,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
@@ -265,7 +266,9 @@ public class GUIBasicPage extends JPanel{
 					e2.printStackTrace();
 				} catch (IOException e2) {
 					// TODO Auto-generated catch block
-					e2.printStackTrace();
+					String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+					JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+					return;
 				}
 			} 
 				
@@ -281,7 +284,6 @@ public class GUIBasicPage extends JPanel{
 				} else {
 					String infoMessage = "The user name " + newName + " is already taken. Please try another.";
 					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-					return;
 				}
 			} catch (InvalidKeyException e1) {
 				// TODO Auto-generated catch block
@@ -300,7 +302,8 @@ public class GUIBasicPage extends JPanel{
 				e1.printStackTrace();
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
-				e2.printStackTrace();
+				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			}
 		}
 		
