@@ -203,8 +203,6 @@ public class GUIOptionsPage extends JPanel{
 		}
 		
 	}
-	
-<<<<<<< HEAD
 	//Creates a Vocab Game
 	private class MakePageListener implements ActionListener {
 		private int _levelNum;
@@ -248,6 +246,4 @@ public class GUIOptionsPage extends JPanel{
 			}
 		}
 	}
-=======
->>>>>>> c011169cc8123dd60f3141281d0b73f0af11d945
 }
