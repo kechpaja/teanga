@@ -20,7 +20,6 @@ public class BossGameMaker implements GameMaker{
 		System.out.println(bqps.size());
 		String picturePath = exercises.getBPic(levelNum);
 		String help = helpBox.getBHelp(levelNum);
-		return new BossLevel(bqps, help, levelNum, picturePath, parser);
-		
+		return new BossLevel(bqps, help, levelNum, picturePath, parser);	
 	}
 }

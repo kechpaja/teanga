@@ -17,6 +17,7 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.*;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -65,8 +66,10 @@ public class GUIOptionsPage extends JPanel{
 		JLabel levelNames[] = null;
 		
 		try {
-			file = new FileInputStream("data/optionsData.csv");
-			BufferedReader fileReader = new BufferedReader(new InputStreamReader(new DataInputStream(file)));
+			//file = new FileInputStream("data/optionsData.csv");
+			//BufferedReader fileReader = new BufferedReader(new InputStreamReader(new DataInputStream(file)));
+			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
+			//System.out.println(fileReader.readLine());
 			numacts = Integer.parseInt(fileReader.readLine());
 			buttons = new JButton[numacts][5];
 			levelNames = new JLabel[numacts];

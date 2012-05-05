@@ -72,7 +72,7 @@ public class GUIVocabGameBoard extends JPanel {
 		// be more complete in the final version.
 		if(_top == 5){
 			_timer.stop();
-			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore(), getSeconds());
+			_playerStats.RefreshStats(_vl.getLevelNum(), 0, _vl.getScore());
 			_driver.changePage(new GUIGameCompleted(_driver, _vl));
 		}
 		else{

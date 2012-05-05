@@ -48,6 +48,7 @@ public class GUIBossGame extends JPanel{
 		super(null);
 		_driver = d;
 		_bossLevel = b;
+		b.addVocabWords(d);
 		_current = 0;
 		rPanel = null;
 		panel = this;
@@ -238,7 +239,7 @@ public class GUIBossGame extends JPanel{
 		
 		nrPanel.add(resultHoriz);
 		
-		if(response.getMistakes().size()-2 < mistakeNum){
+		if(mistakeNum == 0 && response.getMistakes().size()<1){
 			
 			JLabel congrats = new JLabel("Congrats! You have no errors!");
 			congrats.setFont(new Font("Cambria", Font.PLAIN, 20));
@@ -380,6 +381,7 @@ public class GUIBossGame extends JPanel{
 			if(!switched){
 				switched = true;
 				response = _bossLevel.tryAnswer(userInput.getText());
+				_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 				JPanel nrPanel = makeRPanel(response, 0);
 				rPanel = nrPanel;
 				panel.add(nrPanel);
@@ -398,9 +400,9 @@ public class GUIBossGame extends JPanel{
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
 			//move to next question...
-			//if(!switched){
+			if(!switched){
 				_bossLevel.tryAnswer(" ");
-			//}
+			}
 			switched = false;
 			if(_bossLevel.isOver()){
 				//TODO: put up the over screen
@@ -444,7 +446,7 @@ public class GUIBossGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore(), 0);
+			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore());
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}
