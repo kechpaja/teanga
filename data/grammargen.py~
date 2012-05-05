@@ -27,7 +27,9 @@ f.close();
 
 # function to generate sentences
 def genSen(v, n, a, t):
-	acc = ''
+
+
+'''	acc = ''
 	acc += random.choice(['','la'])
 	acc += ' '
 	acc += random.choice(n)
@@ -53,11 +55,11 @@ def genSen(v, n, a, t):
 		b = random.choice([0,1])
 		if (b == 1):
 			acc += random.choice(a)
-			if (p == True):
+			if (p):
 				acc += 'j'
 			acc += 'n '
 	acc += '.'
-	return acc
+	return acc'''
 
 # loop to generate sentences
 count = 0
