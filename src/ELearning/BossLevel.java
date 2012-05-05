@@ -53,11 +53,12 @@ public class BossLevel extends LevelInstance{
 		
 	public Response tryAnswer(String input){
 		Response response = parser.parse(input);
+		System.out.println("Trying answer");
 		if (this.isOver()){
+			System.out.println("isOver");
 			return response;
 		}
 		if (!response.containsFatal()){
-			
 			this.score += (5 - 2*response.getMistakes().size() + pointsToAdd(input));
 			System.out.println(curQuestion.getQuestion());
 			curQuestion = questions.remove(0);
@@ -65,14 +66,15 @@ public class BossLevel extends LevelInstance{
 				this.isOver = true;
 			}
 		} else score -= 3;
+		System.out.println("Fuck me");
 		return response;
+		
 	}
 	
 	public int pointsToAdd(String r)
 	{
 		int ret=0;
 		r=r.toLowerCase();
-		//r=r.replaceAll("\\W", "");
 		System.out.println(r);
 		String[] rArray=r.split(" ");
 		for(String s: rArray)
