@@ -2,8 +2,7 @@ MUST BE COMPLETED FOR DEMO
 (This stuff must be finished, at the absolute latest, by the time we go to bed on Friday)
 
 Kelvin:
--completed dictionary
--completed vocab lists and pictures for each level, in correct file in correct input format (~25 per level)
+-completed pictures for each level, in correct file in correct input format (~25 per level)
 -all grammar exercizes written and in correct file in correct input (~90 per level)
 -pictures for vocab game (just vocab pictures), in the correct place
 -all boss exercizes written and in correct file in correct input (15 pre level, exactly)
@@ -19,11 +18,7 @@ Tara:
 -better images for buttons on option page
 
 Annie:
--add vocab checking mechanism for boss game. make sure it affects score
--makes needed score/score affecting mechanisms final
 -fix vocab game
--make it so the program doesn't crash when you submit an empty password (since it is possible to create a user with an empty password).
-(NEW THING ABOVE!)
 
 
 SHOULD BE COMPLETED BY DEMO
@@ -40,6 +35,7 @@ Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED se
 -Some way of indicating best score/necessary score in games
 -Some way of indicating best time in games
 -picture icons for buttons
+-alphabetize dictionary
 
 
 

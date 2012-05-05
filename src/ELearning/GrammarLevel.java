@@ -7,7 +7,7 @@ public class GrammarLevel extends LevelInstance {
 	private SentencePicturePair current;
 	private String help;
 	private int currentNum;
-	private int totalNum;
+	private int totalNum=30;
 	
 	
 	public int getCurrentNum(){
@@ -29,7 +29,7 @@ public class GrammarLevel extends LevelInstance {
 		current = upNext.remove(0);
 		help = h;
 		currentNum = 1;
-		totalNum = un.size()+1;
+		//totalNum = un.size()+1;
 	}
 	
 	public SentencePicturePair getCurrent(){
@@ -49,6 +49,8 @@ public class GrammarLevel extends LevelInstance {
 				this.isOver = true;
 			}
 			score+=4;
+			if(currentNum==totalNum+1)
+				this.isOver = true;
 			return true;
 		} else {
 			score -= 2;
