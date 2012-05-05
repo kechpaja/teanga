@@ -62,22 +62,11 @@ public class GUIOptionsPage extends JPanel{
 		JLabel levelNames[] = null;
 		
 		try {
-			//file = new FileInputStream("data/optionsData.csv");
-			//BufferedReader fileReader = new BufferedReader(new InputStreamReader(new DataInputStream(file)));
+
 			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
-			//System.out.println(fileReader.readLine());
 			numacts = Integer.parseInt(fileReader.readLine());
 			buttons = new JButton[numacts][5];
 			levelNames = new JLabel[numacts];
-			completed=new Rectangle[numacts][5];
-			for(int i = 0; i<numacts; i++)
-			{
-				for(int j = 0; j<5; j++)
-				{
-					Rectangle rec=new Rectangle();
-					completed[i][j]
-				}
-			}
 			
 			String line;
 
