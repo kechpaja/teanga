@@ -1,39 +1,93 @@
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
-data/VocabPictures/kato.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/kato.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
-data/VocabPictures/kato.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/kato.jpg,Ŝi skrib~0~.,as,un i as an
-data/VocabPictures/kato.jpg,Ŝi volas skrib~0~.,i,as i an a
-data/VocabPictures/kato.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
+data/VocabPictures/house.jpg,La domo est~0~ bela.,as,is as an un
+data/VocabPictures/eat.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
+data/VocabPictures/go.jpg,La hundo ir~0~ en la domon.,as, i as un an
+data/VocabPictures/eat.jpg,Ŝi manĝ~0~.,as,un i as an
+data/VocabPictures/eat.jpg,Ŝi volas manĝ~0~.,i,as i an a
+data/VocabPictures/cat.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
+data/VocabPictures/go.jpg,Li ir~0~ al domo.,as,o i as u us
+data/VocabPictures/go.jpg,Mi vol~0~ ir~1~.,as i,i o as on
+data/VocabPictures/go.jpg,Ili povas ir~0~ al mi.,i,o u i a
+data/VocabPictures/house.jpg,La dom~0~ est~1~ bel~2~.,o as a,a us as o i
+data/VocabPictures/house.jpg,Tio estas la dom~0~ de la kat~1~.,o o,a o o an
+data/VocabPictures/house.jpg,Ĝi est~0~ dom~1~.,as o,i o as u a
+data/VocabPictures/cat.jpg,La kat~0~ manĝ~1~.,o as,o as i on
+data/VocabPictures/cat.jpg,Vi est~0~ kato.,o as on in
+data/VocabPictures/cat.jpg,Mi hav~0~ katon.,as,o i as u
+data/VocabPictures/table.jpg,La tabl~0~ estas bel~1~.,o a,o i a is os
+data/VocabPictures/table.jpg,Tio est~0~ tabl~1~.,as o,as o i on
+data/VocabPictures/table.jpg,Vi hav~0~ tablon.,as,o as on in
+data/VocabPictures/table.jpg,Tio est~0~ la tablo ~1~ la persono,as de,as on de a
+data/VocabPictures/dog.jpg,La hundo vol~0~ manĝ~1~.,as i,i o on as
+data/VocabPictures/dog.jpg,Ŝi estas hund~0~.,o,i o u us
+data/VocabPictures/dog.jpg,La persono vid~0~ hundon.,as,a as i on
+data/VocabPictures/dog.jpg,La hund~0~ manĝ~1~.,o as,o i as u
+data/VocabPictures/mouse.jpg,Mi am~0~ la muson.,as,i as on un
+data/VocabPictures/mouse.jpg,Mus~0~! Ĝi est~1~ en la domo!,o as,us u as o
+data/VocabPictures/mouse.jpg,Vi manĝ~0~ muson.,as,i as in o
+data/VocabPictures/mouse.jpg,Tio estas mus~0~.,o,i a o on
+data/VocabPictures/fish.jpg,Ti~0~ est~1~ fiŝo.,o as,i as o on
+data/VocabPictures/fish.jpg,Ri est~0~ fiŝo.,as,o as on in
+data/VocabPictures/fish.jpg,Ĝi estas ~0~ fiŝ~1~ de la kat~2~.,la o o,o i o as e
+data/VocabPictures/fish.jpg,La kat~0~ manĝ~0~ fiŝon.,o as,as i u en o
+data/VocabPictures/bird.jpg,La bird~0~ est~1~ en la domo!.,o as,i as o u
+data/VocabPictures/bird.jpg,Birdo manĝ~0~.,as,i as u un
+data/VocabPictures/bird.jpg,La bird~0~ pov~1~ iri.,o as,i u as o
+data/VocabPictures/bird.jpg,Li manĝ~0~!,as,i u o as e
+data/VocabPictures/beautiful.jpeg,Tio est~0~ bel~1~.,as a,a i o as
+data/VocabPictures/beautiful.jpeg,Ĝi estas bel~0~.,as,as i o on
+data/VocabPictures/beautiful.jpeg,Mi volas est~0~ bel~1~.,i a,o a i as
+data/VocabPictures/person.jpg,Estas person~0~ en la domo!.,o,i a e u o
+data/VocabPictures/person.jpg,~0~ persono vol~1~ manĝi.,La as,as La Le O e
+data/VocabPictures/person.jpg,M~0~ estas person~1~.,i o,o u a i e
+data/VocabPictures/person.jpg,La person~0~ am~1~ min.,o as,i as in o en
+data/VocabPictures/large.jpeg,La hundo est~0~ grand~1~.,as a,a i o as
+data/VocabPictures/large.jpeg,Ĝi estas grand~0~!.,a,i us es a as
+data/VocabPictures/large.jpeg,Grand~0~ estas bon~1~!.,a a,u o a a is
+data/VocabPictures/small.jpeg,Tio est~0~ hundo. La hundo estas malgrand~1~.,as a,o a us as in
+data/VocabPictures/small.jpeg,Li estas malgrand~0~.,a,on o a in e
+data/VocabPictures/small.jpeg,Mi volas est~0~ malgrand~1~.,i a,o i u a e
+data/VocabPictures/good.jpeg,Tio estas bon~0~.,a,o a on e
+data/VocabPictures/good.jpeg,Li pov~0~ esti bon~1~.,as a,o i us as a
+data/VocabPictures/good.jpeg,Mi estas kat~0~ bon~1~.,o a,o i a un as
+data/VocabPictures/bad.jpeg,Ĝi estas malbon~0~.,a,o a on e
+data/VocabPictures/bad.jpeg,La hund~0~ malbon~1~ estas malgranda.,o a,a i o u
+data/VocabPictures/bad.jpeg,Ri estas hund~0~ bon~1~.,o a,o i a un as
+data/VocabPictures/see.jpeg,Mi vid~0~ vin.,as,i as in on
+data/VocabPictures/see.jpeg,La kat~0~ vid~1~ la muson.,o as,o u in as
+data/VocabPictures/see.jpeg,Vi vol~0~ vid~1~ katon.,as i,o i as u in
+data/VocabPictures/see.jpeg,Ili vid~0~.,as,o as i un
+data/VocabPictures/love.jpeg,N~0~ am~1~ lin.,i as,on as in i
+data/VocabPictures/love.jpeg,Mi volas am~0~ ŝin!,as,a as in i o
+data/VocabPictures/love.jpeg,Ri am~0~ lin.,as,i o as un
+data/VocabPictures/love.jpeg,Vi vol~0~ am~1~ lin.,as i,i o as u on
+data/VocabPictures/have.jpg,Mi hav~0~ katon malgrandan.,as,o i as u
+data/VocabPictures/have.jpg,Mi volas hav~0~ hundon.,i,o i u in as
+data/VocabPictures/have.jpg,Li hav~0~ tion.,as,i as o on
+data/VocabPictures/have.jpg,Vi pov~0~ hav~1~ katon.,as i,o as u i
+data/VocabPictures/want.jpg,Vi vol~0~ lin.,as,i as o on
+data/VocabPictures/want.jpg,Mi vol~0~ manĝ~1~.,as i,i u on as e
+data/VocabPictures/want.jpg,La mus~0~ vol~1~ tion.,o as,i as in o e
+data/VocabPictures/want.jpg,Ri vol~0~ min.,as,as i on e
+data/VocabPictures/can.jpg,Mi pov~0~ manĝi.,as,o i as in
+data/VocabPictures/can.jpg,Vi pov~0~ iri al domo.,as,o en as e
+data/VocabPictures/can.jpg,Li pov~0~ am~1~ min!,as i,o i on as e
+data/VocabPictures/can.jpg,Ni pov~0~ vidi ilin.,as,o as on i
+data/VocabPictures/to.jpeg,Mi iras ~0~ dom~1~.,al o,o i in al
+data/VocabPictures/to.jpeg,Li ir~0~ ~1~ mi.,as al,al i in as o
+data/VocabPictures/in.jpeg,Mi est~0~ ~1~ la dom~2~.,as en o,o i en as u un
+data/VocabPictures/in.jpeg,La muso estas ~0~ la kat~1~!,en o,i u as o en
+data/VocabPictures/that.jpg,Ti~0~ estas mi!,o,i a us o
+data/VocabPictures/that.jpg,Ti~0~ estas kat~1~.,o o,o a us un o
+data/VocabPictures/we.jpg,N~0~ iras.,i,o i us u
+data/VocabPictures/we.jpg,Mi, vi estas n~0~.,i,o i u as
+data/VocabPictures/you.jpg,~0~ iras.,Vi,Vi O U Us As
+data/VocabPictures/they.jpg,Il~0~ manĝas.,i,i u o an
+data/VocabPictures/he.jpg,~0~ volas iri.,li,li on mi ni
+data/VocabPictures/she.jpg,Tio estas ~0~.,ŝi,mi ŝi i ili
+data/VocabPictures/it.jpg,Tio estas ~0~!,ĝi,i ĝi li ri on
+data/VocabPictures/phe.jpg,~0~ estas en la domo.,Ri,Ri Ili On Ne
+data/VocabPictures/me.jpg,Ĝi estas ~0~.,mi,ri li mi us
+data/VocabPictures/of.jpg,Tio estas la mus~0~ ~1~ la kato.,o de,de li en o u
 0
 data/VocabPictures/kato.jpg,Mi vol~0~ manĝi bel~1~ pom~2~.,as an on,as o aj on i an
 data/VocabPictures/kato.jpg,La kato manĝas mus~0~.,on,a o on oj is
