@@ -28,6 +28,7 @@ public class Lessons {
 		String line = vReader.readLine();
 		while (line != null){
 			String[] split = line.split("~");
+			System.out.println(line);
 			if (split.length == 1){
 				vocabLessons.add(cur);
 				cur = new ArrayList<VocabLessonPair>();
