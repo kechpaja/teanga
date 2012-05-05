@@ -246,7 +246,7 @@ public class GUIGrammarGame extends JPanel{
 		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
 		
 		if(numChars > _maxChars*2){//too long
-			System.out.println("Error, grammar game sentance too long");
+			System.out.println("Error, grammar game sentence too long");
 			//go to next exercise
 		} else if(numChars > _maxChars){//will need 2 lines
 			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
