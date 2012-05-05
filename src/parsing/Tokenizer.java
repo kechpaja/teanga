@@ -36,6 +36,7 @@ public class Tokenizer {
 		set.add("apud");
 		set.add("ĉe");
 		set.add("ĉirkaŭ");
+		set.add("da");
 		set.add("de");
 		set.add("dum");
 		set.add("ekde");
@@ -70,6 +71,28 @@ public class Tokenizer {
 		set.add("trans");
 		// fill it up
 		
+		HashSet<String> setNum = new HashSet<String>();
+		setNum.add("du");
+		setNum.add("tri");
+		setNum.add("kvar");
+		setNum.add("kvin");
+		setNum.add("ses");
+		setNum.add("sep");
+		setNum.add("ok");
+		setNum.add("naŭ");
+		setNum.add("dek");
+		setNum.add("dudek");
+		setNum.add("tridek");
+		setNum.add("kvardek");
+		setNum.add("kvindek");
+		setNum.add("sesdek");
+		setNum.add("sepdek");
+		setNum.add("okdek");
+		setNum.add("naŭdek");
+		setNum.add("cent");
+		setNum.add("mil");
+		
+		
 		// split on whitespace. 
 		// for each word, check ending, and create token and put in list. 
 		String punct = null;
@@ -101,6 +124,9 @@ public class Tokenizer {
 			//	c = null;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {
 				pos = Pos.CONJUNCTION;
+			} else if (s.equals("unu")) {
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.SINGULAR;
 			} else if (set.contains(s)) {
 				pos = Pos.PREPOSITION;
 				//TODO we need a list of prepositions to check against
@@ -117,6 +143,10 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			else if (setNum.contains(s)) {
+				pos = Pos.ADJECTIVE;
+				num = NumMarker.PLURAL;
+			}
 			
 			// Match correlatives a, al, am, e, el, es, o, om, u
 			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
