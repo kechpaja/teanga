@@ -79,10 +79,15 @@ public class GUIVocabGameBoard extends JPanel {
 			//Otherwise add a new piece (and set its bottom)
 			VocabPicturePair newPair = _vl.addToWaiting();
 			String path = newPair.getPicturePath();
-			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100, null);
+			_pieces[_top] = new GUIVocabGamePiece(path, this, 395, 454-420, 454-_top*100, newPair.getEnglish());
 			_top++;
 
 		}
+	}
+	
+	public void showHint(){
+		//THIS NEEDS TO BE DONE BY DANIELLE CAUSE TARA IS CONFUSED.
+		System.out.println("this much works...");
 	}
 
 	//Remove the bottom piece
