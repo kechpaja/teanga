@@ -100,6 +100,7 @@ public class OpeningPage {
 	{
 		FileWriter fstream = new FileWriter(userNameFile);
 		BufferedWriter out = new BufferedWriter(fstream);
+		
 		for(int i=0; i<usernames.size(); i++)
 		{
 			out.write(usernames.get(i)+"\n");
@@ -115,6 +116,14 @@ public class OpeningPage {
 	{
 		FileWriter fstream = new FileWriter(userNameFile);
 		BufferedWriter out = new BufferedWriter(fstream);
+		for(String u:usernames)
+		{
+			System.out.println("Username:"+u);
+		}
+		for(String p:passwords)
+		{
+			System.out.println("password:"+p);
+		}
 		for(int i=0; i<usernames.size(); i++)
 		{
 			out.write(usernames.get(i)+"\n");

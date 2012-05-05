@@ -53,20 +53,19 @@ public class BossLevel extends LevelInstance{
 		
 	public Response tryAnswer(String input){
 		Response response = parser.parse(input);
-		System.out.println("Trying answer");
+		//System.out.println("Trying answer");
 		if (this.isOver()){
 			System.out.println("isOver");
 			return response;
 		}
 		if (!response.containsFatal()){
 			this.score += (5 - 2*response.getMistakes().size() + pointsToAdd(input));
-			System.out.println(curQuestion.getQuestion());
+			//System.out.println("In tryAnswer: "+curQuestion.getQuestion());
 			curQuestion = questions.remove(0);
 			if (questions.isEmpty()) {
 				this.isOver = true;
 			}
 		} else score -= 3;
-		System.out.println("Fuck me");
 		return response;
 		
 	}
@@ -75,18 +74,17 @@ public class BossLevel extends LevelInstance{
 	{
 		int ret=0;
 		r=r.toLowerCase();
-		System.out.println(r);
+		//System.out.println(r);
 		String[] rArray=r.split(" ");
 		for(String s: rArray)
 		{
 			s=s.replaceAll("([a-z]+)[?:!.,;]*", "$1");;
-			System.out.println(annie.MyDictionary.deinflect(s));
+			//System.out.println(annie.MyDictionary.deinflect(s));
 			if(vocabWords.contains(annie.MyDictionary.deinflect(s)))
 			{
-				System.out.println(s);
 				ret=ret+2;
 				vocabWords.remove(annie.MyDictionary.deinflect(s));
-				System.out.println(vocabWords.size());
+				//System.out.println(vocabWords.size());
 			}
 		}
 		return ret;

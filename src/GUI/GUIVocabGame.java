@@ -248,6 +248,7 @@ public class GUIVocabGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			_vocabLevel.decrementScore(2);
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
 			helpFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
@@ -271,7 +272,7 @@ public class GUIVocabGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_vocabLevel.getLevelNum(), 0, _vocabLevel.getScore(), _gameBoard.getSeconds());
+			_driver.getPlayerStats().RefreshStats(_vocabLevel.getLevelNum(), 0, _vocabLevel.getScore());
 			_gameBoard.pause();
 			_gameBoard = null;
 			_vocabLevel = null;

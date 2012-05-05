@@ -372,7 +372,7 @@ public class GUIGrammarGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.skipCurrent();
 			if (_grammarLevel.isOver()){
-				_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
+				_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore());
 				_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 			} else {
 				//update choicePanel
@@ -413,7 +413,7 @@ public class GUIGrammarGame extends JPanel{
 					System.out.println("this is the problem. IT MUST BE HERE.");
 					System.out.println(_grammarLevel.getTypeOfGame());
 					System.out.println(_grammarLevel.getLevelNum());
-					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), -1);
+					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore());
 					_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 				} else {
 					//update choicePanel
@@ -454,7 +454,7 @@ public class GUIGrammarGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore(), 0);
+			_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore());
 			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 			
 		}

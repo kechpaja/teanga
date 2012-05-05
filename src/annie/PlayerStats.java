@@ -18,9 +18,9 @@ public class PlayerStats {
 	private SingleGame[][] userGames = new SingleGame[levels][games];
 	private Boolean[][] unlocked = {{true,true,false},{false,false,false},
 			{false,false,false},{false,false,false},{false,false,false},{false,false,false}};
-	private Boolean[][] timeRelevent = {{true,false,false},{true,false,false},
-			{true,false,false},{true,false,false},{true,false,false},{true,false,false}};
-	private int[][] points = {{2,2,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100},{40,25,100}};
+	//private Boolean[][] timeRelevent = {{true,false,false},{true,false,false},
+			//{true,false,false},{true,false,false},{true,false,false},{true,false,false}};
+	private int[][] points = {{100,100,100},{100,100,100},{100,100,100},{100,100,100},{100,100,100},{100,100,100}};
 	private String userName;
 	private int gender;
 	private int totalPoints;
@@ -46,7 +46,7 @@ public class PlayerStats {
 	    {
 	    	for(int j=0; j<games; j++)
 		    {
-	    		userGames[i][j]=new SingleGame(unlocked[i][j], timeRelevent[i][j],
+	    		userGames[i][j]=new SingleGame(unlocked[i][j], 
 	    				points[i][j]);
 		    }
 		}
@@ -74,7 +74,7 @@ public class PlayerStats {
 	    {
 	    	for(int j=0; j<games; j++)
 		    {
-	    		userGames[i][j]=new SingleGame(unlocked[i][j], timeRelevent[i][j],
+	    		userGames[i][j]=new SingleGame(unlocked[i][j],
 	    				points[i][j]);
 		    }
 		}
@@ -96,8 +96,7 @@ public class PlayerStats {
 	    	for(int j=0; j<games; j++)
 		    {
 	    		toEncrypt= toEncrypt+Boolean.toString(userGames[i][j].unlocked)+" ";
-	    	    toEncrypt= toEncrypt+userGames[i][j].bestScore+" ";
-	    	    toEncrypt= toEncrypt+userGames[i][j].bestTime+" ";   
+	    	    toEncrypt= toEncrypt+userGames[i][j].bestScore+" ";  
 		    }  	
 	    }
 	    toEncrypt=toEncrypt+"So much buffer so the ending won't be messed up";
@@ -162,8 +161,6 @@ public class PlayerStats {
 		    	index++;
 		    	thisGame.bestScore=Integer.parseInt(data[index]);
 		    	index++;
-		    	thisGame.bestTime=Integer.parseInt(data[index]);
-		    	index++;
 		    	userGames[i][j]=thisGame;
 			}
 		 }	    
@@ -196,9 +193,9 @@ public class PlayerStats {
 	
 	//Refreshes the entire PlayerStats file, updating total points 
 	//and and top points for the given game in the given level if necessary
-	public void RefreshStats(int level, int game, int score, int time) 
+	public void RefreshStats(int level, int game, int score) 
 	{
-		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score, time);
+		totalPoints=totalPoints+userGames[level][game].updateSingleGame(score);
 
 		Boolean before=true;
 		for(int j=0; j<games-1; j++)
@@ -221,8 +218,7 @@ public class PlayerStats {
 	
 	//Returns the appropriate SingleGame from the userGames array
 	public SingleGame getSingleGame(int level, int game) 
-	{
-		
+	{	
 		return userGames[level][game];
 	}
 /*
