@@ -239,7 +239,7 @@ public class GUIBossGame extends JPanel{
 		
 		nrPanel.add(resultHoriz);
 		
-		if(response.getMistakes().size()-2 < mistakeNum){
+		if(mistakeNum == 0 && response.getMistakes().size()<1){
 			
 			JLabel congrats = new JLabel("Congrats! You have no errors!");
 			congrats.setFont(new Font("Cambria", Font.PLAIN, 20));
