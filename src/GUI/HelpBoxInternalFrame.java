@@ -86,13 +86,13 @@ public class HelpBoxInternalFrame extends JFrame{
 		public void actionPerformed(ActionEvent e) {
 			switch (_activityType){
 			case 2:
-				_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, lessonNum));				
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, lessonNum));				
 				break;
 			case 3:
-				_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, lessonNum));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, lessonNum));
 				break;
 			case 4:
-				_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, lessonNum));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, lessonNum));
 				break;
 			default:
 				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
@@ -106,7 +106,7 @@ public class HelpBoxInternalFrame extends JFrame{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+			_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
 			toClose.dispose();
 		}
 		
@@ -123,7 +123,7 @@ public class HelpBoxInternalFrame extends JFrame{
 					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
 				} else {
 					//change the general help file!
-					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
 				}
 				break;
 			//helpbox is in a grammar lesson. goes back to previous grammar lesson
@@ -132,7 +132,7 @@ public class HelpBoxInternalFrame extends JFrame{
 					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
 				} else {
 					//change the general help file!
-					_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
 				}
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
@@ -145,11 +145,11 @@ public class HelpBoxInternalFrame extends JFrame{
 				break;
 			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
 			case 4:
-				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
 				break;
 			//helpbox is not in an activity, goes back to help section of whole game
 			default:
-				_driver.changePage(new GUIFullFrameHelp("data/GeneralHelp.txt", _driver, 0, 0));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
 				break;
 				
 			}

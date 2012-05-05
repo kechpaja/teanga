@@ -17,6 +17,7 @@ import javax.swing.JPanel;
 
 public class GUIVocabGamePiece {
 	
+	private int _addTo;
 	private int _bottom;
 	private double _x, _y;
 	private JPanel _panel;
@@ -39,11 +40,12 @@ public class GUIVocabGamePiece {
 		_rect1.setFillColor(new Color(50, 50, 50, 255));
 		_rect1.setBorderColor(new Color(0, 0, 0, 255));
 		_rect1.setLocation(_x, _y);
+		_addTo=100-8*word.length();
 		
 		_word = new ColorText(_panel, word);
-		_word.setFont("Cambria", Font.PLAIN, 20);
+		_word.setFont("Cambria", Font.PLAIN, 40);
 		_word.setColor(new Color(220,220,255,255));
-		_word.setLocation((int)Math.floor(_x)+10, (int)Math.floor(_y)+10);
+		_word.setLocation((int)Math.floor(_x)+_addTo, (int)Math.floor(_y)+60);
 		_word.setVisible(false);
 		
 		//Load the image and reset size
@@ -82,7 +84,7 @@ public class GUIVocabGamePiece {
 		if(_y < _bottom){
 			_y = _y+10;
 			_rect1.setLocation(_x, _y);
-			_word.setLocation((int)Math.floor(_x)+10, (int)Math.floor(_y)+10);
+			_word.setLocation((int)Math.floor(_x)+_addTo, (int)Math.floor(_y)+60);
 			_panel.repaint();
 		}
 				

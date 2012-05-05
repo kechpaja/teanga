@@ -1,5 +1,7 @@
 package GUI;
 
+import gfx.Rectangle;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,13 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.*;
 
 import javax.crypto.BadPaddingException;
@@ -39,6 +34,7 @@ public class GUIOptionsPage extends JPanel{
 	Driver _driver;
 	JLabel _userName;
 	private JPanel topPanel;
+	Rectangle[][] completed;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -60,142 +56,19 @@ public class GUIOptionsPage extends JPanel{
 		this.setBackground(new Color(50,50,50,255));
 		
 		//Read In File
-		FileInputStream file;
 		int numacts = 0;
-		JButton buttons[][] = null;
-		JLabel levelNames[] = null;
+		GUIOptionsPanel overall = null;
 		
 		try {
-			//file = new FileInputStream("data/optionsData.csv");
-			//BufferedReader fileReader = new BufferedReader(new InputStreamReader(new DataInputStream(file)));
-			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
-			//System.out.println(fileReader.readLine());
-			numacts = Integer.parseInt(fileReader.readLine());
-			buttons = new JButton[numacts][5];
-			levelNames = new JLabel[numacts];
-			
-			String line;
 
-			for(int i = 0; i<numacts; i++){
-				
-				if((line = fileReader.readLine()) == null){
-					System.out.println("Options file does not have correct number of lines");
-					System.exit(0);
-				}
-					
-				String picturePaths[] = new String[6];
-				picturePaths = line.split(",");
-				
-				BufferedImage pictures[] = new BufferedImage[5];
-				pictures[0] = ImageIO.read(new File(picturePaths[0]));
-				pictures[1] = ImageIO.read(new File(picturePaths[1]));
-				pictures[2] = ImageIO.read(new File(picturePaths[2]));
-				pictures[3] = ImageIO.read(new File(picturePaths[3]));
-				pictures[4] = ImageIO.read(new File(picturePaths[5]));
-				
-				int picsize = 87;
-				
-				for(int j=0; j<5; j++){
-					int type = BufferedImage.TYPE_INT_ARGB;
-			        BufferedImage dst = new BufferedImage(picsize, picsize, type);
-			        Graphics2D g1 = dst.createGraphics();
-			        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
-			        g1.dispose();
-			        ImageIcon newIcon = new ImageIcon(dst);
-			        buttons[i][j] = new JButton(newIcon);
-			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
-			        buttons[i][j].setBackground(new Color(238,238,238,0));
-			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
-				}
-				buttons[0][4].setEnabled(true);//--------------------------------------------------
-				
-				levelNames[i] = new JLabel(picturePaths[4]);
-				levelNames[i].setBackground(new Color(238,238,238,255));
-				levelNames[i].setFont(new Font("Cambria", Font.BOLD, 25));
-				levelNames[i].setSize(new Dimension(40,15));
-				levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
-				
-			}
+			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
+			numacts = Integer.parseInt(fileReader.readLine());
+			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
-		} catch (FileNotFoundException e1) {
-			System.out.println("Data file could not be opened.");
-			System.exit(0);
-		} catch (NumberFormatException e) {
-			System.out.println("Number of lines could not be read.");
-			System.exit(0);
 		} catch (IOException e) {
 			System.out.println("Could not read file.");
 			System.exit(0);
 		}
-		
-		//Create The Layout
-		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color (238,238,238,255));
-		overall.setPreferredSize(new Dimension(950,100*numacts+70));
-		
-		JPanel titles = new JPanel(new BorderLayout());
-		titles.setPreferredSize(new Dimension(1000,80));
-		titles.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		titles.setBackground(new Color(238,238,238,255));
-		
-		Box theTitles = Box.createHorizontalBox();
-		JLabel learning = new JLabel("Learni");
-		JLabel games = new JLabel("Apliki");
-		learning.setFont(new Font("Century", Font.BOLD, 30));
-		games.setFont(new Font("Century", Font.BOLD, 30));
-		
-		learning.setBorder(BorderFactory.createEmptyBorder(20,50,0,60));
-		games.setBorder(BorderFactory.createEmptyBorder(20,0,0,60));
-		
-		theTitles.add(Box.createRigidArea(new Dimension(69,0)));
-		theTitles.add(learning);
-		theTitles.add(Box.createRigidArea(new Dimension(111,0)));
-		theTitles.add(games);
-		
-		titles.add(theTitles);
-
-		Box vocabLearningColumn = Box.createVerticalBox();
-		Box grammarLearningColumn = Box.createVerticalBox();
-		Box vocabGameColumn = Box.createVerticalBox();
-		Box grammarGameColumn = Box.createVerticalBox();
-		Box levelNameColumn = Box.createVerticalBox();
-		Box bossGameColumn = Box.createVerticalBox();
-		
-		//add all of the columns to the box
-		Box totalBox = Box.createHorizontalBox();
-		
-		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
-		totalBox.add(vocabLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
-		totalBox.add(grammarLearningColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
-		totalBox.add(vocabGameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(28,0)));
-		totalBox.add(grammarGameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
-		totalBox.add(levelNameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(30,0)));
-		totalBox.add(bossGameColumn);
-		totalBox.add(Box.createRigidArea(new Dimension(70,0)));
-		
-			for(int i = 0; i < numacts; i++){
-				
-				vocabLearningColumn.add(buttons[i][0]);
-				buttons[i][0].addActionListener(new MakePageListener(i,1));
-				grammarLearningColumn.add(buttons[i][1]);
-				buttons[i][1].addActionListener(new MakePageListener(i,2));
-				vocabGameColumn.add(buttons[i][2]);
-				buttons[i][2].addActionListener(new MakePageListener(i,3));
-				grammarGameColumn.add(buttons[i][3]);
-				buttons[i][3].addActionListener(new MakePageListener(i,4));
-				levelNameColumn.add(levelNames[i]);
-				bossGameColumn.add(buttons[i][4]);
-				buttons[i][4].addActionListener(new MakePageListener(i,5));
-			
-			}
-			
-		overall.add(titles, BorderLayout.NORTH);
-		overall.add(totalBox, BorderLayout.CENTER);
 		
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
@@ -331,6 +204,7 @@ public class GUIOptionsPage extends JPanel{
 		
 	}
 	
+<<<<<<< HEAD
 	//Creates a Vocab Game
 	private class MakePageListener implements ActionListener {
 		private int _levelNum;
@@ -357,21 +231,23 @@ public class GUIOptionsPage extends JPanel{
 			case 3:
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, 0));
 				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, 0));
 				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
-				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, 0));
+				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 2).bestScore == 0)){
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, 0));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}
 		}
 	}
+=======
+>>>>>>> c011169cc8123dd60f3141281d0b73f0af11d945
 }

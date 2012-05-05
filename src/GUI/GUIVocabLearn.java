@@ -71,17 +71,23 @@ public class GUIVocabLearn extends JPanel{
 			try {
 				System.out.println(vlp.getPicturePath());
 				pic = ImageIO.read(new File(vlp.getPicturePath()));
-			} catch (IOException e) {
-				System.out.println("Cannot read image (GUIVocabLearn)");
-				System.exit(0);
+			} catch (IOException e) {}
+			
+			JPanel panel = new JPanel(null);
+			
+			if(pic != null){
+				int type = BufferedImage.TYPE_INT_RGB;
+		        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
+		        Graphics2D g1 = dst.createGraphics();
+		        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
+		        g1.dispose();
+		        ImageIcon newIcon = new ImageIcon(dst);
+		        JLabel picLabel = new JLabel(newIcon);
+		        
+				panel.add(picLabel);
+				picLabel.setLocation(80, 10);
+				picLabel.setSize(150,100);
 			}
-			int type = BufferedImage.TYPE_INT_RGB;
-	        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
-	        Graphics2D g1 = dst.createGraphics();
-	        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
-	        g1.dispose();
-	        ImageIcon newIcon = new ImageIcon(dst);
-	        JLabel picLabel = new JLabel(newIcon);
 			
 			//wordnTranslate
 			JLabel wordLabel = new JLabel(vlp.getVocabWord());
@@ -94,8 +100,6 @@ public class GUIVocabLearn extends JPanel{
 			JLabel sentenceLabel = new JLabel(vlp.getExampleSentence());
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			
-			//JPanel panel = makePanel(picLabel, wordLabel, translateLabel, sentenceLabel);
-			JPanel panel = new JPanel(null);
 			panel.setPreferredSize(new Dimension(950,120));
 			if(_even){
 				panel.setBackground(new Color(245,245,245,255));
@@ -104,10 +108,6 @@ public class GUIVocabLearn extends JPanel{
 				panel.setBackground(new Color(231,231,231,255));
 				_even = true;
 			}
-			
-			panel.add(picLabel);
-			picLabel.setLocation(80, 10);
-			picLabel.setSize(150,100);
 			
 			panel.add(wordLabel);
 			wordLabel.setLocation(300, 35);
