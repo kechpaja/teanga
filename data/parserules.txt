@@ -52,6 +52,10 @@ SVP DP V
 # handle punctuation
 S S PUNCT
 
+# vocatives
+S NP PUNCT
+S DP PUNCT
+
 # PP rules
 PP PREP NP
 PP PREP DP

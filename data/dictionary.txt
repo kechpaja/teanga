@@ -432,3 +432,18 @@ strato
 street
 noun
 Tio estas la strato Thayer.
+
+tablo
+table
+noun
+La kato estas sur la tablo.
+
+flugi
+to fly
+verb
+La birdo flugas. 
+
+saluto
+greeting
+noun
+Saluton!

@@ -7,6 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
@@ -63,6 +65,7 @@ public class GUIVocabGame extends JPanel{
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
+		_textField.addKeyListener(new HintListener());
 		enterAnswers.add(_textField);	
 		
 		
@@ -176,6 +179,29 @@ public class GUIVocabGame extends JPanel{
 		}
 		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 
+	}
+	
+	private class HintListener implements KeyListener{
+
+		@Override
+		public void keyTyped(KeyEvent e) {
+			if (e.getKeyChar() == '?'){
+				_gameBoard.showHint();
+			}
+		}
+
+		@Override
+		public void keyPressed(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void keyReleased(KeyEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 
 	//When someone types enter, the text they typed is checked and if it
