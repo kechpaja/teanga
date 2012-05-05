@@ -48,6 +48,7 @@ public class GUIBossGame extends JPanel{
 		super(null);
 		_driver = d;
 		_bossLevel = b;
+		b.addVocabWords(d);
 		_current = 0;
 		rPanel = null;
 		panel = this;
@@ -380,6 +381,7 @@ public class GUIBossGame extends JPanel{
 			if(!switched){
 				switched = true;
 				response = _bossLevel.tryAnswer(userInput.getText());
+				_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 				JPanel nrPanel = makeRPanel(response, 0);
 				rPanel = nrPanel;
 				panel.add(nrPanel);

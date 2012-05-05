@@ -88,11 +88,11 @@ public class Exercises {
 		String line = bReader.readLine();
 		while (line != null){
 			String[] split = line.split("~");
-			if (split.length == 1){
-				bossPictures.add(split[0]);
+			if (split.length == 2){
+				bossPictures.add(split[1]);
 				bossExercises.add(cur);
 				cur = new ArrayList<BossQuestionPair>();
-			} else cur.add(new BossQuestionPair(split[0], Integer.parseInt(split[1])));
+			} else cur.add(new BossQuestionPair(split[0]));
 			line = bReader.readLine();
 		}
 	}
