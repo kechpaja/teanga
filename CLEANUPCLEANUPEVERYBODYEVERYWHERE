@@ -3,14 +3,12 @@ MUST BE COMPLETED FOR DEMO
 
 Kelvin:
 -completed dictionary
--completed grammar info pages
 -completed vocab lists and pictures for each level, in correct file in correct input format (~25 per level)
 -all grammar exercizes written and in correct file in correct input (~90 per level)
 -pictures for vocab game (just vocab pictures), in the correct place
 -all boss exercizes written and in correct file in correct input (15 pre level, exactly)
 -all boss level pictures found (one per level)
 -create README
--create file for opening page when new user user (includes x convention). Just write the text to GeneralHelp.txt
 -create pronunciation guide
 
 Danielle:
@@ -33,7 +31,8 @@ SHOULD BE COMPLETED BY DEMO
 
 Kelvin:
 -Make buttons in Esperanto
--Add conjunctions to parser 
+-add complementizers to the parser
+-put prepositions and correlatives in something other than hard-coded
 
 Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED sections)
 -Enter/Submit on first page should do more reasonable things
@@ -41,6 +40,7 @@ Rest: (organize based off of how quickly we each finish our MUST BE COMPLETED se
 -Some way of indicating best score/necessary score in games
 -Some way of indicating best time in games
 -picture icons for buttons
+-alphabetize dictionary
 
 
 
