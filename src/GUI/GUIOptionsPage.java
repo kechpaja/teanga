@@ -21,7 +21,9 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
@@ -41,12 +43,21 @@ public class GUIOptionsPage extends JPanel{
 			stats.encode();
 		} catch (IllegalBlockSizeException e) {
 			// TODO Auto-generated catch block
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		} catch (BadPaddingException e) {
 			// TODO Auto-generated catch block
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 			e.printStackTrace();
 		}
 		
@@ -65,7 +76,69 @@ public class GUIOptionsPage extends JPanel{
 			numacts = Integer.parseInt(fileReader.readLine());
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
+
+			String line;
+
+			for(int i = 0; i<numacts; i++){
+				
+				if((line = fileReader.readLine()) == null){
+					System.out.println("Options file does not have correct number of lines");
+					String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+					JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+					System.exit(0);
+				}
+					
+				String picturePaths[] = new String[6];
+				picturePaths = line.split(",");
+				
+				BufferedImage pictures[] = new BufferedImage[5];
+				pictures[0] = ImageIO.read(new File(picturePaths[0]));
+				System.out.println("1");
+				pictures[1] = ImageIO.read(new File(picturePaths[1]));
+				System.out.println("2");
+				pictures[2] = ImageIO.read(new File(picturePaths[2]));
+				System.out.println("3");
+				pictures[3] = ImageIO.read(new File(picturePaths[3]));
+				System.out.println("4");
+				pictures[4] = ImageIO.read(new File(picturePaths[5]));
+				System.out.println("5");
+				
+				int picsize = 87;
+				
+				for(int j=0; j<5; j++){
+					int type = BufferedImage.TYPE_INT_ARGB;
+			        BufferedImage dst = new BufferedImage(picsize, picsize, type);
+			        Graphics2D g1 = dst.createGraphics();
+			        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
+			        g1.dispose();
+			        ImageIcon newIcon = new ImageIcon(dst);
+			        buttons[i][j] = new JButton(newIcon);
+			        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
+			        buttons[i][j].setBackground(new Color(238,238,238,0));
+			        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
+				}
+				buttons[0][4].setEnabled(true);//--------------------------------------------------
+				
+				levelNames[i] = new JLabel(picturePaths[4]);
+				levelNames[i].setBackground(new Color(238,238,238,255));
+				levelNames[i].setFont(new Font("Cambria", Font.BOLD, 25));
+				levelNames[i].setSize(new Dimension(40,15));
+				levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
+				
+			}
+			
+		} catch (FileNotFoundException e1) {
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
+		} catch (NumberFormatException e) {
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.out.println("Number of lines could not be read.");
+			System.exit(0);
 		} catch (IOException e) {
+			String errorMessage = "There was an reading finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Could not read file.");
 			System.exit(0);
 		}
@@ -104,7 +177,9 @@ public class GUIOptionsPage extends JPanel{
 		try {
 			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
 		} catch (IOException e){
-			
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.exit(0);
 		}
 		int type3 = BufferedImage.TYPE_INT_ARGB;
         BufferedImage dst3 = new BufferedImage(20, 20, type3);
