@@ -77,9 +77,6 @@ public class Parser {
 		rules_ = rules;
 	}
 	
-	//TODO parse tree could contain a list of mistakes... and a boolean telling whether the 
-	// semantic visitor would be able to make sense of it...
-	
 	// PRIVATE METHODS
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 

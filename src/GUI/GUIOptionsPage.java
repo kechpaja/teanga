@@ -1,5 +1,7 @@
 package GUI;
 
+import gfx.Rectangle;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -10,13 +12,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ComponentEvent;
 import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
-import java.io.BufferedReader;
-import java.io.DataInputStream;
-import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.io.*;
 
 import javax.crypto.BadPaddingException;
@@ -39,6 +34,7 @@ public class GUIOptionsPage extends JPanel{
 	Driver _driver;
 	JLabel _userName;
 	private JPanel topPanel;
+	Rectangle[][] completed;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -73,6 +69,15 @@ public class GUIOptionsPage extends JPanel{
 			numacts = Integer.parseInt(fileReader.readLine());
 			buttons = new JButton[numacts][5];
 			levelNames = new JLabel[numacts];
+			completed=new Rectangle[numacts][5];
+			for(int i = 0; i<numacts; i++)
+			{
+				for(int j = 0; j<5; j++)
+				{
+					Rectangle rec=new Rectangle();
+					completed[i][j]
+				}
+			}
 			
 			String line;
 
@@ -367,7 +372,7 @@ public class GUIOptionsPage extends JPanel{
 				break;
 			case 5:
 				//create a boss game
-				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
+				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 2).bestScore == 0)){
 					_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, 0));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;

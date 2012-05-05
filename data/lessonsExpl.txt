@@ -10,43 +10,4 @@ Lesson 4 - voacb: , grammar: possessive pronouns, negation, basic question words
 Lesson 5 - vocab: , grammar: reflexive pronoun, reflexive possessive
 
 
-No double negative at all. 
-
 Need pictures for all lessons...
-
-Conditional in lesson 4 or 5, probably. 
-
-
-For lesson 0:
-
-viando
-porkaĵo
-kokaĵo
-bovaĵo
-
-frukto
-cintrono
-oranĝo
-vinbero
-ananaso
-
-legomo
-pizo
-laktuko
-karoto
-brokolo
-
-pano
-ovo
-lakto
-fromaĝo
-rizo
-
-bongusta
-
-gluti
-mordeti
-
-
-data/VocabPictures/apple.jpg~pomo~apple~"Mi manĝas la pomon"
-

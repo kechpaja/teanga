@@ -447,3 +447,553 @@ saluto
 greeting
 noun
 Saluton!
+
+nul
+zero
+number
+0
+
+unu
+one
+number
+1
+
+du
+two
+number
+2
+
+tri
+three
+number
+3
+
+kvar
+four
+number
+4
+
+kvin
+five
+number
+5
+
+ses
+six
+number
+6
+
+sep
+seven
+number
+7
+
+ok
+eight
+number
+8
+
+naŭ
+nine
+number
+9
+
+dek
+ten
+number
+10
+
+dudek
+twenty
+number
+20
+
+tridek
+thirty
+number
+30
+
+kvardek
+forty
+number
+40
+
+kvindek
+fifty
+number
+50
+
+sesdek
+sixty
+number
+60
+
+sepdek
+seventy
+number
+70
+
+okdek
+eighty
+number
+80
+
+naŭdek
+ninety
+number
+90
+
+cent
+hundred
+number
+100
+
+mil
+thousand
+number
+1000
+
+miliono
+million
+noun
+100,000
+
+miliardo
+billion
+noun
+100,000,000
+
+nombro
+number
+noun
+10 estas nombro.
+
+nombri
+to count
+verb
+Mi nombras la katojn.
+
+sala
+salty
+adjective
+La viando estas sala.
+
+amara
+bitter
+adjective
+Mi ne volas manĝaĵon amaran.
+
+dolĉa
+sweet
+adjective
+La oranĝo estas dolĉa.
+
+acerba
+sour
+adjective
+La citrono estas acerba.
+
+ankaŭ
+also, too
+adverb
+Mi volas iri ankaŭ!
+
+tre
+very
+adverb
+Li estas tre bela.
+
+por
+for
+preposition
+Tio estas la manĝaĵo por mi.
+
+lundo
+monday
+noun
+Hodiaŭ estas lundo.
+
+mardo
+tuesday
+noun
+Hodiaŭ estas mardo.
+
+merkredo
+wednesday
+noun
+Hodiaŭ estas merkredo.
+
+ĵaŭdo
+thursday
+noun
+Hodiaŭ estas ĵaŭdo.
+
+vendredo
+friday
+noun
+Hodiaŭ estas vendredo.
+
+sabato
+saturday
+noun
+Hodiaŭ estas sabato.
+
+dimanĉo
+sunday
+noun
+Hodiaŭ estas dimanĉo.
+
+tago
+day
+noun
+Bonan tagon!
+
+monato
+month
+noun
+Januaro estas monato.
+
+januaro
+january
+noun
+Tia monato estas januaro. 
+
+februaro
+february
+noun
+Tia monato estas februaro.
+
+marto
+march
+noun
+Tia monato estas marto.
+
+aprilo
+april
+noun
+Tia monato estas aprilo.
+
+majo
+may
+noun
+Tia monato estas majo.
+
+junio
+june
+noun
+Tia monato estas junio.
+
+julio
+july
+noun
+Tia monato estas julio.
+
+aŭgusto
+august
+noun
+Tia monato estas aŭgusto.
+
+septembro
+september
+noun
+Tia monato estas septembro.
+
+oktobro
+october
+noun
+Tia monato estas oktobro.
+
+novembro
+november
+noun
+Tia monato estas novembro.
+
+decembro
+december
+noun
+Tia monato estas decembro.
+
+sezono
+season
+noun
+Printempo estas sezono.
+
+printempo
+spring
+noun
+Tia sezono estas printempo!
+
+somero
+summer
+noun
+Tia sezono estas somero.
+
+aŭtuno
+autumn
+noun
+Tia sezono estas aŭtuno.
+
+vintro
+winter
+noun
+Tia sezono estas vintro.
+
+hodiaŭ
+today
+adverb
+Hodiaŭ ni parolos Esperanton!
+
+morgaŭ
+tomorrow
+adverb
+Morgaŭ iros al domo.
+
+mateno
+morning
+noun
+Bonan Matenon!
+
+hieraŭ
+yesterday
+adverb
+Hieraŭ mi skribis kodon de komputilo.
+
+proksimume
+approximately
+adverb
+[None Given]
+
+aŭto
+car
+noun
+Mi volas iri per la aŭto.
+
+aeroplano
+airplane
+noun
+Li iras per la aeroplano.
+
+trajno
+train
+noun
+Ili iras per la trajno.
+
+aŭtobuso
+bus, autobus
+noun
+Ni vojaĝas per la aŭtobuso.
+
+tramo
+tram
+noun
+Ĉu vi volas iri per la tramo?
+
+biciklo
+bicycle, bike
+noun
+Mi iras per biciklo.
+
+ŝipo
+ship
+noun
+[None Given]
+
+flugi
+to fly
+verb
+La birdoj flugas.
+
+marŝi
+to walk, to march
+verb
+Mi marŝas sur la strato.
+
+stiri
+to drive, to steer
+verb
+Mi stiras la aŭton.
+
+veli
+to sail
+verb
+Ili velas ŝipon.
+
+vojaĝi
+to travel
+verb
+Mi vojaĝas per aeroplano.
+
+valizo
+suitcase
+noun
+Mi havas valizon grandan.
+
+porti
+to carry
+verb
+Mi portas valizon grandan.
+
+enpaki
+to pack
+verb
+Mi enpakas mian valizon.
+
+plena
+full
+adjective
+Mia valizo estas plena.
+
+malplena
+empty
+adjective
+Mia valizo estas malplena.
+
+hotelo
+hotel
+noun
+Ni loĝas en hotelo malgranda.
+
+ruza
+smart, clever
+adjective
+La knabo estas tre ruza.
+
+vojaĝo
+trip, journey
+noun
+Tio estas nia vojaĝo per ŝipo.
+
+akvo
+water
+noun
+La fiŝoj estas en la akvo.
+
+oceano
+ocean
+noun
+La ŝipoj iras sur la oceano.
+
+povi
+to be able/can
+verb
+Mi povas trinki lakton.
+
+seĝo
+chair
+noun
+Mi seĝas sur la seĝo.
+
+kanapo
+sofa, couch
+noun
+Li seĝas sur la kanapo.
+
+fenestro
+window
+noun
+Mi vidas vin tra la fenestro.
+
+tapiŝo
+rug, carpet
+noun
+Mi uzas la polvosuĉilo sur la tapiŝo.
+
+ŝtuparo
+staircase, stairs
+noun
+[None Given]
+
+pordo
+door
+noun
+Mi iras tra la pordo.
+
+kuirejo
+kitchen
+noun
+Ili manĝas en la kuirejo.
+
+banĉambro
+bathroom
+noun
+Li estas en la banĉambro!
+
+ĉambro
+room
+noun
+Ĉu vi estas en la ĉambro?
+
+dormĉambro
+bedroom
+noun
+Ni dormas en niaj dormĉambroj.
+
+kelo
+basement, cellar
+noun
+La kelo estas sub la domo.
+
+lito
+bed
+noun
+Ni dormas en niaj litoj.
+
+lampo
+lamp
+noun
+La lampo lumas.
+
+lumi
+to shine
+verb
+Nia lampo lumas.
+
+polvosuĉuilo
+vacuum cleaner
+noun
+Ni uzas la polvosuĉilon en niaj dormĉambroj.
+
+forko
+fork
+noun
+Mi manĝas per la forko.
+
+kulero
+spoon
+noun
+Mi manĝas per la kulero.
+
+tranĉilo
+knife
+noun
+Mi manĝas per la tranĉilo.
+
+plako
+plate
+noun
+La manĝaĵo estas en la plako.
+
+pelvo
+bowl
+noun
+La lakto estas an la pelvo.
+
+seĝi
+to sit
+verb
+Mi seĝas sur la kanapo.
+
+vekiĝi
+to wake up
+verb
+Mi vekiĝas en mia lito.
+
+portiko
+porch
+noun
+Mi seĝas sur la portiko.
+
+loĝi
+to dwell
+verb
+Mi loĝas en mia domo.

@@ -1,10 +1,10 @@
 6
-data/OtherPictures/vocablevel1.jpg,data/OtherPictures/grammarlevel1.tiff,data/funPic.jpg,data/funpic2.gif,Enkonduko,data/OtherPictures/grammarlevelone.jpg
-data/OtherPictures/vocablevel2.tiff,data/OtherPictures/grammarlevel2.tiff,data/funPic.jpg,data/lolla.jpg,Manĝaĵo,data/OtherPictures/bosslevel2.tiff
-data/OtherPictures/vocablevel3.tiff,data/OtherPictures/grammarlevel3.tiff,data/funPic.jpg,data/funpic2.gif,Nombroj,data/OtherPictures/bosslevel3.tiff
-data/OtherPictures/vocablevel4.tiff,data/funpic2.gif,data/funPic.jpg,data/lolla.jpg,Sezonoj,data/OtherPictures/bosslevel4.tiff
-data/OtherPictures/vocablevel5.tiff,data/funpic2.gif,data/funPic.jpg,data/funpic2.gif,Domo,data/OtherPictures/bosslevel5.tiff
-data/OtherPictures/vocablevel6.tiff,data/funpic2.gif,data/funPic.jpg,data/lolla.jpg,Vojaĝi,data/OtherPictures/bosslevel6.tiff
+data/OtherPictures/vocablevel1.png,data/OtherPictures/grammarlevel1.png,data/OtherPictures/vocabgame1.png,data/OtherPictures/grammargame1.png,Enkonduko,data/OtherPictures/bossgame1.png
+data/OtherPictures/vocablevel2.png,data/OtherPictures/grammarlevel2.png,data/OtherPictures/vocabgame2.png,data/OtherPictures/grammargame2.png,Manĝaĵo,data/OtherPictures/bossgame1.png
+data/OtherPictures/vocablevel3.png,data/OtherPictures/grammarlevel3.png,data/OtherPictures/vocabgame3.png,data/OtherPictures/grammargame3.png,Nombroj,data/OtherPictures/bossgame1.png
+data/OtherPictures/vocablevel4.png,data/OtherPictures/grammarlevel4.png,data/OtherPictures/vocabgame4.png,data/OtherPictures/grammargame4.png,Sezonoj,data/OtherPictures/bossgame1.png
+data/OtherPictures/vocablevel5.png,data/OtherPictures/grammarlevel5.png,data/OtherPictures/vocabgame5.png,data/OtherPictures/grammargame5.png,Domo,data/OtherPictures/bossgame1.png
+data/OtherPictures/vocablevel6.png,data/OtherPictures/grammarlevel6.png,data/OtherPictures/vocabgame6.png,data/OtherPictures/grammargame6.png,Vojaĝi,data/OtherPictures/bossgame1.png
 
 data/funPic.jpg,data/funpic2.gif,data/funPic.jpg,data/funpic2.gif,This When I Should,data/lolla.jpg
 data/funPic.jpg,data/funpic2.gif,data/funPic.jpg,data/lolla.jpg,Be Working On CS,data/funpic2.gif
