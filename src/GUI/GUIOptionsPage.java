@@ -93,7 +93,7 @@ public class GUIOptionsPage extends JPanel{
 				int picsize = 87;
 				
 				for(int j=0; j<5; j++){
-					int type = BufferedImage.TYPE_INT_RGB;
+					int type = BufferedImage.TYPE_INT_ARGB;
 			        BufferedImage dst = new BufferedImage(picsize, picsize, type);
 			        Graphics2D g1 = dst.createGraphics();
 			        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
