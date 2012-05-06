@@ -50,6 +50,18 @@ public class OpeningPage {
 				{
 					genders.add(Integer.parseInt(strLine));
 				}
+				else
+				{
+					usernames= new LinkedList<String>();
+					passwords= new LinkedList<String>();
+					genders= new LinkedList<Integer>();
+				}
+			}
+			else
+			{
+				usernames= new LinkedList<String>();
+				passwords= new LinkedList<String>();
+				genders= new LinkedList<Integer>();
 			}
 		}
 	}

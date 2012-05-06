@@ -179,4 +179,368 @@ data/VocabPictures/for.jpg,La legom~0~ estas ~1~ mi.,oj por,por de en oj i
 data/VocabPictures/for.jpg,Tio estas muso por la kat~0~.,o,o a e i
 data/VocabPictures/for.jpg,Ĝi estas por v~0~.,i,o in i on
 1
-
+data/VocabPictures/pork.jpg,~0~ vi volas porkaĵon?,Ĉu,Ĉu De La Vi
+data/VocabPictures/number1.jpg,~0~ vi povas nombri al ~1~?,Ĉu unu,Ĉu unu du tri
+data/VocabPictures/number1.jpg,Tio estas ~0~.,unu,du unu dek kvar
+data/VocabPictures/number1.jpg,
+data/VocabPictures/beef.jpg,~0~ li manĝas bovaĵon?,Ĉu,Ĉu La Mi Li
+data/VocabPictures/number2.jpg,~0~ vi povas nombri al ~1~?,Ĉu du,Ĉu tri kvar du
+data/VocabPictures/number2.jpg,Tio estas ~0~.,du,unu du tri kvar
+data/VocabPictures/number2.jpg,
+data/VocabPictures/go.jpg,~0~ ili povas iri?,Ĉu,Le Li La Ĉu Ĉa
+data/VocabPictures/number3.jpg,~0~ vi povas nombri al ~1~?,Ĉu tri,Ĉu kvin tri miliono
+data/VocabPictures/number3.jpg,Tio estas ~0~.,tri tridek naŭ du
+data/VocabPictures/number3.jpg,
+data/VocabPictures/see.jpg,~0~ ili vidas min?,Ĉu,Ĉia Ĉu Ili Li
+data/VocabPictures/number4.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvar,Ĉu kvar unu dek
+data/VocabPictures/number4.jpg,Tio estas ~0~.,kvar,unu du tri kvar
+data/VocabPictures/number4.jpg,
+data/VocabPictures/count.jpg,~0~ vi nombras ilin?,Ĉu,Se Si Ĉu La
+data/VocabPictures/number5.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvin,Ĉu kvin du dudek
+data/VocabPictures/number5.jpg,Tio estas ~0~.,kvin,du kvin dek unu
+data/VocabPictures/number5.jpg,
+data/VocabPictures/cat.jpg,~0~ la kato manĝas la muson?,Ĉu,La Ĉu Li On
+data/VocabPictures/number6.jpg,~0~ vi povas nombri al ~1~?,Ĉu ses,Ĉu dek naŭ ses
+data/VocabPictures/number6.jpg,Tio estas ~0~.,ses,ok naŭ du ses
+data/VocabPictures/number6.jpg,
+data/VocabPictures/cheese.jpg,~0~ la musoj manĝas la fromaĝon?,Ĉu,Ĉu In Ni Ne
+data/VocabPictures/number7.jpg,~0~ vi povas nombri al ~1~?,Ĉu sep,Ĉu unu sep naŭ
+data/VocabPictures/number7.jpg,Tio estas ~0~.,sep,sep ses kvin kvar
+data/VocabPictures/number7.jpg,
+data/VocabPictures/delicious.jpg,~0~ la porkaĵo estas bongusta?,Ĉu,Nu Ne Jes Ĉu
+data/VocabPictures/number8.jpg,~0~ vi povas nombri al ~1~?,Ĉu ok,Ĉu nul ok unu
+data/VocabPictures/number8.jpg,Tio estas ~0~.,ok,naŭ ok unu du
+data/VocabPictures/number8.jpg,
+data/VocabPictures/milk.jpg,~0~ vi trinkas lakton?,Ĉu,Mi Ni Ĉu Li
+data/VocabPictures/number9.jpg,~0~ vi povas nombri al ~1~?,Ĉu naŭ,Ĉu ok unu naŭ
+data/VocabPictures/number9.jpg,Tio estas ~0~.,naŭ,naŭ ok ses sep
+data/VocabPictures/number9.jpg,
+data/VocabPictures/person.jpg,~0~ la personoj estas bongustaj?,Ĉu,Jes Ne Ĉu O
+data/VocabPictures/number10.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek,Ĉu naŭ dek du
+data/VocabPictures/number10.jpg,Tio estas ~0~.,dek,naŭ dek ses sep
+data/VocabPictures/number10.jpg,
+data/VocabPictures/eat.jpg,~0~ vi volas manĝi?,Ĉu,Ĥi Ĉu Li La
+data/VocabPictures/number11.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_unu,Ĉu du dudek dek_unu
+data/VocabPictures/number11.jpg,Tio estas ~0~.,dek_unu,unu dek dek_unu dek_du
+data/VocabPictures/number11.jpg,
+data/VocabPictures/cat.jpg,~0~ li estas kato?,Ĉu,Ĉu Li Nu Ne
+data/VocabPictures/number12.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_du,Ĉu dek_du dek_tri dek
+data/VocabPictures/number12.jpg,Tio estas ~0~.,dek_du,dek_du du dek dudek
+data/VocabPictures/number12.jpg,
+data/VocabPictures/mouse.jpg,~0~ la muso estas en la kato? ~1~.,,Ĉu Ne,Jes Ne Le Lo Ĉu
+data/VocabPictures/number13.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_tri,Ĉu du dek dudek dek_tri
+data/VocabPictures/number13.jpg,Tio estas ~0~.,dek_tri,dek_tri tridek dudek dek
+data/VocabPictures/number13.jpg,
+data/VocabPictures/mouse.jpg,~0~ la kato manĝas la muson? ~1~.,Ĉu Ne,La Ol Ĉu De Ne
+data/VocabPictures/number14.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_kvar,Ĉu tridek dek_kvar kvar
+data/VocabPictures/number14.jpg,Tio estas ~0~.,dek_kvar,dek_tri dek_kvar kvardek tridek
+data/VocabPictures/number14.jpg,
+data/VocabPictures/drink.jpg,~0~ vi trinkas? ~1~.,Ĉu Jes,Jes Ne Ĉu La
+data/VocabPictures/number20.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek,Ĉu dudek dek du
+data/VocabPictures/number20.jpg,Tio estas ~0~.,dudek,tridek dudek dek_du dek_tri
+data/VocabPictures/number20.jpg,
+data/VocabPictures/cat.jpg,~0~ la kato iras?,Ĉu,De Ĉu La Mi
+data/VocabPictures/number21.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_unu,Ĉu dudek_unu unu dek_du
+data/VocabPictures/number21.jpg,Tio estas ~0~.,dudek_unu,dudek dek_du dudek_unu dek
+data/VocabPictures/number21.jpg,
+data/VocabPictures/dog.jpg,~0~ la hundo manĝas?,Ĉu,La En I El Ĉu
+data/VocabPictures/number22.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_du,Ĉu dek_du dudek_du dudek
+data/VocabPictures/number22.jpg,Tio estas ~0~.,
+data/VocabPictures/number22.jpg,
+data/VocabPictures/number100.jpg,~0~ vi povas nombri al ~1~?,Ĉu cent,cent, mil Ĉu De Ne La
+data/VocabPictures/number100.jpg,Tio estas ~0~.,
+data/VocabPictures/number100.jpg,
+data/VocabPictures/number1000.jpg,~0~
+data/VocabPictures/number1000.jpg,~0~ vi povas nombri al ~1~?,Ĉu mil,Ĉu mil cent miliono
+data/VocabPictures/number1000.jpg,Tio estas ~0~.,
+data/VocabPictures/number1000.jpg,
+data/VocabPictures/million.jpg,~0~
+data/VocabPictures/million.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliono,Ĉu mil miliono miliardo
+data/VocabPictures/million.jpg,Tio estas ~0~.,
+data/VocabPictures/million.jpg,
+data/VocabPictures/milliard.jpg,~0~
+data/VocabPictures/milliard.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliardo,Ĉu miliardo mil miliono
+data/VocabPictures/milliard.jpg,Tio estas ~0~.,
+data/VocabPictures/milliard.jpg,
+data/VocabPictures/number.jpg,Tio estas nombr~0~ grand~1~.,o a,o u i e a
+data/VocabPictures/number.jpg,~0~ tio estas nombr~1~?,Ĉu o,o a u Ĉu De
+data/VocabPictures/count.jpg,~0~ vi nombras al dudek?,Ĉu,Ĉu Kio En Vi Al
+data/VocabPictures/count.jpg,~0~ vi povas nombri?,Ĉu,Ĉu Ne Jes Li
+2
+data/VocabPictures/day.jpg
+data/VocabPictures/day.jpg
+data/VocabPictures/day.jpg
+data/VocabPictures/monday.jpg
+data/VocabPictures/monday.jpg
+data/VocabPictures/monday.jpg
+data/VocabPictures/tuesday.jpg
+data/VocabPictures/tuesday.jpg
+data/VocabPictures/tuesday.jpg
+data/VocabPictures/wednesday.jpg
+data/VocabPictures/wednesday.jpg
+data/VocabPictures/wednesday.jpg
+data/VocabPictures/thursday.jpg
+data/VocabPictures/thursday.jpg
+data/VocabPictures/thursday.jpg
+data/VocabPictures/friday.jpg
+data/VocabPictures/friday.jpg
+data/VocabPictures/friday.jpg
+data/VocabPictures/saturday.jpg
+data/VocabPictures/saturday.jpg
+data/VocabPictures/saturday.jpg
+data/VocabPictures/sunday.jpg
+data/VocabPictures/sunday.jpg
+data/VocabPictures/sunday.jpg
+data/VocabPictures/month.jpg
+data/VocabPictures/month.jpg
+data/VocabPictures/month.jpg
+data/VocabPictures/january.jpg
+data/VocabPictures/january.jpg
+data/VocabPictures/january.jpg
+data/VocabPictures/february.jpg
+data/VocabPictures/february.jpg
+data/VocabPictures/february.jpg
+data/VocabPictures/march.jpg
+data/VocabPictures/march.jpg
+data/VocabPictures/march.jpg
+data/VocabPictures/april.jpg
+data/VocabPictures/april.jpg
+data/VocabPictures/april.jpg
+data/VocabPictures/may.jpg
+data/VocabPictures/may.jpg
+data/VocabPictures/may.jpg
+data/VocabPictures/june.jpg
+data/VocabPictures/june.jpg
+data/VocabPictures/june.jpg
+data/VocabPictures/july.jpg
+data/VocabPictures/july.jpg
+data/VocabPictures/july.jpg
+data/VocabPictures/august.jpg
+data/VocabPictures/august.jpg
+data/VocabPictures/august.jpg
+data/VocabPictures/september.jpg
+data/VocabPictures/september.jpg
+data/VocabPictures/september.jpg
+data/VocabPictures/october.jpg
+data/VocabPictures/october.jpg
+data/VocabPictures/october.jpg
+data/VocabPictures/november.jpg
+data/VocabPictures/november.jpg
+data/VocabPictures/november.jpg
+data/VocabPictures/december.jpg
+data/VocabPictures/december.jpg
+data/VocabPictures/december.jpg
+data/VocabPictures/season.jpg
+data/VocabPictures/season.jpg
+data/VocabPictures/season.jpg
+data/VocabPictures/spring.jpg
+data/VocabPictures/spring.jpg
+data/VocabPictures/spring.jpg
+data/VocabPictures/summer.jpg
+data/VocabPictures/summer.jpg
+data/VocabPictures/summer.jpg
+data/VocabPictures/autumn.jpg
+data/VocabPictures/autumn.jpg
+data/VocabPictures/autumn.jpg
+data/VocabPictures/winter.jpg
+data/VocabPictures/winter.jpg
+data/VocabPictures/winter.jpg
+data/VocabPictures/today.jpg
+data/VocabPictures/today.jpg
+data/VocabPictures/today.jpg
+data/VocabPictures/tomorrow.jpg
+data/VocabPictures/tomorrow.jpg
+data/VocabPictures/tomorrow.jpg
+data/VocabPictures/yesterday.jpg
+data/VocabPictures/yesterday.jpg
+data/VocabPictures/yesterday.jpg
+data/VocabPictures/approximately.jpg
+data/VocabPictures/approximately.jpg
+data/VocabPictures/approximately.jpg
+3
+data/VocabPictures/chair.jpg
+data/VocabPictures/chair.jpg
+data/VocabPictures/chair.jpg
+data/VocabPictures/sofa.jpg
+data/VocabPictures/sofa.jpg
+data/VocabPictures/sofa.jpg
+data/VocabPictures/window.jpg
+data/VocabPictures/window.jpg
+data/VocabPictures/window.jpg
+data/VocabPictures/rug.jpg
+data/VocabPictures/rug.jpg
+data/VocabPictures/rug.jpg
+data/VocabPictures/bed.jpg
+data/VocabPictures/bed.jpg
+data/VocabPictures/bed.jpg
+data/VocabPictures/lamp.jpg
+data/VocabPictures/lamp.jpg
+data/VocabPictures/lamp.jpg
+data/VocabPictures/staircase.jpg
+data/VocabPictures/staircase.jpg
+data/VocabPictures/staircase.jpg
+data/VocabPictures/door.jpg
+data/VocabPictures/door.jpg
+data/VocabPictures/door.jpg
+data/VocabPictures/room.jpg
+data/VocabPictures/room.jpg
+data/VocabPictures/room.jpg
+data/VocabPictures/kitchen.jpg
+data/VocabPictures/kitchen.jpg
+data/VocabPictures/kitchen.jpg
+data/VocabPictures/bathroom.jpg
+data/VocabPictures/bathroom.jpg
+data/VocabPictures/bathroom.jpg
+data/VocabPictures/bedroom.jpg
+data/VocabPictures/bedroom.jpg
+data/VocabPictures/bedroom.jpg
+data/VocabPictures/basement.jpg
+data/VocabPictures/basement.jpg
+data/VocabPictures/basement.jpg
+data/VocabPictures/vacuum.jpg
+data/VocabPictures/vacuum.jpg
+data/VocabPictures/vacuum.jpg
+data/VocabPictures/fork.jpg
+data/VocabPictures/fork.jpg
+data/VocabPictures/fork.jpg
+data/VocabPictures/spoon.jpg
+data/VocabPictures/spoon.jpg
+data/VocabPictures/spoon.jpg
+data/VocabPictures/knife.jpg
+data/VocabPictures/knife.jpg
+data/VocabPictures/knife.jpg
+data/VocabPictures/plate.jpg
+data/VocabPictures/plate.jpg
+data/VocabPictures/plate.jpg
+data/VocabPictures/bowl.jpg
+data/VocabPictures/bowl.jpg
+data/VocabPictures/bowl.jpg
+data/VocabPictures/sleep.jpg
+data/VocabPictures/sleep.jpg
+data/VocabPictures/sleep.jpg
+data/VocabPictures/sit.jpg
+data/VocabPictures/sit.jpg
+data/VocabPictures/sit.jpg
+data/VocabPictures/wake_up.jpg
+data/VocabPictures/wake_up.jpg
+data/VocabPictures/wake_up.jpg
+data/VocabPictures/use.jpg
+data/VocabPictures/use.jpg
+data/VocabPictures/use.jpg
+data/VocabPictures/porch.jpg
+data/VocabPictures/porch.jpg
+data/VocabPictures/porch.jpg
+data/VocabPictures/out_of.jpg
+data/VocabPictures/out_of.jpg
+data/VocabPictures/out_of.jpg
+data/VocabPictures/dwell.jpeg
+data/VocabPictures/dwell.jpeg
+data/VocabPictures/dwell.jpeg
+data/VocabPictures/on.jpeg
+data/VocabPictures/on.jpeg
+data/VocabPictures/on.jpeg
+data/VocabPictures/through.jpeg
+data/VocabPictures/through.jpeg
+data/VocabPictures/through.jpeg
+4
+data/VocabPictures/car.jpeg
+data/VocabPictures/car.jpeg
+data/VocabPictures/car.jpeg
+data/VocabPictures/car.jpeg
+data/VocabPictures/bus.jpeg
+data/VocabPictures/bus.jpeg
+data/VocabPictures/bus.jpeg
+data/VocabPictures/bus.jpeg
+data/VocabPictures/airplane.jpeg
+data/VocabPictures/airplane.jpeg
+data/VocabPictures/airplane.jpeg
+data/VocabPictures/airplane.jpeg
+data/VocabPictures/train.jpeg
+data/VocabPictures/train.jpeg
+data/VocabPictures/train.jpeg
+data/VocabPictures/train.jpeg
+data/VocabPictures/tram.jpeg
+data/VocabPictures/tram.jpeg
+data/VocabPictures/tram.jpeg
+data/VocabPictures/tram.jpeg
+data/VocabPictures/bicycle.jpeg
+data/VocabPictures/bicycle.jpeg
+data/VocabPictures/bicycle.jpeg
+data/VocabPictures/bicycle.jpeg
+data/VocabPictures/ship.jpeg
+data/VocabPictures/ship.jpeg
+data/VocabPictures/ship.jpeg
+data/VocabPictures/ship.jpeg
+data/VocabPictures/ocean.jpeg
+data/VocabPictures/ocean.jpeg
+data/VocabPictures/ocean.jpeg
+data/VocabPictures/ocean.jpeg
+data/VocabPictures/water.jpeg
+data/VocabPictures/water.jpeg
+data/VocabPictures/water.jpeg
+data/VocabPictures/water.jpeg
+data/VocabPictures/hotel.jpeg
+data/VocabPictures/hotel.jpeg
+data/VocabPictures/hotel.jpeg
+data/VocabPictures/hotel.jpeg
+data/VocabPictures/trip.jpeg
+data/VocabPictures/trip.jpeg
+data/VocabPictures/trip.jpeg
+data/VocabPictures/trip.jpeg
+data/VocabPictures/street.jpeg
+data/VocabPictures/street.jpeg
+data/VocabPictures/street.jpeg
+data/VocabPictures/street.jpeg
+data/VocabPictures/suitcase.jpeg
+data/VocabPictures/suitcase.jpeg
+data/VocabPictures/suitcase.jpeg
+data/VocabPictures/suitcase.jpeg
+data/VocabPictures/full.jpeg
+data/VocabPictures/full.jpeg
+data/VocabPictures/full.jpeg
+data/VocabPictures/full.jpeg
+data/VocabPictures/empty.jpeg
+data/VocabPictures/empty.jpeg
+data/VocabPictures/empty.jpeg
+data/VocabPictures/empty.jpeg
+data/VocabPictures/smart.jpeg
+data/VocabPictures/smart.jpeg
+data/VocabPictures/smart.jpeg
+data/VocabPictures/smart.jpeg
+data/VocabPictures/carry.jpeg
+data/VocabPictures/carry.jpeg
+data/VocabPictures/carry.jpeg
+data/VocabPictures/carry.jpeg
+data/VocabPictures/pack.jpeg
+data/VocabPictures/pack.jpeg
+data/VocabPictures/pack.jpeg
+data/VocabPictures/pack.jpeg
+data/VocabPictures/fly.jpeg
+data/VocabPictures/fly.jpeg
+data/VocabPictures/fly.jpeg
+data/VocabPictures/fly.jpeg
+data/VocabPictures/drive.jpeg
+data/VocabPictures/drive.jpeg
+data/VocabPictures/drive.jpeg
+data/VocabPictures/drive.jpeg
+data/VocabPictures/travel.png
+data/VocabPictures/travel.png
+data/VocabPictures/travel.png
+data/VocabPictures/travel.png
+data/VocabPictures/sail.jpeg
+data/VocabPictures/sail.jpeg
+data/VocabPictures/sail.jpeg
+data/VocabPictures/sail.jpeg
+data/VocabPictures/swim.jpeg
+data/VocabPictures/swim.jpeg
+data/VocabPictures/swim.jpeg
+data/VocabPictures/swim.jpeg
+data/VocabPictures/walk.jpg
+data/VocabPictures/walk.jpg
+data/VocabPictures/walk.jpg
+data/VocabPictures/walk.jpg
+data/VocabPictures/by.jpg
+data/VocabPictures/by.jpg
+data/VocabPictures/by.jpg
+data/VocabPictures/by.jpg
+5
