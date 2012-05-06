@@ -120,6 +120,7 @@ data/VocabPictures/today.jpg~hodiaŭ~today~"Hodiaŭ ni parolas Esperanton."
 data/VocabPictures/tomorrow.jpg~morgaŭ~tomorrow~"Morgaŭ iros al domo."
 data/VocabPictures/yesterday.jpg~Hieraŭ~yesterday~"Hieraŭ mi iris al domo."
 data/VocabPictures/approximately.jpg~proksimume~approximately~"11.3 estas proksimume dek unu."
+data/VocabPicture/now.jpg~nun~now~"Nun mi estas kato."
 3
 data/VocabPictures/chair.jpg~seĝo~chair~"Mi seĝas sur la seĝo."
 data/VocabPictures/sofa.jpeg~kanapo~sofa/couch~"Li seĝas sur la kanapo."

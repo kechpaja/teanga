@@ -258,189 +258,174 @@ data/VocabPictures/number1000.jpg,Nombr~0~ al mil!,u,i o u as is
 data/VocabPictures/million.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliono,Ĉu mil miliono miliardo
 data/VocabPictures/million.jpg,Tio estas ~0~.,miliono,mil miliono cent dek
 data/VocabPictures/million.jpg,Nombr~0~ al miliono!,u,i u as is
-data/VocabPictures/milliard.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliardo,Ĉu miliardo mil miliono
-data/VocabPictures/milliard.jpg,Tio estas ~0~.,miliardo,miliono miliardo mil cent
-data/VocabPictures/milliard.jpg,Nombr~0~ al miliardo!,u,i o u as is
+data/VocabPictures/billion.png,~0~ vi povas nombri al ~1~?,Ĉu miliardo,Ĉu miliardo mil miliono
+data/VocabPictures/billion.png,Tio estas ~0~.,miliardo,miliono miliardo mil cent
+data/VocabPictures/billion.png,Nombr~0~ al miliardo!,u,i o u as is
 data/VocabPictures/number.jpg,Tio estas nombr~0~ grand~1~.,o a,o u i e a
 data/VocabPictures/number.jpg,~0~ tio estas nombr~1~?,Ĉu o,o a u Ĉu De
 data/VocabPictures/count.jpg,~0~ vi nombras al dudek?,Ĉu,Ĉu Kio En Vi Al
 data/VocabPictures/count.jpg,~0~ vi povas nombri?,Ĉu,Ĉu Ne Jes Li
 2
-data/VocabPictures/day.jpg
-data/VocabPictures/day.jpg
-data/VocabPictures/day.jpg
-data/VocabPictures/monday.jpg
-data/VocabPictures/monday.jpg
-data/VocabPictures/monday.jpg
-data/VocabPictures/tuesday.jpg
-data/VocabPictures/tuesday.jpg
-data/VocabPictures/tuesday.jpg
-data/VocabPictures/wednesday.jpg
-data/VocabPictures/wednesday.jpg
-data/VocabPictures/wednesday.jpg
-data/VocabPictures/thursday.jpg
-data/VocabPictures/thursday.jpg
-data/VocabPictures/thursday.jpg
-data/VocabPictures/friday.jpg
-data/VocabPictures/friday.jpg
-data/VocabPictures/friday.jpg
-data/VocabPictures/saturday.jpg
-data/VocabPictures/saturday.jpg
-data/VocabPictures/saturday.jpg
-data/VocabPictures/sunday.jpg
-data/VocabPictures/sunday.jpg
-data/VocabPictures/sunday.jpg
-data/VocabPictures/month.jpg
-data/VocabPictures/month.jpg
-data/VocabPictures/month.jpg
-data/VocabPictures/january.jpg
-data/VocabPictures/january.jpg
-data/VocabPictures/january.jpg
-data/VocabPictures/february.jpg
-data/VocabPictures/february.jpg
-data/VocabPictures/february.jpg
-data/VocabPictures/march.jpg
-data/VocabPictures/march.jpg
-data/VocabPictures/march.jpg
-data/VocabPictures/april.jpg
-data/VocabPictures/april.jpg
-data/VocabPictures/april.jpg
-data/VocabPictures/may.jpg
-data/VocabPictures/may.jpg
-data/VocabPictures/may.jpg
-data/VocabPictures/june.jpg
-data/VocabPictures/june.jpg
-data/VocabPictures/june.jpg
-data/VocabPictures/july.jpg
-data/VocabPictures/july.jpg
-data/VocabPictures/july.jpg
-data/VocabPictures/august.jpg
-data/VocabPictures/august.jpg
-data/VocabPictures/august.jpg
-data/VocabPictures/september.jpg
-data/VocabPictures/september.jpg
-data/VocabPictures/september.jpg
-data/VocabPictures/october.jpg
-data/VocabPictures/october.jpg
-data/VocabPictures/october.jpg
-data/VocabPictures/november.jpg
-data/VocabPictures/november.jpg
-data/VocabPictures/november.jpg
-data/VocabPictures/december.jpg
-data/VocabPictures/december.jpg
-data/VocabPictures/december.jpg
-data/VocabPictures/season.jpg
-data/VocabPictures/season.jpg
-data/VocabPictures/season.jpg
-data/VocabPictures/spring.jpg
-data/VocabPictures/spring.jpg
-data/VocabPictures/spring.jpg
-data/VocabPictures/summer.jpg
-data/VocabPictures/summer.jpg
-data/VocabPictures/summer.jpg
-data/VocabPictures/autumn.jpg
-data/VocabPictures/autumn.jpg
-data/VocabPictures/autumn.jpg
-data/VocabPictures/winter.jpg
-data/VocabPictures/winter.jpg
-data/VocabPictures/winter.jpg
-data/VocabPictures/today.jpg
-data/VocabPictures/today.jpg
-data/VocabPictures/today.jpg
-data/VocabPictures/tomorrow.jpg
-data/VocabPictures/tomorrow.jpg
-data/VocabPictures/tomorrow.jpg
-data/VocabPictures/yesterday.jpg
-data/VocabPictures/yesterday.jpg
-data/VocabPictures/yesterday.jpg
-data/VocabPictures/approximately.jpg
-data/VocabPictures/approximately.jpg
-data/VocabPictures/approximately.jpg
+data/VocabPictures/day.jpg,Hodiaŭ la tago est~0~ lundo.,as,as is os u i
+data/VocabPictures/day.jpg,Hieraŭ la tago est~0~ mardo.,is,as is os u i
+data/VocabPictures/monday.jpg,Hodiaŭ est~0~ lundo.,as,as is os u i
+data/VocabPictures/monday.jpg,Hieraŭ est~0~ lundo.,is,as is os u i
+data/VocabPictures/tuesday.jpg,Hieraŭ est~0~ mardo.,is,as is os u i
+data/VocabPictures/tuesday.jpg,Hodiaŭ est~0~ mardo.,as,as is os u i
+data/VocabPictures/wednesday.jpg,Morgaŭ est~0~ merkredo.,os,as is os u i
+data/VocabPictures/wednesday.jpg,Hieraŭ est~0~ merkredo.,is,as is os u i
+data/VocabPictures/thursday.jpg,Hodiaŭ est~0~ ĵaŭdo.,as,as is os u i
+data/VocabPictures/thursday.jpg,Morgaŭ est~0~ ĵaŭdo.,os,as is os u i
+data/VocabPictures/friday.jpg,Hodiaŭ est~0~ vendredo.,as,as is os u i
+data/VocabPictures/friday.jpg,Morgaŭ est~0~ vendredo.,os,as is os u i
+data/VocabPictures/saturday.jpg,Hieraŭ est~0~ sabato.,is,as is os u i
+data/VocabPictures/saturday.jpg,Morgaŭ est~0~ sabato.,os,as is os u i
+data/VocabPictures/sunday.jpg,Hodiaŭ est~0~ dimanĉo.,as,as is os u i
+data/VocabPictures/sunday.jpg,Morgaŭ est~0~ dimanĉo.,os,as is os u i
+data/VocabPictures/january.jpg,Nun la monato est~0~ januaro.,as,as is os u i
+data/VocabPictures/january.jpg,En 2000 la monate est~0~ januaro.,is,as is os u i
+data/VocabPictures/february.jpg,Nun la monato est~0~ februaro.,as,as is os u i
+data/VocabPictures/february.jpg,En 2121 la monate est~0~ februaro.,os,as is os u i
+data/VocabPictures/march.jpg,En 2000 la monate est~0~ marto.,is,as is os u i
+data/VocabPictures/march.jpg,Nun la monato est~0~ marto.,as,as is os u i
+data/VocabPictures/april.jpg,En 2100 la monate est~0~ aprilo.,os,as is os u i
+data/VocabPictures/april.jpg,En 2000 la monate est~0~ aprilo.,is,as is os u i
+data/VocabPictures/may.jpg,Nun la monato est~0~ majo.,as,as is os u i
+data/VocabPictures/may.jpg,En 2000 la monate est~0~ majo.,is,as is os u i
+data/VocabPictures/june.jpg,Nun la monato est~0~ junio.,as,as is os u i
+data/VocabPictures/june.jpg,En 2000 la monate est~0~ junio.,is,as is os u i
+data/VocabPictures/july.jpg,En 2121 la monate est~0~ julio.,os,as is os u i
+data/VocabPictures/july.jpg,Nun la monato est~0~ julio.,as,as is os u i
+data/VocabPictures/august.jpg,En 2000 la monate est~0~ aŭgusto.,is,as is os u i
+data/VocabPictures/august.jpg,Nun la monato est~0~ aŭgusto.,as,as is os u i
+data/VocabPictures/september.jpg,En 2121 la monate est~0~ septembro.,os,as is os u i
+data/VocabPictures/september.jpg,En 2000 la monate est~0~ septembro.,is,as is os u i
+data/VocabPictures/october.jpg,Nun la monato est~0~ oktobro.,as,as is os u i
+data/VocabPictures/october.jpg,En 2121 la monate est~0~ oktobro.,os,as is os u i
+data/VocabPictures/november.jpg,Nun la monato est~0~ novembro.,as,as is os u i
+data/VocabPictures/november.jpg,En 2000 la monate est~0~ novembro.,is,as is os u i
+data/VocabPictures/december.jpg,En 2121 la monate est~0~ decembro.,os,as is os u i
+data/VocabPictures/december.jpg,Nun la monato est~0~ decembro.,as,as is os u i
+data/VocabPictures/spring.jpg,Nun la sezono est~0~ printempo.,as,as is os u i
+data/VocabPictures/spring.jpg,En 2000 la sezono est~0~ printempo.,is,as is os u i
+data/VocabPictures/summer.jpg,En 2121 la sezono est~0~ somero.,os,as is os u i
+data/VocabPictures/summer.jpg,Nun la sezono est~0~ somero.,as,as is os u i
+data/VocabPictures/autumn.jpg,En 2000 la sezono est~0~ aŭtuno.,is,as is os u i
+data/VocabPictures/autumn.jpg,En 2121 la sezono est~0~ aŭtuno.,os,as is os u i
+data/VocabPictures/winter.jpg,Nun la sezono est~0~ vintro.,as,as is os u i
+data/VocabPictures/winter.jpg,En 2000 la sezono est~0~ vintro.,is,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ mi manĝ~0~ la viandon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ vi vid~0~ personon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ li am~0~ la katon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ŝi trink~0~ lakton.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ri hav~0~ pomon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ĝi vol~0~ iri.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ni est~0~ fiŝoj.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ili aĉet~0~ fiŝon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ tio est~0~ viando.,as,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ mi est~0~ persono.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ vi hav~0~ du fiŝojn.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ li am~0~ rizon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ŝi manĝ~0~ pomon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ri aĉet~0~ fromaĝon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ĝi vid~0~ personon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ni vol~0~ porkaĵon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ili trink~0~.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ tio est~0~ ananaso.,os,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ mi vol~0~ citronon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ vi est~0~ kato.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ li est~0~ hundo.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ŝi vid~0~ min.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ri trink~0~ lakton.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ĝi hav~0~ domon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ni manĝ~0~ pizon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ili am~0~ lin.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ tio aĉet~0~ legomojn.,is,as is os u i
 3
-data/VocabPictures/chair.jpg
-data/VocabPictures/chair.jpg
-data/VocabPictures/chair.jpg
-data/VocabPictures/sofa.jpg
-data/VocabPictures/sofa.jpg
-data/VocabPictures/sofa.jpg
-data/VocabPictures/window.jpg
-data/VocabPictures/window.jpg
-data/VocabPictures/window.jpg
-data/VocabPictures/rug.jpg
-data/VocabPictures/rug.jpg
-data/VocabPictures/rug.jpg
-data/VocabPictures/bed.jpg
-data/VocabPictures/bed.jpg
-data/VocabPictures/bed.jpg
-data/VocabPictures/lamp.jpg
-data/VocabPictures/lamp.jpg
-data/VocabPictures/lamp.jpg
-data/VocabPictures/staircase.jpg
-data/VocabPictures/staircase.jpg
-data/VocabPictures/staircase.jpg
-data/VocabPictures/door.jpg
-data/VocabPictures/door.jpg
-data/VocabPictures/door.jpg
-data/VocabPictures/room.jpg
-data/VocabPictures/room.jpg
-data/VocabPictures/room.jpg
-data/VocabPictures/kitchen.jpg
-data/VocabPictures/kitchen.jpg
-data/VocabPictures/kitchen.jpg
-data/VocabPictures/bathroom.jpg
-data/VocabPictures/bathroom.jpg
-data/VocabPictures/bathroom.jpg
-data/VocabPictures/bedroom.jpg
-data/VocabPictures/bedroom.jpg
-data/VocabPictures/bedroom.jpg
-data/VocabPictures/basement.jpg
-data/VocabPictures/basement.jpg
-data/VocabPictures/basement.jpg
-data/VocabPictures/vacuum.jpg
-data/VocabPictures/vacuum.jpg
-data/VocabPictures/vacuum.jpg
-data/VocabPictures/fork.jpg
-data/VocabPictures/fork.jpg
-data/VocabPictures/fork.jpg
-data/VocabPictures/spoon.jpg
-data/VocabPictures/spoon.jpg
-data/VocabPictures/spoon.jpg
-data/VocabPictures/knife.jpg
-data/VocabPictures/knife.jpg
-data/VocabPictures/knife.jpg
-data/VocabPictures/plate.jpg
-data/VocabPictures/plate.jpg
-data/VocabPictures/plate.jpg
-data/VocabPictures/bowl.jpg
-data/VocabPictures/bowl.jpg
-data/VocabPictures/bowl.jpg
-data/VocabPictures/sleep.jpg
-data/VocabPictures/sleep.jpg
-data/VocabPictures/sleep.jpg
-data/VocabPictures/sit.jpg
-data/VocabPictures/sit.jpg
-data/VocabPictures/sit.jpg
-data/VocabPictures/wake_up.jpg
-data/VocabPictures/wake_up.jpg
-data/VocabPictures/wake_up.jpg
-data/VocabPictures/use.jpg
-data/VocabPictures/use.jpg
-data/VocabPictures/use.jpg
-data/VocabPictures/porch.jpg
-data/VocabPictures/porch.jpg
-data/VocabPictures/porch.jpg
-data/VocabPictures/out_of.jpg
-data/VocabPictures/out_of.jpg
-data/VocabPictures/out_of.jpg
-data/VocabPictures/dwell.jpeg
-data/VocabPictures/dwell.jpeg
-data/VocabPictures/dwell.jpeg
-data/VocabPictures/on.jpeg
-data/VocabPictures/on.jpeg
-data/VocabPictures/on.jpeg
-data/VocabPictures/through.jpeg
-data/VocabPictures/through.jpeg
-data/VocabPictures/through.jpeg
+data/VocabPictures/chair.jpg,
+data/VocabPictures/chair.jpg,
+data/VocabPictures/chair.jpg,
+data/VocabPictures/sofa.jpg,
+data/VocabPictures/sofa.jpg,
+data/VocabPictures/sofa.jpg,
+data/VocabPictures/window.jpg,
+data/VocabPictures/window.jpg,
+data/VocabPictures/window.jpg,
+data/VocabPictures/rug.jpg,
+data/VocabPictures/rug.jpg,
+data/VocabPictures/rug.jpg,
+data/VocabPictures/bed.jpg,
+data/VocabPictures/bed.jpg,
+data/VocabPictures/bed.jpg,
+data/VocabPictures/lamp.jpg,
+data/VocabPictures/lamp.jpg,
+data/VocabPictures/lamp.jpg,
+data/VocabPictures/staircase.jpg,
+data/VocabPictures/staircase.jpg,
+data/VocabPictures/staircase.jpg,
+data/VocabPictures/door.jpg,
+data/VocabPictures/door.jpg,
+data/VocabPictures/door.jpg,
+data/VocabPictures/room.jpg,
+data/VocabPictures/room.jpg,
+data/VocabPictures/room.jpg,
+data/VocabPictures/kitchen.jpg,
+data/VocabPictures/kitchen.jpg,
+data/VocabPictures/kitchen.jpg,
+data/VocabPictures/bathroom.jpg,
+data/VocabPictures/bathroom.jpg,
+data/VocabPictures/bathroom.jpg,
+data/VocabPictures/bedroom.jpg,
+data/VocabPictures/bedroom.jpg,
+data/VocabPictures/bedroom.jpg,
+data/VocabPictures/basement.jpg,
+data/VocabPictures/basement.jpg,
+data/VocabPictures/basement.jpg,
+data/VocabPictures/vacuum.jpg,
+data/VocabPictures/vacuum.jpg,
+data/VocabPictures/vacuum.jpg,
+data/VocabPictures/fork.jpg,
+data/VocabPictures/fork.jpg,
+data/VocabPictures/fork.jpg,
+data/VocabPictures/spoon.jpg,
+data/VocabPictures/spoon.jpg,
+data/VocabPictures/spoon.jpg,
+data/VocabPictures/knife.jpg,
+data/VocabPictures/knife.jpg,
+data/VocabPictures/knife.jpg,
+data/VocabPictures/plate.jpg,
+data/VocabPictures/plate.jpg,
+data/VocabPictures/plate.jpg,
+data/VocabPictures/bowl.jpg,
+data/VocabPictures/bowl.jpg,
+data/VocabPictures/bowl.jpg,
+data/VocabPictures/sleep.jpg,
+data/VocabPictures/sleep.jpg,
+data/VocabPictures/sleep.jpg,
+data/VocabPictures/sit.jpg,
+data/VocabPictures/sit.jpg,
+data/VocabPictures/sit.jpg,
+data/VocabPictures/wake_up.jpg,
+data/VocabPictures/wake_up.jpg,
+data/VocabPictures/wake_up.jpg,
+data/VocabPictures/use.jpg,
+data/VocabPictures/use.jpg,
+data/VocabPictures/use.jpg,
+data/VocabPictures/porch.jpg,
+data/VocabPictures/porch.jpg,
+data/VocabPictures/porch.jpg,
+data/VocabPictures/out_of.jpg,
+data/VocabPictures/out_of.jpg,
+data/VocabPictures/out_of.jpg,
+data/VocabPictures/dwell.jpeg,
+data/VocabPictures/dwell.jpeg,
+data/VocabPictures/dwell.jpeg,
+data/VocabPictures/on.jpeg,
+data/VocabPictures/on.jpeg,
+data/VocabPictures/on.jpeg,
+data/VocabPictures/through.jpeg,
+data/VocabPictures/through.jpeg,
+data/VocabPictures/through.jpeg,
 4
 data/VocabPictures/car.jpeg
 data/VocabPictures/car.jpeg
