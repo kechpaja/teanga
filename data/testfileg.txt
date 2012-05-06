@@ -11,7 +11,7 @@ data/VocabPictures/house.jpg,La dom~0~ est~1~ bel~2~.,o as a,a us as o i
 data/VocabPictures/house.jpg,Tio estas la dom~0~ de la kat~1~.,o o,a o o an
 data/VocabPictures/house.jpg,Ĝi est~0~ dom~1~.,as o,i o as u a
 data/VocabPictures/cat.jpg,La kat~0~ manĝ~1~.,o as,o as i on
-data/VocabPictures/cat.jpg,Vi est~0~ kato.,o as on in
+data/VocabPictures/cat.jpg,Vi est~0~ kato.,as,o as on in
 data/VocabPictures/cat.jpg,Mi hav~0~ katon.,as,o i as u
 data/VocabPictures/table.jpg,La tabl~0~ estas bel~1~.,o a,o i a is os
 data/VocabPictures/table.jpg,Tio est~0~ tabl~1~.,as o,as o i on
