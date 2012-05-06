@@ -1,4 +1,23 @@
 Saluton!
+Where is the cat?
+Where is the person?
+Where is the bird?
+What is on the table in the house?
+Please describe a cat, using the vocabulary you have learned. 
+Please describe a mouse, using the vocabulary you have learned.
+Please describe a fish, using the vocabulary you have learned. 
+What is the mouse doing? (use your imagination...)
+What is the cat doing? (use your imagination...)
+What is the dog doing?
+Where are they?
+Where are we going?
+Adiaŭ!
+1~data/chapter0.jpg
+2~data/chapter1.jpg
+3~data/chapter2.jpg
+4~data/chapter3.jpg
+5~data/chapter4.jpg
+6~data/chapter5.jpg
+
 What do you buy at the grocery store?
 What is your favorite food?
-1~data/grocery.jpg

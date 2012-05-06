@@ -1,9 +1,13 @@
 package GUI;
 
+import gfx.ColorText;
+import gfx.Ellipse;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Graphics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -27,9 +31,13 @@ public class GUIOptionsPanel extends JPanel{
 	
 	private JButton buttons[][];
 	private JLabel levelNames[];
+	private Ellipse ellipses[][];
+	private int scores[][];
+	private ColorText scoreLabels[][];
+	private int numacts;
 	private Driver _driver;
 	
-	public GUIOptionsPanel(BufferedReader  fileReader, int numacts, PlayerStats stats, Driver driver) throws IOException{
+	public GUIOptionsPanel(BufferedReader fileReader, int numacts1, PlayerStats stats, Driver driver) throws IOException{
 		super(new BorderLayout());
 		
 		this.setBackground(new Color (238,238,238,255));
@@ -37,6 +45,11 @@ public class GUIOptionsPanel extends JPanel{
 		
 		buttons = new JButton[numacts][5];
 		levelNames = new JLabel[numacts];
+		ellipses = new Ellipse[numacts][5];
+		scores = new int[numacts][5];
+		scoreLabels = new ColorText[numacts][5]; 
+		numacts = numacts1;
+		
 		_driver = driver;
 		
 		String line;
@@ -71,6 +84,18 @@ public class GUIOptionsPanel extends JPanel{
 		        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 		        buttons[i][j].setBackground(new Color(238,238,238,0));
 		        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
+		        
+		        ellipses[i][j] = new Ellipse(this);
+		        ellipses[i][j].setSize(15, 15);
+		        ellipses[i][j].setFillColor(new Color(0,0,100,255));
+		        ellipses[i][j].setBorderColor(Color.BLACK);
+		        ellipses[i][j].setVisible(false);
+		        
+		        scores[i][j] = -1;
+		        
+		        scoreLabels[i][j] = new ColorText(this, new Integer(scores[i][j]).toString());
+		        scoreLabels[i][j].setVisible(false);
+		        
 			}
 			buttons[0][4].setEnabled(true);//--------------------------------------------------
 			
@@ -88,7 +113,7 @@ public class GUIOptionsPanel extends JPanel{
 		titles.setBackground(new Color(238,238,238,255));
 		
 		Box theTitles = Box.createHorizontalBox();
-		JLabel learning = new JLabel("Learni");
+		JLabel learning = new JLabel("Lerni");
 		JLabel games = new JLabel("Apliki");
 		learning.setFont(new Font("Century", Font.BOLD, 30));
 		games.setFont(new Font("Century", Font.BOLD, 30));
@@ -146,6 +171,46 @@ public class GUIOptionsPanel extends JPanel{
 			this.add(titles, BorderLayout.NORTH);
 			this.add(totalBox, BorderLayout.CENTER);
 		
+	}
+	
+	public void updateScores(){
+		
+		for (int i = 0; i < numacts; i++){
+			for (int j = 0; j <5; j++){
+				
+				if(scores[i][j] > -1){
+					int offset;
+					if(scores[i][j] <10){
+						offset = 5;
+					} else if(scores[i][j] <100){
+						offset = 3;
+					} else{
+						offset = 1;
+					}
+					ellipses[i][j].setLocation(buttons[i][j].getX(), buttons[i][j].getY());
+					ellipses[i][j].setVisible(true);
+					scoreLabels[i][j] = new ColorText(this, new Integer(scores[i][j]).toString());
+					scoreLabels[i][j].setLocation(buttons[i][j].getX()+offset, buttons[i][j].getY()+offset);
+					scoreLabels[i][j].setVisible(true);
+				}
+				
+			}
+		}
+		
+	}
+	
+	//Paint all of the pieces when painting the panel
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		Graphics2D brush = (Graphics2D) g;
+
+		for (int i = 0; i < numacts; i++){
+			for (int j = 0; j < 5; j++){
+				ellipses[i][j].paint(brush);
+				scoreLabels[i][j].paint(brush);
+			}
+		}
+
 	}
 	
 	//Creates a Vocab Game
