@@ -15,6 +15,10 @@ public class SentencePicturePair extends PicturePair{
 		super(pp);
 		partialSentence = ps;
 		correctAnswers = ca;
+		for (int i=0; i<pos.length;i++)
+		{
+			pos[i]=pos[i].replace("_", " ");
+		}
 		possibilities = pos;
 		answersGiven = new String[ca.length];
 	}
