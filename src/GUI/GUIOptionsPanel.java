@@ -37,7 +37,7 @@ public class GUIOptionsPanel extends JPanel{
 	private int numacts;
 	private Driver _driver;
 	
-	public GUIOptionsPanel(BufferedReader  fileReader, int numacts1, PlayerStats stats, Driver driver) throws IOException{
+	public GUIOptionsPanel(BufferedReader fileReader, int numacts1, PlayerStats stats, Driver driver) throws IOException{
 		super(new BorderLayout());
 		
 		this.setBackground(new Color (238,238,238,255));
