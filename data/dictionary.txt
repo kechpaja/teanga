@@ -874,7 +874,7 @@ noun
 La ŝipoj iras sur la oceano.
 
 povi
-to be able/can
+can, to be able
 verb
 Mi povas trinki lakton.
 

@@ -77,7 +77,7 @@ public class GUIOptionsPage extends JPanel{
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
 		} catch (Exception e) {
-			String errorMessage = "There was an reading finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Could not read file.");
 			System.exit(0);

@@ -85,10 +85,10 @@ public class GUIVocabGameBoard extends JPanel {
 		}
 	}
 	
-	public void showHint(){
+	/*public void showHint(){
 		//THIS NEEDS TO BE DONE BY DANIELLE CAUSE TARA IS CONFUSED.
 		System.out.println("this much works...");
-	}
+	}*/
 
 	//Remove the bottom piece
 	public void clearPiece(){

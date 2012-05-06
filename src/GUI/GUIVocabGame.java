@@ -20,9 +20,11 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 import encoding.EncodingShiftListener;
 
@@ -55,18 +57,28 @@ public class GUIVocabGame extends JPanel{
 		
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
+		ActionListener actionListener = new ActionListener() {
+		      public void actionPerformed(ActionEvent actionEvent) {
+		    	  System.out.println("I'M HERE BITCH! WOOOHOO!");
+		        _gameBoard._pieces[0].replacePicWithWord();
+		      }
+		    };
+		
 
 		//The panel that contains the text field in which the user
 		// types their guesses.
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
+		this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
-		_textField.addKeyListener(new HintListener());
+		//_textField.addKeyListener(new HintListener());
 		enterAnswers.add(_textField);	
+		_textField.requestFocusInWindow();
+		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 		
 		
 		//Creating the Boundaries and Putting it all together
@@ -168,6 +180,8 @@ public class GUIVocabGame extends JPanel{
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
+		_textField.requestFocus();
+		//_textField.requestFocusInWindow();
 
 	}
 	
@@ -181,7 +195,7 @@ public class GUIVocabGame extends JPanel{
 
 	}
 	
-	private class HintListener implements KeyListener{
+	/*private class HintListener implements KeyListener{
 
 		@Override
 		public void keyTyped(KeyEvent e) {
@@ -202,7 +216,7 @@ public class GUIVocabGame extends JPanel{
 			
 		}
 		
-	}
+	}*/
 
 	//When someone types enter, the text they typed is checked and if it
 	// is correct then the bottom piece is cleared and the correct answer

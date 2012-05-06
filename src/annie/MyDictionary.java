@@ -40,7 +40,7 @@ public class MyDictionary {
 					strLine = br.readLine();
 				}
 				
-				LinkedList<String> translation=new LinkedList<String>(Arrays.asList(strLine.split(" ")));
+				LinkedList<String> translation=new LinkedList<String>(Arrays.asList(strLine.split(", ")));
 				if(((strLine = br.readLine()) != null))
 				{
 					// skip comments and blank lines
@@ -82,6 +82,10 @@ public class MyDictionary {
 	
 	public Word getWord(String s, Boolean esp2eng)
 	{
+		if(s==null)
+		{
+			return null;
+		}
 		s=s.toLowerCase();
 		if(esp2eng)
 		{
@@ -110,6 +114,10 @@ public class MyDictionary {
 		} else {
 			// otherwise, just return the input. 
 			ret = s;
+		}
+		if(s.equals("saluton")||s.equals("nun"))
+		{
+			ret=s;
 		}
 		
 		return ret;
