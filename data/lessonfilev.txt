@@ -90,6 +90,7 @@ data/VocabPictures/number.jpeg~nombro~number~"Dudek estas nombro."
 data/VocabPictures/count.jpeg~nombri~to count~"Mi nombras la katojn."
 2
 data/VocabPictures/day.jpg~tago~day~"Bonan tagon!"
+data/VocabPictures/week.jpg~semajno~week~"Sep tagoj estas unu semajno."
 data/VocabPictures/monday.jpg~lundo~Monday~"Hodiaŭ estas lundo."
 data/VocabPictures/tuesday.jpg~mardo~Tuesday~"Hodiaŭ estas mardo."
 data/VocabPictures/wednesday.jpg~merkredo~Wednesday~"Hodiaŭ estas merkredo."

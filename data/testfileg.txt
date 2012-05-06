@@ -179,89 +179,88 @@ data/VocabPictures/for.jpg,La legom~0~ estas ~1~ mi.,oj por,por de en oj i
 data/VocabPictures/for.jpg,Tio estas muso por la kat~0~.,o,o a e i
 data/VocabPictures/for.jpg,Ĝi estas por v~0~.,i,o in i on
 1
+data/VocabPictures/zero.jpg,~0~ vi povas nombri al ~1~? ~2~.,Ĉu nul Ne,De Ne Jes Ĉu nul unu
+data/VocabPictures/zero.jpg,Tio estas ~0~.,nul,unu nul du dek
 data/VocabPictures/pork.jpg,~0~ vi volas porkaĵon?,Ĉu,Ĉu De La Vi
 data/VocabPictures/number1.jpg,~0~ vi povas nombri al ~1~?,Ĉu unu,Ĉu unu du tri
 data/VocabPictures/number1.jpg,Tio estas ~0~.,unu,du unu dek kvar
-data/VocabPictures/number1.jpg,
+data/VocabPictures/number1.jpg,Nombr~0~ al unu!,u,i o u as is
 data/VocabPictures/beef.jpg,~0~ li manĝas bovaĵon?,Ĉu,Ĉu La Mi Li
 data/VocabPictures/number2.jpg,~0~ vi povas nombri al ~1~?,Ĉu du,Ĉu tri kvar du
 data/VocabPictures/number2.jpg,Tio estas ~0~.,du,unu du tri kvar
-data/VocabPictures/number2.jpg,
+data/VocabPictures/number2.jpg,Nombr~0~ al du!,u,i u as is
 data/VocabPictures/go.jpg,~0~ ili povas iri?,Ĉu,Le Li La Ĉu Ĉa
 data/VocabPictures/number3.jpg,~0~ vi povas nombri al ~1~?,Ĉu tri,Ĉu kvin tri miliono
 data/VocabPictures/number3.jpg,Tio estas ~0~.,tri tridek naŭ du
-data/VocabPictures/number3.jpg,
+data/VocabPictures/number3.jpg,Nombr~0~ al tri!,u,i as is os u
 data/VocabPictures/see.jpg,~0~ ili vidas min?,Ĉu,Ĉia Ĉu Ili Li
 data/VocabPictures/number4.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvar,Ĉu kvar unu dek
 data/VocabPictures/number4.jpg,Tio estas ~0~.,kvar,unu du tri kvar
-data/VocabPictures/number4.jpg,
+data/VocabPictures/number4.jpg,Nombr~0~ al kvar!,u,i as is os u
 data/VocabPictures/count.jpg,~0~ vi nombras ilin?,Ĉu,Se Si Ĉu La
 data/VocabPictures/number5.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvin,Ĉu kvin du dudek
 data/VocabPictures/number5.jpg,Tio estas ~0~.,kvin,du kvin dek unu
-data/VocabPictures/number5.jpg,
+data/VocabPictures/number5.jpg,Nombr~0~ al kvin!,u,i u as is
 data/VocabPictures/cat.jpg,~0~ la kato manĝas la muson?,Ĉu,La Ĉu Li On
 data/VocabPictures/number6.jpg,~0~ vi povas nombri al ~1~?,Ĉu ses,Ĉu dek naŭ ses
 data/VocabPictures/number6.jpg,Tio estas ~0~.,ses,ok naŭ du ses
-data/VocabPictures/number6.jpg,
+data/VocabPictures/number6.jpg,Nombr~0~ al ses!,u,i u as is
 data/VocabPictures/cheese.jpg,~0~ la musoj manĝas la fromaĝon?,Ĉu,Ĉu In Ni Ne
 data/VocabPictures/number7.jpg,~0~ vi povas nombri al ~1~?,Ĉu sep,Ĉu unu sep naŭ
 data/VocabPictures/number7.jpg,Tio estas ~0~.,sep,sep ses kvin kvar
-data/VocabPictures/number7.jpg,
+data/VocabPictures/number7.jpg,Nombr~0~ al sep!,u,i o u as is
 data/VocabPictures/delicious.jpg,~0~ la porkaĵo estas bongusta?,Ĉu,Nu Ne Jes Ĉu
 data/VocabPictures/number8.jpg,~0~ vi povas nombri al ~1~?,Ĉu ok,Ĉu nul ok unu
 data/VocabPictures/number8.jpg,Tio estas ~0~.,ok,naŭ ok unu du
-data/VocabPictures/number8.jpg,
+data/VocabPictures/number8.jpg,Nombr~0~ al ok!,u,i o u as is
 data/VocabPictures/milk.jpg,~0~ vi trinkas lakton?,Ĉu,Mi Ni Ĉu Li
 data/VocabPictures/number9.jpg,~0~ vi povas nombri al ~1~?,Ĉu naŭ,Ĉu ok unu naŭ
 data/VocabPictures/number9.jpg,Tio estas ~0~.,naŭ,naŭ ok ses sep
-data/VocabPictures/number9.jpg,
+data/VocabPictures/number9.jpg,Nombr~0~ al naŭ!,u,i u as is
 data/VocabPictures/person.jpg,~0~ la personoj estas bongustaj?,Ĉu,Jes Ne Ĉu O
 data/VocabPictures/number10.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek,Ĉu naŭ dek du
 data/VocabPictures/number10.jpg,Tio estas ~0~.,dek,naŭ dek ses sep
-data/VocabPictures/number10.jpg,
+data/VocabPictures/number10.jpg,Nombr~0~ al dek!,u,i as is os u
 data/VocabPictures/eat.jpg,~0~ vi volas manĝi?,Ĉu,Ĥi Ĉu Li La
 data/VocabPictures/number11.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_unu,Ĉu du dudek dek_unu
 data/VocabPictures/number11.jpg,Tio estas ~0~.,dek_unu,unu dek dek_unu dek_du
-data/VocabPictures/number11.jpg,
+data/VocabPictures/number11.jpg,Nombr~0~ al dek_unu!,u,i u as is
 data/VocabPictures/cat.jpg,~0~ li estas kato?,Ĉu,Ĉu Li Nu Ne
 data/VocabPictures/number12.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_du,Ĉu dek_du dek_tri dek
 data/VocabPictures/number12.jpg,Tio estas ~0~.,dek_du,dek_du du dek dudek
-data/VocabPictures/number12.jpg,
+data/VocabPictures/number12.jpg,Nombr~0~ al dek_du!,u,i o u as is
 data/VocabPictures/mouse.jpg,~0~ la muso estas en la kato? ~1~.,,Ĉu Ne,Jes Ne Le Lo Ĉu
 data/VocabPictures/number13.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_tri,Ĉu du dek dudek dek_tri
 data/VocabPictures/number13.jpg,Tio estas ~0~.,dek_tri,dek_tri tridek dudek dek
-data/VocabPictures/number13.jpg,
+data/VocabPictures/number13.jpg,Nombr~0~ al dek_tri!,u,i as is os u
 data/VocabPictures/mouse.jpg,~0~ la kato manĝas la muson? ~1~.,Ĉu Ne,La Ol Ĉu De Ne
 data/VocabPictures/number14.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_kvar,Ĉu tridek dek_kvar kvar
 data/VocabPictures/number14.jpg,Tio estas ~0~.,dek_kvar,dek_tri dek_kvar kvardek tridek
-data/VocabPictures/number14.jpg,
+data/VocabPictures/number14.jpg,Nombr~0~ al dek_kvar!,u,i o u as is
 data/VocabPictures/drink.jpg,~0~ vi trinkas? ~1~.,Ĉu Jes,Jes Ne Ĉu La
 data/VocabPictures/number20.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek,Ĉu dudek dek du
 data/VocabPictures/number20.jpg,Tio estas ~0~.,dudek,tridek dudek dek_du dek_tri
-data/VocabPictures/number20.jpg,
+data/VocabPictures/number20.jpg,Nombr~0~ al dudek!,u,i u as is
 data/VocabPictures/cat.jpg,~0~ la kato iras?,Ĉu,De Ĉu La Mi
 data/VocabPictures/number21.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_unu,Ĉu dudek_unu unu dek_du
 data/VocabPictures/number21.jpg,Tio estas ~0~.,dudek_unu,dudek dek_du dudek_unu dek
-data/VocabPictures/number21.jpg,
+data/VocabPictures/number21.jpg,Nombr~0~ al dudek_unu!,u,i as is os u
 data/VocabPictures/dog.jpg,~0~ la hundo manĝas?,Ĉu,La En I El Ĉu
 data/VocabPictures/number22.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_du,Ĉu dek_du dudek_du dudek
-data/VocabPictures/number22.jpg,Tio estas ~0~.,
-data/VocabPictures/number22.jpg,
+data/VocabPictures/number22.jpg,Tio estas ~0~.,dudek_du,dudek_du dudek_unu dudek du
+data/VocabPictures/number22.jpg,Nombr~0~ al dudek_du!,u,i o u as is
 data/VocabPictures/number100.jpg,~0~ vi povas nombri al ~1~?,Ĉu cent,cent, mil Ĉu De Ne La
-data/VocabPictures/number100.jpg,Tio estas ~0~.,
-data/VocabPictures/number100.jpg,
-data/VocabPictures/number1000.jpg,~0~
+data/VocabPictures/number100.jpg,Tio estas ~0~.,cent,mil cent miliono dek
+data/VocabPictures/number100.jpg,Nombr~0~ al cent!,u,i as is os u
 data/VocabPictures/number1000.jpg,~0~ vi povas nombri al ~1~?,Ĉu mil,Ĉu mil cent miliono
-data/VocabPictures/number1000.jpg,Tio estas ~0~.,
-data/VocabPictures/number1000.jpg,
-data/VocabPictures/million.jpg,~0~
+data/VocabPictures/number1000.jpg,Tio estas ~0~.,mil,cent mil dek dek_unu
+data/VocabPictures/number1000.jpg,Nombr~0~ al mil!,u,i o u as is
 data/VocabPictures/million.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliono,Ĉu mil miliono miliardo
-data/VocabPictures/million.jpg,Tio estas ~0~.,
-data/VocabPictures/million.jpg,
-data/VocabPictures/milliard.jpg,~0~
+data/VocabPictures/million.jpg,Tio estas ~0~.,miliono,mil miliono cent dek
+data/VocabPictures/million.jpg,Nombr~0~ al miliono!,u,i u as is
 data/VocabPictures/milliard.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliardo,Ĉu miliardo mil miliono
-data/VocabPictures/milliard.jpg,Tio estas ~0~.,
-data/VocabPictures/milliard.jpg,
+data/VocabPictures/milliard.jpg,Tio estas ~0~.,miliardo,miliono miliardo mil cent
+data/VocabPictures/milliard.jpg,Nombr~0~ al miliardo!,u,i o u as is
 data/VocabPictures/number.jpg,Tio estas nombr~0~ grand~1~.,o a,o u i e a
 data/VocabPictures/number.jpg,~0~ tio estas nombr~1~?,Ĉu o,o a u Ĉu De
 data/VocabPictures/count.jpg,~0~ vi nombras al dudek?,Ĉu,Ĉu Kio En Vi Al
