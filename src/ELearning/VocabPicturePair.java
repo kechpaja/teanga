@@ -11,6 +11,8 @@ public class VocabPicturePair extends PicturePair{
 	}
 	
 	public boolean checkWord(String answer){
+		answer=answer.toLowerCase();
+		answer=annie.MyDictionary.deinflect(answer);
 		return (answer.equals(vocabWord));
 	}
 	
