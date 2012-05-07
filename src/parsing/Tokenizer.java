@@ -233,7 +233,7 @@ public class Tokenizer {
 			
 			// make sure the word exists in the dictionary...
 			if (dict_.getWord(s, true) == null) {
-				mistakes.add(new FatalMistake(left, left + s.length(), "Error: This Word is Invalid"));
+				mistakes.add(new FatalMistake(left, left + s.length(), "This word is not in the dictionary."));
 			}
 			
 			// create token 
