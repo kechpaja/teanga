@@ -43,17 +43,16 @@ public class GUIOptionsPanel extends JPanel{
 		this.setBackground(new Color (238,238,238,255));
 		this.setPreferredSize(new Dimension(950,100*numacts+70));
 		
+		numacts = numacts1;
 		buttons = new JButton[numacts][5];
 		levelNames = new JLabel[numacts];
 		ellipses = new Ellipse[numacts][5];
 		scores = new int[numacts][5];
 		scoreLabels = new ColorText[numacts][5]; 
-		numacts = numacts1;
 		
 		_driver = driver;
 		
 		String line;
-
 		for(int i = 0; i<numacts; i++){
 			
 			if((line = fileReader.readLine()) == null){
@@ -64,26 +63,44 @@ public class GUIOptionsPanel extends JPanel{
 			String picturePaths[] = new String[6];
 			picturePaths = line.split(",");
 			
+			System.out.println("ONE");
 			BufferedImage pictures[] = new BufferedImage[5];
 			pictures[0] = ImageIO.read(new File(picturePaths[0]));
 			pictures[1] = ImageIO.read(new File(picturePaths[1]));
 			pictures[2] = ImageIO.read(new File(picturePaths[2]));
 			pictures[3] = ImageIO.read(new File(picturePaths[3]));
 			pictures[4] = ImageIO.read(new File(picturePaths[5]));
+			System.out.println("TWO");
 			
 			int picsize = 87;
 			
 			for(int j=0; j<5; j++){
+				System.out.println("in pic read loop");
 				int type = BufferedImage.TYPE_INT_ARGB;
 		        BufferedImage dst = new BufferedImage(picsize, picsize, type);
+		        
+		        System.out.println("after image read???");
+		        
 		        Graphics2D g1 = dst.createGraphics();
 		        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
+		        
+		        System.out.println("after image drawl...");
+		        
 		        g1.dispose();
 		        ImageIcon newIcon = new ImageIcon(dst);
+		        
+		        System.out.println("mmmmm...");
+		        
 		        buttons[i][j] = new JButton(newIcon);
+		        
+		        System.out.println("bugs...");
+		        
 		        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 		        buttons[i][j].setBackground(new Color(238,238,238,0));
 		        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
+		        
+		        
+		        System.out.println("safdafdsf?");
 		        
 		        ellipses[i][j] = new Ellipse(this);
 		        ellipses[i][j].setSize(15, 15);
@@ -91,11 +108,14 @@ public class GUIOptionsPanel extends JPanel{
 		        ellipses[i][j].setBorderColor(Color.BLACK);
 		        ellipses[i][j].setVisible(false);
 		        
+		        System.out.println("here?????????????");
+		        
 		        scores[i][j] = -1;
 		        
 		        scoreLabels[i][j] = new ColorText(this, new Integer(scores[i][j]).toString());
 		        scoreLabels[i][j].setVisible(false);
 		        
+		        System.out.println("jkhfjghfjhgfgh");
 			}
 			buttons[0][4].setEnabled(true);//--------------------------------------------------
 			
@@ -239,18 +259,18 @@ public class GUIOptionsPanel extends JPanel{
 			case 3:
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, 0));
 				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, 0));
 				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 2).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, 0));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}
