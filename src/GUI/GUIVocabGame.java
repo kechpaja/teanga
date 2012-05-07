@@ -181,11 +181,13 @@ public class GUIVocabGame extends JPanel{
 	}
 
 	//Checks a typed answers
-	public void checkAnswer(String answer){
-		if(_vocabLevel.tryAnswer(answer)){
+	public boolean checkAnswer(String answer){
+		boolean toReturn = _vocabLevel.tryAnswer(answer);
+		if(toReturn){
 			_gameBoard.clearPiece();
 		}
 		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
+		return toReturn;
 
 	}
 
@@ -196,7 +198,9 @@ public class GUIVocabGame extends JPanel{
 
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			String text = _textField.getText();
-			checkAnswer(text);
+			if(checkAnswer(text)){
+				_textField.setBackground(new Color(100, 200, 100, 255));
+			} else _textField.setBackground(new Color(200, 100, 100, 255));
 			_textField.setText("");
 		}
 

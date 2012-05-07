@@ -35,7 +35,7 @@ public class GUIGrammarGame extends JPanel{
 	private GrammarLevel _grammarLevel;
 	private Driver _driver;
 	private JPanel _panel;
-	private Box _horizontalChoice, topHoriz;
+	private Box _horizontalChoice,topHoriz;
 	private JLabel _userName, _score;
 	private Box picHoriz;
 
@@ -117,7 +117,7 @@ public class GUIGrammarGame extends JPanel{
 		_choicePanel = makeSentanceBox(gl.getCurrent().getPartialSentence());
 		_horizontalChoice.add(_choicePanel);
 		
-		JButton submit = new JButton("SubmetiÄ�u");
+		JButton submit = new JButton("Submetiĝu");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		submit.setSize(120,35);
