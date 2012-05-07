@@ -8,6 +8,8 @@ import java.awt.Color;
 import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -28,6 +30,10 @@ public class GUIVocabGamePiece {
 	
 	public GUIVocabGamePiece(String imagePath, JPanel panel, double x, double y, int bottom, String word){
 		
+		if(word.contains(", "))
+		{
+			word=word.substring(0, word.indexOf(","));
+		}
 		_x = x;
 		_y = y;
 		_bottom = bottom;
@@ -119,5 +125,7 @@ public class GUIVocabGamePiece {
 			_word.paint(brush);
 		}
 	}
+	
+
 
 }

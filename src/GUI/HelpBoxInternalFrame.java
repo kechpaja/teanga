@@ -36,7 +36,7 @@ public class HelpBoxInternalFrame extends JFrame{
 	JFrame toClose;
 	
 	public HelpBoxInternalFrame(String levelHelp, int at, int ln, Driver d){
-		super("Help");
+		super("Helpu");
 		
 		toClose = this;
 		_driver = d;
@@ -45,7 +45,7 @@ public class HelpBoxInternalFrame extends JFrame{
 		this.setBackground(new Color(100,110,255,255));
 		//overall.setSize(500, 500);
 
-		backToLesson = new JButton("More Help");
+		backToLesson = new JButton("Helpu Pli");
 		backToLesson.addActionListener(new helpActionListener());
 		genHelp = new JButton("How To Use ELearning");
 		genHelp.addActionListener(new genHelpActionListener());
