@@ -303,6 +303,41 @@ from, out of
 preposition
 Mi iras el la domo.
 
+tio
+that, this
+pronoun
+Tio estas kato.
+
+persono
+person
+noun
+Vi estas persono.
+
+malgranda
+small
+adjective
+la bebo estas malgranda.
+
+bona
+good
+adjective
+Mi manĝas bonan manĝon.
+
+iri
+to go
+verb
+Mi iras al domo.
+
+malbona
+bad
+adjective
+ĉi tia verko estas malbona.
+
+ami
+to love
+verb
+Mi amas la hundon.
+
 ĝis
 until
 preposition
