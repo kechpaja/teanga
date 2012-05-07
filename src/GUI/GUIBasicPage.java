@@ -14,7 +14,10 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -79,7 +82,12 @@ public class GUIBasicPage extends JPanel{
 		JPanel listpane = new JPanel(new BorderLayout());
 		listpane.setBackground(new Color(238,238,238,255));
 
-		String[] usernames = _driver.openingpage.getUsernames().toArray(new String[0]);
+		/* List b = new ArrayList(a);
+	Collections.copy(b,a);*/
+		List<String> usernameslist = new ArrayList<String>(_driver.openingpage.getUsernames());
+		Collections.copy(usernameslist, _driver.openingpage.getUsernames());
+		Collections.sort(usernameslist, String.CASE_INSENSITIVE_ORDER);
+		String[] usernames = usernameslist.toArray(new String[0]);
 		
 		Border compound = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,350,30,350), BorderFactory.createLineBorder(Color.black));
 		nameList = new JList(usernames);
