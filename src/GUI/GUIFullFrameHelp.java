@@ -125,7 +125,7 @@ public class GUIFullFrameHelp extends JPanel{
 				topBar.setSize(400,35);
 				topBar.setLocation(435, 3);
 				
-				JButton back = new JButton("Go!");
+				JButton back = new JButton("Iru!");
 				back.addActionListener(new OntoOptionsActionListener());
 				back.setSize(new Dimension(100, 30));
 				back.setLocation(875,5);
