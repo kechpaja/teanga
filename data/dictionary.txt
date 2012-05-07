@@ -1097,3 +1097,13 @@ iri
 to go
 verb
 Mi iras al domo.
+
+suko
+juice
+noun
+Mi trinkas sukon.
+
+sango
+blood
+noun
+Mi *ne* trinkas sangon!
