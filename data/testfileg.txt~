@@ -433,71 +433,71 @@ data/VocabPictures/bus.jpeg,La persono vojaĝas per ~0~ aŭtobuso.,sia,nia sia v
 data/VocabPictures/bus.jpeg,La aŭtobuso ne povas stiri ~0~.,sin,lin ĝin ŝin sin
 data/VocabPictures/airplane.jpeg,Mi flugas en ~0~ aeroplano.,mia,mia ria lia ilia
 data/VocabPictures/airplane.jpeg,Ni vojaĝas per ~0~ aeroplano.,nia,nia ilia via lia
-data/VocabPictures/airplane.jpeg,
+data/VocabPictures/airplane.jpeg,Ki~0~ la aeroplano iras?,e,o u e a
 data/VocabPictures/train.jpeg,Vi vojaĝas per ~0~ trajno.,via,nia via lia ria
-data/VocabPictures/train.jpeg,
-data/VocabPictures/train.jpeg,
+data/VocabPictures/train.jpeg,La trajno ir~0~.,as,as i u un
+data/VocabPictures/train.jpeg,Li volas iri per ~0~ trajno.,sia,sia nia lia via
 data/VocabPictures/tram.jpeg,Li vojaĝas per ~0~ tramo.,sia,nia sia via lia
-data/VocabPictures/tram.jpeg,
-data/VocabPictures/tram.jpeg,
+data/VocabPictures/tram.jpeg,Ĉu vi vidas tram~0~?,on,o on a an
+data/VocabPictures/tram.jpeg,La tramo iras ~0~ la strato.,sur,en sur la el
 data/VocabPictures/bicycle.jpeg,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
-data/VocabPictures/bicycle.jpeg,
-data/VocabPictures/bicycle.jpeg,
+data/VocabPictures/bicycle.jpeg,Mi iras per bicikl~0~.,o,a o on an
+data/VocabPictures/bicycle.jpeg,La biciklo bel~0~ portas m~1~.,a in,o a i in on
 data/VocabPictures/ship.jpeg,Ri vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
-data/VocabPictures/ship.jpeg,Mi 
-data/VocabPictures/ship.jpeg,
-data/VocabPictures/ocean.jpeg,
-data/VocabPictures/ocean.jpeg,
-data/VocabPictures/ocean.jpeg,
-data/VocabPictures/water.jpeg,
-data/VocabPictures/water.jpeg,
-data/VocabPictures/water.jpeg,
-data/VocabPictures/hotel.jpeg,
-data/VocabPictures/hotel.jpeg,
-data/VocabPictures/hotel.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/full.jpeg,
-data/VocabPictures/full.jpeg,
-data/VocabPictures/full.jpeg,
-data/VocabPictures/empty.jpeg,
-data/VocabPictures/empty.jpeg,
-data/VocabPictures/empty.jpeg,
-data/VocabPictures/smart.jpeg,
-data/VocabPictures/smart.jpeg,
-data/VocabPictures/smart.jpeg,
-data/VocabPictures/carry.jpeg,
-data/VocabPictures/carry.jpeg,
-data/VocabPictures/carry.jpeg,
-data/VocabPictures/pack.jpeg,
-data/VocabPictures/pack.jpeg,
-data/VocabPictures/pack.jpeg,
-data/VocabPictures/fly.jpeg,
-data/VocabPictures/fly.jpeg,
-data/VocabPictures/fly.jpeg,
-data/VocabPictures/drive.jpeg,
-data/VocabPictures/drive.jpeg,
-data/VocabPictures/drive.jpeg,
-data/VocabPictures/travel.png,
-data/VocabPictures/travel.png,
-data/VocabPictures/travel.png,
-data/VocabPictures/sail.jpeg,
-data/VocabPictures/sail.jpeg,
-data/VocabPictures/sail.jpeg,
-data/VocabPictures/swim.jpeg,
-data/VocabPictures/swim.jpeg,
-data/VocabPictures/swim.jpeg,
-data/VocabPictures/walk.jpg,
-data/VocabPictures/walk.jpg,
+data/VocabPictures/ship.jpeg,Mi velas per ~0~ ŝipo.,mia,mia nia lia ŝia
+data/VocabPictures/ship.jpeg,La ŝipoj bel~0~ estas sur la oceano.,aj,oj aj on an
+data/VocabPictures/ocean.jpeg,La akv~0~ estas en la ocean~1~.,o o,o an on o e
+data/VocabPictures/ocean.jpeg,La Pacifiko estas ~0~.,oceano,oceano lago domo akvo
+data/VocabPictures/ocean.jpeg,La ŝipoj bel~0~ estas ~1~ la oceano.,aj sur,oj aj on sur de
+data/VocabPictures/water.jpeg,Ĉu vi volas trinki ~0~ akv~1~?,vian on,vian mian on an
+data/VocabPictures/water.jpeg,La ŝipoj iras ~0~ la akvo.,sur,en sur la on
+data/VocabPictures/water.jpeg,La oceano estas ~0~.,akvo,akvo lakto sango suko
+data/VocabPictures/hotel.jpeg,Li loĝas en ~0~ hotelo.,sia,nia mia lia sia
+data/VocabPictures/hotel.jpeg,Mi ne hav~0~ hotel~1~!.,as on,on o as a e
+data/VocabPictures/hotel.jpeg,Mi ne volas loĝi ~0~ hotelo.,en,de en la el
+data/VocabPictures/trip.jpeg,Mi ne vol~0~ vojaĝ~1~.,as on,as i on o e
+data/VocabPictures/trip.jpeg,Mia vojaĝo estos ~0~.,granda,granda la de kato
+data/VocabPictures/trip.jpeg,Tio estas ~0~ vojaĝo.,ria,ria u o kaj
+data/VocabPictures/street.jpeg,La tramo iras en la ~0~.,strato,strato akvo oceano
+data/VocabPictures/street.jpeg,Ni marŝas ~0~ la strato.,sur,en sur le la
+data/VocabPictures/street.jpeg,~0~ estas la strato?,Kie,Kio Kie Kiu Ne
+data/VocabPictures/suitcase.jpeg,Tio estas ~0~ valizo.,mia,mia sen kun el
+data/VocabPictures/suitcase.jpeg,Mi ne havas valiz~0~.,on,o on a an
+data/VocabPictures/suitcase.jpeg,Mi volas ~0~ valiz~1~!,mian on,on vian mian ol
+data/VocabPictures/full.jpeg,~0~ valizo estas plena.,Mia,Mia Sia De El
+data/VocabPictures/full.jpeg,Ria valizo estis ~0~plena.,mal,mal eks de ek
+data/VocabPictures/full.jpeg,La kato est~0~ plen~1~.,as a,a o on as e
+data/VocabPictures/empty.jpeg,~0~ valizo estas malplena.,Mia,Mia Sia De
+data/VocabPictures/empty.jpeg,Lia valizo estas ~0~plena.,mal,mal eks de ek
+data/VocabPictures/empty.jpeg,Tio estas valiz~0~ malplen~1~.,o a,o in i a an
+data/VocabPictures/smart.jpeg,Mi vol~0~ esti persono ruz~1~.,as a,i a as an
+data/VocabPictures/smart.jpeg,Einstein estis ruz~0~.,a,a o i e
+data/VocabPictures/smart.jpeg,Li manĝas ~0~ manĝaĵ~1~.,sian on,on an lian sian
+data/VocabPictures/carry.jpeg,Ĉu vi port~0~ valiz~1~?,as on,o on i as a
+data/VocabPictures/carry.jpeg,Ki~0~ li portas?,on,o on a an un
+data/VocabPictures/carry.jpeg,Ĉu vi pov~0~ porti aŭtobus~1~?,as on,o on i as a
+data/VocabPictures/pack.jpeg,Enpaku ~0~ valiz~1~!,vian on,mian vian an on
+data/VocabPictures/pack.jpeg,Mi ~0~ enpakas mian valiz~1~.,ne on,ne de la on an
+data/VocabPictures/pack.jpeg,Ne enpak~0~! Ni ne ir~1~!,u os,os i u e an
+data/VocabPictures/fly.jpeg,Mi~0~ birdoj flugas.,aj,aj oj i a
+data/VocabPictures/fly.jpeg,Mi flugas ~0~ la aeroplano.,per,sur per de al
+data/VocabPictures/fly.jpeg,Ĉu vi pov~0~ flug~1~?,as i,on as in i o
+data/VocabPictures/drive.jpeg,Mi stiras ~0~ aŭton.,mian,mia mian via vian
+data/VocabPictures/drive.jpeg,Ĉu vi pov~0~ stir~1~?,as i,i on ian as
+data/VocabPictures/drive.jpeg,Ri ~0~ povas stiri.,ne,jes ne de la
+data/VocabPictures/travel.png,Ki~0~ ni vojaĝos?,e,ne e o ia
+data/VocabPictures/travel.png,Li vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
+data/VocabPictures/travel.png,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
+data/VocabPictures/sail.jpeg,Mi vel~0~.,as,i o on as
+data/VocabPictures/sail.jpeg,Ki~0~ vi velas? En la somero.,am,an am el om
+data/VocabPictures/sail.jpeg,Mi vel~0~ per la ŝip~1~.,as o,i o on as
+data/VocabPictures/swim.jpeg,Ri naĝas en ~0~ lago.,sia,ria lia sia mia
+data/VocabPictures/swim.jpeg,Kie vi naĝ~0~?,as,as i u es
+data/VocabPictures/swim.jpeg,~0~ fiŝoj naĝas.,La,De Ne Vi Ni La
+data/VocabPictures/walk.jpg,Kie vi marŝ~0~?,as,as el on o
+data/VocabPictures/walk.jpg,Mi marŝas ~0~ la strato.,sur,la sur per de
 data/VocabPictures/walk.jpg,Ĉu vi marŝas al ~0~ domo?,via,nia via lia ŝia
 data/VocabPictures/by.jpg,Mi vojaĝas ~0~ la ŝipo.,per,per de en la
-data/VocabPictures/by.jpg,
-data/VocabPictures/by.jpg,
+data/VocabPictures/by.jpg,Li iras ~0~ sia trajno.,per,de per la sen
+data/VocabPictures/by.jpg,Ili flugas ~0~ la aeroplano.,per,on la per se
 5
