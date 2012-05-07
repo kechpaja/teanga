@@ -180,11 +180,12 @@ public class GUIVocabGame extends JPanel{
 		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
 		add(fullBar, BorderLayout.CENTER);
-		_textField.requestFocus();
-		//_textField.requestFocusInWindow();
 
 	}
 	
+	public void focusOnTextField(){
+		_textField.requestFocus();
+	}
 
 	//Checks a typed answers
 	public void checkAnswer(String answer){
