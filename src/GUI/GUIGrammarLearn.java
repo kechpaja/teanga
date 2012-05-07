@@ -186,7 +186,7 @@ public class GUIGrammarLearn extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Redonu",newIcon3);
+		JButton back = new JButton("Reiru",newIcon3);
 		back.addActionListener(new BacktoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
