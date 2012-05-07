@@ -1177,3 +1177,58 @@ domo
 house
 noun
 Mi estas en la domo.
+
+helpi
+to help
+verb
+Mi helpas vin.
+
+reiri
+to return, to go back
+verb
+Mi reiras al domo.
+
+vortaro
+dictionary
+noun
+Tio estas vortaro.
+
+vorto
+word
+noun
+"Vorto" estas vorto. 
+
+pli
+more
+adverb
+[None Given]
+
+serĉi
+to search
+verb
+Mi serĉas en la vortaro.
+
+submetiĝi
+to submit
+verb
+Mi submetiĝas mian respondon.
+
+respondo
+answer
+noun
+Mi submetiĝas mian respondon.
+
+iri
+to go
+verb
+Mi iras al domo.
+
+suko
+juice
+noun
+Mi trinkas sukon.
+
+sango
+blood
+noun
+Mi *ne* trinkas sangon!

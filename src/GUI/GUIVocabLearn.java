@@ -69,7 +69,6 @@ public class GUIVocabLearn extends JPanel{
 			//picVert
 			BufferedImage pic = null;
 			try {
-				System.out.println(vlp.getPicturePath());
 				pic = ImageIO.read(new File(vlp.getPicturePath()));
 			} catch (IOException e) {}
 			

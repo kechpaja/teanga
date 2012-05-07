@@ -85,8 +85,7 @@ public class PlayerStats {
 	public void encode() throws IOException, IllegalBlockSizeException, BadPaddingException 
 	{
 	    FileOutputStream fos;
-	    CipherOutputStream cos;
-	    
+	    CipherOutputStream cos;	    
 	    fos = new FileOutputStream("data/Users/"+userName);
 	    String toEncrypt="";
 	    toEncrypt= toEncrypt+gender;
@@ -101,7 +100,7 @@ public class PlayerStats {
 	    }
 	    toEncrypt=toEncrypt+"So much buffer so the ending won't be messed up";
 	    //tampering with this file will have no effect on the game
-	    FileWriter fstream = new FileWriter(userName+"temp");
+	    FileWriter fstream = new FileWriter("data/Users/"+userName+"temp");
 	    BufferedWriter out = new BufferedWriter(fstream);
 	    out.write(toEncrypt);
 	    out.flush();
