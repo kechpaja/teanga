@@ -122,6 +122,8 @@ public class Tokenizer {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
+			} else if (s.equals("saluton") || s.equals("adiaŭ")) {
+				pos = Pos.ADVERB;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {
 				pos = Pos.CONJUNCTION;
 			} else if (s.equals("unu")) {
@@ -129,6 +131,7 @@ public class Tokenizer {
 				num = NumMarker.SINGULAR;
 			} else if (set.contains(s)) {
 				pos = Pos.PREPOSITION;
+				c = Case.NOMINATIVE;
 				//TODO we need a list of prepositions to check against
 			}
 			

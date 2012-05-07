@@ -133,7 +133,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		uiButton = new JButton("Submetiĝu");
+		uiButton = new JButton("SubmetiÄ�u");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -312,7 +312,7 @@ public class GUIBossGame extends JPanel{
 		
 		Box moveBox = Box.createHorizontalBox();
 		next = new JButton("Sekva");
-		prev = new JButton("Antaŭa");
+		prev = new JButton("AntaÅ­a");
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
 		moveBox.add(prev);
@@ -440,10 +440,6 @@ public class GUIBossGame extends JPanel{
 				_bossLevel.tryAnswer(" ");
 			}
 			switched = false;
-			if(_bossLevel.isOver()){
-				//TODO: put up the over screen
-				
-			}
 			textArea.setText(_bossLevel.getCurrentQuestion());
 			if(rPanel != null){
 				rPanel.setVisible(false);
