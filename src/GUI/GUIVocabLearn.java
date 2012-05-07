@@ -76,7 +76,7 @@ public class GUIVocabLearn extends JPanel{
 			JPanel panel = new JPanel(null);
 			
 			if(pic != null){
-				int type = BufferedImage.TYPE_INT_RGB;
+				int type = BufferedImage.TYPE_INT_ARGB;
 		        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
 		        Graphics2D g1 = dst.createGraphics();
 		        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
