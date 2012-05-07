@@ -54,19 +54,19 @@ public class NonTerminalNode extends Node {
 		// check for errors at this level
 		if (!head_.agreesInCase(tail_)) {
 			if (head_.getPos() == Pos.PREPOSITION)
-				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Preposition Does Not Take Accusative"));
+				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "This preposition does not take the accusative."));
 			else
-				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Case Agreement"));
+				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "These do not agree in case."));
 		}
 		
 		// number
 		if (!head_.agreesInNumber(tail_)) {
-			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Number Agreement"));
+			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "These do not agree in number."));
 		}
 		
 		// tense
 		if (!head_.agreesInTense(tail_)) {
-			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Tense Agreement"));
+			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "These verbs are incompatible - you must have exactly one finite verb in each sentence."));
 		}
 		
 		// recur on children
