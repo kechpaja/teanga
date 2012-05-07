@@ -75,6 +75,8 @@ S PP S
 S S PP
 
 
+S ADVP S
+
 ###############
 # Unary Rules #
 ###############

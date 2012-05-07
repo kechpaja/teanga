@@ -57,7 +57,7 @@ data/VocabPictures/see.jpeg,La kat~0~ vid~1~ la muson.,o as,o u in as
 data/VocabPictures/see.jpeg,Vi vol~0~ vid~1~ katon.,as i,o i as u in
 data/VocabPictures/see.jpeg,Ili vid~0~.,as,o as i un
 data/VocabPictures/love.jpeg,N~0~ am~1~ lin.,i as,on as in i
-data/VocabPictures/love.jpeg,Mi volas am~0~ ŝin!,as,a as in i o
+data/VocabPictures/love.jpeg,Mi volas am~0~ ŝin!,i,a as in i o
 data/VocabPictures/love.jpeg,Ri am~0~ lin.,as,i o as un
 data/VocabPictures/love.jpeg,Vi vol~0~ am~1~ lin.,as i,i o as u on
 data/VocabPictures/have.jpg,Mi hav~0~ katon malgrandan.,as,o i as u
@@ -342,3 +342,162 @@ data/VocabPictures/yesterday.jpg,Hieraŭ ni manĝ~0~ pizon.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ ili am~0~ lin.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ tio aĉet~0~ legomojn.,is,as is os u i
 3
+data/VocabPictures/chair.jpg,~0~ estas tio? Tio estas seĝo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/chair.jpg,~0~ mi estas? Mi estas sur la seĝo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/chair.jpg,Tio estas m~0~ seĝo.,ia,a ia an ian es
+data/VocabPictures/sofa.jpg,~0~ estas tio? Tio estas kanapo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sofa.jpg,~0~ mi estas? Mi estas sur la kanapo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sofa.jpg,Tio estas v~0~ kanapo.,ia,a ia an ian es
+data/VocabPictures/window.jpg,~0~ estas tio? Tio estas fenestro.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/window.jpg,Tio estas l~0~ fenestro.,ia,a ia an ian es
+data/VocabPictures/window.jpg,Mi vidas ~0~ fenestro.,mian,mian lian ŝian rian
+data/VocabPictures/rug.jpg,~0~ estas tio? Tio estas tapiŝo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/rug.jpg,~0~ mi estas? Mi estas sur la tapiŝo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/rug.jpg,Tio estas ŝ~0~ tapiŝo.,ia,a ia an ian es
+data/VocabPictures/bed.jpg,~0~ estas tio? Tio estas lito.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bed.jpg,~0~ mi estas? Mi estas sur la lito.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bed.jpg,Tio estas r~0~ lito.,ia,a ia an ian es
+data/VocabPictures/lamp.jpg,~0~ estas tio? Tio estas lampo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/lamp.jpg,Tio estas ĝ~0~ lampo.,ia,a ia an ian es
+data/VocabPictures/lamp.jpg,Li uzas ~0~ lampon.,sian,lian sian mian rian
+data/VocabPictures/staircase.jpg,~0~ estas tio? Tio estas ŝtuparo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/staircase.jpg,Ili uzas ~0~ ŝtuparon.,sian,sian ilian lian rian
+data/VocabPictures/door.jpg,Tio estas n~0~ pordo.,ia,a ia an ian es
+data/VocabPictures/door.jpg,~0~ estas tio? Tio estas pordo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/door.jpg,Li iras tra ~0~ pordo.,sia,sian sia lia lian
+data/VocabPictures/room.jpg,~0~ mi estas? Mi estas en mia ĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/room.jpg,Ŝi vidas s~0~ ĉambron.,ian,a ia an ian es
+data/VocabPictures/room.jpg,Mi estas en ~0~ ĉambro.,mia,mia lia ria mian
+data/VocabPictures/kitchen.jpg,~0~ estas tio? Tio estas kuirejo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/kitchen.jpg,~0~ mi estas? Mi estas en la kuirejo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/kitchen.jpg,Tio estas l~0~ kuirejo.,ia,a ia an ian es
+data/VocabPictures/bathroom.jpg,~0~ mi estas? Mi estas en la banĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bathroom.jpg,Tio estas m~0~ banĉambro.,ia,a ia an ian es
+data/VocabPictures/bathroom.jpg,Vi estas en ~0~ banĉambro.,via,via vian lia lian
+data/VocabPictures/bedroom.jpg,~0~ mi estas? Mi estas en mia dormĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bedroom.jpg,Tio estas il~0~ dormĉambroj.,iaj,a iaj an ian es
+data/VocabPictures/bedroom.jpg,Vi estas en ~0~ dormĉambro.,via,via vian lia lian
+data/VocabPictures/basement.jpg,~0~ mi estas? Mi estas en la kelo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/basement.jpg,Tio estas v~0~ keloj.,iaj,a iaj ia an es
+data/VocabPictures/basement.jpg,Ni estas en ~0~ kelo.,nia,nia nian lia lian
+data/VocabPictures/vacuum.jpg,~0~ estas tio? Tio estas polvosuĉilo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/vacuum.jpg,Ni uzas ~0~ polvosuĉilon.,nian,nia nia mia mian
+data/VocabPictures/vacuum.jpg,Ri uzas ~0~ polvosuĉilon.,sian,rian lian ŝian sian
+data/VocabPictures/fork.jpg,~0~ estas tio? Tio estas forko.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/fork.jpg,Tio estas n~0~ forkoj.,iaj,a ia an iaj es
+data/VocabPictures/fork.jpg,Ri uzas ~0~ forkon.,sian,rian lian ŝian sian
+data/VocabPictures/spoon.jpg,~0~ estas tio? Tio estas kulero.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/spoon.jpg,Tio estas r~0~ kuleroj.,iaj,a ia an iaj es
+data/VocabPictures/spoon.jpg,Ni uzas ~0~ kuleron.,nian,nia nia mia mian
+data/VocabPictures/knife.jpg,~0~ estas tio? Tio estas tranĉilo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/knife.jpg,Tio estas ĝ~0~ tranĉilo.,ia,a ia an ian es
+data/VocabPictures/knife.jpg,Ri uzas ~0~ tranĉilon.,sian,rian lian ŝian sian
+data/VocabPictures/plate.jpg,~0~ estas tio? Tio estas plako.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/plate.jpg,Tio estas ŝ~0~ plakoj.,iaj,a ia an iaj es
+data/VocabPictures/plate.jpg,Ni uzas ~0~ plakon.,nian,nia nia mia mian
+data/VocabPictures/bowl.jpg,~0~ estas tio? Tio estas pelvo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bowl.jpg,Tio estas m~0~ pelvo.,ia,a ia an ian es
+data/VocabPictures/bowl.jpg,Tio estas en ~0~ pelvo.,mia,mia mian lia lian
+data/VocabPictures/sleep.jpg,Li dormas en ~0~ lito.,sia,lia sia lian sian
+data/VocabPictures/sleep.jpg,~0~ vi dormas en lito malbona?,Kiel,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sleep.jpg,Mi dormas. Mi ~0~ vekiĝis.,ne,de li ne al a
+data/VocabPictures/sit.jpg,Ŝi seĝas sur ~0~ seĝo.,sia,lia sia lian sian
+data/VocabPictures/sit.jpg,Li ~0~ iras. Li seĝas.,ne,de ne le la
+data/VocabPictures/sit.jpg,Li seĝas. Mi ~0~ seĝas.,ne,ne la de lo
+data/VocabPictures/wake_up.jpg,Li vekiĝas en ~0~ lito.,sia,lia sia lian sian
+data/VocabPictures/wake_up.jpg,Mi ~0~ dormas. Mi vekiĝis!,ne,de ne li al o
+data/VocabPictures/wake_up.jpg,Mi ~0~ volas dormi!,ne,ne na no ni
+data/VocabPictures/use.jpg,Mi uzas ~0~ plakon.,mian,nia nia mia mian
+data/VocabPictures/use.jpg,Li uzas ~0~ forkon.,sian,rian lian ŝian sian
+data/VocabPictures/use.jpg,La persono uzas ~0~ kuleron.,sian,lian ŝian rian sian
+data/VocabPictures/porch.jpg,Ŝi seĝas sur ~0~ portiko.,sia,lia sia lian sian
+data/VocabPictures/porch.jpg,Li seĝas sur la portiko. Li ~0~ seĝas sur la kanapo.,ne,de ne li al o
+data/VocabPictures/porch.jpg,Mi ~0~ volas esti sur la portiko!,ne,de ne li al o
+data/VocabPictures/out_of.jpg,Mi manĝas el mi~0~ pelv~1~.,a o,a i en o u
+data/VocabPictures/out_of.jpg,La kato trinkas lakton ~0~ pelvo.,el,sur la ne de el
+data/VocabPictures/out_of.jpg,Ni iris ~0~ la CIT.,el,sur la ne de el
+data/VocabPictures/dwell.jpeg,Li ~0~ loĝas en la CIT!,ne,de ne li al o
+data/VocabPictures/dwell.jpeg,Ni loĝas en domo. Ni ~0~ loĝas en pelvo!,ne,sur ne la el
+data/VocabPictures/on.jpeg,Mi seĝas ~0~ la portiko. Mi ~1~ seĝas sur mia lito.,sur ne,sur la ne de el
+data/VocabPictures/on.jpeg,Li dormas ~0~ sia lito.,sur,la ne sur de al
+data/VocabPictures/on.jpeg,Mi seĝas ~0~ la kanapo. Mi ~1~ seĝas sur la kato!,sur ne,sur la ne de el
+data/VocabPictures/through.jpeg,Mi iras ~0~ la pordo.,tra,sur tra el la
+data/VocabPictures/through.jpeg,Li ~0~ volas iri ~1~ la pordo.,ne tra,sur tra el la ne
+data/VocabPictures/through.jpeg,Ĉu li ~0~ volas iri tra la pordo?,ne,sur tra el al ne
+4
+data/VocabPictures/car.jpeg,Li volas stiri ~0~n aŭton.,sia,sia lia mia ria 
+data/VocabPictures/car.jpeg,Ili vojaĝas per ~0~ aŭto.,sia,nia sia via lia
+data/VocabPictures/car.jpeg,La aŭto ne povas stiri ~0~.,sin,lin ĝin sin min
+data/VocabPictures/bus.jpeg,Ri stiras ~0~n aŭtobuson.,sia,lia sia ria ŝia
+data/VocabPictures/bus.jpeg,La persono vojaĝas per ~0~ aŭtobuso.,sia,nia sia via lia
+data/VocabPictures/bus.jpeg,La aŭtobuso ne povas stiri ~0~.,sin,lin ĝin ŝin sin
+data/VocabPictures/airplane.jpeg,Mi flugas en ~0~ aeroplano.,mia,mia ria lia ilia
+data/VocabPictures/airplane.jpeg,Ni vojaĝas per ~0~ aeroplano.,nia,nia ilia via lia
+data/VocabPictures/airplane.jpeg,
+data/VocabPictures/train.jpeg,Vi vojaĝas per ~0~ trajno.,via,nia via lia ria
+data/VocabPictures/train.jpeg,
+data/VocabPictures/train.jpeg,
+data/VocabPictures/tram.jpeg,Li vojaĝas per ~0~ tramo.,sia,nia sia via lia
+data/VocabPictures/tram.jpeg,
+data/VocabPictures/tram.jpeg,
+data/VocabPictures/bicycle.jpeg,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
+data/VocabPictures/bicycle.jpeg,
+data/VocabPictures/bicycle.jpeg,
+data/VocabPictures/ship.jpeg,Ri vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
+data/VocabPictures/ship.jpeg,Mi velas per ~0~ ŝipo.,mia,mia nia lia ŝia
+data/VocabPictures/ship.jpeg,
+data/VocabPictures/ocean.jpeg,
+data/VocabPictures/ocean.jpeg,
+data/VocabPictures/ocean.jpeg,
+data/VocabPictures/water.jpeg,
+data/VocabPictures/water.jpeg,
+data/VocabPictures/water.jpeg,
+data/VocabPictures/hotel.jpeg,
+data/VocabPictures/hotel.jpeg,
+data/VocabPictures/hotel.jpeg,
+data/VocabPictures/trip.jpeg,
+data/VocabPictures/trip.jpeg,
+data/VocabPictures/trip.jpeg,
+data/VocabPictures/street.jpeg,
+data/VocabPictures/street.jpeg,
+data/VocabPictures/street.jpeg,
+data/VocabPictures/suitcase.jpeg,
+data/VocabPictures/suitcase.jpeg,
+data/VocabPictures/suitcase.jpeg,
+data/VocabPictures/full.jpeg,
+data/VocabPictures/full.jpeg,
+data/VocabPictures/full.jpeg,
+data/VocabPictures/empty.jpeg,
+data/VocabPictures/empty.jpeg,
+data/VocabPictures/empty.jpeg,
+data/VocabPictures/smart.jpeg,
+data/VocabPictures/smart.jpeg,
+data/VocabPictures/smart.jpeg,
+data/VocabPictures/carry.jpeg,
+data/VocabPictures/carry.jpeg,
+data/VocabPictures/carry.jpeg,
+data/VocabPictures/pack.jpeg,
+data/VocabPictures/pack.jpeg,
+data/VocabPictures/pack.jpeg,
+data/VocabPictures/fly.jpeg,
+data/VocabPictures/fly.jpeg,
+data/VocabPictures/fly.jpeg,
+data/VocabPictures/drive.jpeg,
+data/VocabPictures/drive.jpeg,
+data/VocabPictures/drive.jpeg,
+data/VocabPictures/travel.png,
+data/VocabPictures/travel.png,
+data/VocabPictures/travel.png,
+data/VocabPictures/sail.jpeg,
+data/VocabPictures/sail.jpeg,
+data/VocabPictures/sail.jpeg,
+data/VocabPictures/swim.jpeg,
+data/VocabPictures/swim.jpeg,
+data/VocabPictures/swim.jpeg,
+data/VocabPictures/walk.jpg,
+data/VocabPictures/walk.jpg,
+data/VocabPictures/walk.jpg,Ĉu vi marŝas al ~0~ domo?,via,nia via lia ŝia
+data/VocabPictures/by.jpg,Mi vojaĝas ~0~ la ŝipo.,per,per de en la
+data/VocabPictures/by.jpg,
+data/VocabPictures/by.jpg,
+5
