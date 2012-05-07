@@ -88,27 +88,22 @@ public class GUIOptionsPanel extends JPanel{
 		        Graphics2D g1 = dst.createGraphics();
 		        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
 		        
-		        
 		        g1.dispose();
 		        ImageIcon newIcon = new ImageIcon(dst);
 
-		        
 		        buttons[i][j] = new JButton(newIcon);
 		        
-
 				JButton mybutton = new JButton(newIcon);
 				buttons[i][j] = mybutton;
 		        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 		        buttons[i][j].setBackground(new Color(238,238,238,0));
 		        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 		        
-		        
-		        
-		        ellipses[i][j] = new Ellipse(this);
+		        /*ellipses[i][j] = new Ellipse(this);
 		        ellipses[i][j].setSize(15, 15);
 		        ellipses[i][j].setFillColor(new Color(0,0,100,255));
 		        ellipses[i][j].setBorderColor(Color.BLACK);
-		        ellipses[i][j].setVisible(false);
+		        ellipses[i][j].setVisible(false);*/
 		        
 			}
 			
@@ -230,7 +225,7 @@ public class GUIOptionsPanel extends JPanel{
 					} else if (j ==1){
 						xset = 430;//fix this
 					} else {
-						xset = 500;//fix this
+						xset = 700;//fix this
 					}
 					ellipses[i][j].setLocation(xset, (95*(i+1)));
 					scoreLabels[i][j].setLocation(xset+offset, (95*(i+1))+20);
