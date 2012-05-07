@@ -122,7 +122,7 @@ public class Tokenizer {
 				pos = Pos.ARTICLE;
 			//	num = null;
 			//	c = null;
-			} else if (s.equals("saluton") || s.equals("adiaŭ")) {
+			} else if (s.equals("saluton") || s.equals("adiaŭ") || s.equals("pli")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {
 				pos = Pos.CONJUNCTION;

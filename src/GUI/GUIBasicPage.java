@@ -48,7 +48,7 @@ public class GUIBasicPage extends JPanel{
 	Driver _driver;
 	JList nameList;
 	JPasswordField passField;
-	JButton submitB, addUserB;
+	JButton submitB, addUserB, existingUserB;
 	Box _passOrUser;
 	JPanel _passPanel, _newUserPanel;
 	JTextField newNameField;
@@ -57,11 +57,13 @@ public class GUIBasicPage extends JPanel{
 	String[] genderChoices = {"Male", "Female", "Other"};
 	JComboBox genderChoice;
 	boolean isSelectedUser;
+	JPanel toRepaint;
 
 	public GUIBasicPage(Driver driver){
 		super(new BorderLayout());
 		_driver = driver;
 		isSelectedUser = true;
+		toRepaint = this;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
 		this.setPreferredSize(size);
 		this.setSize(size);
@@ -104,6 +106,8 @@ public class GUIBasicPage extends JPanel{
 		submitB.addActionListener(new SubmitActionListener());
 		addUserB = new JButton("Add User");
 		addUserB.addActionListener(new AddUserActionListener());
+		existingUserB = new JButton("Existing User");
+		existingUserB.addActionListener(new ExistingUserActionListener());
 		passField = new JPasswordField(20);
 		passField.addActionListener(new TextListener());
 		JLabel passLabel = new JLabel("Password: ");
@@ -281,14 +285,13 @@ public class GUIBasicPage extends JPanel{
 				String name = (String) list.getSelectedValue();
 				_driver.setUserName(name);
 				passBoxPass();
+				System.out.println("Also selection listener");
 				verticalBox.removeAll();
 				verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
-			    if (!_driver.openingpage.getUsernames().isEmpty()){
-				    verticalBox.add(_passOrUser);
-				    verticalBox.add(Box.createVerticalStrut(10));
-			    	verticalBox.add(submitB);
-			    	verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
-			    }
+				verticalBox.add(_passOrUser);
+				verticalBox.add(Box.createVerticalStrut(10));
+				verticalBox.add(submitB);
+				verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
 			    verticalBox.add(addUserB);
 			    verticalBox.add(Box.createVerticalStrut(103));
 			    verticalBox.revalidate();
@@ -306,17 +309,44 @@ public class GUIBasicPage extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			passBoxNewUser();
 			verticalBox.removeAll();
-		    verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
-		    verticalBox.add(_passOrUser);
-		    verticalBox.add(Box.createVerticalStrut(10));
+			verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+			verticalBox.add(_passOrUser);
+			verticalBox.add(Box.createVerticalStrut(10));
 			verticalBox.add(submitB);
-	    	verticalBox.add(Box.createVerticalStrut(141));
-			verticalBox.revalidate();
+			verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+		    Box horzBox = Box.createHorizontalBox();
+		    horzBox.add(Box.createHorizontalStrut(450));
+		    horzBox.add(existingUserB);
+		    horzBox.add(Box.createHorizontalStrut(450));
+			verticalBox.add(horzBox);
+		    verticalBox.add(Box.createVerticalStrut(103));
+		    verticalBox.revalidate();
+		    toRepaint.repaint();
+		    
 		}
 		
 	}
-
 	
+	private class ExistingUserActionListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			passBoxPass();
+			verticalBox.removeAll();
+			verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+			verticalBox.add(_passOrUser);
+			verticalBox.add(Box.createVerticalStrut(10));
+			verticalBox.add(submitB);
+			verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
+		    verticalBox.add(addUserB);
+		    verticalBox.add(Box.createVerticalStrut(103));
+		    verticalBox.revalidate();
+		    toRepaint.repaint();
+			
+		}
+		
+		
+	}
 
 	private class SubmitActionListener implements ActionListener{
 		@Override

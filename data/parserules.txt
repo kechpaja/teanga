@@ -55,6 +55,7 @@ S S PUNCT
 # vocatives
 S NP PUNCT
 S DP PUNCT
+S VP PUNCT
 
 S ADVP PUNCT
 

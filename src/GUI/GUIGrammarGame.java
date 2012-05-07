@@ -109,7 +109,7 @@ public class GUIGrammarGame extends JPanel{
 		_choicePanel = makeSentanceBox(gl.getCurrent().getPartialSentence());
 		_horizontalChoice.add(_choicePanel);
 		
-		JButton submit = new JButton("Submetiĝu");
+		JButton submit = new JButton("SubmetiÄ�u");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		submit.setSize(120,35);
@@ -269,7 +269,6 @@ public class GUIGrammarGame extends JPanel{
 					currString += last + " ";
 					currNum += last.length();
 				}
-				System.out.println("blahblahthree");
 			}
 			
 			if(!currString.equals("")){
@@ -431,9 +430,6 @@ public class GUIGrammarGame extends JPanel{
 			if (_grammarLevel.submitWhole()){
 				//check if this was the last unit
 				if (_grammarLevel.isOver()){
-					System.out.println("this is the problem. IT MUST BE HERE.");
-					System.out.println(_grammarLevel.getTypeOfGame());
-					System.out.println(_grammarLevel.getLevelNum());
 					_driver.getPlayerStats().RefreshStats(_grammarLevel.getLevelNum(), 1, _grammarLevel.getScore());
 					_driver.changePage(new GUIGameCompleted(_driver, _grammarLevel));
 				} else {

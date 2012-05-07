@@ -29,7 +29,6 @@ import parsing.Mistake;
 import parsing.Response;
 import ELearning.BossLevel;
 import ELearning.Driver;
-import GUI.GUIOptionsPage.BacktoBasicActionListener;
 import encoding.EncodingShiftListener;
 
 public class GUIBossGame extends JPanel{
@@ -141,7 +140,7 @@ public class GUIBossGame extends JPanel{
 		answHoriz.add(uiButton);
 		aPanel.add(answHoriz);
 		
-		//Update Boundary Panels and put everything toghether
+		//Update Boundary Panels and put everything together
 		
 		//Top Panel
 		JPanel topPanel = new JPanel(null);
@@ -300,13 +299,14 @@ public class GUIBossGame extends JPanel{
 		messageBox.add(Box.createHorizontalStrut(70));
 		messageBox.add(Box.createVerticalStrut(80));
 		JTextArea messageLabel = new JTextArea();
+		messageLabel.setBorder(BorderFactory.createLineBorder(Color.white));
 		messageLabel.setText(message);
 		messageLabel.setSize(new Dimension(400,80));
 		messageLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 		messageLabel.setLineWrap(true);
 		messageLabel.setWrapStyleWord(true);
 		messageLabel.setEditable(false);
-		messageLabel.setBackground(new Color(0,0,0,0));
+		messageLabel.setBackground(new Color(255,255,255,255));
 		messageBox.add(messageLabel);
 		messageBox.add(Box.createHorizontalStrut(70));
 		
@@ -340,7 +340,6 @@ public class GUIBossGame extends JPanel{
 		Box horizBox = Box.createHorizontalBox();
 		Font myFont = new Font("Cambria", Font.PLAIN, 20);
 
-		System.out.println("Length: " + sentence.length());
 		if(startIndex == 0){
 			error = sentence.substring(0,endIndex);
 			JLabel errorLabel = new JLabel(error);
@@ -435,7 +434,9 @@ public class GUIBossGame extends JPanel{
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
+			
 			//move to next question...
+			
 			if(!switched){
 				_bossLevel.tryAnswer(" ");
 			}
@@ -458,8 +459,6 @@ public class GUIBossGame extends JPanel{
 			_bossLevel.decrementScore(2);
 			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
-
-			
 		}
 		
 	}
@@ -492,21 +491,12 @@ public class GUIBossGame extends JPanel{
 			_direction = direction;
 			prev.setEnabled(false);
 			if(_current >= response.getMistakes().size()-1){
-				System.out.println("setting button to false"+ _current);
 				next.setEnabled(false);
 			} 
 			
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			if(_current == 0){
-				prev.setEnabled(false);
-			} else{
-				prev.setEnabled(true);
-			}
-			
-
 			
 			if(_direction == -1){
 				_current--;
@@ -524,7 +514,14 @@ public class GUIBossGame extends JPanel{
 				rPanel = nrPanel;
 				panel.add(rPanel);
 				panel.repaint();
-			}			
+			}	
+			
+			
+			if(_current == 0){
+				prev.setEnabled(false);
+			} else{
+				prev.setEnabled(true);
+			}
 		}
 		
 		
