@@ -74,7 +74,6 @@ public class GUIVocabGame extends JPanel{
 		_textField.requestFocusInWindow();
 		
 		KeyStroke key = KeyStroke.getKeyStroke('7');
-				//, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
 		_textField.getInputMap().remove(key);
 		_textField.getInputMap().put(key, "dosomething");
 		_textField.getActionMap().put("dosomething", new changeWordListener());
