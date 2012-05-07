@@ -1282,3 +1282,18 @@ jes
 yes
 adverb
 Ĉu vi volas iri? Jes!
+
+naskiĝtago
+birthday
+noun
+Hodiaŭ estas mia naskiĝtago!
+
+paroli
+to speak
+verb
+Mi parolas Esperanton.
+
+jaro
+year
+noun
+[None Given]

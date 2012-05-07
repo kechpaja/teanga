@@ -6,8 +6,6 @@ import annie.MyDictionary;
 
 public class Tokenizer {
 	
-	// TODO conjunctions and subordinate clauses!
-	
 	/**
 	 * This tokenizer will be a little bit different from the one used in our
 	 * compiler for 31 - it will tokenize the entire string at once, and return it 
@@ -73,6 +71,7 @@ public class Tokenizer {
 		// fill it up
 		
 		HashSet<String> setNum = new HashSet<String>();
+		setNum.add("nul");
 		setNum.add("du");
 		setNum.add("tri");
 		setNum.add("kvar");
@@ -116,11 +115,9 @@ public class Tokenizer {
 				continue;
 			}
 			
-			// check the endings
+			// check for weird stuff
 			else if (s.equals("la")) {
 				pos = Pos.ARTICLE;
-			//	num = null;
-			//	c = null;
 			} else if (s.equals("saluton") || s.equals("adiaŭ") || s.equals("pli") || s.equals("jes")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {
@@ -131,7 +128,6 @@ public class Tokenizer {
 			} else if (setA.contains(s)) {
 				pos = Pos.PREPOSITION;
 				c = Case.NOMINATIVE;
-				//TODO we need a list of prepositions to check against
 			} else if (setB.contains(s)) {
 				pos = Pos.PREPOSITION;
 			}
@@ -147,13 +143,13 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// numbers
 			else if (setNum.contains(s)) {
 				pos = Pos.ADJECTIVE;
 				num = NumMarker.PLURAL;
 			}
 			
-			// Match correlatives a, al, am, e, el, es, o, om, u
-			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
+			// Match correlatives
 			else if (s.equals("kial") || s.equals("tial") || s.equals("ial") || s.equals("ĉial") || s.equals("nenial")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kiel") || s.equals("tiel") || s.equals("iel") || s.equals("ĉiel") || s.equals("neniel")) {
@@ -165,8 +161,6 @@ public class Tokenizer {
 			} else if (s.equals("kies") || s.equals("ties") || s.equals("ies") || s.equals("ĉies") || s.equals("nenies")) {
 				pos = Pos.ADJECTIVE;
 			}
-			
-			// TODO maybe we need the rest... unsure. 
 			
 			// Match regular words
 			else if (s.equals("for") || s.matches(".*e$") || s.matches(".*aŭ$")) {
@@ -256,9 +250,6 @@ public class Tokenizer {
 		}
 		
 	}
-	
-	// Getter for list of mistakes
-	
 	
 	// HasNext, returns true if the tokenizer has yet another element
 	public boolean hasNext() {

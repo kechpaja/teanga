@@ -2,6 +2,7 @@ package parsing;
 
 public enum Tense {
 	
+	// list of tenses, including infinitive and imperative
 	PRESENT,
 	PAST,
 	FUTURE,
@@ -9,8 +10,7 @@ public enum Tense {
 	IMPERATIVE,
 	INFINITIVE;
 	
-	// TODO imperative; infinitive?
-	
+	// toString
 	public String toString() {
 		switch (this) {
 		case PRESENT: return "PRESENT";
