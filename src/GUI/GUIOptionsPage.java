@@ -74,12 +74,12 @@ public class GUIOptionsPage extends JPanel{
 		GUIOptionsPanel overall = null;
 		
 		try {
-
 			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
 			numacts = Integer.parseInt(fileReader.readLine());
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Could not read file.");

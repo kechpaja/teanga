@@ -14,7 +14,10 @@ import java.security.InvalidAlgorithmParameterException;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.security.spec.InvalidKeySpecException;
+import java.util.ArrayList;
+import java.util.Collections;
 import java.util.LinkedList;
+import java.util.List;
 
 import javax.crypto.BadPaddingException;
 import javax.crypto.IllegalBlockSizeException;
@@ -79,7 +82,12 @@ public class GUIBasicPage extends JPanel{
 		JPanel listpane = new JPanel(new BorderLayout());
 		listpane.setBackground(new Color(238,238,238,255));
 
-		String[] usernames = _driver.openingpage.getUsernames().toArray(new String[0]);
+		/* List b = new ArrayList(a);
+	Collections.copy(b,a);*/
+		List<String> usernameslist = new ArrayList<String>(_driver.openingpage.getUsernames());
+		Collections.copy(usernameslist, _driver.openingpage.getUsernames());
+		Collections.sort(usernameslist, String.CASE_INSENSITIVE_ORDER);
+		String[] usernames = usernameslist.toArray(new String[0]);
 		
 		Border compound = BorderFactory.createCompoundBorder(BorderFactory.createEmptyBorder(0,350,30,350), BorderFactory.createLineBorder(Color.black));
 		nameList = new JList(usernames);
@@ -116,6 +124,7 @@ public class GUIBasicPage extends JPanel{
 		JLabel newPass = new JLabel("New Password: ");
 		newNameField = new JTextField();
 		newPassField = new JPasswordField();
+		newPassField.addActionListener(new TextListener());
 		genderChoice = new JComboBox(genderChoices);
 		newUserBox.add(Box.createHorizontalStrut(200));
 		newUserBox.add(newName);
@@ -161,6 +170,8 @@ public class GUIBasicPage extends JPanel{
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
+		
+		
 	}
 	
 	public void passBoxNewUser(){
@@ -175,6 +186,89 @@ public class GUIBasicPage extends JPanel{
 		_passOrUser.add(_passPanel);
 		isSelectedUser = true;
 		this.revalidate();
+	}
+	
+	public void submit(){
+		if (isSelectedUser){
+			if (_driver.getUserName() == null){
+			String infoMessage = "Please select an existing user";
+			JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
+			return;
+			} else {
+			try {
+				if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
+					_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
+					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+
+				} else {
+					String infoMessage = "Incorrect Password";
+					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
+					//try to figure out how to zero the passfield
+					return;
+				}
+			} catch (InvalidKeyException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchAlgorithmException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidKeySpecException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (NoSuchPaddingException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (InvalidAlgorithmParameterException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			} catch (IllegalBlockSizeException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (BadPaddingException e2) {
+				// TODO Auto-generated catch block
+				e2.printStackTrace();
+			} catch (IOException e2) {
+				// TODO Auto-generated catch block
+				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+				return;
+			}
+		} 
+			
+	} else {
+		int gender = genderChoice.getSelectedIndex();
+		String newName = newNameField.getText();
+		try {
+			if (_driver.openingpage.usernameAvailable(newName)){
+				_driver.setUserName(newName);
+				_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
+				_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
+			} else {
+				String infoMessage = "The user name " + newName + " is already taken. Please try another.";
+				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
+			}
+		} catch (InvalidKeyException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (NoSuchAlgorithmException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidKeySpecException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (NoSuchPaddingException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (InvalidAlgorithmParameterException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (IOException e2) {
+			// TODO Auto-generated catch block
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+		}
+	}		
 	}
 	
 	
@@ -223,142 +317,20 @@ public class GUIBasicPage extends JPanel{
 	}
 
 	
+
 	private class SubmitActionListener implements ActionListener{
 		@Override
-		public void actionPerformed(ActionEvent e) {
-			if (isSelectedUser){
-				if (_driver.getUserName() == null){
-				String infoMessage = "Please select an existing user";
-				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
-				return;
-				} else {
-				try {
-					if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
-						_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
-						_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-
-					} else {
-						String infoMessage = "Incorrect Password";
-						JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-						//try to figure out how to zero the passfield
-						return;
-					}
-				} catch (InvalidKeyException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (NoSuchAlgorithmException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (InvalidKeySpecException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (NoSuchPaddingException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (InvalidAlgorithmParameterException e1) {
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-				} catch (IllegalBlockSizeException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				} catch (BadPaddingException e2) {
-					// TODO Auto-generated catch block
-					e2.printStackTrace();
-				} catch (IOException e2) {
-					// TODO Auto-generated catch block
-					String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
-					JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-					return;
-				}
-			} 
-				
-		} else {
-			int gender = genderChoice.getSelectedIndex();
-			String newName = newNameField.getText();
-			try {
-				if (_driver.openingpage.usernameAvailable(newName)){
-					_driver.setUserName(newName);
-					_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
-					_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
-					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, 0));
-				} else {
-					String infoMessage = "The user name " + newName + " is already taken. Please try another.";
-					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-				}
-			} catch (InvalidKeyException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (NoSuchAlgorithmException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InvalidKeySpecException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (NoSuchPaddingException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InvalidAlgorithmParameterException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IOException e2) {
-				// TODO Auto-generated catch block
-				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
-				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-			}
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			submit();
 		}
-		
 	}
+
+	private class TextListener implements ActionListener {
+		@Override
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			submit();
+		}	
 	}
 	
-	//this is redundant code with the submit listener, but its just to make enter do the same thing.
-	//it can be cleaned up later
-	private class TextListener implements ActionListener {
-
-		public void actionPerformed(java.awt.event.ActionEvent e){
-			if (_driver.getUserName() == null){
-			String infoMessage = "Please select an existing user";
-			JOptionPane.showMessageDialog(new JFrame(), infoMessage, "No User Selected", JOptionPane.INFORMATION_MESSAGE);
-			return;
-			} else {
-			try {
-				if (_driver.openingpage.correctPassword(_driver.getUserName(), new String(passField.getPassword()))){
-					_driver.setPlayerStats(_driver.openingpage.bootGame(_driver.getUserName()));
-					_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-
-				} else {
-					String infoMessage = "Incorrect Password";
-					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-					//try to figure out how to zero the passfield
-					return;
-				}
-			} catch (InvalidKeyException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (NoSuchAlgorithmException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InvalidKeySpecException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (NoSuchPaddingException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (InvalidAlgorithmParameterException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			} catch (IllegalBlockSizeException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			} catch (BadPaddingException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			} catch (IOException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
-			}
-		} 
-		}
-
-	}
 	
 }

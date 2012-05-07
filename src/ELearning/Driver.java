@@ -63,7 +63,6 @@ public class Driver {
 	}
 	
 	public void changePage(JPanel newPage){
-		System.out.println("here");
 		mainFrame.getContentPane().removeAll();
 		curPage = newPage;
 		mainFrame.getContentPane().add(curPage, BorderLayout.CENTER);

@@ -997,3 +997,13 @@ loĝi
 to dwell
 verb
 Mi loĝas en mia domo.
+
+danko
+thanks
+noun
+Dankon!
+
+bela
+beautiful
+adjective
+La kato estas bela. 

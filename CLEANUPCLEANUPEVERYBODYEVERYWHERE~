@@ -4,11 +4,12 @@ MUST BE COMPLETED FOR DEMO
 Kelvin:
 -completed pictures for vocab for each level, in correct file in correct input format (~25 per level)
 -all grammar exercizes written and in correct file in correct input (~90 per level)
--pictures for vocab game (just vocab pictures), in the correct place
 -all boss exercizes written and in correct file in correct input (15 pre level, exactly)
 -all boss level pictures found (one per level)
 -create README
 -create pronunciation guide
+-make sure parser can handle answers with "jes" and "ne"
+-add "Thank you!" to lessons???
 
 Danielle:
 -better error handling in case an image isn't found
@@ -23,7 +24,6 @@ SHOULD BE COMPLETED BY DEMO
 (Ideally, this stuff should be finished by Friday night as well, although falling back a bit to Saturday is fine)
 
 Kelvin:
--Make buttons in Esperanto
 -add complementizers to the parser
 -put prepositions and correlatives in something other than hard-coded
 

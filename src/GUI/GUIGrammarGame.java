@@ -29,7 +29,7 @@ import ELearning.GrammarLevel;
 public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel, outofLabel;
-	private int _maxChars;
+	private int _maxChars, picheight, picwidth;
 	private ArrayList<GUIGrammarBlank> _rectBlanks;
 	private GUIGrammarChoicePanel _choicePanel;
 	private GrammarLevel _grammarLevel;
@@ -37,6 +37,7 @@ public class GUIGrammarGame extends JPanel{
 	private JPanel _panel;
 	private Box _horizontalChoice, topHoriz;
 	private JLabel _userName, _score;
+	private Box picHoriz;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
 		super(new BorderLayout());
@@ -50,8 +51,8 @@ public class GUIGrammarGame extends JPanel{
 		this.setBackground(new Color(50,50,50,255));
 		
 		//Constants
-		int picheight = 200;
-		int picwidth = 300;
+		picheight = 200;
+		picwidth = 300;
 		_maxChars = 60;
 		
 		String picPath = gl.getCurrent().getPicturePath();
@@ -76,7 +77,7 @@ public class GUIGrammarGame extends JPanel{
 		overall.add(mainVertical, BorderLayout.CENTER);
 		
 		topHoriz = Box.createHorizontalBox();
-		Box picHoriz = Box.createHorizontalBox();
+		picHoriz = Box.createHorizontalBox();
 		_horizontalChoice = Box.createHorizontalBox();
 		Box submitHoriz = Box.createHorizontalBox();
 		
@@ -391,6 +392,27 @@ public class GUIGrammarGame extends JPanel{
 				topHoriz.add(outofLabel);
 				topHoriz.add(_totalNumLabel);
 				topHoriz.add(Box.createHorizontalStrut(30));
+				String picPath = _grammarLevel.getCurrent().getPicturePath();
+				
+				_picLabel = null;
+				
+				try {
+					BufferedImage pic = ImageIO.read(new File(picPath));
+					int type = BufferedImage.TYPE_INT_RGB;
+			        BufferedImage dst = new BufferedImage(picwidth, picheight, type);
+			        Graphics2D g1 = dst.createGraphics();
+			        g1.drawImage(pic, 0, 0, picwidth, picheight, _panel);
+			        g1.dispose();
+			        ImageIcon newIcon = new ImageIcon(dst);
+			        _picLabel = new JLabel(newIcon);
+	
+				} catch (IOException e2) {
+				}
+				
+				picHoriz.removeAll();
+				if(_picLabel != null){
+					picHoriz.add(_picLabel);
+				}
 				_panel.revalidate();
 				
 			}
@@ -432,6 +454,28 @@ public class GUIGrammarGame extends JPanel{
 					topHoriz.add(outofLabel);
 					topHoriz.add(_totalNumLabel);
 					topHoriz.add(Box.createHorizontalStrut(30));
+					
+					String picPath = _grammarLevel.getCurrent().getPicturePath();
+					
+					_picLabel = null;
+					
+					try {
+						BufferedImage pic = ImageIO.read(new File(picPath));
+						int type = BufferedImage.TYPE_INT_RGB;
+				        BufferedImage dst = new BufferedImage(picwidth, picheight, type);
+				        Graphics2D g1 = dst.createGraphics();
+				        g1.drawImage(pic, 0, 0, picwidth, picheight, _panel);
+				        g1.dispose();
+				        ImageIcon newIcon = new ImageIcon(dst);
+				        _picLabel = new JLabel(newIcon);
+		
+					} catch (IOException e2) {
+					}
+					
+					picHoriz.removeAll();
+					if(_picLabel != null){
+						picHoriz.add(_picLabel);
+					}
 					_panel.revalidate();
 					
 					

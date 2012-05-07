@@ -200,14 +200,14 @@ public class PlayerStats {
 		Boolean before=true;
 		for(int j=0; j<games-1; j++)
 		{
-			if(userGames[level][j].isDefeated()!=true)
+			if(!userGames[level][j].isDefeated())
 				before=false;
 		}
 		if(before)
 		{
 			userGames[level][games-1].unlocked=true;
 		}
-		if(game==games-1&&level!=levels-1)
+		if((game==games-1&&level!=levels-1)&&(userGames[level][game].isDefeated()))
 		{
 			for(int j=0; j<games-1; j++)
 			{
