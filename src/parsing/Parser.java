@@ -54,7 +54,7 @@ public class Parser {
 		// visit, checking for agreement problems
 		visit(tree, mistakes);
 		
-		System.out.println(tree); // For testing only TODO
+	//	System.out.println(tree); // For testing only TODO
 		
 		// the response is created, and returned. 
 		return Response.responseFactory(tree, sentence);

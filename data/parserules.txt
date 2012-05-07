@@ -6,7 +6,13 @@ binary:
 # NP's need to combine with adjectives...
 NP NP ADJ
 NP NP ADJP
+NP ADJ NP
 NP ADJP NP
+
+NP ADJP N
+NP ADJ N
+NP N ADJP
+NP N ADJ
 
 NP NP PP
 
@@ -69,7 +75,9 @@ S NP VP
 S SVP NP
 S SVP DP
 S SVP PP
-S SVP ADJP
+S SVP VP
+#S SVP ADJP
+
 
 # PP's combine with sentences directly. 
 S PP S
@@ -83,7 +91,7 @@ S ADVP S
 ###############
 unary:
 NP NOUN
-
+NP ADJP
 
 DP P
 # Pronouns become DP's so they can't combine with la...

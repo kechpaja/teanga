@@ -54,7 +54,10 @@ public class NonTerminalNode extends Node {
 	public void visit(List<Mistake> mistakes) {
 		// check for errors at this level
 		if (!head_.agreesInCase(tail_)) {
-			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Case Agreement"));
+			if (head_.getPos() == Pos.PREPOSITION)
+				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Preposition Does Not Take Accusative"));
+			else
+				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Case Agreement"));
 		}
 		
 		if (!head_.agreesInNumber(tail_)) {
