@@ -60,7 +60,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 			JLabel currLabel = _blanks.get(k);
 			currLabel.addComponentListener(new MyComponentListener(k));
 			GUIGrammarBlank currRect = new GUIGrammarBlank(this, k, gl.getCurrent().getCorrectAnswers()[k]);
-			currRect.setSize(_width+15,30);
+			currRect.setSize(_width,30);
 			currRect.setLocation(0, 0);
 			currRect.setColor(new Color(150,150,150,255));
 			currRect.setBorderColor(new Color(0,0,100,255));
@@ -70,7 +70,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 		
 		for(int j=0; j< _choices.length; j++){
 			GUIGrammarChoice currRect = new GUIGrammarChoice(this, _choices[j], j);
-			currRect.setSize(_width+10,26);
+			currRect.setSize(_width-5,26);
 			currRect.setLocation((1000-(_choices.length*135 + (_choices.length-1)*20))/2+j*155,207);
 			currRect.setColor(new Color(60,60,60,255));
 			_rectChoices.add(currRect);
