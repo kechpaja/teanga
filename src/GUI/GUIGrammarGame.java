@@ -1,11 +1,10 @@
 package GUI;
 
-import gfx.Rectangle;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -22,6 +21,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 import ELearning.Driver;
 import ELearning.GrammarLevel;
@@ -29,7 +29,7 @@ import ELearning.GrammarLevel;
 public class GUIGrammarGame extends JPanel{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel, outofLabel;
-	private int _maxChars, picheight, picwidth;
+	private int _maxChars, picheight, picwidth, _mywidth;
 	private ArrayList<GUIGrammarBlank> _rectBlanks;
 	private GUIGrammarChoicePanel _choicePanel;
 	private GrammarLevel _grammarLevel;
@@ -54,6 +54,14 @@ public class GUIGrammarGame extends JPanel{
 		picheight = 200;
 		picwidth = 300;
 		_maxChars = 60;
+		
+		//get width
+		String word = "                   ";
+		JLabel label = new JLabel(word);
+		FontMetrics metrics = label.getFontMetrics(new Font("Cambria",Font.PLAIN,30));
+		_mywidth = SwingUtilities.computeStringWidth(metrics, word);
+		
+		System.out.println("width " + _mywidth);
 		
 		String picPath = gl.getCurrent().getPicturePath();
 		
@@ -163,8 +171,7 @@ public class GUIGrammarGame extends JPanel{
 		
 		topPanel.add(userBox);
 		topPanel.add(topBar);
-		topPanel.add(back);
-		
+		topPanel.add(back);		
 		
 		//Bottom Panel
 		JPanel bottomPanel = new JPanel(null);
@@ -262,6 +269,7 @@ public class GUIGrammarGame extends JPanel{
 					currString = "";
 					line1.push(phrase);
 					JLabel blank = new JLabel("                   ");//put a blank in the line
+					blank.setFont(new Font("Cambria", Font.PLAIN, 30));
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 					currNum += 10;
@@ -284,6 +292,7 @@ public class GUIGrammarGame extends JPanel{
 					currString = "";
 					line2.push(phrase);
 					JLabel blank = new JLabel("                   ");//put a blank in the line
+					blank.setFont(new Font("Cambria", Font.PLAIN, 30));
 					line2.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -321,7 +330,6 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(line2Box);
 			vertBox.add(Box.createVerticalStrut(10));
 			
-			//TODO:make the actual box
 		} else{//Only 1 line
 			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
 			String currString = "";
@@ -333,6 +341,7 @@ public class GUIGrammarGame extends JPanel{
 					currString = "";
 					line1.push(phrase);
 					JLabel blank = new JLabel("                   ");//put a blank in the line
+					blank.setFont(new Font("Cambria", Font.PLAIN, 30));
 					line1.push(blank);
 					spaces.add(blank);//add blank label to list of blanks
 				} else{
@@ -360,8 +369,10 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(line1Box);
 			vertBox.add(Box.createVerticalStrut(20));
 		}
+		
+		System.out.println("Width: " + _mywidth);
 			
-		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _grammarLevel);
+		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _grammarLevel, _mywidth);
 		return panel;
 	}
 	
