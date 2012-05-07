@@ -285,7 +285,6 @@ public class GUIBasicPage extends JPanel{
 				String name = (String) list.getSelectedValue();
 				_driver.setUserName(name);
 				passBoxPass();
-				System.out.println("Also selection listener");
 				verticalBox.removeAll();
 				verticalBox.add(Box.createRigidArea(new Dimension(0, 10)));
 				verticalBox.add(_passOrUser);
@@ -295,7 +294,7 @@ public class GUIBasicPage extends JPanel{
 			    verticalBox.add(addUserB);
 			    verticalBox.add(Box.createVerticalStrut(103));
 			    verticalBox.revalidate();
-
+			    toRepaint.repaint();
 			}
 			
 		}
