@@ -164,7 +164,7 @@ data/VocabPictures/sour.jpg,Vi amas la citron~0~ acerb~1~.,ojn ajn,i ojn ajn o a
 data/VocabPictures/sour.jpg,La oranĝ~0~ estas acerb~1~.,o a,on an a o i
 data/VocabPictures/sour.jpg,Ĝi povas est~0~ acerb~0~.,i a,a o on an i
 data/VocabPictures/drink.jpg,La kat~0~ trinkas lakt~1~.,o on,u o an on a
-data/VocabPictures/drink.jpg,L~0~ trink~1~.,o as on i u
+data/VocabPictures/drink.jpg,L~0~ trink~1~.,i as,o as on i u
 data/VocabPictures/drink.jpg,Ili trinkas lakt~0~ acerb~1~.,on an,i in an on o a
 data/VocabPictures/buy.png,Li povas aĉeti ti~0~.,on,in on o i a
 data/VocabPictures/buy.png,Mi volas aĉeti ĝ~0~.,in,on in i o a
@@ -191,7 +191,7 @@ data/VocabPictures/number2.jpg,Tio estas ~0~.,du,unu du tri kvar
 data/VocabPictures/number2.jpg,Nombr~0~ al du!,u,i u as is
 data/VocabPictures/go.jpg,~0~ ili povas iri?,Ĉu,Le Li La Ĉu Ĉa
 data/VocabPictures/number3.jpg,~0~ vi povas nombri al ~1~?,Ĉu tri,Ĉu kvin tri miliono
-data/VocabPictures/number3.jpg,Tio estas ~0~.,tri tridek naŭ du
+data/VocabPictures/number3.jpg,Tio estas ~0~.,tri, tri tridek naŭ du
 data/VocabPictures/number3.jpg,Nombr~0~ al tri!,u,i as is os u
 data/VocabPictures/see.jpg,~0~ ili vidas min?,Ĉu,Ĉia Ĉu Ili Li
 data/VocabPictures/number4.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvar,Ĉu kvar unu dek
