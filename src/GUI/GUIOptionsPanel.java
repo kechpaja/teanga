@@ -97,12 +97,6 @@ public class GUIOptionsPanel extends JPanel{
 		        buttons[i][j].setBackground(new Color(238,238,238,0));
 		        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 		        
-		        /*ellipses[i][j] = new Ellipse(this);
-		        ellipses[i][j].setSize(15, 15);
-		        ellipses[i][j].setFillColor(new Color(0,0,100,255));
-		        ellipses[i][j].setBorderColor(Color.BLACK);
-		        ellipses[i][j].setVisible(false);*/
-		        
 			}
 			
 			for(int j=0; j < 3; j++){
