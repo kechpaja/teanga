@@ -1,1 +1,7 @@
-This level is about the grocery store. Use complete sentences to answer the questions, and make sure to use at least one vocabulary word from the lesson.
+6
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Enkonduko,data/VocabPictures/apple.jpg
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Mangxajxo,data/VocabPictures/apple.jpg
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Nombroj,data/VocabPictures/apple.jpg
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Sezonoj,data/VocabPictures/apple.jpg
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Domo,data/VocabPictures/apple.jpg
+data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,data/VocabPictures/apple.jpg,Vojagxi,data/VocabPictures/apple.jpg

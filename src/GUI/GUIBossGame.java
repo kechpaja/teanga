@@ -18,7 +18,9 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -34,7 +36,7 @@ public class GUIBossGame extends JPanel{
 	private Driver _driver;
 	private BossLevel _bossLevel;
 	private JTextField userInput;
-	private JButton back, help, dictionary, next, prev;
+	private JButton back, help, dictionary, next, prev, uiButton;
 	private JPanel mainPanel, rPanel, panel, aPanel, qPanel;
 	private JTextArea textArea;
 	private BufferedImage pic;
@@ -71,7 +73,9 @@ public class GUIBossGame extends JPanel{
 		try {
 			pic = ImageIO.read(new File(backPic));
 		} catch (IOException e) {
-			System.out.println("Cannot read image (GUIBossGame)");
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.out.println("Cannot read image (GUIBossGame): "+backPic);
 			System.exit(0);
 		}
 		
@@ -105,6 +109,7 @@ public class GUIBossGame extends JPanel{
 		userInput = new JTextField(18);
 		userInput.setBorder(BorderFactory.createLineBorder(Color.black));
 		userInput.addKeyListener(new EncodingShiftListener(userInput));
+		userInput.addActionListener(new enterSubmitListener());
 		
 		JPanel aPanel = new JPanel();
 		aPanel.setBackground(new Color(255,255,255,0));
@@ -112,7 +117,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		JButton uiButton = new JButton("Submetiĝu");
+		uiButton = new JButton("Submetiĝu");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -373,20 +378,33 @@ public class GUIBossGame extends JPanel{
 
 	}
 	
+	public void submit() {	
+		if(!switched){
+			switched = true;
+			response = _bossLevel.tryAnswer(userInput.getText());
+			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
+			JPanel nrPanel = makeRPanel(response, 0);
+			rPanel = nrPanel;
+			panel.add(nrPanel);
+			panel.revalidate();
+		}
+		uiButton.setEnabled(false);
+	}
+	
 	private class MySubmitListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			if(!switched){
-				switched = true;
-				response = _bossLevel.tryAnswer(userInput.getText());
-				_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
-				JPanel nrPanel = makeRPanel(response, 0);
-				rPanel = nrPanel;
-				panel.add(nrPanel);
-				panel.revalidate();
-			}
+			submit();
+		}
+		
+	}
+	
+	private class enterSubmitListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			submit();
 		}
 		
 	}
@@ -412,6 +430,7 @@ public class GUIBossGame extends JPanel{
 			if(rPanel != null){
 				rPanel.setVisible(false);
 			}
+			uiButton.setEnabled(true);
 			panel.revalidate();
 			panel.repaint();
 			
@@ -446,9 +465,8 @@ public class GUIBossGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore());
-			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-			
+			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 2, _bossLevel.getScore());
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));			
 		}
 		
 	}

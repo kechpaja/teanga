@@ -341,6 +341,7 @@ data/VocabPictures/yesterday.jpg,Hieraŭ ĝi hav~0~ domon.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ ni manĝ~0~ pizon.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ ili am~0~ lin.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ tio aĉet~0~ legomojn.,is,as is os u i
+<<<<<<< HEAD
 3
 data/VocabPictures/chair.jpg,~0~ estas tio? Tio estas seĝo.,Kio,Kio Kiu Kie Kiel Kiam
 data/VocabPictures/chair.jpg,~0~ mi estas? Mi estas sur la seĝo.,Kie,Kio Kiu Kie Kiel Kiam
@@ -496,8 +497,11 @@ data/VocabPictures/swim.jpeg,
 data/VocabPictures/swim.jpeg,
 data/VocabPictures/walk.jpg,
 data/VocabPictures/walk.jpg,
-data/VocabPictures/walk.jpg,Ĉu vi marŝas 
+data/VocabPictures/walk.jpg,Ĉu vi marŝas al ~0~ domo?,via,nia via lia ŝia
 data/VocabPictures/by.jpg,Mi vojaĝas ~0~ la ŝipo.,per,per de en la
 data/VocabPictures/by.jpg,
 data/VocabPictures/by.jpg,
 5
+=======
+3
+>>>>>>> 1a416ecf89ba3228c5e990902a02b350f7797efd
