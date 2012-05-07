@@ -1012,3 +1012,8 @@ havi
 to have
 verb
 Mi havas katon.
+
+domo
+house
+noun
+Mi estas en la domo.
