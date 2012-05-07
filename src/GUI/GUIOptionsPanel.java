@@ -46,15 +46,7 @@ public class GUIOptionsPanel extends JPanel{
 		this.setBackground(new Color (238,238,238,255));
 		this.setPreferredSize(new Dimension(950,100*numacts+70));
 		
-<<<<<<< HEAD
-		numacts = numacts1;
-		buttons = new JButton[numacts][5];
-		levelNames = new JLabel[numacts];
-		ellipses = new Ellipse[numacts][5];
-		scores = new int[numacts][5];
-		scoreLabels = new ColorText[numacts][5]; 
-		
-=======
+
 		stats = stats1;
 		numacts = numacts1;
 		buttons = new JButton[numacts][5];
@@ -63,7 +55,7 @@ public class GUIOptionsPanel extends JPanel{
 		scores = new int[numacts][3];
 		scoreLabels = new ColorText[numacts][3]; 
 
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
+
 		_driver = driver;
 		
 		String line;
@@ -89,42 +81,28 @@ public class GUIOptionsPanel extends JPanel{
 			int picsize = 87;
 			
 			for(int j=0; j<5; j++){
-<<<<<<< HEAD
-				System.out.println("in pic read loop");
-=======
-				
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
+
 				int type = BufferedImage.TYPE_INT_ARGB;
 		        BufferedImage dst = new BufferedImage(picsize, picsize, type);
-		        
-		        System.out.println("after image read???");
 		        
 		        Graphics2D g1 = dst.createGraphics();
 		        g1.drawImage(pictures[j], 0, 0, picsize, picsize, this);
 		        
-		        System.out.println("after image drawl...");
 		        
 		        g1.dispose();
 		        ImageIcon newIcon = new ImageIcon(dst);
-<<<<<<< HEAD
-		        
-		        System.out.println("mmmmm...");
+
 		        
 		        buttons[i][j] = new JButton(newIcon);
 		        
-		        System.out.println("bugs...");
-		        
-=======
+
 				JButton mybutton = new JButton(newIcon);
 				buttons[i][j] = mybutton;
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
 		        buttons[i][j].setBorder(BorderFactory.createEmptyBorder(5,0,5,0));
 		        buttons[i][j].setBackground(new Color(238,238,238,0));
 		        buttons[i][j].setEnabled(stats.isUnlocked(i, j));
 		        
-<<<<<<< HEAD
 		        
-		        System.out.println("safdafdsf?");
 		        
 		        ellipses[i][j] = new Ellipse(this);
 		        ellipses[i][j].setSize(15, 15);
@@ -132,9 +110,6 @@ public class GUIOptionsPanel extends JPanel{
 		        ellipses[i][j].setBorderColor(Color.BLACK);
 		        ellipses[i][j].setVisible(false);
 		        
-		        System.out.println("here?????????????");
-		        
-=======
 			}
 			
 			for(int j=0; j < 3; j++){
@@ -145,15 +120,10 @@ public class GUIOptionsPanel extends JPanel{
 		        ellipses[i][j].setBorderColor(Color.BLACK);
 		        ellipses[i][j].setVisible(false);
 		        ellipses[i][j].setLocation(330,95);
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
 		        scores[i][j] = -1;
 		        scoreLabels[i][j] = new ColorText(this, new Integer(scores[i][j]).toString());
 		        scoreLabels[i][j].setVisible(false);
-<<<<<<< HEAD
-		        
-		        System.out.println("jkhfjghfjhgfgh");
-=======
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
+
 			}
 			buttons[0][4].setEnabled(true);//--------------------------------------------------
 			
@@ -313,15 +283,11 @@ public class GUIOptionsPanel extends JPanel{
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
 					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, 0));
-<<<<<<< HEAD
-				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
-=======
 				} else {
 					GUIVocabGame gvg = new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver);
 					_driver.changePage(gvg);
 					gvg.focusOnTextField();
 				}
->>>>>>> 9f29be18f9f3ad57961dc594c9da341031f7e6b0
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){

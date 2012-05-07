@@ -74,8 +74,7 @@ public class GUIOptionsPage extends JPanel{
 		GUIOptionsPanel overall = null;
 		
 		try {
-
-			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv "));
+			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
 			numacts = Integer.parseInt(fileReader.readLine());
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
