@@ -7,8 +7,8 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
@@ -20,18 +20,14 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
-import encoding.EncodingShiftListener;
-
 import ELearning.Driver;
 import ELearning.VocabLevel;
-import ELearning.VocabPicturePair;
-import GUI.GUIGrammarGame.backtoOptionsActionListener;
+import encoding.EncodingShiftListener;
 
 
 @SuppressWarnings("serial")
@@ -42,6 +38,7 @@ public class GUIVocabGame extends JPanel{
 	private VocabLevel _vocabLevel;
 	private Driver _driver;
 	private JLabel _score;
+	private String _newText;
 	
 
 	//this path and string would actually be an array of PicturePairs
@@ -57,12 +54,7 @@ public class GUIVocabGame extends JPanel{
 		
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
-		ActionListener actionListener = new ActionListener() {
-		      public void actionPerformed(ActionEvent actionEvent) {
-		    	  System.out.println("I'M HERE BITCH! WOOOHOO!");
-		        _gameBoard._pieces[0].replacePicWithWord();
-		      }
-		    };
+
 		
 
 		//The panel that contains the text field in which the user
@@ -70,17 +62,18 @@ public class GUIVocabGame extends JPanel{
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
-		//this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-
+		
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
-		//_textField.addKeyListener(new HintListener());
-		enterAnswers.add(_textField);	
+		enterAnswers.add(_textField);
 		_textField.requestFocusInWindow();
-		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_FOCUSED);
 		
-		
+		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_MASK);
+		_textField.getInputMap().remove(key);
+		_textField.getInputMap().put(key, "dosomething");
+		_textField.getActionMap().put("dosomething", new changeWordListener());
+	    
 		//Creating the Boundaries and Putting it all together
 		Box fullBar = Box.createVerticalBox();
 		
@@ -195,29 +188,6 @@ public class GUIVocabGame extends JPanel{
 		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 
 	}
-	
-	/*private class HintListener implements KeyListener{
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			if (e.getKeyChar() == '?'){
-				_gameBoard.showHint();
-			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}*/
 
 	//When someone types enter, the text they typed is checked and if it
 	// is correct then the bottom piece is cleared and the correct answer
@@ -230,6 +200,14 @@ public class GUIVocabGame extends JPanel{
 			_textField.setText("");
 		}
 
+	}
+	
+	private class changeWordListener extends javax.swing.AbstractAction {
+		
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			_gameBoard._pieces[0].replacePicWithWord();
+		}
+	
 	}
 
 	private class DictionaryButtonListener implements ActionListener {
@@ -244,10 +222,10 @@ public class GUIVocabGame extends JPanel{
 	            public void windowActivated(WindowEvent arg0) {
 	                _gameBoard.pause();
 	            }
-	            public void windowClosing(WindowEvent arg0) {}
-	            public void windowDeactivated(WindowEvent arg0) {
+	            public void windowClosing(WindowEvent arg0) {
 	                _gameBoard.restart();
 	            }
+	            public void windowDeactivated(WindowEvent arg0) {}
 	            public void windowDeiconified(WindowEvent arg0) {}
 	            public void windowIconified(WindowEvent arg0) {}
 	            public void windowOpened(WindowEvent arg0) {}
@@ -269,10 +247,10 @@ public class GUIVocabGame extends JPanel{
 	            public void windowActivated(WindowEvent arg0) {
 	                _gameBoard.pause();
 	            }
-	            public void windowClosing(WindowEvent arg0) {}
-	            public void windowDeactivated(WindowEvent arg0) {
-	                _gameBoard.restart();
+	            public void windowClosing(WindowEvent arg0) {
+	            	_gameBoard.restart();
 	            }
+	            public void windowDeactivated(WindowEvent arg0) {}
 	            public void windowDeiconified(WindowEvent arg0) {}
 	            public void windowIconified(WindowEvent arg0) {}
 	            public void windowOpened(WindowEvent arg0) {}

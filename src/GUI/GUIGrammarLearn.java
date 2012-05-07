@@ -17,7 +17,9 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
@@ -73,16 +75,20 @@ public class GUIGrammarLearn extends JPanel{
 			try {
 				pic = ImageIO.read(new File(glp.getPicturePath()));
 			} catch (IOException e) {
-				System.out.println("Cannot read image (GUIVocabLearn)");
+				System.out.println("Cannot find image "+ glp.getPicturePath());
+				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);
 			}
-			int type = BufferedImage.TYPE_INT_ARGB;
-	        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
-	        Graphics2D g1 = dst.createGraphics();
-	        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
-	        g1.dispose();
-	        ImageIcon newIcon = new ImageIcon(dst);
-	        JLabel picLabel = new JLabel(newIcon);
+			
+				int type = BufferedImage.TYPE_INT_ARGB;
+		        BufferedImage dst = new BufferedImage(prefWidth, prefHeight, type);
+		        Graphics2D g1 = dst.createGraphics();
+		        g1.drawImage(pic, 0, 0, prefWidth, prefHeight, this);
+		        g1.dispose();
+		        ImageIcon newIcon = new ImageIcon(dst);
+		        JLabel picLabel = new JLabel(newIcon);
+			
 			
 			//sentenceVert
 			JLabel sentenceLabel = new JLabel("\"" + glp.getExampleSentence() + "\"");

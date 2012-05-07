@@ -3,8 +3,6 @@ package parsing;
 public class Token {
 	
 	private String name_; // this token's face/phonetic value
-	//private Type pos_; // this token's part of speech
-	
 	private Pos pos_;
 	private NumMarker number_;
 	private Case cm_;
@@ -54,6 +52,7 @@ public class Token {
 		rightindex_ = rightindex;
 	}
 	
+	// toString
 	public String toString() {
 		return pos_.toString() + " " + number_ + " " + cm_ + " " + t_ + " from " + leftindex_ + " to " + rightindex_;
 	}

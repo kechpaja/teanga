@@ -13,10 +13,115 @@ dog
 noun
 Adiaŭ, hundo!
 
+bonvoli
+please
+verb
+helpu min, bonvoli.
+
 kato
 cat
 noun
 Saluton, kato!
+
+porkaĵo
+pork
+noun
+La porkaĵo estas viando bongusta.
+
+kokaĵo
+chicken
+noun
+La kokaĵo estas viando de birdo.
+
+bovaĵo
+beef
+noun
+Li povas manĝi la bovaĵon.
+
+legomo
+vegetable
+noun
+La legomoj estas bonaj por vi.
+
+pizo
+pea
+noun
+La pizoj estas malgrandaj.
+
+pano
+bread
+noun
+La pano estas bongusta ankaŭ.
+
+ovo
+egg
+noun
+La ovoj estas de birdo.
+
+lakto
+milk
+noun
+La lakto estas por la katoj.
+
+fromaĝo
+cheese
+noun
+Muso manĝas la fromaĝon!
+
+rizo
+rice
+noun
+Li volas manĝi rizon.
+
+trinki
+to drink
+verb
+La kato trinkas lakton.
+
+aĉeti
+to buy
+verb
+Mi aĉetas lakton.
+
+dek unu
+eleven
+number
+Tio estas dek unu.
+
+dek du
+twelve
+number
+Tio estas dek du.
+
+dek tri
+thirteen
+number
+Tio estas dek tri.
+
+dek kvar
+fourteen
+number
+Tio estas dek kvar.
+
+dudek unu
+twenty-one
+number
+Tio estas dudek unu.
+
+dudek du
+twenty-two
+number
+Tio estas dudek du.
+
+semajno
+week
+noun
+Sep tagoj estas unu semajno.
+
+nun
+now
+adverb
+Nun mi estas kato.
 
 lampo
 lamp
@@ -73,45 +178,90 @@ I
 pronoun
 Mi estas humano.
 
+mia
+my
+adjective
+Tio estas mia hundo.
+
 ci
 thou
 pronoun
 Ci estas humano.
+
+cia
+thy
+adjective
+Tio estas cia hundo.
 
 li
 he
 pronoun
 Li volas manĝi cin!
 
+lia
+his
+adjective
+Tio estas lia hundo.
+
 ŝi
 she
 pronoun
 Ŝi manĝas musojn.
+
+ŝia
+her
+adjective
+Tio estas ŝia hundo.
 
 ĝi
 it
 pronoun
 Ĝi estas tablo.
 
+ĝia
+its
+adjective
+Tio estas ĝia kato.
+
 ri
 he/she
 pronoun
 Ri ne volas usi vorton "li".
+
+ria
+their
+adjective
+Tio estas ria kato.
 
 ni
 we
 pronoun
 Ni estas la grupo "Teanga".
 
+nia
+our
+adjective
+Tio estas nia kato.
+
 vi
 you
 pronoun
 Vi estas en la domo.
 
+via
+your
+adjective
+Tio estas via hundo.
+
 ili
 they
 pronoun
 Ili volas min.
+
+ilia
+their
+adjective
+Tio estas ilia kato.
 
 la
 the
@@ -299,9 +449,24 @@ preposition
 Ni estas ekster la domo.
 
 el
-from, out of
+from, out of, out
 preposition
 Mi iras el la domo.
+
+reiri
+to return
+verb
+Mi reiras al domo.
+
+helpi
+to help
+verb
+Helpu min!
+
+vortaro
+dictionary
+noun
+Mi usas la vortaro.
 
 tio
 that, this
@@ -984,7 +1149,7 @@ verb
 Nia lampo lumas.
 
 polvosuĉuilo
-vacuum cleaner
+vacuum cleaner, vacuum
 noun
 Ni uzas la polvosuĉilon en niaj dormĉambroj.
 
@@ -992,6 +1157,11 @@ forko
 fork
 noun
 Mi manĝas per la forko.
+
+uzi
+to use
+verb
+Ni uzas la polvosuĉilon en niaj dormĉambroj.
 
 kulero
 spoon
@@ -1097,3 +1267,28 @@ iri
 to go
 verb
 Mi iras al domo.
+
+suko
+juice
+noun
+Mi trinkas sukon.
+
+sango
+blood
+noun
+Mi *ne* trinkas sangon!
+
+jes
+yes
+adverb
+Ĉu vi volas iri? Jes!
+
+naskiĝtago
+birthday
+noun
+Hodiaŭ estas mia naskiĝtago!
+
+paroli
+to speak
+verb
+Mi parolas Esperanton.

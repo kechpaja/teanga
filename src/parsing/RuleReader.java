@@ -3,7 +3,6 @@ package parsing;
 import java.io.*;
 import java.util.*;
 import rules.*;
-//import parsing.*;
 
 public class RuleReader {
 	
@@ -16,16 +15,16 @@ public class RuleReader {
 	 * <unary syntactic rules>
 	 * ternary:
 	 * <ternary syntactic rules>
-	 * agreement:
-	 * <agreement rules>
-	 * semantic:
-	 * <semantic rules>
 	 * 
 	 * Syntactic Rules are of this form:
 	 * 
 	 * Binary: A B C
 	 * 
 	 * Unary: A B
+	 * 
+	 * Ternary: A B C D
+	 * 
+	 * Where "A" is always the parent, and the other three are the children.
 	 * 
 	 * The words "unary" and "binary" are not included, since one can tell from the number of items...
 	 * 
@@ -42,13 +41,11 @@ public class RuleReader {
 			HashMap<Pos, List<BinarySyntacticRule>> birules = new HashMap<Pos, List<BinarySyntacticRule>>();
 			HashMap<Pos, UnarySyntacticRule> unrules = new HashMap<Pos, UnarySyntacticRule>();
 			List<TernarySyntacticRule> terules = new LinkedList<TernarySyntacticRule>();
-			HashMap<Pos, List<AgreementRule>> agrules = new HashMap<Pos, List<AgreementRule>>();
-			HashMap<Pos, List<SemanticRule>> semrules = new HashMap<Pos, List<SemanticRule>>();
 			
 			String line = r.readLine();
 			
 			if (line == null || !line.equals("binary:")) {
-				// TODO some error message
+				System.out.println("ERROR IN BINARY RULES");
 			}
 			
 			line = r.readLine();
@@ -57,12 +54,12 @@ public class RuleReader {
 			while (line != null && !line.equals("unary:")) {
 				String[] spl = line.split("\\s");
 				if (line.equals("") || line.startsWith("#")) {
-					// bad input.
-					//System.out.println("Skipped Comment or Blank Line.");
+					// skipping comment
 				} else if (spl.length != 3) {
 					System.out.println("ERROR IN BINARY RULES");
 					System.out.println(line);
 				} else {
+					// build rule
 					Pos h = Pos.strToPos(spl[1]);
 					Pos t = Pos.strToPos(spl[2]);
 					Pos p = Pos.strToPos(spl[0]);
@@ -87,14 +84,11 @@ public class RuleReader {
 				} else if (spl.length != 2) {
 					// error
 					System.out.println("ERROR IN UNARY RULES");
-					// TODO get a better error message
+					System.out.println(line);
 				} else {
+					// build rule
 					Pos c = Pos.strToPos(spl[1]);
 					Pos p = Pos.strToPos(spl[0]);
-					//if (!birules.containsKey(c)) {
-					//	unrules.put(c, new LinkedList<UnarySyntacticRule>());
-					//}
-				
 					unrules.put(c, new UnarySyntacticRule(c, p));
 				}
 				line = r.readLine();
@@ -103,14 +97,16 @@ public class RuleReader {
 			line = r.readLine();
 			
 			// ternary rules
-			while (line != null && !line.equals("agreement:")) {
+			while (line != null) {
 				String[] spl = line.split("\\s");
 				if (line.equals("") || line.startsWith("#")) {
 					// comment
 				} else if (spl.length != 4) {
 					// error
 					System.out.println("ERROR IN TERNARY RULES");
+					System.out.println(line);
 				} else {
+					// build rules
 					Pos l = Pos.strToPos(spl[1]);
 					Pos m = Pos.strToPos(spl[2]);
 					Pos rg = Pos.strToPos(spl[3]);
@@ -121,28 +117,8 @@ public class RuleReader {
 				line = r.readLine();
 			}
 			
-			while (line != null && !line.equals("semantic:")) {
-				if (line.startsWith("#")) {
-					continue;
-				}
-			//	agrules.add(parseAgRule(line));
-				//TODO
-				line = r.readLine();
-			}
-			
-			// move forward one
-			line = r.readLine();
-			
-			while (line != null) {
-				if (line.startsWith("#")) {
-					continue;
-				}
-			//	semrules.add(parseSemRule(line));
-				//TODO
-				line = r.readLine();
-			}
-			
-			ruleset = new RuleSet(birules, unrules, terules, agrules, semrules);
+			// build ruleset
+			ruleset = new RuleSet(birules, unrules, terules);
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block

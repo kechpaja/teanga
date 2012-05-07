@@ -6,22 +6,24 @@ import gfx.Rectangle;
 import java.awt.AlphaComposite;
 import java.awt.Color;
 import java.awt.Font;
+import java.awt.FontMetrics;
 import java.awt.Graphics2D;
 import java.awt.RenderingHints;
-import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 
 public class GUIVocabGamePiece {
 	
 	private int _addTo;
 	private int _bottom;
 	private double _x, _y;
+	private int _width;
 	private JPanel _panel;
 	private Rectangle _rect1;
 	private BufferedImage _image;
@@ -51,7 +53,11 @@ public class GUIVocabGamePiece {
 		_word = new ColorText(_panel, word);
 		_word.setFont("Cambria", Font.PLAIN, 40);
 		_word.setColor(new Color(220,220,255,255));
-		_word.setLocation((int)Math.floor(_x)+_addTo, (int)Math.floor(_y)+60);
+		JLabel label = new JLabel(word);
+		FontMetrics metrics = label.getFontMetrics(new Font("Cambria",Font.PLAIN,40));
+		_width = SwingUtilities.computeStringWidth(metrics, word.trim());
+		
+		_word.setLocation((int)Math.floor(_x)+(200-_width)/2, (int)Math.floor(_y)+60);
 		_word.setVisible(false);
 		
 		//Load the image and reset size
@@ -90,7 +96,7 @@ public class GUIVocabGamePiece {
 		if(_y < _bottom){
 			_y = _y+10;
 			_rect1.setLocation(_x, _y);
-			_word.setLocation((int)Math.floor(_x)+_addTo, (int)Math.floor(_y)+60);
+			_word.setLocation((int)Math.floor(_x)+(200-_width)/2, (int)Math.floor(_y)+60);
 			_panel.repaint();
 		}
 				

@@ -9,16 +9,12 @@ public class RuleSet {
 	private final HashMap<Pos, List<BinarySyntacticRule>> birules_;
 	private final HashMap<Pos, UnarySyntacticRule> unrules_;
 	private final List<TernarySyntacticRule> terules_;
-	private final HashMap<Pos, List<AgreementRule>> agrules_;
-	private final HashMap<Pos, List<SemanticRule>> semrules_;
 
 	public RuleSet(HashMap<Pos, List<BinarySyntacticRule>> birules, HashMap<Pos, UnarySyntacticRule> unrules,
-			List<TernarySyntacticRule> terules, HashMap<Pos, List<AgreementRule>> agrules, HashMap<Pos, List<SemanticRule>> semrules) {
+			List<TernarySyntacticRule> terules) {
 		birules_ = birules;
 		unrules_ = unrules;
 		terules_ = terules;
-		agrules_ = agrules;
-		semrules_ = semrules;
 	}
 	
 	// GETTERS
@@ -32,14 +28,6 @@ public class RuleSet {
 	
 	public List<TernarySyntacticRule> getTeRules() {
 		return terules_;
-	}
-	
-	public HashMap<Pos, List<AgreementRule>> getAgRules() {
-		return agrules_;
-	}
-	
-	public HashMap<Pos, List<SemanticRule>> getSemRules() {
-		return semrules_;
 	}
 	
 }
