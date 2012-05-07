@@ -4,6 +4,12 @@ import java.io.*;
 
 public class TestIO {
 	
+	/**
+	 * 
+	 * This class exists for the sole purpose of testing the parser independently of the rest
+	 * of the project. It will not be included in our final project. 
+	 */
+	
 	public static void main(String[] args) {
 		
 		try {

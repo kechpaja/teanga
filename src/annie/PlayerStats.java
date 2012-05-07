@@ -87,7 +87,7 @@ public class PlayerStats {
 	    FileOutputStream fos;
 	    CipherOutputStream cos;
 	    
-	    fos = new FileOutputStream(userName);
+	    fos = new FileOutputStream("data/Users/"+userName);
 	    String toEncrypt="";
 	    toEncrypt= toEncrypt+gender;
 	    toEncrypt= toEncrypt+" "+totalPoints+" ";
@@ -106,7 +106,7 @@ public class PlayerStats {
 	    out.write(toEncrypt);
 	    out.flush();
 	    out.close();
-	    FileInputStream inFile = new FileInputStream(userName+"temp");
+	    FileInputStream inFile = new FileInputStream("data/Users/"+userName+"temp");
 
 	    byte[] input = new byte[64];
 	    int bytesRead;
@@ -132,7 +132,7 @@ public class PlayerStats {
 		 CipherInputStream cis;
 		 
 		 String t="";
-		 fis = new FileInputStream(userName);
+		 fis = new FileInputStream("data/Users/"+userName);
 		 cis = new CipherInputStream(fis, decrypt);
 		 byte[] input = new byte[64];
 		 int bytesRead;
@@ -221,12 +221,5 @@ public class PlayerStats {
 	{	
 		return userGames[level][game];
 	}
-/*
-	//Makes an appropriate GameMaker and calls the make makeLevel(level) 
-	//method and then returns the level it created.
-	public LevelInstance bootGame(int level, int game) 
-	{
-		
-	}
-*/
+
 }
