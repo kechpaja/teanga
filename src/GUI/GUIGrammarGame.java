@@ -69,8 +69,7 @@ public class GUIGrammarGame extends JPanel{
 	        ImageIcon newIcon = new ImageIcon(dst);
 	        _picLabel = new JLabel(newIcon);
 		} catch (IOException e) {
-			System.out.println("Could not read the image");
-			System.exit(0);
+			_picLabel = null;
 		}
 		JPanel overall = new JPanel(new BorderLayout());
 		overall.setBackground(new Color(238,238,238,255));
@@ -104,7 +103,9 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(_totalNumLabel);
 		topHoriz.add(Box.createHorizontalStrut(30));
 		
-		picHoriz.add(_picLabel);
+		if(_picLabel != null){
+			picHoriz.add(_picLabel);
+		}
 		_choicePanel = makeSentanceBox(gl.getCurrent().getPartialSentence());
 		_horizontalChoice.add(_choicePanel);
 		
