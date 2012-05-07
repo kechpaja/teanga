@@ -43,12 +43,12 @@ public class GUIOptionsPanel extends JPanel{
 		this.setBackground(new Color (238,238,238,255));
 		this.setPreferredSize(new Dimension(950,100*numacts+70));
 		
+		numacts = numacts1;
 		buttons = new JButton[numacts][5];
 		levelNames = new JLabel[numacts];
 		ellipses = new Ellipse[numacts][5];
 		scores = new int[numacts][5];
 		scoreLabels = new ColorText[numacts][5]; 
-		numacts = numacts1;
 		
 		_driver = driver;
 		
