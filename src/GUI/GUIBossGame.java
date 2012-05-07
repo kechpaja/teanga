@@ -34,7 +34,7 @@ public class GUIBossGame extends JPanel{
 	private Driver _driver;
 	private BossLevel _bossLevel;
 	private JTextField userInput;
-	private JButton back, help, dictionary, next, prev;
+	private JButton back, help, dictionary, next, prev, uiButton;
 	private JPanel mainPanel, rPanel, panel, aPanel, qPanel;
 	private JTextArea textArea;
 	private BufferedImage pic;
@@ -113,7 +113,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		JButton uiButton = new JButton("Submetiĝu");
+		uiButton = new JButton("Submetiĝu");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -384,6 +384,7 @@ public class GUIBossGame extends JPanel{
 			panel.add(nrPanel);
 			panel.revalidate();
 		}
+		uiButton.setEnabled(false);
 	}
 	
 	private class MySubmitListener implements ActionListener{
@@ -425,6 +426,7 @@ public class GUIBossGame extends JPanel{
 			if(rPanel != null){
 				rPanel.setVisible(false);
 			}
+			uiButton.setEnabled(true);
 			panel.revalidate();
 			panel.repaint();
 			
