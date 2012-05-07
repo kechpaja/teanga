@@ -18,7 +18,9 @@ import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
@@ -71,7 +73,9 @@ public class GUIBossGame extends JPanel{
 		try {
 			pic = ImageIO.read(new File(backPic));
 		} catch (IOException e) {
-			System.out.println("Cannot read image (GUIBossGame)");
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
+			System.out.println("Cannot read image (GUIBossGame): "+backPic);
 			System.exit(0);
 		}
 		
@@ -461,9 +465,8 @@ public class GUIBossGame extends JPanel{
 		
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 1, _bossLevel.getScore());
-			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-			
+			_driver.getPlayerStats().RefreshStats(_bossLevel.getLevelNum(), 2, _bossLevel.getScore());
+			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));			
 		}
 		
 	}

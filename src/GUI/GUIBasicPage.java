@@ -170,6 +170,8 @@ public class GUIBasicPage extends JPanel{
 		add(topBar, BorderLayout.NORTH);
 		add(overall, BorderLayout.CENTER);
 		add(bottomBar, BorderLayout.SOUTH);
+		
+		
 	}
 	
 	public void passBoxNewUser(){
@@ -315,19 +317,20 @@ public class GUIBasicPage extends JPanel{
 	}
 
 	
+
 	private class SubmitActionListener implements ActionListener{
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			submit();	
-		}
-	}
-	
-	private class TextListener implements ActionListener {
 		@Override
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			submit();
 		}
-
 	}
+
+	private class TextListener implements ActionListener {
+		@Override
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			submit();
+		}	
+	}
+	
 	
 }
