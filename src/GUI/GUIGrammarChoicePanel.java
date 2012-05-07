@@ -82,6 +82,13 @@ public class GUIGrammarChoicePanel extends JPanel {
 		this.addMouseListener(ma);
 	}
 	
+	public void setChoices(int _width){
+		for(int j=0; j< _choices.length; j++){
+			_rectChoices.get(j).setSize(_width-5,26);
+			_rectChoices.get(j).setLocation((1000-(_choices.length*135 + (_choices.length-1)*20))/2+j*155,207);			
+		}
+	}
+	
 	public ArrayList<GUIGrammarBlank> getBlanks(){
 		return _rectBlanks;
 	}
@@ -151,11 +158,13 @@ public class GUIGrammarChoicePanel extends JPanel {
 			int panelY = 0;
 			int compX = 0;
 			int compY = 0;
+			int compWidth = 0;
 			try{
 				panelX = _panel.getLocationOnScreen().x;
 				panelY = _panel.getLocationOnScreen().y;
 				compX = e.getComponent().getLocationOnScreen().x;
 				compY = e.getComponent().getLocationOnScreen().y;
+				compWidth = e.getComponent().getWidth()-4;
 			} catch(IllegalComponentStateException exception){
 				move = false;
 			}
@@ -172,6 +181,7 @@ public class GUIGrammarChoicePanel extends JPanel {
 					panelY = _panel.getLocationOnScreen().y;
 					compX = e.getComponent().getLocationOnScreen().x;
 					compY = e.getComponent().getLocationOnScreen().y;
+					compWidth = e.getComponent().getWidth()-4;
 					move = true;
 				} catch(IllegalComponentStateException exception){
 					move = false;
@@ -179,7 +189,9 @@ public class GUIGrammarChoicePanel extends JPanel {
 			}
 			
 			_rectBlanks.get(_num).setLocation((compX-panelX)+1, (compY-panelY));
+			_rectBlanks.get(_num).setSize(compWidth, _rectBlanks.get(_num).getHeight());
 			_rectBlanks.get(_num).setVisible(true);
+			setChoices(compWidth);
 			_container.repaint();
 			
 		}
