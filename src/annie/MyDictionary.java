@@ -104,7 +104,7 @@ public class MyDictionary {
 		} else if (s.endsWith("j") || s.endsWith("n") && (!s.equals("en") && !s.equals("sen") && !s.equals("kun"))) {
 			// plurals and accusatives
 			ret = s.substring(0, s.length() - 1);
-		} else if (s.endsWith("s") && s.length() >= 2) {
+		} else if (s.endsWith("s") && !s.endsWith("es") && s.length() >= 2) {
 			// finite verbs
 			ret = s.substring(0, s.length() - 2) + "i";
 		} else if (s.endsWith("u") && !s.equals("kiu") && !s.equals("tiu") && !s.equals("iu")

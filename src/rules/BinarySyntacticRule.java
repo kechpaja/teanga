@@ -43,6 +43,11 @@ public class BinarySyntacticRule extends SyntacticRule {
 			t = n1.getTense();
 		}
 		
+		// carry case up to top of DP
+		if (head_ == Pos.ARTICLE) {
+			c = n2.getCase();
+		}
+		
 		return new NonTerminalNode(n1, n2, pos_, number, c, t);
 	}
 	
