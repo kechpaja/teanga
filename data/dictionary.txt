@@ -1107,3 +1107,8 @@ sango
 blood
 noun
 Mi *ne* trinkas sangon!
+
+jes
+yes
+adverb
+Ĉu vi volas iri? Jes!
