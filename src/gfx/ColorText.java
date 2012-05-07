@@ -48,6 +48,10 @@ public class ColorText {
 		_posY = y;
 	}
 	
+	public String getText(){
+		return _text;
+	}
+	
 	public void setVisible(boolean flag){
 		_visible = flag;
 	}

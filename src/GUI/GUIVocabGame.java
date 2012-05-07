@@ -7,6 +7,7 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
@@ -15,11 +16,9 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
-import javax.swing.ActionMap;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
-import javax.swing.InputMap;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -39,6 +38,7 @@ public class GUIVocabGame extends JPanel{
 	private VocabLevel _vocabLevel;
 	private Driver _driver;
 	private JLabel _score;
+	private String _newText;
 	
 
 	//this path and string would actually be an array of PicturePairs
@@ -62,21 +62,18 @@ public class GUIVocabGame extends JPanel{
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
-		//this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-		
-		InputMap _input = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);//these map the keys on the keyboard to a string
-		_input.put(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), "change");
-		
-		ActionMap _action = this.getActionMap();//these map the string to an action so that the key causes an action
-		_action.put("change", new changeWordListener());
 		
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
-		//_textField.addKeyListener(new HintListener());
 		enterAnswers.add(_textField);
-		_textField.requestFocusInWindow();		
+		_textField.requestFocusInWindow();
 		
+		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_MASK);
+		_textField.getInputMap().remove(key);
+		_textField.getInputMap().put(key, "dosomething");
+		_textField.getActionMap().put("dosomething", new changeWordListener());
+	    
 		//Creating the Boundaries and Putting it all together
 		Box fullBar = Box.createVerticalBox();
 		
@@ -191,29 +188,6 @@ public class GUIVocabGame extends JPanel{
 		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 
 	}
-	
-	/*private class HintListener implements KeyListener{
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			if (e.getKeyChar() == '?'){
-				_gameBoard.showHint();
-			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
-	}*/
 
 	//When someone types enter, the text they typed is checked and if it
 	// is correct then the bottom piece is cleared and the correct answer
