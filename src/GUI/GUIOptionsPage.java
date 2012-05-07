@@ -42,21 +42,18 @@ public class GUIOptionsPage extends JPanel{
 		try {
 			stats.encode();
 		} catch (IllegalBlockSizeException e) {
-			// TODO Auto-generated catch block
 			System.out.println("1");
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
 		} catch (BadPaddingException e) {
-			// TODO Auto-generated catch block
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			System.out.println("2");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			System.out.println("3");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
@@ -77,6 +74,7 @@ public class GUIOptionsPage extends JPanel{
 			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
 			numacts = Integer.parseInt(fileReader.readLine());
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
+			overall.setPreferredSize(new Dimension(950,100*numacts+70));
 			
 		} catch (Exception e) {
 			e.printStackTrace();
