@@ -43,7 +43,8 @@ public class GUIBossGame extends JPanel{
 	private int _current;
 	private Response response;
 	private boolean switched;
-	private JLabel _score;
+	private JLabel _score, _currNumLabel, _totalNumLabel, outofLabel;
+	private Box topHoriz;
 	
 	
 	public GUIBossGame(BossLevel b, Driver d){
@@ -79,11 +80,26 @@ public class GUIBossGame extends JPanel{
 			System.exit(0);
 		}
 		
+		topHoriz = Box.createHorizontalBox();
+		
+		topHoriz.add(Box.createHorizontalStrut(750));
+		_currNumLabel = new JLabel(Integer.toString(_bossLevel.getCurrentNum()));
+		_totalNumLabel = new JLabel(Integer.toString(_bossLevel.getTotalNum()));
+		outofLabel = new JLabel(" de ");
+		_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+		_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
+		outofLabel.setFont(new Font("Century", Font.BOLD, 25));
+		topHoriz.add(_currNumLabel);
+		topHoriz.add(outofLabel);
+		topHoriz.add(_totalNumLabel);
+		topHoriz.add(Box.createHorizontalStrut(30));
+		
 		JPanel qPanel = new JPanel();
 		qPanel.setLayout(new BorderLayout());
 		qPanel.setBackground(new Color(255,255,255,0));
         qPanel.setLocation(qpanelX, qpanelY+35);
         qPanel.setSize(300,400);
+     
         this.add(qPanel);
 		
 		textArea = new JTextArea();
@@ -224,6 +240,7 @@ public class GUIBossGame extends JPanel{
 		bottomPanel.add(dictionary);
 		
 		add(topPanel);
+		add(topHoriz);
 		add(bottomPanel);
 		
 	}

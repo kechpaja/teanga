@@ -152,7 +152,7 @@ data/VocabPictures/on.jpeg~sur~on~"Ili seĝas sur la tapiŝo."
 data/VocabPictures/through.jpeg~tra~through~"Ni iras tra la pordo."
 4
 data/VocabPictures/car.jpeg~aŭto~car~"Ni vojaĝas per la aŭto."
-data/VocabPictures/bus.jpeg~aŭtobuso~bus~"Vi vojaĝas per la aŭtobuso."
+data/VocabPictures/bus.jpg~aŭtobuso~bus~"Vi vojaĝas per la aŭtobuso."
 data/VocabPictures/airplane.jpeg~aeroplano~airplane~"Ili vojaĝas per la aeroplano."
 data/VocabPictures/train.jpeg~trajno~train~"La personoj ruzaj vojaĝas per la trajno."
 data/VocabPictures/tram.jpeg~tramo~tram~"La tramoj iras sur la strato."
