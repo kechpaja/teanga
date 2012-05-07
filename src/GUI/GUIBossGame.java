@@ -105,6 +105,7 @@ public class GUIBossGame extends JPanel{
 		userInput = new JTextField(18);
 		userInput.setBorder(BorderFactory.createLineBorder(Color.black));
 		userInput.addKeyListener(new EncodingShiftListener(userInput));
+		userInput.addActionListener(new enterSubmitListener());
 		
 		JPanel aPanel = new JPanel();
 		aPanel.setBackground(new Color(255,255,255,0));
@@ -373,20 +374,32 @@ public class GUIBossGame extends JPanel{
 
 	}
 	
+	public void submit() {	
+		if(!switched){
+			switched = true;
+			response = _bossLevel.tryAnswer(userInput.getText());
+			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
+			JPanel nrPanel = makeRPanel(response, 0);
+			rPanel = nrPanel;
+			panel.add(nrPanel);
+			panel.revalidate();
+		}
+	}
+	
 	private class MySubmitListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			
-			if(!switched){
-				switched = true;
-				response = _bossLevel.tryAnswer(userInput.getText());
-				_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
-				JPanel nrPanel = makeRPanel(response, 0);
-				rPanel = nrPanel;
-				panel.add(nrPanel);
-				panel.revalidate();
-			}
+			submit();
+		}
+		
+	}
+	
+	private class enterSubmitListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			submit();
 		}
 		
 	}

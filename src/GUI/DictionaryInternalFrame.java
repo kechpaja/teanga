@@ -38,6 +38,7 @@ public class DictionaryInternalFrame extends JFrame{
 		isFromEsperanto = true;
 		input = new JTextField();
 		input.addKeyListener(new EncodingShiftListener(input));
+		input.addActionListener(new submitSearchListener());
 		search = new JButton("Serĉu");
 		search.addActionListener(new SearchActionListener());
 		searchBar = new Box(BoxLayout.X_AXIS);
@@ -70,39 +71,52 @@ public class DictionaryInternalFrame extends JFrame{
 		this.setVisible(true);
 	}
 	
+	private void search(){
+		Word w = _dictionary.getWord(input.getText(), isFromEsperanto);
+		if(w!=null)
+		{
+			String translations="";
+			for(String t: w.getTranslations())
+			{
+				translations=t+"\n";
+			}
+			//translations=translations.substring(0, translations.length()-2);
+			result.setText("Translates to: \n"+ translations+"Part of speech: \n"+w.getPOS()
+					+"\nExample sentence: \n"+w.getEx());
+			result.setCaretPosition(0);
+		}
+		else
+		{
+			String eorEo="English to Esperanto";
+			String other="Esperanto to English";
+			if(isFromEsperanto)
+			{
+				eorEo="Esperanto to English";
+				other="English to Esperanto";
+			}
+			result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n"
+					+"You are translating from "+eorEo+". If you meant to translate from "+
+					other+", click the toggle transation button button, above.");
+			result.setCaretPosition(0);
+		}
+	}
+	
 	private class SearchActionListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			Word w = _dictionary.getWord(input.getText(), isFromEsperanto);
-			if(w!=null)
-			{
-				String translations="";
-				for(String t: w.getTranslations())
-				{
-					translations=t+"\n";
-				}
-				//translations=translations.substring(0, translations.length()-2);
-				result.setText("Translates to: \n"+ translations+"Part of speech: \n"+w.getPOS()
-						+"\nExample sentence: \n"+w.getEx());
-				result.setCaretPosition(0);
-			}
-			else
-			{
-				String eorEo="English to Esperanto";
-				String other="Esperanto to English";
-				if(isFromEsperanto)
-				{
-					eorEo="Esperanto to English";
-					other="English to Esperanto";
-				}
-				result.setText("The dictionary does not contain the word '"+ input.getText()+"'.\n"
-						+"You are translating from "+eorEo+". If you meant to translate from "+
-						other+", click the toggle transation button button, above.");
-				result.setCaretPosition(0);
-			}
-			
+			search();		
 		}
+	}
+	
+	private class submitSearchListener implements ActionListener{
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			search();		
+		}
+		
+		
 	}
 
 	
