@@ -1297,3 +1297,8 @@ jaro
 year
 noun
 [None Given]
+
+sia
+his/her/its own
+adjective
+Li manĝas sian manĝaĵon.

@@ -34,7 +34,7 @@ data/VocabPictures/bird.jpg,Birdo manĝ~0~.,as,i as u un
 data/VocabPictures/bird.jpg,La bird~0~ pov~1~ iri.,o as,i u as o
 data/VocabPictures/bird.jpg,Li manĝ~0~!,as,i u o as e
 data/VocabPictures/beautiful.jpeg,Tio est~0~ bel~1~.,as a,a i o as
-data/VocabPictures/beautiful.jpeg,Ĝi estas bel~0~.,as,as i o on
+data/VocabPictures/beautiful.jpeg,Ĝi estas bel~0~.,a,as a i o on
 data/VocabPictures/beautiful.jpeg,Mi volas est~0~ bel~1~.,i a,o a i as
 data/VocabPictures/person.jpg,Estas person~0~ en la domo!.,o,i a e u o
 data/VocabPictures/person.jpg,~0~ persono vol~1~ manĝi.,La as,as La Le O e
