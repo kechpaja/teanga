@@ -93,7 +93,7 @@ public class GUIGrammarGame extends JPanel{
 		topHoriz.add(Box.createHorizontalStrut(750));
 		_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
 		_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
-		outofLabel = new JLabel(" of ");
+		outofLabel = new JLabel(" de ");
 		_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 		_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 		outofLabel.setFont(new Font("Century", Font.BOLD, 25));
@@ -108,11 +108,11 @@ public class GUIGrammarGame extends JPanel{
 		_choicePanel = makeSentanceBox(gl.getCurrent().getPartialSentence());
 		_horizontalChoice.add(_choicePanel);
 		
-		JButton submit = new JButton("Submit Answer");
+		JButton submit = new JButton("Submetiĝu");
 		submit.addActionListener(new SubmitListener());
 		submitHoriz.add(submit);
 		submit.setSize(120,35);
-		JButton skip = new JButton("Skip");
+		JButton skip = new JButton("Saltu");
 		skip.setSize(120,35);
 		skip.addActionListener(new SkipListener());
 		submitHoriz.add(skip);
@@ -155,7 +155,7 @@ public class GUIGrammarGame extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Back",newIcon3);
+		JButton back = new JButton("Redonu",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
@@ -196,13 +196,13 @@ public class GUIGrammarGame extends JPanel{
         g2.dispose();
         ImageIcon newIcon2 = new ImageIcon(dst2);
         
-		JButton help = new JButton("Help",newIcon2);
+		JButton help = new JButton("Helpu",newIcon2);
 		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
 		
-		JButton dictionary = new JButton("Dictionary",newIcon);
+		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
 		dictionary.setLocation(850, 5);
@@ -237,11 +237,9 @@ public class GUIGrammarGame extends JPanel{
 				//add strings 1 word at a time
 				for(int j=0; j < smallWs.length; j++){
 					words.push(smallWs[j]);
-					System.out.println("blahblahone");
 				}
 				
 			}
-			System.out.println("blahblahtwo");
 		}
 		
 		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
@@ -385,7 +383,7 @@ public class GUIGrammarGame extends JPanel{
 				topHoriz.add(Box.createHorizontalStrut(750));
 				_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
 				_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
-				outofLabel = new JLabel(" of ");
+				outofLabel = new JLabel(" de ");
 				_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 				_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 				outofLabel.setFont(new Font("Century", Font.BOLD, 25));
@@ -426,7 +424,7 @@ public class GUIGrammarGame extends JPanel{
 					topHoriz.add(Box.createHorizontalStrut(750));
 					_currNumLabel = new JLabel(Integer.toString(_grammarLevel.getCurrentNum()));
 					_totalNumLabel = new JLabel(Integer.toString(_grammarLevel.getTotalNum()));
-					outofLabel = new JLabel(" of ");
+					outofLabel = new JLabel(" de ");
 					_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 					_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
 					outofLabel.setFont(new Font("Century", Font.BOLD, 25));

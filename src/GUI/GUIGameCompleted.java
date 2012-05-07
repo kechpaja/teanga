@@ -73,9 +73,9 @@ public class GUIGameCompleted extends JPanel{
 		vertBox.add(Box.createVerticalStrut(10));
 		vertBox.add(complBox);
 		
-		JButton tryAgain = new JButton("try again");
+		JButton tryAgain = new JButton("Provo Denove");
 		tryAgain.addActionListener(new tryAgainActionListener());
-		JButton backtoBasic = new JButton("return to home page");
+		JButton backtoBasic = new JButton("Domo");
 		backtoBasic.addActionListener(new backtoOptions());
 		
 		horizBox.add(Box.createHorizontalStrut(10));

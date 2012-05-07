@@ -40,6 +40,7 @@ public class GUIOptionsPanel extends JPanel{
 	private Driver _driver;
 	
 	public GUIOptionsPanel(BufferedReader  fileReader, int numacts1, PlayerStats stats1, Driver driver) throws IOException{
+
 		super(new BorderLayout());
 		
 		this.setBackground(new Color (238,238,238,255));
@@ -52,6 +53,7 @@ public class GUIOptionsPanel extends JPanel{
 		ellipses = new Ellipse[numacts][3];
 		scores = new int[numacts][3];
 		scoreLabels = new ColorText[numacts][3]; 
+
 		_driver = driver;
 		
 		String line;
@@ -260,18 +262,22 @@ public class GUIOptionsPanel extends JPanel{
 			case 3:
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenVocabLessonHelp.txt", _driver, 1, 0));
-				} else _driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, 0));
+				} else {
+					GUIVocabGame gvg = new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver);
+					_driver.changePage(gvg);
+					gvg.focusOnTextField();
+				}
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, 0));
 				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 2).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/GenBossLevelHelp.txt", _driver, 3, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, 0));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}

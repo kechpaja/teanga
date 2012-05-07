@@ -112,7 +112,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		JButton uiButton = new JButton("Submit");
+		JButton uiButton = new JButton("Submetiĝu");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -157,7 +157,7 @@ public class GUIBossGame extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Back",newIcon3);
+		JButton back = new JButton("Redonu",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
@@ -199,7 +199,7 @@ public class GUIBossGame extends JPanel{
         g2.dispose();
         ImageIcon newIcon2 = new ImageIcon(dst2);
         
-		JButton help = new JButton("Help",newIcon2);
+		JButton help = new JButton("Helpu",newIcon2);
 		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
@@ -209,7 +209,7 @@ public class GUIBossGame extends JPanel{
 		nextQ.setSize(new Dimension(120,30));
 		nextQ.setLocation(445,5);
 		
-		JButton dictionary = new JButton("Dictionary",newIcon);
+		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
 		dictionary.setLocation(850, 5);
@@ -289,8 +289,8 @@ public class GUIBossGame extends JPanel{
 		messageBox.add(Box.createHorizontalStrut(70));
 		
 		Box moveBox = Box.createHorizontalBox();
-		next = new JButton("Next");
-		prev = new JButton("Prev");
+		next = new JButton("Sekva");
+		prev = new JButton("Antaŭa");
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
 		moveBox.add(prev);

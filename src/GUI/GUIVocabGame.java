@@ -20,9 +20,11 @@ import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.KeyStroke;
 
 import encoding.EncodingShiftListener;
 
@@ -55,18 +57,28 @@ public class GUIVocabGame extends JPanel{
 		
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
+		ActionListener actionListener = new ActionListener() {
+		      public void actionPerformed(ActionEvent actionEvent) {
+		    	  System.out.println("I'M HERE BITCH! WOOOHOO!");
+		        _gameBoard._pieces[0].replacePicWithWord();
+		      }
+		    };
+		
 
 		//The panel that contains the text field in which the user
 		// types their guesses.
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
+		this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
-		_textField.addKeyListener(new HintListener());
+		//_textField.addKeyListener(new HintListener());
 		enterAnswers.add(_textField);	
+		_textField.requestFocusInWindow();
+		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 		
 		
 		//Creating the Boundaries and Putting it all together
@@ -106,7 +118,7 @@ public class GUIVocabGame extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Back",newIcon3);
+		JButton back = new JButton("Redonu",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
@@ -147,13 +159,13 @@ public class GUIVocabGame extends JPanel{
         g2.dispose();
         ImageIcon newIcon2 = new ImageIcon(dst2);
         
-		JButton help = new JButton("Help",newIcon2);
+		JButton help = new JButton("Helpu",newIcon2);
 		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
 		
-		JButton dictionary = new JButton("Dictionary",newIcon);
+		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
 		dictionary.setLocation(850, 5);
@@ -171,6 +183,9 @@ public class GUIVocabGame extends JPanel{
 
 	}
 	
+	public void focusOnTextField(){
+		_textField.requestFocus();
+	}
 
 	//Checks a typed answers
 	public void checkAnswer(String answer){
@@ -181,7 +196,7 @@ public class GUIVocabGame extends JPanel{
 
 	}
 	
-	private class HintListener implements KeyListener{
+	/*private class HintListener implements KeyListener{
 
 		@Override
 		public void keyTyped(KeyEvent e) {
@@ -202,7 +217,7 @@ public class GUIVocabGame extends JPanel{
 			
 		}
 		
-	}
+	}*/
 
 	//When someone types enter, the text they typed is checked and if it
 	// is correct then the bottom piece is cleared and the correct answer
@@ -231,7 +246,6 @@ public class GUIVocabGame extends JPanel{
 	            }
 	            public void windowClosing(WindowEvent arg0) {}
 	            public void windowDeactivated(WindowEvent arg0) {
-	            	System.out.println("here3");
 	                _gameBoard.restart();
 	            }
 	            public void windowDeiconified(WindowEvent arg0) {}
@@ -257,7 +271,6 @@ public class GUIVocabGame extends JPanel{
 	            }
 	            public void windowClosing(WindowEvent arg0) {}
 	            public void windowDeactivated(WindowEvent arg0) {
-	            	System.out.println("here3");
 	                _gameBoard.restart();
 	            }
 	            public void windowDeiconified(WindowEvent arg0) {}
