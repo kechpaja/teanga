@@ -133,7 +133,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		uiButton = new JButton("Submetiĝu");
+		uiButton = new JButton("SubmetiÄ�u");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -312,7 +312,7 @@ public class GUIBossGame extends JPanel{
 		
 		Box moveBox = Box.createHorizontalBox();
 		next = new JButton("Sekva");
-		prev = new JButton("Antaŭa");
+		prev = new JButton("AntaÅ­a");
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
 		moveBox.add(prev);
@@ -402,7 +402,7 @@ public class GUIBossGame extends JPanel{
 			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 			JPanel nrPanel = makeRPanel(response, 0);
 			rPanel = nrPanel;
-			panel.add(nrPanel);
+			panel.add(rPanel);
 			panel.revalidate();
 		}
 		uiButton.setEnabled(false);
@@ -430,6 +430,7 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			_current = 0;
 			userInput.setText("");
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
@@ -439,10 +440,6 @@ public class GUIBossGame extends JPanel{
 				_bossLevel.tryAnswer(" ");
 			}
 			switched = false;
-			if(_bossLevel.isOver()){
-				//TODO: put up the over screen
-				
-			}
 			textArea.setText(_bossLevel.getCurrentQuestion());
 			if(rPanel != null){
 				rPanel.setVisible(false);
@@ -494,6 +491,11 @@ public class GUIBossGame extends JPanel{
 		public MyMoveListener(int direction){
 			_direction = direction;
 			prev.setEnabled(false);
+			if(_current >= response.getMistakes().size()-1){
+				System.out.println("setting button to false"+ _current);
+				next.setEnabled(false);
+			} 
+			
 		}
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -504,11 +506,7 @@ public class GUIBossGame extends JPanel{
 				prev.setEnabled(true);
 			}
 			
-			if(_current == response.getMistakes().size()-1){
-				next.setEnabled(false);
-			} else{
-				next.setEnabled(true);
-			}
+
 			
 			if(_direction == -1){
 				_current--;
@@ -517,20 +515,16 @@ public class GUIBossGame extends JPanel{
 				rPanel = nrPanel;
 				panel.add(rPanel);
 				panel.repaint();
-				System.out.println("Move backwards");
 
 			} else{
 				//move forwards in list of mistakes
-				System.out.println("Move forwards");
 				_current++;
 				JPanel nrPanel = makeRPanel(response,_current);
 				panel.remove(rPanel);
 				rPanel = nrPanel;
 				panel.add(rPanel);
 				panel.repaint();
-			}
-			System.out.println(_current);
-			
+			}			
 		}
 		
 		
