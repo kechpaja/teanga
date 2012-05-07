@@ -407,12 +407,12 @@ public class GUIGrammarGame extends JPanel{
 			        _picLabel = new JLabel(newIcon);
 	
 				} catch (IOException e2) {
-					System.out.println("Could not read the image");
-					System.exit(0);
 				}
 				
 				picHoriz.removeAll();
-				picHoriz.add(_picLabel);
+				if(_picLabel != null){
+					picHoriz.add(_picLabel);
+				}
 				_panel.revalidate();
 				
 			}
@@ -470,12 +470,12 @@ public class GUIGrammarGame extends JPanel{
 				        _picLabel = new JLabel(newIcon);
 		
 					} catch (IOException e2) {
-						System.out.println("Could not read the image");
-						System.exit(0);
 					}
 					
 					picHoriz.removeAll();
-					picHoriz.add(_picLabel);
+					if(_picLabel != null){
+						picHoriz.add(_picLabel);
+					}
 					_panel.revalidate();
 					
 					
