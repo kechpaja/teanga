@@ -73,45 +73,90 @@ I
 pronoun
 Mi estas humano.
 
+mia
+my
+adjective
+Tio estas mia hundo.
+
 ci
 thou
 pronoun
 Ci estas humano.
+
+cia
+thy
+adjective
+Tio estas cia hundo.
 
 li
 he
 pronoun
 Li volas manĝi cin!
 
+lia
+his
+adjective
+Tio estas lia hundo.
+
 ŝi
 she
 pronoun
 Ŝi manĝas musojn.
+
+ŝia
+her
+adjective
+Tio estas ŝia hundo.
 
 ĝi
 it
 pronoun
 Ĝi estas tablo.
 
+ĝia
+its
+adjective
+Tio estas ĝia kato.
+
 ri
 he/she
 pronoun
 Ri ne volas usi vorton "li".
+
+ria
+their
+adjective
+Tio estas ria kato.
 
 ni
 we
 pronoun
 Ni estas la grupo "Teanga".
 
+nia
+our
+adjective
+Tio estas nia kato.
+
 vi
 you
 pronoun
 Vi estas en la domo.
 
+via
+your
+adjective
+Tio estas via hundo.
+
 ili
 they
 pronoun
 Ili volas min.
+
+ilia
+their
+adjective
+Tio estas ilia kato.
 
 la
 the
