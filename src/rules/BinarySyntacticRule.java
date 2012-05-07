@@ -5,16 +5,10 @@ import nodes.*;
 
 public class BinarySyntacticRule extends SyntacticRule {
 	
-	// TODO update this 
-	
 	// rule itself
 	private Pos head_;
 	private Pos tail_;
-	
 	private Pos pos_;
-	//private NumMarker number_;
-	//private Case cm_;
-	//private Tense t_;
 	
 	
 	// matching method
@@ -33,10 +27,12 @@ public class BinarySyntacticRule extends SyntacticRule {
 			c = n1.getCase();
 		}
 		
+		// check number
 		if (n1.getNumMarker() == n2.getNumMarker()){
 			number = n2.getNumMarker();
 		}
 		
+		// check tense
 		if (n1.getTense() == null) {
 			t = n2.getTense();
 		} else {
@@ -51,20 +47,10 @@ public class BinarySyntacticRule extends SyntacticRule {
 		return new NonTerminalNode(n1, n2, pos_, number, c, t);
 	}
 	
+	// constructor
 	public BinarySyntacticRule(Pos head, Pos tail, Pos pos) {
 		head_ = head;
 		tail_ = tail;
 		pos_ = pos;
 	}
-	
-	// Constructor TODO this is old
-	public BinarySyntacticRule(Pos head, Pos tail, Pos pos, NumMarker num, Case c, Tense t) {
-		head_ = head;
-		tail_ = tail;
-		pos_ = pos;
-	//	number_ = num;
-	//	cm_ = c;
-	//	t_ = t;
-	}
-
 }

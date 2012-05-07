@@ -27,6 +27,7 @@ public abstract class Mistake {
 		return message_;
 	}
 
+	// toString
 	public String toString() {
 		return startindex_ + " - " + endindex_ + ": " + message_;
 	}

@@ -4,7 +4,6 @@ import java.util.List;
 
 import parsing.Mistake;
 import parsing.Token;
-import rules.AgreementRule;
 
 public class LeafNode extends Node {
 	

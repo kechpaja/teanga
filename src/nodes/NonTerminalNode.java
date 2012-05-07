@@ -34,7 +34,6 @@ public class NonTerminalNode extends Node {
 	// toString()
 	public String toString() {
 		return "(" + pos_ + " " + head_ + (tail_ == null ? "" : " " + tail_) + ")";
-		//return "(" + pos_ + " " + number_ + " " + cm_ + " " + t_ + ": " + head_ + " " + tail_ + ")";
 	}
 	
 	// methods to return left and right indices
@@ -60,10 +59,12 @@ public class NonTerminalNode extends Node {
 				mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Case Agreement"));
 		}
 		
+		// number
 		if (!head_.agreesInNumber(tail_)) {
 			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Number Agreement"));
 		}
 		
+		// tense
 		if (!head_.agreesInTense(tail_)) {
 			mistakes.add(new FatalMistake(getLeftIndex(), getRightIndex(), "Error - Tense Agreement"));
 		}
