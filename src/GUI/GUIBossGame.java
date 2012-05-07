@@ -42,7 +42,7 @@ public class GUIBossGame extends JPanel{
 	private int _current;
 	private Response response;
 	private boolean switched;
-	private JLabel _score, _currNumLabel, _totalNumLabel, outofLabel;
+	private JLabel _score, _currNumLabel;
 	private Box topHoriz;
 	
 	
@@ -79,19 +79,12 @@ public class GUIBossGame extends JPanel{
 			System.exit(0);
 		}
 		
-		topHoriz = Box.createHorizontalBox();
-		
-		topHoriz.add(Box.createHorizontalStrut(750));
-		_currNumLabel = new JLabel(Integer.toString(_bossLevel.getCurrentNum()));
-		_totalNumLabel = new JLabel(Integer.toString(_bossLevel.getTotalNum()));
-		outofLabel = new JLabel(" de ");
-		_currNumLabel.setFont(new Font("Century", Font.BOLD, 25));
-		_totalNumLabel.setFont(new Font("Century", Font.BOLD, 25));
-		outofLabel.setFont(new Font("Century", Font.BOLD, 25));
-		topHoriz.add(_currNumLabel);
-		topHoriz.add(outofLabel);
-		topHoriz.add(_totalNumLabel);
-		topHoriz.add(Box.createHorizontalStrut(30));
+		String mystring = Integer.toString(_bossLevel.getCurrentNum()) + " de "+Integer.toString(_bossLevel.getTotalNum());
+		_currNumLabel = new JLabel(mystring);
+		_currNumLabel.setFont(new Font("Century", Font.BOLD, 35));
+		_currNumLabel.setLocation(860,15);
+		_currNumLabel.setSize(200,100);
+		this.add(_currNumLabel);
 		
 		JPanel qPanel = new JPanel();
 		qPanel.setLayout(new BorderLayout());
@@ -132,7 +125,7 @@ public class GUIBossGame extends JPanel{
         aPanel.setSize(300,40);
         this.add(aPanel);
 		
-		uiButton = new JButton("SubmetiÄ�u");
+		uiButton = new JButton("Submetiĝu");
 		uiButton.addActionListener(new MySubmitListener());
 		
 		Box answHoriz = Box.createHorizontalBox();
@@ -239,7 +232,6 @@ public class GUIBossGame extends JPanel{
 		bottomPanel.add(dictionary);
 		
 		add(topPanel);
-		add(topHoriz);
 		add(bottomPanel);
 		
 	}
@@ -436,7 +428,7 @@ public class GUIBossGame extends JPanel{
 			}
 			
 			//move to next question...
-			
+			System.out.println(switched);
 			if(!switched){
 				_bossLevel.tryAnswer(" ");
 			}
@@ -446,9 +438,11 @@ public class GUIBossGame extends JPanel{
 				rPanel.setVisible(false);
 			}
 			uiButton.setEnabled(true);
+			_currNumLabel.setText(_bossLevel.getCurrentNum() + " de "+Integer.toString(_bossLevel.getTotalNum()));
+			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 			panel.revalidate();
 			panel.repaint();
-			
+			userInput.requestFocusInWindow();
 		}		
 	}
 	
