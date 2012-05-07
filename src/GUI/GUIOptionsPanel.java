@@ -69,14 +69,12 @@ public class GUIOptionsPanel extends JPanel{
 			String picturePaths[] = new String[6];
 			picturePaths = line.split(",");
 			
-			System.out.println("ONE");
 			BufferedImage pictures[] = new BufferedImage[5];
 			pictures[0] = ImageIO.read(new File(picturePaths[0]));
 			pictures[1] = ImageIO.read(new File(picturePaths[1]));
 			pictures[2] = ImageIO.read(new File(picturePaths[2]));
 			pictures[3] = ImageIO.read(new File(picturePaths[3]));
 			pictures[4] = ImageIO.read(new File(picturePaths[5]));
-			System.out.println("TWO");
 			
 			int picsize = 87;
 			
@@ -120,7 +118,7 @@ public class GUIOptionsPanel extends JPanel{
 		        scoreLabels[i][j].setVisible(false);
 
 			}
-			buttons[0][4].setEnabled(true);//--------------------------------------------------
+			
 			
 			levelNames[i] = new JLabel(picturePaths[4]);
 			levelNames[i].setBackground(new Color(238,238,238,255));
@@ -128,6 +126,7 @@ public class GUIOptionsPanel extends JPanel{
 			levelNames[i].setSize(new Dimension(40,15));
 			levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
 		}
+		buttons[0][4].setEnabled(true);//--------------------------------------------------
 		
 		JPanel titles = new JPanel(new BorderLayout());
 		titles.setPreferredSize(new Dimension(1000,80));
@@ -203,9 +202,7 @@ public class GUIOptionsPanel extends JPanel{
 			for (int j = 0; j <3; j++){
 				
 				int bestScore = stats.getSingleGame(i, j).bestScore;
-				System.out.println(bestScore);
 				if( bestScore > 0){
-					System.out.println("made it in here");
 					int offset;
 					if(bestScore <10){
 						offset = 11;
@@ -214,8 +211,6 @@ public class GUIOptionsPanel extends JPanel{
 					} else{
 						offset = 5;
 					}
-					
-					System.out.println(offset);
 
 					ellipses[i][j].setVisible(true);
 					scoreLabels[i][j] = new ColorText(this, new Integer(bestScore).toString());
