@@ -55,6 +55,15 @@ SVP NP V
 SVP DP V
 
 
+#ADJP's
+ADJP ADVP ADJP
+ADJP ADV ADJP
+ADJP ADV ADJ
+
+###############################
+# Most Things Starting With S #
+###############################
+
 # handle punctuation
 S S PUNCT
 
@@ -76,36 +85,35 @@ S SVP NP
 S SVP DP
 S SVP PP
 S SVP VP
-#S SVP ADJP
-
 
 # PP's combine with sentences directly. 
 S PP S
 S S PP
 
-
 S ADVP S
 
-###############
-# Unary Rules #
-###############
+#####################
+#####################
+#### Unary Rules ####
+#####################
+#####################
 unary:
 NP NOUN
 NP ADJP
 
-DP P
 # Pronouns become DP's so they can't combine with la...
-
-#VP V
-
+DP P
 
 ADJP ADJ
-
 ADVP ADV
 
+#######################
+#######################
+#### Ternary Rules ####
+#######################
+#######################
 ternary:
 # This will handle all conjunctions, and stuff...
-# comment
 
 NP NP C NP
 NP NP C DP
