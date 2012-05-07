@@ -453,20 +453,20 @@ data/VocabPictures/water.jpeg,Ĉu vi volas trinki ~0~ akv~1~?,vian on,vian mian 
 data/VocabPictures/water.jpeg,La ŝipoj iras ~0~ la akvo.,sur,en sur la on
 data/VocabPictures/water.jpeg,La oceano estas ~0~.,akvo,akvo lakto sango suko
 data/VocabPictures/hotel.jpeg,Li loĝas en ~0~ hotelo.,sia,nia mia lia sia
-data/VocabPictures/hotel.jpeg,
-data/VocabPictures/hotel.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/trip.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/street.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/suitcase.jpeg,
-data/VocabPictures/full.jpeg,
-data/VocabPictures/full.jpeg,
-data/VocabPictures/full.jpeg,
+data/VocabPictures/hotel.jpeg,Mi ne hav~0~ hotel~1~!.,as on,on o as a e
+data/VocabPictures/hotel.jpeg,Mi ne volas loĝi ~0~ hotelo.,en,de en la el
+data/VocabPictures/trip.jpeg,Mi ne vol~0~ vojaĝ~1~.,as on,as i on o e
+data/VocabPictures/trip.jpeg,Mia vojaĝo estos ~0~.,granda,granda la de kato
+data/VocabPictures/trip.jpeg,Tio estas ~0~ vojaĝo.,ria,ria u o kaj
+data/VocabPictures/street.jpeg,La tramo iras en la ~0~.,strato,strato akvo oceano
+data/VocabPictures/street.jpeg,Ni marŝas ~0~ la strato.,sur,en sur le la
+data/VocabPictures/street.jpeg,~0~ estas la strato?,Kie,Kio Kie Kiu Ne
+data/VocabPictures/suitcase.jpeg,Tio estas ~0~ valizo.,mia,mia sen kun el
+data/VocabPictures/suitcase.jpeg,Mi ne havas valiz~0~.,on,o on a an
+data/VocabPictures/suitcase.jpeg,Mi volas ~0~ valiz~1~!,mian on,on vian mian ol
+data/VocabPictures/full.jpeg,~0~ valizo estas plena.,Mia,Mia Sia De El
+data/VocabPictures/full.jpeg,Ria valizo estis ~0~plena.,mal,mal eks de ek
+data/VocabPictures/full.jpeg,La kato est~0~ plen~1~.,as a,a o on as e
 data/VocabPictures/empty.jpeg,~0~ valizo estas malplena.,Mia,Mia Sia De
 data/VocabPictures/empty.jpeg,Lia valizo estas ~0~plena.,mal,mal eks de ek
 data/VocabPictures/empty.jpeg,Tio estas valiz~0~ malplen~1~.,o a,o in i a an
