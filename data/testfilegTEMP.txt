@@ -1,8 +1,8 @@
 data/VocabPictures/house.jpg,La domo est~0~ bela.,as,is as an un
-data/VocabPictures/eat.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
+data/VocabPictures/eat.jpeg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
 data/VocabPictures/go.jpg,La hundo ir~0~ en la domon.,as, i as un an
-data/VocabPictures/eat.jpg,Ŝi manĝ~0~.,as,un i as an
-data/VocabPictures/eat.jpg,Ŝi volas manĝ~0~.,i,as i an a
+data/VocabPictures/eat.jpeg,Ŝi manĝ~0~.,as,un i as an
+data/VocabPictures/eat.jpeg,Ŝi volas manĝ~0~.,i,as i an a
 data/VocabPictures/cat.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
 data/VocabPictures/go.jpg,Li ir~0~ al domo.,as,o i as u us
 data/VocabPictures/go.jpg,Mi vol~0~ ir~1~.,as i,i o as on
@@ -36,10 +36,10 @@ data/VocabPictures/bird.jpg,Li manĝ~0~!,as,i u o as e
 data/VocabPictures/beautiful.jpeg,Tio est~0~ bel~1~.,as a,a i o as
 data/VocabPictures/beautiful.jpeg,Ĝi estas bel~0~.,as,as i o on
 data/VocabPictures/beautiful.jpeg,Mi volas est~0~ bel~1~.,i a,o a i as
-data/VocabPictures/person.jpg,Estas person~0~ en la domo!.,o,i a e u o
-data/VocabPictures/person.jpg,~0~ persono vol~1~ manĝi.,La as,as La Le O e
-data/VocabPictures/person.jpg,M~0~ estas person~1~.,i o,o u a i e
-data/VocabPictures/person.jpg,La person~0~ am~1~ min.,o as,i as in o en
+data/VocabPictures/person.jpeg,Estas person~0~ en la domo!.,o,i a e u o
+data/VocabPictures/person.jpeg,~0~ persono vol~1~ manĝi.,La as,as La Le O e
+data/VocabPictures/person.jpeg,M~0~ estas person~1~.,i o,o u a i e
+data/VocabPictures/person.jpeg,La person~0~ am~1~ min.,o as,i as in o en
 data/VocabPictures/large.jpeg,La hundo est~0~ grand~1~.,as a,a i o as
 data/VocabPictures/large.jpeg,Ĝi estas grand~0~!.,a,i us es a as
 data/VocabPictures/large.jpeg,Grand~0~ estas bon~1~!.,a a,u o a a is
