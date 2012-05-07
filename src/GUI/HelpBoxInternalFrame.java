@@ -74,8 +74,8 @@ public class HelpBoxInternalFrame extends JFrame{
 		//overall.revalidate();
 		//overall.repaint();
 		this.pack();
-		this.setVisible(true);
 		this.setLocation(3, 407);
+		this.setVisible(true);
 		this.setSize(250, 250);
 		this.setVisible(true);
 	}

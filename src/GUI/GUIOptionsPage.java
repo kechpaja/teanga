@@ -214,7 +214,7 @@ public class GUIOptionsPage extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("Welcome to ELearning! The page you're looking at contains several vocabulary and grammar lessons (the right two columns), and corresponding games to test your knowledge of them. Start in the top left, and play the games to unlock later levels.", 
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("Welcome to ELearning! The page you're looking at contains several vocabulary and grammar lessons (the left two columns), and corresponding games to test your knowledge of them (the next two). Start in the top left, and play the games to unlock later levels.", 
 																		-1, -1, _driver);
 		}
 		
