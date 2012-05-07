@@ -42,20 +42,17 @@ public class GUIOptionsPage extends JPanel{
 		try {
 			stats.encode();
 		} catch (IllegalBlockSizeException e) {
-			System.out.println("1");
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
 		} catch (BadPaddingException e) {
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
-			System.out.println("2");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
 		} catch (IOException e) {
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
-			System.out.println("3");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();

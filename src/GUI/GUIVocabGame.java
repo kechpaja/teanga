@@ -70,7 +70,7 @@ public class GUIVocabGame extends JPanel{
 		JPanel enterAnswers = new JPanel();
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
-		this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+		//this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
 
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
@@ -78,7 +78,7 @@ public class GUIVocabGame extends JPanel{
 		//_textField.addKeyListener(new HintListener());
 		enterAnswers.add(_textField);	
 		_textField.requestFocusInWindow();
-		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
+		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_FOCUSED);
 		
 		
 		//Creating the Boundaries and Putting it all together
@@ -118,7 +118,7 @@ public class GUIVocabGame extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Redonu",newIcon3);
+		JButton back = new JButton("Reiru",newIcon3);
 		back.addActionListener(new backtoOptionsActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
