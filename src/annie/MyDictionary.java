@@ -101,7 +101,7 @@ public class MyDictionary {
 		if (s.endsWith("jn")) {
 			// plural accusatives
 			ret = s.substring(0, s.length() - 2);
-		} else if (s.endsWith("j") || s.endsWith("n")) {
+		} else if (s.endsWith("j") || s.endsWith("n") && (!s.equals("en") && !s.equals("sen"))) {
 			// plurals and accusatives
 			ret = s.substring(0, s.length() - 1);
 		} else if (s.endsWith("s") && s.length() >= 2) {
