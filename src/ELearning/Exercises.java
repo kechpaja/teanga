@@ -97,14 +97,4 @@ public class Exercises {
 		}
 	}
 	
-	public static void main(String[] args){
-		try {
-			Exercises myExercises = new Exercises("data/testfilev", "data/testfileg.txt", "blahhh");
-			System.out.println(myExercises.vocabExercises.get(0).get(0));
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-	}
-	
 }
