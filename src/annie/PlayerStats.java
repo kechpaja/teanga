@@ -106,7 +106,7 @@ public class PlayerStats {
 	    out.write(toEncrypt);
 	    out.flush();
 	    out.close();
-	    FileInputStream inFile = new FileInputStream(userName+"temp");
+	    FileInputStream inFile = new FileInputStream("data/Users/"+userName+"temp");
 
 	    byte[] input = new byte[64];
 	    int bytesRead;
