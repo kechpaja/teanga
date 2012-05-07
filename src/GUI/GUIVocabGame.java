@@ -8,7 +8,6 @@ import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
@@ -16,22 +15,20 @@ import java.io.File;
 import java.io.IOException;
 
 import javax.imageio.ImageIO;
+import javax.swing.ActionMap;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.ImageIcon;
+import javax.swing.InputMap;
 import javax.swing.JButton;
-import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 
-import encoding.EncodingShiftListener;
-
 import ELearning.Driver;
 import ELearning.VocabLevel;
-import ELearning.VocabPicturePair;
-import GUI.GUIGrammarGame.backtoOptionsActionListener;
+import encoding.EncodingShiftListener;
 
 
 @SuppressWarnings("serial")
@@ -57,12 +54,7 @@ public class GUIVocabGame extends JPanel{
 		
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
-		ActionListener actionListener = new ActionListener() {
-		      public void actionPerformed(ActionEvent actionEvent) {
-		    	  System.out.println("I'M HERE BITCH! WOOOHOO!");
-		        _gameBoard._pieces[0].replacePicWithWord();
-		      }
-		    };
+
 		
 
 		//The panel that contains the text field in which the user
@@ -71,15 +63,19 @@ public class GUIVocabGame extends JPanel{
 		enterAnswers.setPreferredSize(new Dimension(1000, 50));
 		enterAnswers.setBackground(new Color(238,238,238,255));
 		//this.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT);
-
+		
+		InputMap _input = this.getInputMap(WHEN_IN_FOCUSED_WINDOW);//these map the keys on the keyboard to a string
+		_input.put(KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), "change");
+		
+		ActionMap _action = this.getActionMap();//these map the string to an action so that the key causes an action
+		_action.put("change", new changeWordListener());
+		
 		_textField = new JTextField(20);
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
 		//_textField.addKeyListener(new HintListener());
-		enterAnswers.add(_textField);	
-		_textField.requestFocusInWindow();
-		_textField.registerKeyboardAction(actionListener, KeyStroke.getKeyStroke(KeyEvent.VK_TAB, 0, false), JComponent.WHEN_FOCUSED);
-		
+		enterAnswers.add(_textField);
+		_textField.requestFocusInWindow();		
 		
 		//Creating the Boundaries and Putting it all together
 		Box fullBar = Box.createVerticalBox();
@@ -230,6 +226,14 @@ public class GUIVocabGame extends JPanel{
 			_textField.setText("");
 		}
 
+	}
+	
+	private class changeWordListener extends javax.swing.AbstractAction {
+		
+		public void actionPerformed(java.awt.event.ActionEvent e){
+			_gameBoard._pieces[0].replacePicWithWord();
+		}
+	
 	}
 
 	private class DictionaryButtonListener implements ActionListener {
