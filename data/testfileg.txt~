@@ -341,7 +341,6 @@ data/VocabPictures/yesterday.jpg,Hieraŭ ĝi hav~0~ domon.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ ni manĝ~0~ pizon.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ ili am~0~ lin.,is,as is os u i
 data/VocabPictures/yesterday.jpg,Hieraŭ tio aĉet~0~ legomojn.,is,as is os u i
-<<<<<<< HEAD
 3
 data/VocabPictures/chair.jpg,~0~ estas tio? Tio estas seĝo.,Kio,Kio Kiu Kie Kiel Kiam
 data/VocabPictures/chair.jpg,~0~ mi estas? Mi estas sur la seĝo.,Kie,Kio Kiu Kie Kiel Kiam
@@ -427,25 +426,25 @@ data/VocabPictures/through.jpeg,Li ~0~ volas iri ~1~ la pordo.,ne tra,sur tra el
 data/VocabPictures/through.jpeg,Ĉu li ~0~ volas iri tra la pordo?,ne,sur tra el al ne
 4
 data/VocabPictures/car.jpeg,Li volas stiri ~0~n aŭton.,sia,sia lia mia ria 
-data/VocabPictures/car.jpeg,
-data/VocabPictures/car.jpeg,
+data/VocabPictures/car.jpeg,Ili vojaĝas per ~0~ aŭto.,sia,nia sia via lia
+data/VocabPictures/car.jpeg,La aŭto ne povas stiri ~0~.,sin,lin ĝin sin min
 data/VocabPictures/bus.jpeg,Ri stiras ~0~n aŭtobuson.,sia,lia sia ria ŝia
-data/VocabPictures/bus.jpeg,
-data/VocabPictures/bus.jpeg,
+data/VocabPictures/bus.jpeg,La persono vojaĝas per ~0~ aŭtobuso.,sia,nia sia via lia
+data/VocabPictures/bus.jpeg,La aŭtobuso ne povas stiri ~0~.,sin,lin ĝin ŝin sin
 data/VocabPictures/airplane.jpeg,Mi flugas en ~0~ aeroplano.,mia,mia ria lia ilia
-data/VocabPictures/airplane.jpeg,
+data/VocabPictures/airplane.jpeg,Ni vojaĝas per ~0~ aeroplano.,nia,nia ilia via lia
 data/VocabPictures/airplane.jpeg,
 data/VocabPictures/train.jpeg,Vi vojaĝas per ~0~ trajno.,via,nia via lia ria
 data/VocabPictures/train.jpeg,
 data/VocabPictures/train.jpeg,
+data/VocabPictures/tram.jpeg,Li vojaĝas per ~0~ tramo.,sia,nia sia via lia
 data/VocabPictures/tram.jpeg,
 data/VocabPictures/tram.jpeg,
-data/VocabPictures/tram.jpeg,
+data/VocabPictures/bicycle.jpeg,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
 data/VocabPictures/bicycle.jpeg,
 data/VocabPictures/bicycle.jpeg,
-data/VocabPictures/bicycle.jpeg,
-data/VocabPictures/ship.jpeg,
-data/VocabPictures/ship.jpeg,
+data/VocabPictures/ship.jpeg,Ri vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
+data/VocabPictures/ship.jpeg,Mi 
 data/VocabPictures/ship.jpeg,
 data/VocabPictures/ocean.jpeg,
 data/VocabPictures/ocean.jpeg,
@@ -502,6 +501,3 @@ data/VocabPictures/by.jpg,Mi vojaĝas ~0~ la ŝipo.,per,per de en la
 data/VocabPictures/by.jpg,
 data/VocabPictures/by.jpg,
 5
-=======
-3
->>>>>>> 1a416ecf89ba3228c5e990902a02b350f7797efd
