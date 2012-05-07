@@ -5,10 +5,12 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.Graphics2D;
+import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.InputEvent;
 import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
 import java.awt.event.WindowEvent;
 import java.awt.event.WindowListener;
 import java.awt.image.BufferedImage;
@@ -24,6 +26,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
+import javax.swing.text.JTextComponent;
 
 import ELearning.Driver;
 import ELearning.VocabLevel;
@@ -67,9 +70,11 @@ public class GUIVocabGame extends JPanel{
 		_textField.addActionListener(new TextListener());
 		_textField.addKeyListener(new EncodingShiftListener(_textField));
 		enterAnswers.add(_textField);
+		_textField.addKeyListener(new Find7Listener(_textField));
 		_textField.requestFocusInWindow();
 		
-		KeyStroke key = KeyStroke.getKeyStroke(KeyEvent.VK_H, InputEvent.CTRL_MASK);
+		KeyStroke key = KeyStroke.getKeyStroke('7');
+				//, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
 		_textField.getInputMap().remove(key);
 		_textField.getInputMap().put(key, "dosomething");
 		_textField.getActionMap().put("dosomething", new changeWordListener());
@@ -271,6 +276,30 @@ public class GUIVocabGame extends JPanel{
 			
 		}
 		
+	}
+	
+	private class Find7Listener implements KeyListener{
+		private JTextComponent field_; // field on which this listener is used
+		
+		// constructor
+				public Find7Listener(JTextComponent field) {
+					field_ = field;
+				}
+
+		@Override
+		public void keyPressed(KeyEvent arg0) {
+			field_.setText(field_.getText().replaceAll("7",""));
+		}
+
+		@Override
+		public void keyReleased(KeyEvent arg0) {
+			field_.setText(field_.getText().replaceAll("7",""));
+		}
+
+		@Override
+		public void keyTyped(KeyEvent arg0) {
+			field_.setText(field_.getText().replaceAll("7",""));
+		}
 	}
 
 }
