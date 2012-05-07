@@ -43,6 +43,7 @@ public class GUIOptionsPage extends JPanel{
 			stats.encode();
 		} catch (IllegalBlockSizeException e) {
 			// TODO Auto-generated catch block
+			System.out.println("1");
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
@@ -50,12 +51,14 @@ public class GUIOptionsPage extends JPanel{
 		} catch (BadPaddingException e) {
 			// TODO Auto-generated catch block
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			System.out.println("2");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			System.out.println("3");
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 			e.printStackTrace();
@@ -77,7 +80,7 @@ public class GUIOptionsPage extends JPanel{
 			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
 			
 		} catch (Exception e) {
-			String errorMessage = "There was an reading finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.out.println("Could not read file.");
 			System.exit(0);
@@ -106,7 +109,7 @@ public class GUIOptionsPage extends JPanel{
 		userBox.setLocation(20, -2);
 		
 		Box topBar = Box.createHorizontalBox();
-		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
+		JLabel _score = new JLabel("Punktoj tutaj: "+_driver.getPlayerStats().getPoints());
 		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
 		_score.setForeground(Color.white);
 		topBar.add(_score);
@@ -128,7 +131,7 @@ public class GUIOptionsPage extends JPanel{
         g3.dispose();
         ImageIcon newIcon3 = new ImageIcon(dst3);
 		
-		JButton back = new JButton("Back",newIcon3);
+		JButton back = new JButton("Redonu",newIcon3);
 		back.addActionListener(new BacktoBasicActionListener());
 		back.setSize(new Dimension(100, 30));
 		back.setLocation(875,0);
@@ -169,13 +172,13 @@ public class GUIOptionsPage extends JPanel{
         g2.dispose();
         ImageIcon newIcon2 = new ImageIcon(dst2);
         
-		JButton help = new JButton("Help",newIcon2);
+		JButton help = new JButton("Helpu",newIcon2);
 		help.setSize(new Dimension(125, 30));
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
 		
-		JButton dictionary = new JButton("Dictionary",newIcon);
+		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
 		dictionary.setLocation(850, 5);

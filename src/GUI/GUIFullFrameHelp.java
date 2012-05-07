@@ -161,7 +161,9 @@ public class GUIFullFrameHelp extends JPanel{
 				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
 				break;
 			case 1:
-				_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_curLevel), _driver));
+				GUIVocabGame gvg = new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_curLevel), _driver);
+				_driver.changePage(gvg);
+				gvg.focusOnTextField();				
 				break;
 			case 2:
 				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_curLevel), _driver));

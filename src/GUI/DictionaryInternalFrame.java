@@ -28,7 +28,7 @@ public class DictionaryInternalFrame extends JFrame{
 	JPanel overall = new JPanel(new BorderLayout());
 	
 	public DictionaryInternalFrame(MyDictionary dictionary){
-		super("Dictionary");
+		super("Vortaro");
 		_dictionary = dictionary;
 		
 		this.setBackground(new Color(100,110,255,255));
@@ -38,7 +38,7 @@ public class DictionaryInternalFrame extends JFrame{
 		isFromEsperanto = true;
 		input = new JTextField();
 		input.addKeyListener(new EncodingShiftListener(input));
-		search = new JButton("Search");
+		search = new JButton("Serĉu");
 		search.addActionListener(new SearchActionListener());
 		searchBar = new Box(BoxLayout.X_AXIS);
 		searchBar.add(input);
