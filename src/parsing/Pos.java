@@ -23,10 +23,8 @@ public enum Pos {
 	S,
 	
 	BAD;
-	// Correlatives?
-	// TODO more - higher-level pos's as well. 
 	
-	
+	// toString for testing
 	public String toString() {
 		switch (this) {
 		case NOUN: return "NOUN";
@@ -93,14 +91,8 @@ public enum Pos {
 		
 		
 		else {
-			// TODO some error case...
 			return BAD; // This is an error
 		}
-		
-		
-		
-		// TODO write this!
-		
 	}
 
 }

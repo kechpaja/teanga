@@ -2,22 +2,11 @@ package parsing;
 
 import java.io.FileNotFoundException;
 import java.util.*;
-
 import annie.MyDictionary;
-
 import rules.*;
 import nodes.*;
 
-// TODO I need to check for agreement issues in the parser as well. 
-// "la knabo feliĉan knabinon karesas" should parse so that the adjective goes with
-// the following noun; that currently isn't what would happen. 
-// make two passes?
-// For now, this is an edge case. However, we need to deal with it. 
-
 // This parser will NOT handle "poetic" language - it is rather strict. But strict is good. 
-
-// TODO make it "disprefer" rules that break agreement, but allow them as a last resort.
-// If we need to use them, we'll catch them later. 
 
 public class Parser {
 	
@@ -37,10 +26,6 @@ public class Parser {
 	 * sentence itself. 
 	 */
 	public Response parse(String sentence) {
-		// probably runs through the list of rules, checking each one against the string. 
-		// alternatively, we go through and parse the sentence (NOT like in compiler, though). 
-		// Try to do bottom-up parsing, rather than top-down (maybe). If something fails, 
-		// this method will exit gracefully - it should never throw an exception. 
 		
 		List<Mistake> mistakes = new LinkedList<Mistake>();
 		
@@ -53,8 +38,6 @@ public class Parser {
 		
 		// visit, checking for agreement problems
 		visit(tree, mistakes);
-		
-		System.out.println(tree); // For testing only TODO
 		
 		// the response is created, and returned. 
 		return Response.responseFactory(tree, sentence);
@@ -72,11 +55,6 @@ public class Parser {
 		dict_ = new MyDictionary(dictfile);
 	}
 	
-	// One constructor
-	public Parser(RuleSet rules) {
-		rules_ = rules;
-	}
-	
 	// PRIVATE METHODS
 	
 	// This method should take a list of mistakes; otherwise extras might be carried over. 
@@ -86,17 +64,15 @@ public class Parser {
 		Node node = null;
 		Stack<Node> prev = new Stack<Node>();
 		
-		//TODO mistakes aren't being checked yet. 
-		
 		if (tkn.hasNext()) {
 			node = new LeafNode(tkn.getNextToken());
 		} else {
-			// TODO error case
+			// nothing happens
 		}
 		
 		boolean advanced = true;
 		
-		// TODO go through, at each step if curr & next can combine by some rule,
+		// go through, at each step if curr & next can combine by some rule,
 		while (tkn.hasNext() || !prev.empty()) {
 			if (!advanced) {
 				break;
@@ -106,8 +82,6 @@ public class Parser {
 			
 			// match with the ternary rules...
 			if (!prev.empty() && tkn.hasNext()) {
-				//System.out.println("in ternary matching");
-				
 				for (TernarySyntacticRule r : terules) {
 					if (r.matches(prev.peek(), node, new LeafNode(tkn.peek()))) {
 						// replace constituent
@@ -133,7 +107,6 @@ public class Parser {
 				}
 			}
 			
-			//System.out.println(node);
 			// Do below, but for prev and curr = node
 			if (!advanced && !prev.empty()) {
 				List<BinarySyntacticRule> lst = rules.get(prev.peek().getPos());
@@ -155,7 +128,6 @@ public class Parser {
 			// if possible, put in place of curr and get next into next
 			// else, move curr to prev (stack) and next to curr and fetch next
 			if (!advanced && tkn.hasNext()) {
-				// TODO this fails if no rule matches. Need getOrElse, or something similar...
 				List<BinarySyntacticRule> lst = rules.get(node.getPos());
 				if (lst != null) {
 					for (BinarySyntacticRule r : lst) {

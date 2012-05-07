@@ -27,7 +27,7 @@ data/VocabPictures/mouse.jpg,Vi manĝ~0~ muson.,as,i as in o
 data/VocabPictures/mouse.jpg,Tio estas mus~0~.,o,i a o on
 data/VocabPictures/fish.jpg,Ti~0~ est~1~ fiŝo.,o as,i as o on
 data/VocabPictures/fish.jpg,Ri est~0~ fiŝo.,as,o as on in
-data/VocabPictures/fish.jpg,Ĝi estas ~0~ fiŝ~1~ de la kat~2~.,la o o,o i o as e
+data/VocabPictures/fish.jpg,Ĝi estas ~0~ fiŝ~1~ de la kat~2~.,la o o,o i o as la
 data/VocabPictures/fish.jpg,La kat~0~ manĝ~0~ fiŝon.,o as,as i u en o
 data/VocabPictures/bird.jpg,La bird~0~ est~1~ en la domo!.,o as,i as o u
 data/VocabPictures/bird.jpg,Birdo manĝ~0~.,as,i as u un

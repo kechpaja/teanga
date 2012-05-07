@@ -222,10 +222,10 @@ public class GUIVocabGame extends JPanel{
 	            public void windowActivated(WindowEvent arg0) {
 	                _gameBoard.pause();
 	            }
-	            public void windowClosing(WindowEvent arg0) {}
-	            public void windowDeactivated(WindowEvent arg0) {
+	            public void windowClosing(WindowEvent arg0) {
 	                _gameBoard.restart();
 	            }
+	            public void windowDeactivated(WindowEvent arg0) {}
 	            public void windowDeiconified(WindowEvent arg0) {}
 	            public void windowIconified(WindowEvent arg0) {}
 	            public void windowOpened(WindowEvent arg0) {}
@@ -247,10 +247,10 @@ public class GUIVocabGame extends JPanel{
 	            public void windowActivated(WindowEvent arg0) {
 	                _gameBoard.pause();
 	            }
-	            public void windowClosing(WindowEvent arg0) {}
-	            public void windowDeactivated(WindowEvent arg0) {
-	                _gameBoard.restart();
+	            public void windowClosing(WindowEvent arg0) {
+	            	_gameBoard.restart();
 	            }
+	            public void windowDeactivated(WindowEvent arg0) {}
 	            public void windowDeiconified(WindowEvent arg0) {}
 	            public void windowIconified(WindowEvent arg0) {}
 	            public void windowOpened(WindowEvent arg0) {}

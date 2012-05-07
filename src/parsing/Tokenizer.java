@@ -6,8 +6,6 @@ import annie.MyDictionary;
 
 public class Tokenizer {
 	
-	// TODO conjunctions and subordinate clauses!
-	
 	/**
 	 * This tokenizer will be a little bit different from the one used in our
 	 * compiler for 31 - it will tokenize the entire string at once, and return it 
@@ -28,50 +26,52 @@ public class Tokenizer {
 		}
 		
 		// create set of prepositions
-		HashSet<String> set = new HashSet<String>();
-		set.add("al");
-		set.add("ankaŭ");
-		set.add("anstataŭ");
-		set.add("antaŭ");
-		set.add("apud");
-		set.add("ĉe");
-		set.add("ĉirkaŭ");
-		set.add("da");
-		set.add("de");
-		set.add("dum");
-		set.add("ekde");
-		set.add("ekster");
-		set.add("eksteren");
-		set.add("el");
-		set.add("en");
-		set.add("ĝis");
-		set.add("inter");
-		set.add("kontraû");
-		set.add("krom");
-		set.add("kun");
-		set.add("laŭ");
-		set.add("malgraŭ");
-		set.add("malkiel");
-		set.add("malsupren");
-		set.add("ol");
-		set.add("per");
-		set.add("plus");
-		set.add("po");
-		set.add("por");
-		set.add("post");
-		set.add("preter");
-		set.add("pri");
-		set.add("pro");
-		set.add("sen");
-		set.add("sub");
-		set.add("suben");
-		set.add("super");
-		set.add("sur");
-		set.add("tra");
-		set.add("trans");
+		HashSet<String> setA = new HashSet<String>();
+		HashSet<String> setB = new HashSet<String>();
+		setA.add("al");
+		setA.add("ankaŭ");
+		setA.add("anstataŭ");
+		setA.add("antaŭ");
+		setA.add("apud");
+		setA.add("ĉe");
+		setA.add("ĉirkaŭ");
+		setA.add("da");
+		setA.add("de");
+		setA.add("dum");
+		setA.add("ekde");
+		setA.add("ekster");
+		setA.add("eksteren");
+		setA.add("el");
+		setB.add("en");
+		setA.add("ĝis");
+		setB.add("inter");
+		setA.add("kontraû");
+		setA.add("krom");
+		setA.add("kun");
+		setA.add("laŭ");
+		setA.add("malgraŭ");
+		setA.add("malkiel");
+		setA.add("malsupren");
+		setA.add("ol");
+		setA.add("per");
+		setA.add("plus");
+		setA.add("po");
+		setA.add("por");
+		setA.add("post");
+		setA.add("preter");
+		setB.add("pri");
+		setA.add("pro");
+		setA.add("sen");
+		setB.add("sub");
+		setA.add("suben");
+		setB.add("super");
+		setB.add("sur");
+		setA.add("tra");
+		setA.add("trans");
 		// fill it up
 		
 		HashSet<String> setNum = new HashSet<String>();
+		setNum.add("nul");
 		setNum.add("du");
 		setNum.add("tri");
 		setNum.add("kvar");
@@ -98,8 +98,6 @@ public class Tokenizer {
 		String punct = null;
 		if (sentence_.substring(sentence_.length() - 1).matches("\\p{Punct}")) {
 			punct = sentence_.substring(sentence_.length() - 1);
-		//	sentence_ = sentence_.substring(0, sentence_.length() - 1);
-			//System.out.println(sentence_);
 		}
 		
 		sentence_ = sentence_.replaceAll("\\p{Punct}", "");
@@ -117,22 +115,21 @@ public class Tokenizer {
 				continue;
 			}
 			
-			// check the endings
+			// check for weird stuff
 			else if (s.equals("la")) {
 				pos = Pos.ARTICLE;
-			//	num = null;
-			//	c = null;
-			} else if (s.equals("saluton") || s.equals("adiaŭ") || s.equals("pli")) {
+			} else if (s.equals("saluton") || s.equals("adiaŭ") || s.equals("pli") || s.equals("jes")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {
 				pos = Pos.CONJUNCTION;
 			} else if (s.equals("unu")) {
 				pos = Pos.ADJECTIVE;
 				num = NumMarker.SINGULAR;
-			} else if (set.contains(s)) {
+			} else if (setA.contains(s)) {
 				pos = Pos.PREPOSITION;
 				c = Case.NOMINATIVE;
-				//TODO we need a list of prepositions to check against
+			} else if (setB.contains(s)) {
+				pos = Pos.PREPOSITION;
 			}
 			
 			// Match personal pronouns
@@ -146,13 +143,13 @@ public class Tokenizer {
 				c = Case.ACCUSATIVE;
 			}
 			
+			// numbers
 			else if (setNum.contains(s)) {
 				pos = Pos.ADJECTIVE;
 				num = NumMarker.PLURAL;
 			}
 			
-			// Match correlatives a, al, am, e, el, es, o, om, u
-			// I think we can get away with just checking for al, am, el, es, om, u as endings to pronouns...
+			// Match correlatives
 			else if (s.equals("kial") || s.equals("tial") || s.equals("ial") || s.equals("ĉial") || s.equals("nenial")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kiel") || s.equals("tiel") || s.equals("iel") || s.equals("ĉiel") || s.equals("neniel")) {
@@ -164,8 +161,6 @@ public class Tokenizer {
 			} else if (s.equals("kies") || s.equals("ties") || s.equals("ies") || s.equals("ĉies") || s.equals("nenies")) {
 				pos = Pos.ADJECTIVE;
 			}
-			
-			// TODO maybe we need the rest... unsure. 
 			
 			// Match regular words
 			else if (s.equals("for") || s.matches(".*e$") || s.matches(".*aŭ$")) {
@@ -255,9 +250,6 @@ public class Tokenizer {
 		}
 		
 	}
-	
-	// Getter for list of mistakes
-	
 	
 	// HasNext, returns true if the tokenizer has yet another element
 	public boolean hasNext() {
