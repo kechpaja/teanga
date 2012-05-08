@@ -262,11 +262,11 @@ public class GUIOptionsPanel extends JPanel{
 			switch(_type){
 			case 1:
 				//create a vocab learning activity
-				_driver.changePage(new GUIVocabLearn(_levelNum, _driver));
+				_driver.changePage(new GUIVocabLearn(_levelNum, _driver, null));
 				break;
 			case 2:
 				//create a grammar learning activity
-				_driver.changePage(new GUIGrammarLearn(_levelNum, _driver));
+				_driver.changePage(new GUIGrammarLearn(_levelNum, _driver, null));
 
 				break;
 			case 3:

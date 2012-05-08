@@ -34,9 +34,9 @@ public class GUIVocabLearn extends JPanel{
 	int _levelNum;
 	private JLabel _userName;
 	private boolean _even;
-	private JPanel _forHelpBox;
+	private JPanel _forHelpBox, _toReturnTo;
 	
-	public GUIVocabLearn(int ln, Driver d){
+	public GUIVocabLearn(int ln, Driver d, JPanel toReturnTo){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,50,255));
 		
@@ -44,6 +44,7 @@ public class GUIVocabLearn extends JPanel{
 		_driver = d;
 		_levelNum = ln;
 		_even = true;
+		_toReturnTo = toReturnTo;
 		JPanel overall = new JPanel(new BorderLayout());
 		overall.setBackground(new Color(238,238,238,255));
 		
@@ -267,8 +268,14 @@ public class GUIVocabLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-			
+			if (_toReturnTo == null){
+				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			} else {
+				GUIVocabGame gvg = (GUIVocabGame) _toReturnTo;
+				gvg.restart();
+				_driver.changePage(gvg);
+
+			}
 		}
 		
 	}

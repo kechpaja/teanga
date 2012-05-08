@@ -126,7 +126,7 @@ public class HelpBoxInternalFrame extends JFrame{
 			//helpbox is already in a vocab lesson. goes back to previous vocab lesson
 			case 0:
 				if (lessonNum>0){
-					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver));
+					_driver.changePage(new GUIVocabLearn(lessonNum-1, _driver, _toReturnTo));
 				} else {
 					//change the general help file!
 					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, _toReturnTo));
@@ -135,7 +135,7 @@ public class HelpBoxInternalFrame extends JFrame{
 			//helpbox is in a grammar lesson. goes back to previous grammar lesson
 			case 1:
 				if (lessonNum>0){
-					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver));
+					_driver.changePage(new GUIGrammarLearn(lessonNum-1, _driver, _toReturnTo));
 				} else {
 					//change the general help file!
 					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0,_toReturnTo));
@@ -143,11 +143,11 @@ public class HelpBoxInternalFrame extends JFrame{
 				break;
 			//helpbox is in a vocab game. goes back to relevant vocab lesson
 			case 2:
-				_driver.changePage(new GUIVocabLearn(lessonNum, _driver));
+				_driver.changePage(new GUIVocabLearn(lessonNum, _driver, _toReturnTo));
 				break;
 			//helpbox is in a grammar game. goes back to relevant grammar lesson
 			case 3:
-				_driver.changePage(new GUIGrammarLearn(lessonNum, _driver));
+				_driver.changePage(new GUIGrammarLearn(lessonNum, _driver, _toReturnTo));
 				break;
 			//helpbox is in a boss level. goes back to grammar lesson. maybe change later to go back to most appropriate level
 			case 4:
