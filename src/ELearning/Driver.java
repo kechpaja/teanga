@@ -11,7 +11,7 @@ import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
 import parsing.Parser;
-import GUI.GUIBasicPage;
+import GUI.GUIIntroPage;
 import annie.MyDictionary;
 import annie.OpeningPage;
 import annie.PlayerStats;
@@ -45,7 +45,7 @@ public class Driver {
 			bGameMaker = new BossGameMaker(exercises, helpbox, parser);
 			dictionary = new MyDictionary("data/dictionary.txt");
 			openingpage = new OpeningPage();
-			curPage = new GUIBasicPage(this);
+			curPage = new GUIIntroPage(this);
 		} catch (IOException e){
 			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);

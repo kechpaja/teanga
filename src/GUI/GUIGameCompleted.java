@@ -4,6 +4,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Font;
+import java.awt.Point;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
@@ -29,6 +30,7 @@ public class GUIGameCompleted extends JPanel{
 	LevelInstance _levelInstance;
 	
 	public GUIGameCompleted(Driver d, LevelInstance l){
+		super(null);
 		_driver = d;
 		_levelInstance = l;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
@@ -37,6 +39,8 @@ public class GUIGameCompleted extends JPanel{
 		
 		Box main = Box.createVerticalBox();
 		JPanel overall = new JPanel(new BorderLayout());
+		overall.setSize(new Dimension(994,595));
+		overall.setLocation(new Point(0,40));
 		overall.setBackground(new Color (238,238,238,255));
 		overall.setVisible(true);
 		
@@ -81,11 +85,16 @@ public class GUIGameCompleted extends JPanel{
 		horizBox.add(Box.createVerticalStrut(600));
 		overall.add(horizBox);
 		
-		
+		JPanel topPanel = new JPanel();
 		Box topBar = Box.createHorizontalBox();
 		topBar.add(Box.createVerticalStrut(30));
 		topBar.add(Box.createRigidArea(new Dimension(1000,10)));
+		topPanel.add(topBar);
+		topPanel.setSize(new Dimension(994,40));
+		topPanel.setLocation(0,0);
+		topPanel.setBackground(new Color(50,50,50,255));
 		
+		JPanel bottomPanel = new JPanel();
 		Box bottomBar = Box.createHorizontalBox();
 		Box botBar = Box.createVerticalBox();
 		bottomBar.add(tryAgain);
@@ -94,11 +103,14 @@ public class GUIGameCompleted extends JPanel{
 		botBar.add(Box.createVerticalStrut(8));
 		botBar.add(bottomBar);
 		botBar.add(Box.createVerticalStrut(8));
+		bottomPanel.add(botBar);
+		bottomPanel.setSize(new Dimension(994,40));
+		bottomPanel.setLocation(0,635);
+		bottomPanel.setBackground(new Color(50,50,50,255));
 		
-		main.add(topBar);
-		main.add(overall);
-		main.add(botBar);
-		this.add(main, BorderLayout.CENTER);
+		add(topPanel);
+		add(overall);
+		add(bottomPanel);
 
 	}
 	

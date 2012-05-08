@@ -9,8 +9,6 @@ import java.awt.event.ActionListener;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -20,12 +18,11 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JViewport;
-import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 
-public class GUIFullFrameHelp extends JPanel{
+public class GUIFullFrameHelp extends GUIBasicPage{
 	Driver _driver;
 	boolean _even;
 	//int to switch on (0 means it should go to options page, 1 should go to VocabGame, 2 should go to Grammar Game
@@ -33,7 +30,7 @@ public class GUIFullFrameHelp extends JPanel{
 	JPanel _toReturnTo;
 	
 	public GUIFullFrameHelp(String helpFile, Driver d, int toGoTo, JPanel toReturnTo){
-		super(new BorderLayout());
+		super(d, true);
 		_driver = d;
 		_toGoTo = toGoTo;
 		_toReturnTo = toReturnTo;
@@ -42,7 +39,11 @@ public class GUIFullFrameHelp extends JPanel{
 			GUIVocabGame gvg = (GUIVocabGame) toReturnTo;
 			gvg.pause();
 		}
-		this.setBackground(new Color(50,50,50,255));
+
+		hideBottom();
+		
+		//back button
+		setBack(new OntoOptionsActionListener(),"Iru!", false);
 		
 		JPanel overall = new JPanel(new BorderLayout());
 		overall.setBackground(new Color(238,238,238,255));
@@ -103,57 +104,13 @@ public class GUIFullFrameHelp extends JPanel{
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		scrollbar.setPreferredSize(new Dimension(1000,594));
+		scrollbar.setPreferredSize(new Dimension(994,595));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
 		
-		//Create boundary Panels and put it all together
-				Box fullBar = Box.createVerticalBox();
-				
-				//Top Panel
-				JPanel topPanel = new JPanel(null);
-				topPanel.setPreferredSize(new Dimension(950,35));
-				topPanel.setBackground(new Color(50,50,50,255));
-				
-				Box userBox = Box.createHorizontalBox();
-				JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
-				_un.setFont(new Font("Cambria", Font.PLAIN, 20));
-				_un.setForeground(Color.white);
-				userBox.add(_un);
-				userBox.setSize(200,35);
-				userBox.setLocation(20, 3);
-				
-				Box topBar = Box.createHorizontalBox();
-				JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
-				_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-				_score.setForeground(Color.white);
-				topBar.add(_score);
-				topBar.setSize(400,35);
-				topBar.setLocation(435, 3);
-				
-				JButton back = new JButton("Iru!");
-				back.addActionListener(new OntoOptionsActionListener());
-				back.setSize(new Dimension(100, 30));
-				back.setLocation(875,5);
-				
-				
-				
-				topPanel.add(userBox);
-				topPanel.add(topBar);
-				topPanel.add(back);
-				
-				
-				//Bottom Panel
-				JPanel bottomPanel = new JPanel(null);
-				bottomPanel.setPreferredSize(new Dimension(1000,35));
-				bottomPanel.setBackground(new Color(50,50,50,255));
-				
-				fullBar.add(topPanel);
-				fullBar.add(scrollbar);
-				fullBar.add(bottomPanel);
-				fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-				
-				add(fullBar, BorderLayout.CENTER);
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(scrollbar, BorderLayout.CENTER);
+		
+		setMainPanel(mainPanel);
 		
 	}
 	

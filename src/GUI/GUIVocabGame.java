@@ -30,11 +30,12 @@ import javax.swing.text.JTextComponent;
 
 import ELearning.Driver;
 import ELearning.VocabLevel;
+import GUI.GUIPronunciationGuide.BacktoBasicActionListener;
 import encoding.EncodingShiftListener;
 
 
 @SuppressWarnings("serial")
-public class GUIVocabGame extends JPanel{
+public class GUIVocabGame extends GUIBasicPage{
 
 	private GUIVocabGameBoard _gameBoard;
 	private JTextField _textField;
@@ -47,20 +48,20 @@ public class GUIVocabGame extends JPanel{
 
 	//this path and string would actually be an array of PicturePairs
 	public GUIVocabGame(VocabLevel vl, Driver d){
-		super(new BorderLayout());
+		super(d, true);
 		_vocabLevel = vl;
 		_driver = d;
 		_forHelpBox = this;
 		
-		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
-		this.setPreferredSize(size);
-		this.setSize(size);
-		this.setBackground(new Color(50,50,50,255));
+		//help box
+		setHelp(new HelpButtonListener());
+		setDictionary(new DictionaryButtonListener());
+		
+		//back button
+		setBack(new backtoOptionsActionListener(),"Reiru",true);
 		
 		//The game board (takes care of almost everything game related)
 		_gameBoard = new GUIVocabGameBoard(_vocabLevel, _driver.getPlayerStats(), _driver);
-
-		
 
 		//The panel that contains the text field in which the user
 		// types their guesses.
@@ -80,105 +81,14 @@ public class GUIVocabGame extends JPanel{
 		_textField.getInputMap().put(key, "dosomething");
 		_textField.getActionMap().put("dosomething", new changeWordListener());
 	    
-		//Creating the Boundaries and Putting it all together
 		Box fullBar = Box.createVerticalBox();
-		
-		//Top Panel
-		JPanel topPanel = new JPanel(null);
-		topPanel.setPreferredSize(new Dimension(950,40));
-		topPanel.setBackground(new Color(50,50,50,255));
-		
-		Box userBox = Box.createHorizontalBox();
-		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
-		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_un.setForeground(Color.white);
-		userBox.add(_un);
-		userBox.setSize(200,35);
-		userBox.setLocation(20, 0);
-		
-		Box topBar = Box.createHorizontalBox();
-		_score = new JLabel(vl.getScore() + "/" + vl.getNecessaryScore());
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-		topBar.add(_score);
-		topBar.setSize(400,40);
-		topBar.setLocation(475, -2);
-		
-		BufferedImage backpic = null;
-		try {
-			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
-		} catch (IOException e){
-			
-		}
-		int type3 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst3 = new BufferedImage(20, 20, type3);
-        Graphics2D g3 = dst3.createGraphics();
-        g3.drawImage(backpic, 0, 0, 20, 20, this);
-        g3.dispose();
-        ImageIcon newIcon3 = new ImageIcon(dst3);
-		
-		JButton back = new JButton("Reiru",newIcon3);
-		back.addActionListener(new backtoOptionsActionListener());
-		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,0);
-		
-		topPanel.add(userBox);
-		topPanel.add(topBar);
-		topPanel.add(back);
-		
-		
-		//Bottom Panel
-		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
-		bottomPanel.setBackground(new Color(50,50,50,255));
-		
-		BufferedImage dictpic = null;
-		try {
-			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
-		} catch (IOException e){
-			
-		}
-		int type = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst = new BufferedImage(27, 27, type);
-        Graphics2D g1 = dst.createGraphics();
-        g1.drawImage(dictpic, 0, 0, 27, 27, this);
-        g1.dispose();
-        ImageIcon newIcon = new ImageIcon(dst);
-		
-        BufferedImage helppic = null;
-		try {
-			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
-		} catch (IOException e){
-			
-		}
-		int type2 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst2 = new BufferedImage(23, 23, type2);
-        Graphics2D g2 = dst2.createGraphics();
-        g2.drawImage(helppic, 0, 0, 23, 23, this);
-        g2.dispose();
-        ImageIcon newIcon2 = new ImageIcon(dst2);
-        
-		JButton help = new JButton("Helpu",newIcon2);
-		help.setSize(new Dimension(125, 30));
-		help.addActionListener(new HelpButtonListener());
-		help.setLocation(19, 5);
-		
-		
-		JButton dictionary = new JButton("Vortaro",newIcon);
-		dictionary.setSize(new Dimension(125, 30));
-		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(850, 5);
-		
-		bottomPanel.add(help);
-		bottomPanel.add(dictionary);
-		
-		fullBar.add(topPanel);
 		fullBar.add(_gameBoard);
 		fullBar.add(enterAnswers);
-		fullBar.add(bottomPanel);
-		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		
-		add(fullBar, BorderLayout.CENTER);
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(fullBar, BorderLayout.CENTER);
+		
+		setMainPanel(mainPanel);
 
 	}
 	
@@ -192,7 +102,7 @@ public class GUIVocabGame extends JPanel{
 		if(toReturn){
 			_gameBoard.clearPiece();
 		}
-		_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
+		updateScore(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 		return toReturn;
 
 	}
@@ -225,7 +135,7 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
-			_score.setText(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
+			updateScore(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore()+"       ");
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 			dictFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
@@ -259,6 +169,7 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
+			updateScore(_vocabLevel.getScore() + "/" + _vocabLevel.getNecessaryScore());
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 2, _vocabLevel.getLevelNum(), _driver, _forHelpBox);
 			helpFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
