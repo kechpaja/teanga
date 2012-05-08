@@ -463,7 +463,7 @@ public class GUIBossGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			_bossLevel.decrementScore(3);
 			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore()+"       ");
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_bossLevel.getHelp(), 1, _bossLevel.getLevelNum(), _driver);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_bossLevel.getHelp(), 3, _bossLevel.getLevelNum(), _driver);
 		}
 		
 	}

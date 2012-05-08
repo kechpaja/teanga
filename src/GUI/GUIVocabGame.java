@@ -250,7 +250,7 @@ public class GUIVocabGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 2, _vocabLevel.getLevelNum(), _driver);
 			helpFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
 	            public void windowActivated(WindowEvent arg0) {
