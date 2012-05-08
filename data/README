@@ -1,9 +1,11 @@
 FILES?
 
+Hello, and welcome to Teanga ELearning!
+
 
 How to use this program:
 
-
+Upon launching the software, you'll be prompted to either select your username from the list of existing users, or to create a new user if this is your first time using the software. Should you need to create a new user, simply click on the "new user" button, and choose a username and password. 
 
 
 Typing Esperanto letters with the circumflex and breve (ĉ, ĝ, ĥ, ĵ, ŝ, ŭ):
