@@ -53,6 +53,7 @@ VP V ADJP
 # SVP's are also usable...
 SVP NP V
 SVP DP V
+SVP SVP V
 
 
 #ADJP's

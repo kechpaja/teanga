@@ -98,21 +98,19 @@ public class GUIGrammarLearn extends JPanel{
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			
 			//Explanation
-			JTextArea explinArea = new JTextArea();
+			JTextArea explinArea = new JTextArea(glp.getExplanation());
 			explinArea.setEditable(false);
 			explinArea.setBackground(new Color(0,0,0,0));
 			explinArea.setBorder(BorderFactory.createEmptyBorder());
 			explinArea.setFont(new Font("Cambria", Font.PLAIN, 20));
 			explinArea.setLineWrap(true);
 			explinArea.setWrapStyleWord(true);
-			explinArea.setMaximumSize(new Dimension(900, Integer.MAX_VALUE));
-			
-			explinArea.setText(glp.getExplanation());
 			
 			JPanel picpanel = new JPanel(null);
 			JPanel pan = new JPanel(new BorderLayout());
+			pan.setMaximumSize(new Dimension(960,500));
 
-			picpanel.setPreferredSize(new Dimension(850, 170));
+			picpanel.setPreferredSize(new Dimension(950, 170));
 			
 			if(_even){
 				picpanel.setBackground(new Color(245,245,245,255));

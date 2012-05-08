@@ -5,12 +5,47 @@ Danielle Rothermel/drotherm (?)
 Kelvin Jackson/kcjackso
 Tara Noble/tnoble
 
-Hello, and welcome to Teanga ELearning!
+SALUTON!
+
+Hello, and welcome to Teanga ELearning! We hope your experience here will be pleasant. 
 
 
 How to use this program:
 
 Upon launching the software, you'll be prompted to either select your username from the list of existing users, or to create a new user if this is your first time using the software. Should you need to create a new user, simply click on the "new user" button, and choose a username and password. Otherwise, you can pick your username from the list, enter your password, and start learning! 
+
+Lessons:
+
+The lessons are fairly straightforward - they are simply pages of text to read, explaining either grammar or vocabulary. They'll explain everything you need to know for the grammar and vocabulary games. 
+
+Games:
+
+After you've studied the lessons, you should move on to the games! You'll have to pass both of them (with a score of 100 or above) to unlock the boss. 
+
+Bosses:
+
+The boss of each level is a set of questions, to which you must provide answers in the form of complete sentences. These answers will be checked for grammatical correctness by the computer, and your mistakes will be reported to you for your inspection. 
+
+ - Explanation of Parser Error Messages:
+After parsing your input, the boss displays any errors that it finds in your sentence. There are six different messages that can be displayed; each corresponds to a slightly different mistake. In every case, the part of the sentence containing the mistake will be highlighted. 
+
+   o  "This preposition does not take the accusative."
+This should be rather self-explanatory. It appears when a preposition which cannot take the accusative case (that's most of them, actually) is used with a noun in the accusative. 
+
+   o  "These do not agree in case."
+Again, a relatively simple message, informing the user that they have make a mistake in case agreement. Most likely, an adjective was not put into the accusative when used with an accusative noun. However, the opposite is also possible; alternatively, two nouns joined by "and" or "or" may not share the same case. 
+
+   o  "These do not agree in number."
+If the boss returns this message, it means that you have two words (most likely a noun and an adjective) that don't agree in number. This works just like case agreement.  
+
+   o  "These verbs are incompatible - you must have exactly one finite verb in each sentence."
+This message is, unfortunately, a little bit cryptic - however, it makes sense once you know what it means. In Esperanto, as in English, a sentence may have only one verb with a tense suffix. All other verbs must take the infinitive ending, which is -i in Esperanto. If you have two verbs with a tense suffix, you will get this error message.
+
+   o  "The sentence cannot be fully parsed; the error is somewhere is here."
+This is the most generic of the error messages - it means that, somewhere in your sentence, two (or more) adjacent words do not make grammatical sense together. For example, in Esperanto you may not have two nouns together; thus, you'll get this error if you type "La kato hundo manĝas.".
+
+   o  "This word is not in the dictionary."
+As you might have already guessed, this message shows up when you use a word that isn't in our dictionary. That doesn't necessarily mean that it isn't a valid Esperanto word, but if this program is your first exposure to Esperanto, the chances are high that you've either made a small spelling error or misremembered a vocabulary item. 
 
 
 Typing Esperanto letters with the circumflex and breve (ĉ, ĝ, ĥ, ĵ, ŝ, ŭ):

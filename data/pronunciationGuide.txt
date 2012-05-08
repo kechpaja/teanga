@@ -1,0 +1,40 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{tipa}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+path to file,Letter,Sound in X-SAMPA,Example Word,Explanation
+data/LetterSounds/eo_a.mp3,A a,/a/,ami,the "a" in "father"
+data/LetterSounds/eo_b.mp3,B b,/b/,birdo,the "b" in "bed"
+data/LetterSounds/eo_c.mp3,C c,/ts/,cent,like the "ts" in "cats", but may also occur at the beginning of a word.
+data/LetterSounds/eo_cx.mp3,Ĉ ĉ,/tS/,ĉambro,the "ch" in "church"
+data/LetterSounds/eo_d.mp3,D d,/d/,domo,the "d" in "dog"
+data/LetterSounds/eo_e.mp3,E e,/e/,en,the "e" in "let"
+data/LetterSounds/eo_f.mp3,F f,/f/,fiŝo,the "f" in "fin"
+data/LetterSounds/eo_g.mp3,G g,/g/,granda,the "g" in "gone" (NOT the "g" in "gin")
+data/LetterSounds/eo_gx.mp3,Ĝ ĝ,/dZ/,ĝi,the "g" in "general" (NOT the "g" in "go")
+data/LetterSounds/eo_h.mp3,H h,/h/,hundo,the "h" in "house"
+data/LetterSounds/eo_hx.mp3,Ĥ ĥ,/x/,ĥoro,not present in English; pronounced like the "ch" in German "ach". One way to learn to produce this sound is to first pronounce a "k", and then slowly let some air slide between your tongue and velum until you sound like the sample speaker.
+data/LetterSounds/eo_i.mp3,I i,/i/,ili,the "ee" in "feel"
+data/LetterSounds/eo_j.mp3,J j,/j/,jes,the "y" in "yes"
+data/LetterSounds/eo_jx.mp3,Ĵ ĵ,/Z/,ĵaŭdo,the "s" in "pleasure"
+data/LetterSounds/eo_k.mp3,K k,/k/,kato,the "k" in "king"
+data/LetterSounds/eo_l.mp3,L l,/l/,la,the "l" in "long"
+data/LetterSounds/eo_m.mp3,M m,/m/,muso,the "m" in "mother"
+data/LetterSounds/eo_n.mp3,N n,/n/,ni,the "n" in "not"
+data/LetterSounds/eo_o.mp3,O o,/o/,ovo,the "o" in "for"
+data/LetterSounds/eo_p.mp3,P p,/p/,persono,the "p" in "pare"
+data/LetterSounds/eo_r.mp3,R r,/r/,ri,sort of like the "r" in ring, but trilled, like "rr" in Spanish or Italian. Alternately, it may be pronounced as the "dd" in "ladder". 
+data/LetterSounds/eo_s.mp3,S s,/s/,saluton,the "s" in "sing" (NOT the "s" in "rise")
+data/LetterSounds/eo_sx.mp3,Ŝ ŝ,/S/,ŝipo,the "sh" in "she"
+data/LetterSounds/eo_t.mp3,T t,/t/,tapiŝo,the "t" in "top" (NOT the "tt" in "latter")
+data/LetterSounds/eo_u.mp3,U u,/u/,uzas,the "u" in "rude"
+data/LetterSounds/eo_ux.mp3,Ŭ ŭ,/w/,naŭ,the final "w" sound heard in "ow!"
+data/LetterSounds/eo_v.mp3,V v,/v/,voli,the "v" in "vine"
+data/LetterSounds/eo_z.mp3,Z z,/z/,zipo,the "z" in "zip"
