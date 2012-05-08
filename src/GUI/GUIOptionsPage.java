@@ -37,6 +37,7 @@ public class GUIOptionsPage extends JPanel{
 	JLabel _userName;
 	private JPanel topPanel;
 	Rectangle[][] completed;
+	private JPanel _forHelpBox;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -58,6 +59,7 @@ public class GUIOptionsPage extends JPanel{
 			e.printStackTrace();
 		}
 		
+		_forHelpBox = this;
 		_driver = d;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
@@ -70,7 +72,7 @@ public class GUIOptionsPage extends JPanel{
 		try {
 			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
 			numacts = Integer.parseInt(fileReader.readLine());
-			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver);
+			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver, this);
 			overall.setPreferredSize(new Dimension(950,100*numacts+70));
 			
 		} catch (Exception e) {
@@ -212,7 +214,7 @@ public class GUIOptionsPage extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame("Welcome to ELearning! The page you're looking at contains several vocabulary and grammar lessons (the left two columns), and corresponding games to test your knowledge of them (the next two). Start in the top left, and play the games to unlock later levels.", 
-																		-1, -1, _driver);
+																		-1, -1, _driver, _forHelpBox);
 		}
 		
 	}

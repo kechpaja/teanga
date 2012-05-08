@@ -530,7 +530,7 @@ public class GUIGrammarGame extends JPanel{
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(3);
 			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 3, _grammarLevel.getLevelNum(), _driver);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 3, _grammarLevel.getLevelNum(), _driver, _panel);
 		}
 		
 	}

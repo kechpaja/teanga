@@ -38,15 +38,16 @@ public class GUIOptionsPanel extends JPanel{
 	private ColorText scoreLabels[][];
 	private int numacts;
 	private Driver _driver;
+	private JPanel _toReturnTo;
 	
-	public GUIOptionsPanel(BufferedReader  fileReader, int numacts1, PlayerStats stats1, Driver driver) throws IOException{
+	public GUIOptionsPanel(BufferedReader  fileReader, int numacts1, PlayerStats stats1, Driver driver, JPanel toReturnTo) throws IOException{
 
 		super(new BorderLayout());
 		
 		this.setBackground(new Color (238,238,238,255));
 		this.setPreferredSize(new Dimension(950,100*numacts+70));
 		
-
+		_toReturnTo = toReturnTo;
 		stats = stats1;
 		numacts = numacts1;
 		buttons = new JButton[numacts][5];
@@ -266,7 +267,7 @@ public class GUIOptionsPanel extends JPanel{
 			case 3:
 				//create a vocab game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 0).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenVocabLessonHelp.txt", _driver, 1, new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(0), _driver)));
 				} else {
 					GUIVocabGame gvg = new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelNum), _driver);
 					_driver.changePage(gvg);
@@ -275,13 +276,13 @@ public class GUIOptionsPanel extends JPanel{
 				break;
 			case 4:
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 1).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenGrammarHelp.txt", _driver, 2, new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(0), _driver)));
 				} else _driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			case 5:
 				//create a boss game
 				if ((_levelNum == 0) && (_driver.getPlayerStats().getSingleGame(0, 2).bestScore == 0)){
-					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, 0));
+					_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GenBossLevelHelp.txt", _driver, 3, new GUIBossGame(_driver.getBossGameMaker().makeLevel(0), _driver)));
 				} else _driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelNum), _driver));
 				break;
 			}

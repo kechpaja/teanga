@@ -29,13 +29,18 @@ public class GUIFullFrameHelp extends JPanel{
 	boolean _even;
 	//int to switch on (0 means it should go to options page, 1 should go to VocabGame, 2 should go to Grammar Game
 	int _toGoTo;
-	int _curLevel;
+	JPanel _toReturnTo;
 	
-	public GUIFullFrameHelp(String helpFile, Driver d, int toGoTo, int levelNum){
+	public GUIFullFrameHelp(String helpFile, Driver d, int toGoTo, JPanel toReturnTo){
 		super(new BorderLayout());
 		_driver = d;
 		_toGoTo = toGoTo;
-		_curLevel = levelNum;
+		_toReturnTo = toReturnTo;
+		//if the JPanel given is a vocabgame, pause it so that the user can return to it in the same place.
+		if (_toGoTo == 1){
+			GUIVocabGame gvg = (GUIVocabGame) toReturnTo;
+			gvg.pause();
+		}
 		this.setBackground(new Color(50,50,50,255));
 		
 		JPanel overall = new JPanel(new BorderLayout());
@@ -156,25 +161,12 @@ public class GUIFullFrameHelp extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			switch(_toGoTo){
-			case 0:
-				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-				break;
-			case 1:
-				GUIVocabGame gvg = new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_curLevel), _driver);
+			if (_toGoTo == 1){
+				GUIVocabGame gvg = (GUIVocabGame) _toReturnTo;
 				_driver.changePage(gvg);
-				gvg.focusOnTextField();				
-				break;
-			case 2:
-				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_curLevel), _driver));
-				break;
-			case 3:
-				_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_curLevel), _driver));
-				break;
-			default:
-				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));;
-				break;
-			}
+				gvg.focusOnTextField();	
+				gvg.restart();
+			} else _driver.changePage(_toReturnTo);;
 			
 		}
 		

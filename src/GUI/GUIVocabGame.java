@@ -42,6 +42,7 @@ public class GUIVocabGame extends JPanel{
 	private Driver _driver;
 	private JLabel _score;
 	private String _newText;
+	private JPanel _forHelpBox;
 	
 
 	//this path and string would actually be an array of PicturePairs
@@ -49,6 +50,7 @@ public class GUIVocabGame extends JPanel{
 		super(new BorderLayout());
 		_vocabLevel = vl;
 		_driver = d;
+		_forHelpBox = this;
 		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
 		this.setPreferredSize(size);
@@ -245,12 +247,20 @@ public class GUIVocabGame extends JPanel{
 		
 	}
 	
+	public void pause(){
+		_gameBoard.pause();
+	}
+	
+	public void restart(){
+		_gameBoard.restart();
+	}
+	
 	private class HelpButtonListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 2, _vocabLevel.getLevelNum(), _driver);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 2, _vocabLevel.getLevelNum(), _driver, _forHelpBox);
 			helpFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
 	            public void windowActivated(WindowEvent arg0) {
