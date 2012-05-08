@@ -121,7 +121,6 @@ public class GUIOptionsPanel extends JPanel{
 			levelNames[i].setSize(new Dimension(40,15));
 			levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
 		}
-		buttons[0][4].setEnabled(true);//--------------------------------------------------
 		
 		JPanel titles = new JPanel(new BorderLayout());
 		titles.setPreferredSize(new Dimension(1000,80));
@@ -215,7 +214,7 @@ public class GUIOptionsPanel extends JPanel{
 					} else if (j ==1){
 						xset = 430;//fix this
 					} else {
-						xset = 700;//fix this
+						xset = 720;//fix this
 					}
 					ellipses[i][j].setLocation(xset, (97*(i+1)));
 					scoreLabels[i][j].setLocation(xset+offset, (97*(i+1))+20);
