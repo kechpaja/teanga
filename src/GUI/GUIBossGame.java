@@ -83,8 +83,8 @@ public class GUIBossGame extends JPanel{
 		_currNumLabel = new JLabel(mystring);
 		_currNumLabel.setFont(new Font("Cambria", Font.BOLD, 28));
 		_currNumLabel.setLocation(850,40);
-		_currNumLabel.setSize(200,50);
-		_currNumLabel.setBackground(Color.LIGHT_GRAY);
+		_currNumLabel.setSize(120,50);
+		_currNumLabel.setBackground(new Color(255,255,255,180));
 		_currNumLabel.setOpaque(true);
 		this.add(_currNumLabel);
 		

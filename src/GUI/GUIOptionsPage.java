@@ -38,6 +38,7 @@ public class GUIOptionsPage extends JPanel{
 	private JPanel topPanel;
 	Rectangle[][] completed;
 	private JPanel _forHelpBox;
+	private PlayerStats _stats;
 	
 	public GUIOptionsPage(Driver d, PlayerStats stats){
 		try {
@@ -64,6 +65,7 @@ public class GUIOptionsPage extends JPanel{
 		
 		_forHelpBox = this;
 		_driver = d;
+		_stats = stats;
 		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
 		this.setPreferredSize(size);
 		this.setBackground(new Color(50,50,50,255));
@@ -177,6 +179,10 @@ public class GUIOptionsPage extends JPanel{
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
+		JButton toPronounce = new JButton("Pronunciation Guide");
+		toPronounce.addActionListener(new ToPronunciationListener());
+		toPronounce.setSize(new Dimension(200,30));
+		toPronounce.setLocation(365,5);
 		
 		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
@@ -184,6 +190,7 @@ public class GUIOptionsPage extends JPanel{
 		dictionary.setLocation(850, 5);
 		
 		bottomPanel.add(help);
+		bottomPanel.add(toPronounce);
 		bottomPanel.add(dictionary);
 		
 		fullBar.add(topPanel);
@@ -199,6 +206,15 @@ public class GUIOptionsPage extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_driver.changePage(new GUIBasicPage(_driver));			
+		}
+		
+	}
+	
+	private class ToPronunciationListener implements ActionListener {
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			_driver.changePage(new GUIPronunciationGuide(_driver, _stats));			
 		}
 		
 	}
