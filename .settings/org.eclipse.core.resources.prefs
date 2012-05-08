@@ -1,4 +1,4 @@
-#Mon May 07 14:51:10 EDT 2012
+#Tue May 08 01:03:59 EDT 2012
 eclipse.preferences.version=1
 encoding//data/HelpFiles/GeneralHelp.txt=UTF-8
 encoding//data/HelpFiles/helpplease.txt=UTF-8
@@ -6,3 +6,4 @@ encoding//data/optionsData.csv=UTF-8
 encoding//data/testfileg.txt=UTF-8
 encoding//src/GUI/GUIBossGame.java=UTF-8
 encoding//src/GUI/GUIGrammarGame.java=UTF-8
+encoding/<project>=UTF-8

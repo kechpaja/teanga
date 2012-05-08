@@ -113,7 +113,7 @@ public class GUIOptionsPanel extends JPanel{
 		        scoreLabels[i][j].setVisible(false);
 
 			}
-			buttons[i][4].setEnabled(true);//--------------------------------------------------
+		//	buttons[i][4].setEnabled(true);//--------------------------------------------------
 			
 			levelNames[i] = new JLabel(picturePaths[4]);
 			levelNames[i].setBackground(new Color(238,238,238,255));
@@ -201,9 +201,9 @@ public class GUIOptionsPanel extends JPanel{
 					if(bestScore <10){
 						offset = 11;
 					} else if(bestScore <100){
-						offset = 8;
+						offset = 7;
 					} else{
-						offset = 4;
+						offset = 2;
 					}
 
 					ellipses[i][j].setVisible(true);
