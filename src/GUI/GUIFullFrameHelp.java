@@ -61,13 +61,11 @@ public class GUIFullFrameHelp extends JPanel{
 		titleBox.add(title);
 		titleBox.add(Box.createHorizontalStrut(315));
 		vertBox.add(titleBox);
-		
 		//make the list of paragraphs from given helpfile:
 		try{
 			BufferedReader br = new BufferedReader(new FileReader(helpFile));
 			String para = br.readLine();
 			while (para != null){
-				
 				JTextArea explinArea = new JTextArea();
 				explinArea.setText(para);
 				explinArea.setEditable(false);
