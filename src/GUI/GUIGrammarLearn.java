@@ -36,9 +36,9 @@ public class GUIGrammarLearn extends JPanel{
 	int _levelNum;
 	private JLabel _userName;
 	private boolean _even;
-	private JPanel _forHelpBox;
+	private JPanel _forHelpBox, _toReturnTo;
 	
-	public GUIGrammarLearn(int ln, Driver d){
+	public GUIGrammarLearn(int ln, Driver d, JPanel toReturnTo){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,50,255));
 		
@@ -48,6 +48,7 @@ public class GUIGrammarLearn extends JPanel{
 		_driver = d;
 		_levelNum = ln;
 		_forHelpBox = this;
+		_toReturnTo = toReturnTo;
 		
 		//Make the title
 		Box vertBox = Box.createVerticalBox();
@@ -262,8 +263,9 @@ public class GUIGrammarLearn extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
-			
+			if (_toReturnTo == null){
+				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));
+			} else _driver.changePage(_toReturnTo);
 		}
 		
 	}
@@ -284,7 +286,7 @@ public class GUIGrammarLearn extends JPanel{
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
 																		1, _levelNum, _driver, _forHelpBox);
 		}
-		
 	}
+		
 	
 }

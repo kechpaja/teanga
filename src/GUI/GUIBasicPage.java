@@ -247,7 +247,7 @@ public class GUIBasicPage extends JPanel{
 				_driver.setUserName(newName);
 				_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
 				_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
-				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/GeneralHelp.txt", _driver, 0, new GUIOptionsPage(_driver, _driver.getPlayerStats())));
+				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/OpeningPage.txt", _driver, 0, new GUIOptionsPage(_driver, _driver.getPlayerStats())));
 			} else {
 				String infoMessage = "The user name " + newName + " is already taken. Please try another.";
 				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
