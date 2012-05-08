@@ -61,7 +61,7 @@ public class ParseTree {
 		// they shouldn't be there, but are worth checking. 
 		for (Node node : prev_) {
 			node.visit(mistakes);
-			mistakes.add(new FatalMistake(node.getLeftIndex(), node.getRightIndex(), "Something is wrong with your grammar here."));
+			mistakes.add(new FatalMistake(node.getLeftIndex(), node.getRightIndex(), "The sentence cannot be fully parsed; the error is somewhere is here."));
 		}
 	}
 

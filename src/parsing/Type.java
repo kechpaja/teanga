@@ -2,6 +2,8 @@ package parsing;
 
 public enum Type {
 	
+	// OLD AND DEPRECATED
+	
 	S,
 	VP,
 	NPNSG,

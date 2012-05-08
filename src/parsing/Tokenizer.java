@@ -118,6 +118,8 @@ public class Tokenizer {
 			// check for weird stuff
 			else if (s.equals("la")) {
 				pos = Pos.ARTICLE;
+			} else if (s.equals("ja")) {
+				pos = Pos.ADVERB;
 			} else if (s.equals("saluton") || s.equals("adiaŭ") || s.equals("pli") || s.equals("jes")) {
 				pos = Pos.ADVERB;
 			} else if (s.equals("kaj") || s.equals("aŭ")) {

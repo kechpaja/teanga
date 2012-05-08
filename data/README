@@ -1,16 +1,27 @@
-FILES?
+Teanga ELearning - CSCI 0320 Term Project
+Authors:
+Anne Carlson/aecarlso
+Danielle Rothermel/drotherm (?)
+Kelvin Jackson/kcjackso
+Tara Noble/tnoble
+
+SALUTON!
+
+Hello, and welcome to Teanga ELearning! We hope your experience here will be pleasant. 
 
 
 How to use this program:
 
-
+Upon launching the software, you'll be prompted to either select your username from the list of existing users, or to create a new user if this is your first time using the software. Should you need to create a new user, simply click on the "new user" button, and choose a username and password. Otherwise, you can pick your username from the list, enter your password, and start learning! 
 
 
 Typing Esperanto letters with the circumflex and breve (ĉ, ĝ, ĥ, ĵ, ŝ, ŭ):
 
-Esperanto uses several letters with what linguists call "diacritical marks", or "diacritics" for short, on top. These letters are ĉ, ĝ, ĥ, ĵ, ŝ, and ŭ, in both lower and upper case. You are welcome and encouraged to figure out how to type these characters directly on your computer; however, we have provided a simple solution to that problem if you would rather not. Historically, when such accented characters have not been available, Esperanto speakers have instead typed the base letter followed by an "x" - for example, "mangxas" instead of "manĝas". We have taken this convention one step further: if you type any of C, G, H, J, S, or U, in either case, followed by an "x", the combination will be replaced by the proper accented character. 
+Esperanto uses several letters with what linguists call "diacritical marks", or "diacritics" for short, on top. These letters are ĉ, ĝ, ĥ, ĵ, ŝ, and ŭ, in both lower and upper case. You are welcome and encouraged to figure out how to type these characters directly on your computer; however, we have provided a simple solution to that problem if you would rather not. Historically, when such accented characters have not been available, Esperanto speakers have instead typed the base letter followed by an "x" - for example, "mangxas" instead of "manĝas". We have taken this convention one step further: if you type any of C, G, H, J, S, or U, in either case, followed by an "x", the combination will be immediately replaced by the proper accented character. Most likely, this feature will prove invaluable in your use of this software, since many of the games are time-sensitive, and even when typing accented characters directly is possible, it is usually very slow. 
 
 
 Program files:
 
-This program requires a number of data files (in the "data" folder) - they are provided for you, and need not and should not ever be modified. Please don't mess with them; you'll only be hurting yourself by messing up your program. 
+This program requires a number of data files (in the "data" folder) to run - they are provided for you, and need not and should not ever be modified. Please don't mess with them; you'll only be hurting yourself by messing up your program. DON'T DELETE FILES!
+
+If you accidentally delete or otherwise modify beyond readability any of the program files, you will be prompted upon launching the program to download a new copy of the software. There's little else that can be done in such a situation - you can't recover user data from a deleted file. You have been warned. 
