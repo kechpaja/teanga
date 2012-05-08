@@ -28,7 +28,7 @@ import ELearning.Driver;
 import ELearning.VocabLessonPair;
 import GUI.GUIOptionsPage.BacktoBasicActionListener;
 
-public class GUIVocabLearn extends GUIBasicPage{
+public class GUIVocabLearn extends GUIFoundationPage{
 	Driver _driver;
 	int _levelNum;
 	private JLabel _userName;

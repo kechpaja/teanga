@@ -25,7 +25,7 @@ import javax.swing.SwingUtilities;
 import ELearning.Driver;
 
 @SuppressWarnings("serial")
-public class GUIBasicPage extends JPanel{
+public class GUIFoundationPage extends JPanel{
 	private Driver _driver;
 	private String _helpPhrase;
 	private int _help1, _help2, _topButtonLoc, _bottomButtonLoc, _buttonHeight;
@@ -35,7 +35,7 @@ public class GUIBasicPage extends JPanel{
 	private JButton _middleButton, _back, _help, _dictionary;
 	private JLabel _un, _score;
 
-	public GUIBasicPage(Driver driver, boolean haveButtons){
+	public GUIFoundationPage(Driver driver, boolean haveButtons){
 		super(null);
 		_driver = driver;
 		_forHelpBox = this;

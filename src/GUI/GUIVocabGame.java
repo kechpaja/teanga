@@ -35,7 +35,7 @@ import encoding.EncodingShiftListener;
 
 
 @SuppressWarnings("serial")
-public class GUIVocabGame extends GUIBasicPage{
+public class GUIVocabGame extends GUIFoundationPage{
 
 	private GUIVocabGameBoard _gameBoard;
 	private JTextField _textField;

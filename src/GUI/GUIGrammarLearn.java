@@ -30,7 +30,7 @@ import javax.swing.SwingConstants;
 import ELearning.Driver;
 import ELearning.GrammarLessonPair;
 
-public class GUIGrammarLearn extends GUIBasicPage{
+public class GUIGrammarLearn extends GUIFoundationPage{
 	Driver _driver;
 	int _levelNum;
 	private JLabel _userName;

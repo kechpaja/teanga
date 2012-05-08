@@ -29,7 +29,7 @@ import ELearning.Driver;
 import annie.PlayerStats;
 
 @SuppressWarnings("serial")
-public class GUIPronunciationGuide extends GUIBasicPage{
+public class GUIPronunciationGuide extends GUIFoundationPage{
 	
 	private Driver _driver;
 	private PlayerStats _stats;
