@@ -6,6 +6,8 @@ Eventually, as the pictures fall faster and faster, they will pile up on the bot
 
 The dictionary and help box will pause the game for as long as they are open. 
 
+If you don't recognize the falling picture, you can press 7 and the English word the picture represents will appear.
+
 You'll need a score of at least 100 to move onto the Boss level. 
 
-Bonan sorton!
+Bona sorto!

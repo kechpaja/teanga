@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JViewport;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import ELearning.Driver;
@@ -166,9 +167,9 @@ public class GUIFullFrameHelp extends JPanel{
 				_driver.changePage(gvg);
 				gvg.focusOnTextField();	
 				gvg.restart();
-			} else _driver.changePage(_toReturnTo);;
-			
+			} else _driver.changePage(_toReturnTo);;	
 		}
 		
 	}
+	
 }

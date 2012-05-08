@@ -76,7 +76,6 @@ public class GUIVocabGame extends JPanel{
 		_textField.requestFocusInWindow();
 		
 		KeyStroke key = KeyStroke.getKeyStroke('7');
-				//, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
 		_textField.getInputMap().remove(key);
 		_textField.getInputMap().put(key, "dosomething");
 		_textField.getActionMap().put("dosomething", new changeWordListener());
@@ -206,7 +205,7 @@ public class GUIVocabGame extends JPanel{
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			String text = _textField.getText();
 			if(checkAnswer(text)){
-				_textField.setBackground(new Color(100, 200, 100, 255));
+				_textField.setBackground(new Color(50,200,60, 255));
 			} else _textField.setBackground(new Color(200, 100, 100, 255));
 			_textField.setText("");
 		}
