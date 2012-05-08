@@ -1,10 +1,6 @@
 package encoding;
 
 public class EncodingShifter {
-	
-	// NOTE: I haven't actually tested this, but it's simple enough that I doubt it will fail. 
-	// You shouldn't need to actually call the method here; just add the included listener to
-	// the relevant component. Remember to pass in the component to the constructor!
 
 	public static String shift(String text) {
 		if (text.length() < 2) {
