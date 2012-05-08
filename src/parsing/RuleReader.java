@@ -45,7 +45,6 @@ public class RuleReader {
 			String line = r.readLine();
 			
 			if (line == null || !line.equals("binary:")) {
-				System.out.println("ERROR IN BINARY RULES");
 			}
 			
 			line = r.readLine();
@@ -56,8 +55,6 @@ public class RuleReader {
 				if (line.equals("") || line.startsWith("#")) {
 					// skipping comment
 				} else if (spl.length != 3) {
-					System.out.println("ERROR IN BINARY RULES");
-					System.out.println(line);
 				} else {
 					// build rule
 					Pos h = Pos.strToPos(spl[1]);
@@ -83,8 +80,6 @@ public class RuleReader {
 					// comment
 				} else if (spl.length != 2) {
 					// error
-					System.out.println("ERROR IN UNARY RULES");
-					System.out.println(line);
 				} else {
 					// build rule
 					Pos c = Pos.strToPos(spl[1]);
@@ -103,8 +98,6 @@ public class RuleReader {
 					// comment
 				} else if (spl.length != 4) {
 					// error
-					System.out.println("ERROR IN TERNARY RULES");
-					System.out.println(line);
 				} else {
 					// build rules
 					Pos l = Pos.strToPos(spl[1]);
@@ -122,7 +115,6 @@ public class RuleReader {
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 		
 		return ruleset;

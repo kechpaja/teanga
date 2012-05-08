@@ -72,8 +72,8 @@ data/VocabPictures/eat.jpeg,Mi pov~0~ manĝi.,as,o i as in
 data/VocabPictures/house.jpg,Vi pov~0~ iri al domo.,as,o en as e
 data/VocabPictures/love.jpeg,Li pov~0~ am~1~ min!,as i,o i on as e
 data/VocabPictures/see.jpeg,Ni pov~0~ vidi ilin.,as,o as on i
-data/VocabPictures/to.jpeg,Mi iras ~0~ dom~1~.,al o,o i in al
-data/VocabPictures/to.png,Li ir~0~ ~1~ mi.,as al,al i in as o
+data/VocabPictures/house.jpg,Mi iras ~0~ dom~1~.,al o,o i in al
+data/VocabPictures/me.jpg,Li ir~0~ ~1~ mi.,as al,al i in as o
 data/VocabPictures/in.png,Mi est~0~ ~1~ la dom~2~.,as en o,o i en as u un
 data/VocabPictures/in.png,La muso estas ~0~ la kat~1~!,en o,i u as o en
 data/VocabPictures/me.jpg,Ti~0~ estas mi!,o,i a us o
@@ -82,9 +82,9 @@ data/VocabPictures/we.jpg,N~0~ iras.,i,o i us u
 data/VocabPictures/we.jpg,Mi kaj vi estas n~0~.,i,o i u as
 data/VocabPictures/you.jpg,~0~ iras.,Vi,Vi O U Us As
 data/VocabPictures/they.jpg,Il~0~ manĝas.,i,i u o an
-data/VocabPictures/he.png,~0~ volas iri.,li,li on mi ni
-data/VocabPictures/she.png,Tio estas ~0~.,ŝi,mi ŝi i ili
-data/VocabPictures/it.png,Tio estas ~0~!,ĝi,i ĝi li ri on
+data/VocabPictures/want.jpg,~0~ volas iri.,li,li on mi ni
+data/VocabPictures/they.jpg,Tio estas ~0~.,ŝi,mi ŝi i ili
+data/VocabPictures/they.jpg,Tio estas ~0~!,ĝi,i ĝi li on
 data/VocabPictures/phe.png,~0~ estas en la domo.,Ri,Ri Ili On Ne
 data/VocabPictures/me.jpg,Ĝi estas ~0~.,mi,ri li mi us
 data/VocabPictures/mouse.jpg,Tio estas la mus~0~ ~1~ la kato.,o de,de li en o u

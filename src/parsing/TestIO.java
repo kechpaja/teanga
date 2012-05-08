@@ -23,13 +23,11 @@ public class TestIO {
 			
 			while (line != null) {
 				resp = parser.parse(line);
-				System.out.println(resp);
 				line = r.readLine();
 			}
 			
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
 		}
 	}
 

@@ -211,26 +211,12 @@ public class GUIBasicPage extends JPanel{
 					return;
 				}
 			} catch (InvalidKeyException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			} catch (NoSuchAlgorithmException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			} catch (InvalidKeySpecException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			} catch (NoSuchPaddingException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			} catch (InvalidAlgorithmParameterException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
 			} catch (IllegalBlockSizeException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
 			} catch (BadPaddingException e2) {
-				// TODO Auto-generated catch block
-				e2.printStackTrace();
 			} catch (IOException e2) {
 				// TODO Auto-generated catch block
 				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
@@ -253,20 +239,10 @@ public class GUIBasicPage extends JPanel{
 				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
 			}
 		} catch (InvalidKeyException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (NoSuchAlgorithmException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (InvalidKeySpecException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (NoSuchPaddingException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (InvalidAlgorithmParameterException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
 		} catch (IOException e2) {
 			// TODO Auto-generated catch block
 			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";

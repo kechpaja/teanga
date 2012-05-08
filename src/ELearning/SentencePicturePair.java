@@ -72,21 +72,14 @@ public class SentencePicturePair extends PicturePair{
 		String[] one = {"is", "le"};
 		String[] two = {"is", "this", "sample", "le"};
 		SentencePicturePair pair1 = new SentencePicturePair("path1", "this ~0~ the samp~1~ sentence", one, two);
-		System.out.println(pair1.getPicturePath());
-		System.out.println(pair1.getPartialSentence());
-		System.out.println(pair1.getCorrectAnswers()[0]);
 		pair1.submitAnswer(1, 0);
-		System.out.println(pair1.getCorrectAnswers()[0]);
-		System.out.println(pair1.isFinished());
 		pair1.submitAnswer(0, 0);
 		pair1.submitAnswer(3, 1);
-		System.out.println(pair1.isFinished());
 		
 		String[] one2 = {};
 		String[] two2 = {"is", "this", "sample", "le"};
 		SentencePicturePair pair2 = new SentencePicturePair("path2", "this is the sentence", one2, two2);
-		System.out.println(pair2.getPartialSentence());
-		System.out.println(pair2.isFinished());
+
 	}
 
 }

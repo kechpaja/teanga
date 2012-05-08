@@ -15,7 +15,6 @@ import java.io.IOException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
-import javax.swing.BoxLayout;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
@@ -75,17 +74,18 @@ public class GUIBossGame extends JPanel{
 		} catch (IOException e) {
 			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-			System.out.println("Cannot read image (GUIBossGame): "+backPic);
 			System.exit(0);
 		}
 		
 		String mystring = " "+Integer.toString(_bossLevel.getCurrentNum()) + " de "+Integer.toString(_bossLevel.getTotalNum());
 		_currNumLabel = new JLabel(mystring);
-		_currNumLabel.setFont(new Font("Cambria", Font.BOLD, 28));
+		_currNumLabel.setFont(new Font("Cambria", Font.BOLD, 25));
 		_currNumLabel.setLocation(850,40);
-		_currNumLabel.setSize(200,50);
-		_currNumLabel.setBackground(Color.LIGHT_GRAY);
-		_currNumLabel.setOpaque(true);
+		_currNumLabel.setSize(120,50);
+		if(_bossLevel.getLevelNum()==2)
+			_currNumLabel.setForeground(Color.WHITE);
+		_currNumLabel.setBackground(new Color(255,255,255,180));
+		//_currNumLabel.setOpaque(true);
 		this.add(_currNumLabel);
 		
 		JPanel qPanel = new JPanel();
@@ -335,9 +335,10 @@ public class GUIBossGame extends JPanel{
 		}
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
+		moveBox.add(Box.createHorizontalStrut(25));
+
 		moveBox.add(prev);
 		moveBox.add(next);
-		moveBox.add(Box.createHorizontalStrut(20));
 		
 		resultVert.add(Box.createVerticalStrut(5));
 		resultVert.add(newSent);
@@ -454,18 +455,17 @@ public class GUIBossGame extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
+			if(!switched){
+				_bossLevel.tryAnswer(" ");
+			}
+			switched = false;
 			_current = 0;
 			userInput.setText("");
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
 			
-			//move to next question...
-			System.out.println(switched);
-			if(!switched){
-				_bossLevel.tryAnswer(" ");
-			}
-			switched = false;
+			
 			textArea.setText(_bossLevel.getCurrentQuestion());
 			if(rPanel != null){
 				rPanel.setVisible(false);

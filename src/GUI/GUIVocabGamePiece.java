@@ -65,7 +65,6 @@ public class GUIVocabGamePiece {
 	        	_image = ImageIO.read(new File(imagePath));
 	    	} catch (IOException ex) {
 	    		replacePicWithWord();
-	        	System.out.println("image could not be loaded: "+imagePath);
 	        	return;
 	    	}
 	   

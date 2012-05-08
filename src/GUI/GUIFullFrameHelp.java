@@ -90,7 +90,6 @@ public class GUIFullFrameHelp extends JPanel{
 			vertBox.add(Box.createVerticalGlue());
 		} catch (IOException e) {
 			//TODO: the thing that happens when a file isn't found
-			System.out.println("couldn't find general help file");
 		}
 		
 		Box horizBox = Box.createHorizontalBox();

@@ -82,18 +82,10 @@ public class GrammarLevel extends LevelInstance {
 		
 		GrammarLevel myLevel = new GrammarLevel(levelList, "this is the help", 1);
 		myLevel.submitPart(1, 0);
-		System.out.println(myLevel.submitWhole());
 		myLevel.submitPart(0, 0);
-		System.out.println(myLevel.submitWhole());
-		System.out.println(myLevel.submitWhole());
 		myLevel.submitPart(0, 1);
-		System.out.println(myLevel.isOver());
-		System.out.println(myLevel.submitWhole());
 		myLevel.submitPart(1, 0);
-		System.out.println(myLevel.submitWhole());
 		myLevel.submitPart(3, 0);
-		System.out.println(myLevel.submitWhole());
-		System.out.println(myLevel.isOver());
 	}
 	
 }

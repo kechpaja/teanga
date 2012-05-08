@@ -115,7 +115,6 @@ public class Driver {
 		        }
 		    }
 		} catch (Exception e) {
-		    System.out.println("Nimbus is not available!");
 		}
 		Driver myDriver = new Driver();
 	}

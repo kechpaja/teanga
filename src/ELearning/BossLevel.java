@@ -16,7 +16,7 @@ public class BossLevel extends LevelInstance{
 	private Parser parser;
 	private List<String> vocabWords=new ArrayList<String>();
 	private int currentNum;
-	private int totalNum=15;
+	private int totalNum;
 	
 	
 	public int getLevelNum(){
@@ -44,6 +44,7 @@ public class BossLevel extends LevelInstance{
 		picturePath = pp;
 		parser = p;	
 		currentNum = 1;
+		totalNum=questions.size()+1;
 	}
 	public void addVocabWords(Driver _driver)
 	{
@@ -56,14 +57,12 @@ public class BossLevel extends LevelInstance{
 		
 	public Response tryAnswer(String input){
 		Response response = parser.parse(input);
-		System.out.println("in try answer");
 		if (this.isOver()){
 			return response;
 		}
 		if (!response.containsFatal()&&!input.equals(" ")){
 			this.score += (5 - 2*response.getMistakes().size() + pointsToAdd(input));
 			currentNum ++;
-			System.out.println("1: "+currentNum);
 			if (questions.isEmpty()) {
 				this.isOver = true;
 			}
@@ -71,7 +70,6 @@ public class BossLevel extends LevelInstance{
 			{
 			score -= 3;
 			currentNum ++;
-			System.out.println("2: "+currentNum);
 			if (questions.isEmpty()) {
 				this.isOver = true;
 			}

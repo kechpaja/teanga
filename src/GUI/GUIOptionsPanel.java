@@ -63,7 +63,6 @@ public class GUIOptionsPanel extends JPanel{
 		for(int i = 0; i<numacts; i++){
 			
 			if((line = fileReader.readLine()) == null){
-				System.out.println("Options file does not have correct number of lines");
 				System.exit(0);
 			}
 				
@@ -113,7 +112,7 @@ public class GUIOptionsPanel extends JPanel{
 		        scoreLabels[i][j].setVisible(false);
 
 			}
-		//	buttons[i][4].setEnabled(true);//--------------------------------------------------
+			//buttons[i][4].setEnabled(true);//--------------------------------------------------
 			
 			levelNames[i] = new JLabel(picturePaths[4]);
 			levelNames[i].setBackground(new Color(238,238,238,255));
@@ -214,7 +213,7 @@ public class GUIOptionsPanel extends JPanel{
 					} else if (j ==1){
 						xset = 430;//fix this
 					} else {
-						xset = 720;//fix this
+						xset = 715;//fix this
 					}
 					ellipses[i][j].setLocation(xset, (97*(i+1)));
 					scoreLabels[i][j].setLocation(xset+offset, (97*(i+1))+20);

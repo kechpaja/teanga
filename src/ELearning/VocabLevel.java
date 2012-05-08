@@ -80,7 +80,6 @@ public class VocabLevel extends LevelInstance {
 			{
 				upNext=new LinkedList<VocabPicturePair>(fallen);
 				Collections.copy(upNext, fallen);
-				System.out.println("In tryAnswer: "+upNext.size());
 				Collections.shuffle(upNext);
 			}
 			score+=2;
@@ -101,20 +100,15 @@ public class VocabLevel extends LevelInstance {
 		VocabLevel myLevel = new VocabLevel(levelList, "this is the help", 1);
 			myLevel.addToWaiting();
 			myLevel.tryAnswer("hello");
-			System.out.println(myLevel.score);
 			myLevel.addToWaiting();
 			myLevel.tryAnswer("wrong");
 			myLevel.tryAnswer("world");
-			System.out.println(myLevel.score);
 			myLevel.addToWaiting();
 			myLevel.addToWaiting();
 			myLevel.tryAnswer("word"); //expect to not increment score
-			System.out.println(myLevel.score);
 			myLevel.tryAnswer("testing");
 			myLevel.tryAnswer("word");
-			System.out.println(myLevel.score);
 			myLevel.addToWaiting();
-			System.out.println(myLevel.isOver());
 		
 	}
 	

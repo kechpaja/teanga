@@ -34,7 +34,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 	public GUIGrammarChoicePanel(JPanel container, Box layout, ArrayList<JLabel> blankPlace, GrammarLevel gl, int width){
 		super(new BorderLayout());
 		
-		System.out.println(width);
 		
 		_grammarLevel = gl;
 		_layout = layout;
@@ -174,7 +173,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 					Thread.sleep(50);
 				} catch (InterruptedException e1) {
 					// TODO Auto-generated catch block
-					e1.printStackTrace();
 				}
 				try {
 					panelX = _panel.getLocationOnScreen().x;
@@ -269,7 +267,6 @@ public class GUIGrammarChoicePanel extends JPanel {
 					}
 				}
 			} catch(NullPointerException exception){
-				System.out.println("Exception");
 			}
 			
 

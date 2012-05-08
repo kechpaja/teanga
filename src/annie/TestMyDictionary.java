@@ -9,19 +9,17 @@ public class TestMyDictionary {
 	 */
 	public static void main(String[] args) {
 		try {
-			BufferedReader r = new BufferedReader(new InputStreamReader(System.in));
+			BufferedReader r = new BufferedReader(new InputStreamReader(System.in, "UTF8"));
 			MyDictionary dict = new MyDictionary("data/dictionary.txt");
 			String line = r.readLine();
 			
 			// loop, reading in user input and looking it up as a word. 
 			while (line != null) {
-				System.out.println(dict.getWord(line, true));
 				
 				line = r.readLine();
 			}
 			
 		} catch (Exception e) {
-			e.printStackTrace();
 		}
 
 	}

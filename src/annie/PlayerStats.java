@@ -76,6 +76,14 @@ public class PlayerStats {
 		    {
 	    		userGames[i][j]=new SingleGame(unlocked[i][j],
 	    				points[i][j]);
+	    		/*if(i<3||(i==3&&j<2))
+	    		{
+	    			Random random = new Random();
+	    			int t=random.nextInt(50);
+	    			userGames[i][j].bestScore=100+t;
+	    			userGames[i][j].unlocked=true;
+	    			totalPoints=totalPoints+t;
+	    		}*/
 		    }
 		}
 	}		

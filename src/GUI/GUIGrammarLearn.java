@@ -78,7 +78,6 @@ public class GUIGrammarLearn extends JPanel{
 			try {
 				pic = ImageIO.read(new File(glp.getPicturePath()));
 			} catch (IOException e) {
-				System.out.println("Cannot find image "+ glp.getPicturePath());
 				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
 				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 				System.exit(0);

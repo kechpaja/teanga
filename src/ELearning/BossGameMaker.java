@@ -17,7 +17,6 @@ public class BossGameMaker implements GameMaker{
 	
 	public BossLevel makeLevel(int levelNum){
 		List<BossQuestionPair> bqps = exercises.getBLevel(levelNum);
-		System.out.println(bqps.size());
 		String picturePath = exercises.getBPic(levelNum);
 		String help = helpBox.getBHelp(levelNum);
 		return new BossLevel(bqps, help, levelNum, picturePath, parser);	

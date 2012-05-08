@@ -111,11 +111,8 @@ public class GUIGameCompleted extends JPanel{
 					try {
 						_driver.getPlayerStats().encode();
 					} catch (IllegalBlockSizeException e1) {
-						e1.printStackTrace();
 					} catch (BadPaddingException e1) {
-						e1.printStackTrace();
 					} catch (IOException e1) {
-						e1.printStackTrace();
 					}
 					_driver.changePage(new GUIVocabGame(_driver.getVocabGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));
 					break;
@@ -123,11 +120,8 @@ public class GUIGameCompleted extends JPanel{
 					try {
 						_driver.getPlayerStats().encode();
 					} catch (IllegalBlockSizeException e1) {
-						e1.printStackTrace();
 					} catch (BadPaddingException e1) {
-						e1.printStackTrace();
 					} catch (IOException e1) {
-						e1.printStackTrace();
 					}
 					_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));
 					break;
@@ -135,11 +129,8 @@ public class GUIGameCompleted extends JPanel{
 					try {
 						_driver.getPlayerStats().encode();
 					} catch (IllegalBlockSizeException e1) {
-						e1.printStackTrace();
 					} catch (BadPaddingException e1) {
-						e1.printStackTrace();
 					} catch (IOException e1) {
-						e1.printStackTrace();
 					}
 					//_driver.changePage(new GUIBossGame());
 					_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_levelInstance.getLevelNum()), _driver));

@@ -1,7 +1,5 @@
 package GUI;
 
-import gfx.Rectangle;
-
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
@@ -9,13 +7,10 @@ import java.awt.Font;
 import java.awt.Graphics2D;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.ComponentEvent;
-import java.awt.event.ComponentListener;
 import java.awt.image.BufferedImage;
-import java.io.*;
+import java.io.File;
+import java.io.IOException;
 
-import javax.crypto.BadPaddingException;
-import javax.crypto.IllegalBlockSizeException;
 import javax.imageio.ImageIO;
 import javax.swing.BorderFactory;
 import javax.swing.Box;
@@ -27,71 +22,81 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 import annie.PlayerStats;
 
 @SuppressWarnings("serial")
-public class GUIOptionsPage extends JPanel{
-	Driver _driver;
-	JLabel _userName;
-	private JPanel topPanel;
-	Rectangle[][] completed;
-	private JPanel _forHelpBox;
-	private PlayerStats _stats;
+public class GUIPronunciationGuide extends JPanel{
 	
-	public GUIOptionsPage(Driver d, PlayerStats stats){
-		try {
-			stats.encode();
-		} catch (IllegalBlockSizeException e) {
-			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
-			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-			System.exit(0);
-			
-		} catch (BadPaddingException e) {
-			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
-			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);			
-			System.exit(0);
-		} catch (IOException e) {
-			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
-			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-			System.exit(0);
-		}
-		
-		_forHelpBox = this;
+	private Driver _driver;
+	private PlayerStats _stats;
+	private JPanel _forHelpBox;
+
+	public GUIPronunciationGuide(Driver d, PlayerStats stats){
+		super(new BorderLayout());
+		Box fullBar = Box.createVerticalBox();
 		_driver = d;
 		_stats = stats;
-		java.awt.Dimension size = new java.awt.Dimension(1000, 1000);
-		this.setPreferredSize(size);
-		this.setBackground(new Color(50,50,50,255));
+		_forHelpBox = this;
 		
-		//Read In File
-		int numacts = 0;
-		GUIOptionsPanel overall = null;
-		
+		BufferedImage guidePic = null;
 		try {
-			BufferedReader fileReader = new BufferedReader(new FileReader("data/optionsData.csv"));
-			numacts = Integer.parseInt(fileReader.readLine());
-			overall = new GUIOptionsPanel(fileReader, numacts, stats, _driver, this);
-			overall.setPreferredSize(new Dimension(950,100*numacts+70));
-			
-		} catch (Exception e) {
-			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
+			guidePic = ImageIO.read(new File("data/pronunciationGuide.png"));
+		} catch (IOException e){
+			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 		}
+		int guideBItype = BufferedImage.TYPE_INT_ARGB;
+        BufferedImage guideBI = new BufferedImage(924, 1046, guideBItype);
+        Graphics2D guideBrush = guideBI.createGraphics();
+        guideBrush.drawImage(guidePic, 0, 0, 924, 1046, this);
+        guideBrush.dispose();
+        ImageIcon guideIcon = new ImageIcon(guideBI);
+        
+        JLabel guideLabel = new JLabel(guideIcon);
+        
+        Box vertBox = Box.createVerticalBox();
+        vertBox.add(Box.createVerticalStrut(5));
+        
+        Box titleBox = Box.createHorizontalBox();
+		String label = "Bonvenon!";
+		JLabel title = new JLabel(label, SwingConstants.CENTER);
+		title.setVerticalAlignment(SwingConstants.CENTER);
+		title.setBorder(BorderFactory.createLineBorder(Color.black));
+		title.setFont(new Font("Trebuchet MS", Font.PLAIN, 50));
+		title.setBorder(BorderFactory.createEmptyBorder(30,0,20,0));
+		titleBox.add(Box.createHorizontalStrut(310));
+		titleBox.add(title);
+		titleBox.add(Box.createHorizontalStrut(310));
+		vertBox.add(titleBox);
 		
-		JScrollPane scrollbar = new JScrollPane(overall);
-		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
+		Box labelBox = Box.createHorizontalBox();
+		labelBox.add(Box.createHorizontalStrut(4));
+		labelBox.add(guideLabel);
+		labelBox.add(Box.createHorizontalStrut(4));
+		
+		vertBox.add(labelBox);
+		vertBox.add(Box.createVerticalStrut(5));
+		
+		JPanel overall = new JPanel(new BorderLayout());
+		overall.add(vertBox, BorderLayout.CENTER);
+		overall.setMaximumSize(new Dimension(950,1000));
+		overall.setBackground(Color.white);
+        
+        JScrollPane scrollbar = new JScrollPane(overall);
+        scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
 		scrollbar.setPreferredSize(new Dimension(1000,594));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
 		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
-		
-		Box fullBar = Box.createVerticalBox();
+		scrollbar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
 		//Top Panel
-		topPanel = new JPanel(null);
+		JPanel topPanel = new JPanel(null);
 		topPanel.setPreferredSize(new Dimension(1000,35));
 		topPanel.setBackground(new Color(50,50,50,255));
 		
@@ -172,18 +177,12 @@ public class GUIOptionsPage extends JPanel{
 		help.addActionListener(new HelpButtonListener());
 		help.setLocation(19, 5);
 		
-		JButton toPronounce = new JButton("Pronunciation Guide");
-		toPronounce.addActionListener(new ToPronunciationListener());
-		toPronounce.setSize(new Dimension(200,30));
-		toPronounce.setLocation(365,5);
-		
 		JButton dictionary = new JButton("Vortaro",newIcon);
 		dictionary.setSize(new Dimension(125, 30));
 		dictionary.addActionListener(new DictionaryButtonListener());
 		dictionary.setLocation(850, 5);
 		
 		bottomPanel.add(help);
-		bottomPanel.add(toPronounce);
 		bottomPanel.add(dictionary);
 		
 		fullBar.add(topPanel);
@@ -198,16 +197,7 @@ public class GUIOptionsPage extends JPanel{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIBasicPage(_driver));			
-		}
-		
-	}
-	
-	private class ToPronunciationListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			_driver.changePage(new GUIPronunciationGuide(_driver, _stats));			
+			_driver.changePage(new GUIOptionsPage(_driver, _stats));			
 		}
 		
 	}
@@ -230,5 +220,4 @@ public class GUIOptionsPage extends JPanel{
 		}
 		
 	}
-	
 }

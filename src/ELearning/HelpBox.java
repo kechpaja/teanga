@@ -44,7 +44,6 @@ public class HelpBox {
 				helpLine5 = helpReaderGL.readLine();
 			}
 		}catch (IOException e){
-			System.out.println("Could not find the help file");
 		}
 	}
 	

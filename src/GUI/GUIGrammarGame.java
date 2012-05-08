@@ -61,7 +61,6 @@ public class GUIGrammarGame extends JPanel{
 		FontMetrics metrics = label.getFontMetrics(new Font("Cambria",Font.PLAIN,30));
 		_mywidth = SwingUtilities.computeStringWidth(metrics, word);
 		
-		System.out.println("width " + _mywidth);
 		
 		String picPath = gl.getCurrent().getPicturePath();
 		
@@ -253,7 +252,6 @@ public class GUIGrammarGame extends JPanel{
 		ArrayList<JLabel> spaces = new ArrayList<JLabel>();
 		
 		if(numChars > _maxChars*2){//too long
-			System.out.println("Error, grammar game sentence too long");
 			//go to next exercise
 		} else if(numChars > _maxChars){//will need 2 lines
 			LinkedList<JLabel> line1 = new LinkedList<JLabel>();
@@ -370,7 +368,6 @@ public class GUIGrammarGame extends JPanel{
 			vertBox.add(Box.createVerticalStrut(20));
 		}
 		
-		System.out.println("Width: " + _mywidth);
 			
 		GUIGrammarChoicePanel panel = new GUIGrammarChoicePanel(this, vertBox, spaces, _grammarLevel, _mywidth);
 		return panel;

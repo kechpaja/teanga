@@ -11,6 +11,7 @@ What is the cat doing? (use your imagination...)
 What is the dog doing?
 Where are they?
 Where are we going?
+What do you want?
 Adiaŭ!
 1~data/chapter0.jpg
 What do you see?
@@ -26,7 +27,7 @@ Does the cat want vegetables? (yes, he does!)
 What are you doing with the things you're picking up?
 You should try some fruit!
 What sorts of fruit would you like?
-Can a dog eat fruit? (yes, it can!)
+Can a bird eat fruit? (yes, it can!)
 Thank you! Come again!
 2~data/chapter1.jpg
 Give me an order!

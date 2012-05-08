@@ -44,9 +44,6 @@ public class Lessons {
 		String line = gReader.readLine();
 		while (line != null){
 			String[] split = line.split("~");
-			if(split.length == 2){
-				System.out.println(line);
-			}
 			if (split.length == 1){
 				grammarLessons.add(cur);
 				cur = new ArrayList<GrammarLessonPair>();
