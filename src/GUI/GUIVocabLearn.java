@@ -26,10 +26,9 @@ import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 import ELearning.VocabLessonPair;
-import GUI.GUIGrammarGame.backtoOptionsActionListener;
 import GUI.GUIOptionsPage.BacktoBasicActionListener;
 
-public class GUIVocabLearn extends JPanel{
+public class GUIVocabLearn extends GUIBasicPage{
 	Driver _driver;
 	int _levelNum;
 	private JLabel _userName;
@@ -37,14 +36,20 @@ public class GUIVocabLearn extends JPanel{
 	private JPanel _forHelpBox, _toReturnTo;
 	
 	public GUIVocabLearn(int ln, Driver d, JPanel toReturnTo){
-		super(new BorderLayout());
-		this.setBackground(new Color(50,50,50,255));
+		super(d, true);
 		
 		_forHelpBox = this;
 		_driver = d;
 		_levelNum = ln;
 		_even = true;
 		_toReturnTo = toReturnTo;
+		
+		//help box
+		setHelp(new HelpButtonListener());
+		
+		//back button
+		setBack(new BacktoOptionsActionListener(),"Reiru", true);
+		
 		JPanel overall = new JPanel(new BorderLayout());
 		overall.setBackground(new Color(238,238,238,255));
 		
@@ -61,7 +66,7 @@ public class GUIVocabLearn extends JPanel{
 		
 		vertBox.add(titleBox);
 		
-		
+		//make the main portion of the panel
 		int prefHeight = 100;
 		int prefWidth = 150;
 		List<VocabLessonPair> vocabLessonPairs= _driver.getLessons().getVLessons(_levelNum);
@@ -102,7 +107,7 @@ public class GUIVocabLearn extends JPanel{
 			JLabel sentenceLabel = new JLabel(vlp.getExampleSentence());
 			sentenceLabel.setFont(new Font("Cambria", Font.PLAIN, 20));
 			
-			panel.setPreferredSize(new Dimension(950,120));
+			panel.setPreferredSize(new Dimension(970,120));
 			if(_even){
 				panel.setBackground(new Color(245,245,245,255));
 				_even = false;
@@ -131,108 +136,13 @@ public class GUIVocabLearn extends JPanel{
 		JScrollPane scrollbar = new JScrollPane(overall);
 		scrollbar.getVerticalScrollBar().setUnitIncrement(16);
 		scrollbar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		scrollbar.setPreferredSize(new Dimension(1000,594));
+		scrollbar.setPreferredSize(new Dimension(994,595));
 		scrollbar.getViewport().setScrollMode(JViewport.SIMPLE_SCROLL_MODE);
-		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
 		
-		//Create boundary Panels and put it all together
-		Box fullBar = Box.createVerticalBox();
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(scrollbar, BorderLayout.CENTER);
 		
-		//Top Panel
-		JPanel topPanel = new JPanel(null);
-		topPanel.setPreferredSize(new Dimension(950,35));
-		topPanel.setBackground(new Color(50,50,50,255));
-		
-		Box userBox = Box.createHorizontalBox();
-		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
-		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_un.setForeground(Color.white);
-		userBox.add(_un);
-		userBox.setSize(200,35);
-		userBox.setLocation(20, 3);
-		
-		Box topBar = Box.createHorizontalBox();
-		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-		topBar.add(_score);
-		topBar.setSize(400,35);
-		topBar.setLocation(435, 3);
-		
-		BufferedImage backpic = null;
-		try {
-			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
-		} catch (IOException e){
-			
-		}
-		int type3 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst3 = new BufferedImage(20, 20, type3);
-        Graphics2D g3 = dst3.createGraphics();
-        g3.drawImage(backpic, 0, 0, 20, 20, this);
-        g3.dispose();
-        ImageIcon newIcon3 = new ImageIcon(dst3);
-		
-		JButton back = new JButton("Reiru",newIcon3);
-		back.addActionListener(new BacktoOptionsActionListener());
-		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,0);
-		
-		topPanel.add(userBox);
-		topPanel.add(topBar);
-		topPanel.add(back);
-		
-		
-		//Bottom Panel
-		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
-		bottomPanel.setBackground(new Color(50,50,50,255));
-		
-		BufferedImage dictpic = null;
-		try {
-			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
-		} catch (IOException e){
-			
-		}
-		int type = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst = new BufferedImage(27, 27, type);
-        Graphics2D g1 = dst.createGraphics();
-        g1.drawImage(dictpic, 0, 0, 27, 27, this);
-        g1.dispose();
-        ImageIcon newIcon = new ImageIcon(dst);
-		
-        BufferedImage helppic = null;
-		try {
-			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
-		} catch (IOException e){
-			
-		}
-		int type2 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst2 = new BufferedImage(23, 23, type2);
-        Graphics2D g2 = dst2.createGraphics();
-        g2.drawImage(helppic, 0, 0, 23, 23, this);
-        g2.dispose();
-        ImageIcon newIcon2 = new ImageIcon(dst2);
-        
-		JButton help = new JButton("Helpu",newIcon2);
-		help.setSize(new Dimension(125, 30));
-		help.addActionListener(new HelpButtonListener());
-		help.setLocation(19, 5);
-		
-		JButton dictionary = new JButton("Vortaro",newIcon);
-		dictionary.setSize(new Dimension(125, 30));
-		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(850, 5);
-		
-		bottomPanel.add(help);
-		bottomPanel.add(dictionary);
-		
-		fullBar.add(topPanel);
-		fullBar.add(scrollbar);
-		fullBar.add(bottomPanel);
-		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		
-		add(fullBar, BorderLayout.CENTER);
-		
+		setMainPanel(mainPanel);
 	}
 	
 	public JPanel makePanel(JLabel picture, JLabel word, JLabel translate, JLabel sentence){
@@ -280,20 +190,11 @@ public class GUIVocabLearn extends JPanel{
 		
 	}
 	
-	private class DictionaryButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
-		}
-		
-	}
-	
 	private class HelpButtonListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getVLessHelp(_levelNum), 
+			new HelpBoxInternalFrame(_driver.getHelpBox().getVLessHelp(_levelNum), 
 																		1, _levelNum, _driver, _forHelpBox);
 		}
 		

@@ -26,7 +26,7 @@ import javax.swing.SwingUtilities;
 import ELearning.Driver;
 import ELearning.GrammarLevel;
 
-public class GUIGrammarGame extends JPanel{
+public class GUIGrammarGame extends GUIBasicPage{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel, outofLabel;
 	private int _maxChars, picheight, picwidth, _mywidth;
@@ -40,15 +40,18 @@ public class GUIGrammarGame extends JPanel{
 	private Box picHoriz;
 
 	public GUIGrammarGame(GrammarLevel gl, Driver d){
-		super(new BorderLayout());
+		super(d, true);
 
 		_panel = this;
 		_driver = d;
 		_grammarLevel = gl;
-		java.awt.Dimension size = new java.awt.Dimension(1000, 600);
-		this.setPreferredSize(size);
-		this.setSize(size);
-		this.setBackground(new Color(50,50,50,255));
+		
+		//help box
+		setHelp(new HelpButtonListener());
+		setDictionary(new DictionaryButtonListener());
+		
+		//back button
+		setBack(new backtoOptionsActionListener(),"Reiru",true);
 		
 		//Constants
 		picheight = 200;
@@ -126,104 +129,10 @@ public class GUIGrammarGame extends JPanel{
 		submitHoriz.add(skip);
 
 		
-		//Update Boundary Panels and put everything toghether
-		Box fullBar = Box.createVerticalBox();
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(overall, BorderLayout.CENTER);
 		
-		//Top Panel
-		JPanel topPanel = new JPanel(null);
-		topPanel.setPreferredSize(new Dimension(950,40));
-		topPanel.setBackground(new Color(50,50,50,255));
-		
-		Box userBox = Box.createHorizontalBox();
-		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
-		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_un.setForeground(Color.white);
-		userBox.add(_un);
-		userBox.setSize(200,35);
-		userBox.setLocation(20, 3);
-		
-		Box topBar = Box.createHorizontalBox();
-		_score = new JLabel(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-		topBar.add(_score);
-		topBar.setSize(400,35);
-		topBar.setLocation(475, 3);
-		
-		BufferedImage backpic = null;
-		try {
-			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
-		} catch (IOException e){
-			
-		}
-		int type3 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst3 = new BufferedImage(20, 20, type3);
-        Graphics2D g3 = dst3.createGraphics();
-        g3.drawImage(backpic, 0, 0, 20, 20, this);
-        g3.dispose();
-        ImageIcon newIcon3 = new ImageIcon(dst3);
-		
-		JButton back = new JButton("Reiru",newIcon3);
-		back.addActionListener(new backtoOptionsActionListener());
-		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,0);
-		
-		topPanel.add(userBox);
-		topPanel.add(topBar);
-		topPanel.add(back);		
-		
-		//Bottom Panel
-		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
-		bottomPanel.setBackground(new Color(50,50,50,255));
-		
-		BufferedImage dictpic = null;
-		try {
-			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
-		} catch (IOException e){
-			
-		}
-		int type = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst = new BufferedImage(27, 27, type);
-        Graphics2D g1 = dst.createGraphics();
-        g1.drawImage(dictpic, 0, 0, 27, 27, this);
-        g1.dispose();
-        ImageIcon newIcon = new ImageIcon(dst);
-		
-        BufferedImage helppic = null;
-		try {
-			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
-		} catch (IOException e){
-			
-		}
-		int type2 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst2 = new BufferedImage(23, 23, type2);
-        Graphics2D g2 = dst2.createGraphics();
-        g2.drawImage(helppic, 0, 0, 23, 23, this);
-        g2.dispose();
-        ImageIcon newIcon2 = new ImageIcon(dst2);
-        
-		JButton help = new JButton("Helpu",newIcon2);
-		help.setSize(new Dimension(125, 30));
-		help.addActionListener(new HelpButtonListener());
-		help.setLocation(19, 5);
-		
-		
-		JButton dictionary = new JButton("Vortaro",newIcon);
-		dictionary.setSize(new Dimension(125, 30));
-		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(850, 5);
-		
-		bottomPanel.add(help);
-		bottomPanel.add(dictionary);
-		
-		fullBar.add(topPanel);
-		fullBar.add(overall);
-		fullBar.add(bottomPanel);
-		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		
-		add(fullBar, BorderLayout.CENTER);
-
+		setMainPanel(mainPanel);
 		
 	}
 	
@@ -423,7 +332,7 @@ public class GUIGrammarGame extends JPanel{
 				_panel.revalidate();
 				
 			}
-			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
+			updateScore(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 			
 		}
 		
@@ -489,7 +398,7 @@ public class GUIGrammarGame extends JPanel{
 				reloaded.getChoicePanel().notCorrect();
 				_driver.changePage(reloaded);
 			}
-			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
+			updateScore(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 		}
 	}
 	
@@ -513,7 +422,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(2);
-			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
+			updateScore(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
 
 			
@@ -526,7 +435,7 @@ public class GUIGrammarGame extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_grammarLevel.decrementScore(3);
-			_score.setText(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore()+"       ");
+			updateScore(_grammarLevel.getScore() + "/" + _grammarLevel.getNecessaryScore());
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_grammarLevel.getHelp(), 3, _grammarLevel.getLevelNum(), _driver, _panel);
 		}
 		

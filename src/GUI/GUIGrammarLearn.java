@@ -29,9 +29,8 @@ import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 import ELearning.GrammarLessonPair;
-import GUI.GUIGrammarGame.backtoOptionsActionListener;
 
-public class GUIGrammarLearn extends JPanel{
+public class GUIGrammarLearn extends GUIBasicPage{
 	Driver _driver;
 	int _levelNum;
 	private JLabel _userName;
@@ -39,16 +38,21 @@ public class GUIGrammarLearn extends JPanel{
 	private JPanel _forHelpBox, _toReturnTo;
 	
 	public GUIGrammarLearn(int ln, Driver d, JPanel toReturnTo){
-		super(new BorderLayout());
-		this.setBackground(new Color(50,50,50,255));
-		
-		JPanel overall = new JPanel(new BorderLayout());
-		overall.setBackground(new Color(238,238,238,255));
+		super(d, true);
 		
 		_driver = d;
 		_levelNum = ln;
 		_forHelpBox = this;
 		_toReturnTo = toReturnTo;
+		
+		//help box
+		setHelp(new HelpButtonListener());
+		
+		//back button
+		setBack(new BacktoOptionsActionListener(),"Reiru",true);
+		
+		JPanel overall = new JPanel(new BorderLayout());
+		overall.setBackground(new Color(238,238,238,255));
 		
 		//Make the title
 		Box vertBox = Box.createVerticalBox();
@@ -155,105 +159,10 @@ public class GUIGrammarLearn extends JPanel{
 		scrollbar.getVerticalScrollBar().setPreferredSize(new Dimension(18,Integer.MAX_VALUE));
 		scrollbar.setHorizontalScrollBarPolicy(ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
 		
-		//Create boundary Panels and put it all together
-		Box fullBar = Box.createVerticalBox();
+		JPanel mainPanel = new JPanel(new BorderLayout());
+		mainPanel.add(scrollbar, BorderLayout.CENTER);
 		
-		//Top Panel
-		JPanel topPanel = new JPanel(null);
-		topPanel.setPreferredSize(new Dimension(950,35));
-		topPanel.setBackground(new Color(50,50,50,255));
-		
-		Box userBox = Box.createHorizontalBox();
-		JLabel _un = new JLabel(_driver.getPlayerStats().getUsername());
-		_un.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_un.setForeground(Color.white);
-		userBox.add(_un);
-		userBox.setSize(200,35);
-		userBox.setLocation(20, 3);
-		
-		Box topBar = Box.createHorizontalBox();
-		JLabel _score = new JLabel("Total points: "+_driver.getPlayerStats().getPoints());
-		_score.setFont(new Font("Cambria", Font.PLAIN, 20));
-		_score.setForeground(Color.white);
-		topBar.add(_score);
-		topBar.setSize(400,35);
-		topBar.setLocation(435, 3);
-		
-		BufferedImage backpic = null;
-		try {
-			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
-		} catch (IOException e){
-			
-		}
-		int type3 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst3 = new BufferedImage(20, 20, type3);
-        Graphics2D g3 = dst3.createGraphics();
-        g3.drawImage(backpic, 0, 0, 20, 20, this);
-        g3.dispose();
-        ImageIcon newIcon3 = new ImageIcon(dst3);
-		
-		JButton back = new JButton("Reiru",newIcon3);
-		back.addActionListener(new BacktoOptionsActionListener());
-		back.setSize(new Dimension(100, 30));
-		back.setLocation(875,0);
-		
-		topPanel.add(userBox);
-		topPanel.add(topBar);
-		topPanel.add(back);
-		
-		BufferedImage dictpic = null;
-		try {
-			dictpic = ImageIO.read(new File("data/OtherPictures/realdictionary.png"));
-		} catch (IOException e){
-			
-		}
-		
-		int type = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst = new BufferedImage(27, 27, type);
-        Graphics2D g1 = dst.createGraphics();
-        g1.drawImage(dictpic, 0, 0, 27, 27, this);
-        g1.dispose();
-        ImageIcon newIcon = new ImageIcon(dst);
-        
-		//Bottom Panel
-		JPanel bottomPanel = new JPanel(null);
-		bottomPanel.setPreferredSize(new Dimension(1000,35));
-		bottomPanel.setBackground(new Color(50,50,50,255));
-		
-		BufferedImage helppic = null;
-		try {
-			helppic = ImageIO.read(new File("data/OtherPictures/QuestionMark.png"));
-		} catch (IOException e){
-			
-		}
-		int type2 = BufferedImage.TYPE_INT_ARGB;
-        BufferedImage dst2 = new BufferedImage(23, 23, type2);
-        Graphics2D g2 = dst2.createGraphics();
-        g2.drawImage(helppic, 0, 0, 23, 23, this);
-        g2.dispose();
-        ImageIcon newIcon2 = new ImageIcon(dst2);
-        
-		JButton help = new JButton("Helpu",newIcon2);
-		help.setSize(new Dimension(125, 30));
-		help.addActionListener(new HelpButtonListener());
-		help.setLocation(19, 5);
-		
-		JButton dictionary = new JButton("Vortaro",newIcon);
-		dictionary.setSize(new Dimension(125, 30));
-		dictionary.addActionListener(new DictionaryButtonListener());
-		dictionary.setLocation(850, 5);
-		
-		bottomPanel.add(help);
-		bottomPanel.add(dictionary);
-		
-		fullBar.add(topPanel);
-		fullBar.add(scrollbar);
-		fullBar.add(bottomPanel);
-		fullBar.setBorder(BorderFactory.createEmptyBorder(0,0,0,0));
-		
-		add(fullBar, BorderLayout.CENTER);
-		
-		
+		setMainPanel(mainPanel);
 	}
 	
 	private class BacktoOptionsActionListener implements ActionListener{
@@ -267,23 +176,13 @@ public class GUIGrammarLearn extends JPanel{
 		
 	}
 	
-	private class DictionaryButtonListener implements ActionListener {
-
-		@Override
-		public void actionPerformed(ActionEvent e) {
-			DictionaryInternalFrame dictFrame = new DictionaryInternalFrame(_driver.getDictionary());
-		}
-		
-	}
-	
 	private class HelpButtonListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
+			new HelpBoxInternalFrame(_driver.getHelpBox().getGLessHelp(_levelNum), 
 																		1, _levelNum, _driver, _forHelpBox);
 		}
 	}
-		
 	
 }
