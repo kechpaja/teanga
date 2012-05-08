@@ -77,6 +77,7 @@ public class GUIFullFrameHelp extends JPanel{
 				
 				JPanel panel = new JPanel(new BorderLayout());
 				panel.setBackground(new Color(238,238,238,255));
+				panel.setMaximumSize(new Dimension(950,200));
 				explinArea.setBackground(new Color(238,238,238,255));
 
 				
@@ -86,6 +87,7 @@ public class GUIFullFrameHelp extends JPanel{
 				
 				para = br.readLine();
 			}
+			vertBox.add(Box.createVerticalGlue());
 		} catch (IOException e) {
 			//TODO: the thing that happens when a file isn't found
 			System.out.println("couldn't find general help file");
