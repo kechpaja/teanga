@@ -81,7 +81,7 @@ public class GUIBossGame extends JPanel{
 		
 		String mystring = " "+Integer.toString(_bossLevel.getCurrentNum()) + " de "+Integer.toString(_bossLevel.getTotalNum());
 		_currNumLabel = new JLabel(mystring);
-		_currNumLabel.setFont(new Font("Century", Font.BOLD, 35));
+		_currNumLabel.setFont(new Font("Cambria", Font.BOLD, 28));
 		_currNumLabel.setLocation(850,40);
 		_currNumLabel.setSize(200,50);
 		_currNumLabel.setBackground(Color.LIGHT_GRAY);
@@ -305,12 +305,39 @@ public class GUIBossGame extends JPanel{
 		messageBox.add(Box.createHorizontalStrut(70));
 		
 		Box moveBox = Box.createHorizontalBox();
-		next = new JButton("Sekva");
-		prev = new JButton("AntaÅ­a");
+		try{
+			BufferedImage arrowOne;
+			BufferedImage arrowTwo; 
+			arrowOne = ImageIO.read(new File("data/OtherPictures/leftarrow.png"));
+			arrowTwo = ImageIO.read(new File("data/OtherPictures/rightarrow.png"));
+			
+			BufferedImage dst = new BufferedImage(50, 20, BufferedImage.TYPE_INT_ARGB);
+	        
+	        Graphics2D g1 = dst.createGraphics();
+	        g1.drawImage(arrowOne, 0, 0, 50, 20, this);
+	        
+	        g1.dispose();
+	        ImageIcon newIcon = new ImageIcon(dst);
+	        
+	        BufferedImage dst2 = new BufferedImage(50, 20, BufferedImage.TYPE_INT_ARGB);
+	        
+	        Graphics g2 = dst2.createGraphics();
+	        g2.drawImage(arrowTwo, 0, 0, 50, 20, this);
+	        
+	        g2.dispose();
+	        ImageIcon newIcon2 = new ImageIcon(dst2);
+	        
+	        prev = new JButton(newIcon);
+	        next = new JButton(newIcon2);
+		} catch (IOException e){
+			next = new JButton("Sekva");
+			prev = new JButton("AntaÅ­a");
+		}
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
 		moveBox.add(prev);
 		moveBox.add(next);
+		moveBox.add(Box.createHorizontalStrut(20));
 		
 		resultVert.add(Box.createVerticalStrut(5));
 		resultVert.add(newSent);
