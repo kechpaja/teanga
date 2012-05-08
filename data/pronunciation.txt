@@ -1,3 +1,4 @@
+path to file,Letter,Sound in X-SAMPA,Example Word,Explanation
 data/LetterSounds/eo_a.mp3,A a,/a/,ami,the "a" in "father"
 data/LetterSounds/eo_b.mp3,B b,/b/,birdo,the "b" in "bed"
 data/LetterSounds/eo_c.mp3,C c,/ts/,cent,like the "ts" in "cats", but may also occur at the beginning of a word.

@@ -1302,3 +1302,13 @@ sia
 his/her/its own
 adjective
 Li manĝas sian manĝaĵon.
+
+enkonduko
+introduction
+noun
+Tio estas enkonduko al Esperanto.
+
+manĝaĵo
+food
+noun
+Mi manĝas mian manĝaĵon.
