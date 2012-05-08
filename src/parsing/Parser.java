@@ -39,6 +39,8 @@ public class Parser {
 		// visit, checking for agreement problems
 		visit(tree, mistakes);
 		
+		//System.out.println(tree);
+		
 		// the response is created, and returned. 
 		return Response.responseFactory(tree, sentence);
 	}
