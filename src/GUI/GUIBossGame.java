@@ -79,11 +79,13 @@ public class GUIBossGame extends JPanel{
 			System.exit(0);
 		}
 		
-		String mystring = Integer.toString(_bossLevel.getCurrentNum()) + " de "+Integer.toString(_bossLevel.getTotalNum());
+		String mystring = " "+Integer.toString(_bossLevel.getCurrentNum()) + " de "+Integer.toString(_bossLevel.getTotalNum());
 		_currNumLabel = new JLabel(mystring);
 		_currNumLabel.setFont(new Font("Century", Font.BOLD, 35));
-		_currNumLabel.setLocation(860,15);
-		_currNumLabel.setSize(200,100);
+		_currNumLabel.setLocation(850,40);
+		_currNumLabel.setSize(200,50);
+		_currNumLabel.setBackground(Color.LIGHT_GRAY);
+		_currNumLabel.setOpaque(true);
 		this.add(_currNumLabel);
 		
 		JPanel qPanel = new JPanel();
@@ -377,6 +379,10 @@ public class GUIBossGame extends JPanel{
 		return horizBox;
 	}
 	
+	public void focusOnTextField(){
+		userInput.requestFocus();
+	}
+	
 	//Paint all of the pieces when painting the panel
 	public void paintComponent(Graphics g) {
 		super.paintComponent(g);
@@ -438,7 +444,7 @@ public class GUIBossGame extends JPanel{
 				rPanel.setVisible(false);
 			}
 			uiButton.setEnabled(true);
-			_currNumLabel.setText(_bossLevel.getCurrentNum() + " de "+Integer.toString(_bossLevel.getTotalNum()));
+			_currNumLabel.setText(" "+_bossLevel.getCurrentNum() + " de "+Integer.toString(_bossLevel.getTotalNum()));
 			_score.setText(_bossLevel.getScore() + "/" + _bossLevel.getNecessaryScore());
 			panel.revalidate();
 			panel.repaint();

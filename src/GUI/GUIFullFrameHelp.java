@@ -20,6 +20,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.JViewport;
+import javax.swing.KeyStroke;
 import javax.swing.SwingConstants;
 
 import ELearning.Driver;
@@ -169,7 +170,9 @@ public class GUIFullFrameHelp extends JPanel{
 				_driver.changePage(new GUIGrammarGame(_driver.getGrammarGameMaker().makeLevel(_curLevel), _driver));
 				break;
 			case 3:
-				_driver.changePage(new GUIBossGame(_driver.getBossGameMaker().makeLevel(_curLevel), _driver));
+				GUIBossGame g=new GUIBossGame(_driver.getBossGameMaker().makeLevel(_curLevel), _driver);
+				_driver.changePage(g);
+				g.focusOnTextField();
 				break;
 			default:
 				_driver.changePage(new GUIOptionsPage(_driver, _driver.getPlayerStats()));;
@@ -179,4 +182,5 @@ public class GUIFullFrameHelp extends JPanel{
 		}
 		
 	}
+	
 }
