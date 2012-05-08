@@ -295,7 +295,9 @@ public class GUIBasicPage extends JPanel{
 			    verticalBox.add(Box.createVerticalStrut(103));
 			    verticalBox.revalidate();
 			    toRepaint.repaint();
+			    passField.requestFocus();
 			}
+			
 			
 		}
 		

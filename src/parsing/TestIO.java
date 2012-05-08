@@ -6,8 +6,8 @@ public class TestIO {
 	
 	/**
 	 * 
-	 * This class exists for the sole purpose of testing the parser independently of the rest
-	 * of the project. It will not be included in our final project. 
+	 * This class exists for the sole purpose of testing the parser independently 
+	 * of the rest of the project. It will not be included in our final product. 
 	 */
 	
 	public static void main(String[] args) {
