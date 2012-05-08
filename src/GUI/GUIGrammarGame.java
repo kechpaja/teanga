@@ -26,7 +26,7 @@ import javax.swing.SwingUtilities;
 import ELearning.Driver;
 import ELearning.GrammarLevel;
 
-public class GUIGrammarGame extends GUIBasicPage{
+public class GUIGrammarGame extends GUIFoundationPage{
 	
 	private JLabel _picLabel, _currNumLabel, _totalNumLabel, outofLabel;
 	private int _maxChars, picheight, picwidth, _mywidth;

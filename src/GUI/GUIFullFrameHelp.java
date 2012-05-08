@@ -22,7 +22,7 @@ import javax.swing.SwingConstants;
 
 import ELearning.Driver;
 
-public class GUIFullFrameHelp extends GUIBasicPage{
+public class GUIFullFrameHelp extends GUIFoundationPage{
 	Driver _driver;
 	boolean _even;
 	//int to switch on (0 means it should go to options page, 1 should go to VocabGame, 2 should go to Grammar Game

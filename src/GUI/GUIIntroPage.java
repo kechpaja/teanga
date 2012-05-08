@@ -44,7 +44,7 @@ import encoding.EncodingShiftListener;
 
 import ELearning.Driver;
 
-public class GUIIntroPage extends GUIBasicPage{
+public class GUIIntroPage extends GUIFoundationPage{
 	Driver _driver;
 	JList nameList;
 	JPasswordField passField;

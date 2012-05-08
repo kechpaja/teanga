@@ -21,7 +21,7 @@ import javax.swing.JViewport;
 import ELearning.Driver;
 import annie.PlayerStats;
 
-public class GUIOptionsPage extends GUIBasicPage {
+public class GUIOptionsPage extends GUIFoundationPage {
 	
 	private PlayerStats _stats;
 	private Driver _driver;
