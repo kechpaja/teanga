@@ -1,0 +1,53 @@
+\documentclass[11pt]{amsart}
+\usepackage{geometry}
+\geometry{letterpaper}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{epstopdf}
+\usepackage{tipa}
+\DeclareGraphicsRule{.tif}{png}{.png}{`convert #1 `dirname #1`/`basename #1 .tif`.png}
+
+\begin{document}
+
+\begin{tabular}{cccc}
+Letter & Sound in IPA & Example Word & Explanation \\
+A a & /a/ & ami & the "a" in "father" \\
+B b & /b/ & birdo & the "b" in "bed" \\
+C c & /\t{ts}/ & cent & like the "ts" in "cats"* \\
+\^C \^c & /\textipa{\t{tS}}/ & \^cambro & the "ch" in "church" \\
+D d & /d/ & domo & the "d" in "dog" \\
+E e & /e/ & en & the "e" in "let" \\
+F f & /f/ & fi\^so & the "f" in "fin" \\
+G g & /g/ & granda & the "g" in "gone" (NOT the "g" in "gin") \\
+\^G \^g & /\textipa{\t{dZ}}/ & \^gi & the "g" in "general" (NOT the "g" in "go") \\
+H h & /h/ & hundo & the "h" in "house" \\
+\^H \^h & /x/ & \^horo & like the "ch" in German "ach"* \\
+I i & /i/ & ili & the "ee" in "feel" \\
+J j & /j/ & jes & the "y" in "yes" \\
+\^J \^j & /\textipa{Z}/ & \^ja\u{u}do & the "s" in "pleasure" \\
+K k & /k/ & kato & the "k" in "king" \\
+L l & /l/ & la & the "l" in "long" \\
+M m & /m/ & muso & the "m" in "mother" \\
+N n & /n/ & ni & the "n" in "not" \\
+O o & /o/ & ovo & the "o" in "for" \\
+P p & /p/ & persono & the "p" in "pare" \\
+R r & /r/ & ri & like "rr" in Spanish or Italian* \\
+S s & /s/ & saluton & the "s" in "sing" (NOT the "s" in "rise") \\
+\^S \^s & /S/ & \^sipo & the "sh" in "she" \\
+T t & /t/ & tapi\^so & the "t" in "top" (NOT the "tt" in "latter") \\
+U u & /u/ & uzas & the "u" in "rude" \\
+\u{U} \u{u} & /w/ & na\u{u} & the final "w" sound heard in "ow!" \\
+V v & /v/ & voli & the "v" in "vine" \\
+Z z & /z/ & zipo & the "z" in "zip" \\
+\end{tabular}
+
+~\
+
+*these sounds don't occur in English. However, they aren't that hard to master; also, \^h is very rare in Esperanto, and you probably won't have to worry about it for a while. It's possible to speak the language without dealing with this phoneme. However, r and c are all over the place. 
+
+~\
+
+Finally, the stress in an Esperanto word always comes on the second-to-last syllable. This rule is always consistant, without fail. The letters never change their pronunciations --- you don't have to worry about "I before E except after C" or anything of the sort. 
+
+\end{document}
+\bye
