@@ -306,7 +306,6 @@ public class GUIBossGame extends JPanel{
 		
 		Box moveBox = Box.createHorizontalBox();
 		try{
-			System.out.println("here1");
 			BufferedImage arrowOne;
 			BufferedImage arrowTwo; 
 			arrowOne = ImageIO.read(new File("data/OtherPictures/leftarrow.png"));
@@ -336,9 +335,10 @@ public class GUIBossGame extends JPanel{
 		}
 		next.addActionListener(new MyMoveListener(1));
 		prev.addActionListener(new MyMoveListener(-1));
+		moveBox.add(Box.createHorizontalStrut(25));
+
 		moveBox.add(prev);
 		moveBox.add(next);
-		moveBox.add(Box.createHorizontalStrut(20));
 		
 		resultVert.add(Box.createVerticalStrut(5));
 		resultVert.add(newSent);
