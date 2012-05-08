@@ -306,6 +306,7 @@ public class GUIBossGame extends JPanel{
 		
 		Box moveBox = Box.createHorizontalBox();
 		try{
+			System.out.println("here1");
 			BufferedImage arrowOne;
 			BufferedImage arrowTwo; 
 			arrowOne = ImageIO.read(new File("data/OtherPictures/leftarrow.png"));
