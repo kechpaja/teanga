@@ -113,7 +113,7 @@ public class GUIOptionsPanel extends JPanel{
 		        scoreLabels[i][j].setVisible(false);
 
 			}
-			buttons[i][4].setEnabled(true);//--------------------------------------------------
+			//buttons[i][4].setEnabled(true);//--------------------------------------------------
 			
 			levelNames[i] = new JLabel(picturePaths[4]);
 			levelNames[i].setBackground(new Color(238,238,238,255));
@@ -121,7 +121,6 @@ public class GUIOptionsPanel extends JPanel{
 			levelNames[i].setSize(new Dimension(40,15));
 			levelNames[i].setBorder(BorderFactory.createEmptyBorder(33,0,33,0));
 		}
-		buttons[0][4].setEnabled(true);//--------------------------------------------------
 		
 		JPanel titles = new JPanel(new BorderLayout());
 		titles.setPreferredSize(new Dimension(1000,80));
