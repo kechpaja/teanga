@@ -67,6 +67,7 @@ public class Driver {
 		curPage = newPage;
 		mainFrame.getContentPane().add(curPage, BorderLayout.CENTER);
 		((JPanel)mainFrame.getContentPane()).revalidate();
+		mainFrame.repaint();
 	}
 	
 	public String getUserName(){

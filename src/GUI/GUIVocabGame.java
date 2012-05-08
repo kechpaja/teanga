@@ -42,6 +42,7 @@ public class GUIVocabGame extends JPanel{
 	private Driver _driver;
 	private JLabel _score;
 	private String _newText;
+	private JPanel _forHelpBox;
 	
 
 	//this path and string would actually be an array of PicturePairs
@@ -49,6 +50,7 @@ public class GUIVocabGame extends JPanel{
 		super(new BorderLayout());
 		_vocabLevel = vl;
 		_driver = d;
+		_forHelpBox = this;
 		
 		java.awt.Dimension size = new java.awt.Dimension(1000, 700);
 		this.setPreferredSize(size);
@@ -74,7 +76,6 @@ public class GUIVocabGame extends JPanel{
 		_textField.requestFocusInWindow();
 		
 		KeyStroke key = KeyStroke.getKeyStroke('7');
-				//, Toolkit.getDefaultToolkit().getMenuShortcutKeyMask());
 		_textField.getInputMap().remove(key);
 		_textField.getInputMap().put(key, "dosomething");
 		_textField.getActionMap().put("dosomething", new changeWordListener());
@@ -204,7 +205,7 @@ public class GUIVocabGame extends JPanel{
 		public void actionPerformed(java.awt.event.ActionEvent e){
 			String text = _textField.getText();
 			if(checkAnswer(text)){
-				_textField.setBackground(new Color(100, 200, 100, 255));
+				_textField.setBackground(new Color(50,200,60, 255));
 			} else _textField.setBackground(new Color(200, 100, 100, 255));
 			_textField.setText("");
 		}
@@ -245,12 +246,20 @@ public class GUIVocabGame extends JPanel{
 		
 	}
 	
+	public void pause(){
+		_gameBoard.pause();
+	}
+	
+	public void restart(){
+		_gameBoard.restart();
+	}
+	
 	private class HelpButtonListener implements ActionListener{
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			_vocabLevel.decrementScore(2);
-			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 0, _vocabLevel.getLevelNum(), _driver);
+			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_vocabLevel.getHelp(), 2, _vocabLevel.getLevelNum(), _driver, _forHelpBox);
 			helpFrame.addWindowListener(new WindowListener() {
 	            public void windowClosed(WindowEvent arg0) {}
 	            public void windowActivated(WindowEvent arg0) {

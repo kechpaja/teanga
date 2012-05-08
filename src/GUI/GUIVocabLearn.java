@@ -34,11 +34,13 @@ public class GUIVocabLearn extends JPanel{
 	int _levelNum;
 	private JLabel _userName;
 	private boolean _even;
+	private JPanel _forHelpBox;
 	
 	public GUIVocabLearn(int ln, Driver d){
 		super(new BorderLayout());
 		this.setBackground(new Color(50,50,50,255));
 		
+		_forHelpBox = this;
 		_driver = d;
 		_levelNum = ln;
 		_even = true;
@@ -285,7 +287,7 @@ public class GUIVocabLearn extends JPanel{
 		@Override
 		public void actionPerformed(ActionEvent e) {
 			HelpBoxInternalFrame helpFrame = new HelpBoxInternalFrame(_driver.getHelpBox().getVLessHelp(_levelNum), 
-																		1, _levelNum, _driver);
+																		1, _levelNum, _driver, _forHelpBox);
 		}
 		
 	}
