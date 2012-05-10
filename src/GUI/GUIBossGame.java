@@ -158,7 +158,7 @@ public class GUIBossGame extends JPanel{
 		FontMetrics metrics = _score.getFontMetrics(new Font("Cambria", Font.PLAIN, 20));
 		int width = SwingUtilities.computeStringWidth(metrics, scoreWord);
 		_score.setLocation((994-width)/2, 5-3);
-		_score.setSize(new Dimension(width+20,35));
+		_score.setSize(new Dimension(width*2,35));
 
 		BufferedImage backpic = null;
 		try {
@@ -467,18 +467,7 @@ public class GUIBossGame extends JPanel{
 			if (_bossLevel.isOver()){
 				_driver.changePage(new GUIGameCompleted(_driver, _bossLevel));
 			}
-<<<<<<< HEAD
-			
-			
-=======
 
-			//move to next question...
-			System.out.println(switched);
-			if(!switched){
-				_bossLevel.tryAnswer(" ");
-			}
-			switched = false;
->>>>>>> 04a6f4c5c98c3b48cace8bec406b01acb965d5cd
 			textArea.setText(_bossLevel.getCurrentQuestion());
 			if(rPanel != null){
 				rPanel.setVisible(false);

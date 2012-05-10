@@ -79,12 +79,7 @@ public class HelpBoxInternalFrame extends JFrame{
 		//overall.revalidate();
 		//overall.repaint();
 		this.pack();
-<<<<<<< HEAD
 		this.setLocation(3, 432);
-		this.setVisible(true);
-=======
-		this.setLocation(3, 407);
->>>>>>> 04a6f4c5c98c3b48cace8bec406b01acb965d5cd
 		this.setSize(250, 250);
 		this.setVisible(true);
 	}
@@ -169,19 +164,7 @@ public class HelpBoxInternalFrame extends JFrame{
 		
 	}
 	
-	public static void main(String[] args){
-		try {
-		    for (LookAndFeelInfo info : UIManager.getInstalledLookAndFeels()) {
-		        if ("Nimbus".equals(info.getName())) {
-		            UIManager.setLookAndFeel(info.getClassName());
-		            break;
-		        }
-		    }
-		} catch (Exception e) {
-		    System.out.println("Nimbus is not available!");
-		}
-		//HelpBoxInternalFrame newFrame = new HelpBoxInternalFrame("why cant I see you?", 0, 0, new Driver());
-	}
+	
 	
 }
 	

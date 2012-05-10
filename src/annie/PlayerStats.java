@@ -82,7 +82,7 @@ public class PlayerStats {
 	    			int t=random.nextInt(50);
 	    			userGames[i][j].bestScore=100+t;
 	    			userGames[i][j].unlocked=true;
-	    			totalPoints=totalPoints+t;
+	    			totalPoints=totalPoints+t+100;
 	    		}*/
 		    }
 		}

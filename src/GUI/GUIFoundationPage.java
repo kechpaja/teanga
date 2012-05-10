@@ -45,41 +45,19 @@ public class GUIFoundationPage extends JPanel{
 		_mainPanel = new JPanel(null);
 		_dictRead = true;
 
-		_topButtonLoc = 5;
+		_topButtonLoc = 4;
 		_bottomButtonLoc = 5;
 		_buttonHeight = 30;
 
-<<<<<<< HEAD
-				} else {
-					String infoMessage = "Incorrect Password";
-					JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-					//try to figure out how to zero the passfield
-					return;
-				}
-			} catch (InvalidKeyException e1) {
-			} catch (NoSuchAlgorithmException e1) {
-			} catch (InvalidKeySpecException e1) {
-			} catch (NoSuchPaddingException e1) {
-			} catch (InvalidAlgorithmParameterException e1) {
-			} catch (IllegalBlockSizeException e2) {
-			} catch (BadPaddingException e2) {
-			} catch (IOException e2) {
-				// TODO Auto-generated catch block
-				String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
-				JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
-				return;
-			}
-		} 
-=======
 		Point topPanelLocation = new Point(0,0);
-		Point bottomPanelLocation = new Point(0,635);
-		_mainPanelLocation = new Point(0,40);
+		Point bottomPanelLocation = new Point(0,631);
+		_mainPanelLocation = new Point(0,38);
 
 		//Top Panel
 		_topPanel = new JPanel(null);
 		_topPanel.setBackground(new Color(50,50,50,255));
 		_topPanel.setBorder(BorderFactory.createEmptyBorder());
-		_topPanel.setSize(new Dimension(994,40));
+		_topPanel.setSize(new Dimension(994,38));
 		_topPanel.setLocation(topPanelLocation);
 
 		if(haveButtons){
@@ -97,7 +75,6 @@ public class GUIFoundationPage extends JPanel{
 			int width = SwingUtilities.computeStringWidth(metrics, scoreWord);
 			_score.setLocation((994-width)/2, _topButtonLoc-3);
 			_score.setSize(new Dimension(width,35));
->>>>>>> 04a6f4c5c98c3b48cace8bec406b01acb965d5cd
 			
 			_topPanel.add(_un);
 			_topPanel.add(_score);
@@ -108,29 +85,9 @@ public class GUIFoundationPage extends JPanel{
 
 		BufferedImage backpic = null;
 		try {
-<<<<<<< HEAD
-			if (_driver.openingpage.usernameAvailable(newName)){
-				_driver.setUserName(newName);
-				_driver.openingpage.newUser(newName, new String(newPassField.getPassword()), gender);
-				_driver.setPlayerStats(_driver.openingpage.newGame(newName, gender));
-				_driver.changePage(new GUIFullFrameHelp("data/HelpFiles/OpeningPage.txt", _driver, 0, new GUIOptionsPage(_driver, _driver.getPlayerStats())));
-			} else {
-				String infoMessage = "The user name " + newName + " is already taken. Please try another.";
-				JOptionPane.showMessageDialog(new JFrame(), infoMessage, "", JOptionPane.INFORMATION_MESSAGE);
-			}
-		} catch (InvalidKeyException e1) {
-		} catch (NoSuchAlgorithmException e1) {
-		} catch (InvalidKeySpecException e1) {
-		} catch (NoSuchPaddingException e1) {
-		} catch (InvalidAlgorithmParameterException e1) {
-		} catch (IOException e2) {
-			// TODO Auto-generated catch block
-			String errorMessage = "There was an error finding some of the files necessary \n to run ELearning. You may need to redownload the program.";
-=======
 			backpic = ImageIO.read(new File("data/OtherPictures/backarrow.png"));
 		} catch (IOException e){
 			String errorMessage = "There was an error reading some of the files necessary \n to run ELearning. You may need to redownload the program.";
->>>>>>> 04a6f4c5c98c3b48cace8bec406b01acb965d5cd
 			JOptionPane.showMessageDialog(new JFrame(), errorMessage, "Oh No!", JOptionPane.ERROR_MESSAGE);
 			System.exit(0);
 		}
@@ -151,7 +108,7 @@ public class GUIFoundationPage extends JPanel{
 		_bottomPanel = new JPanel(null);
 		_bottomPanel.setBackground(new Color(50,50,50,255));
 		_bottomPanel.setBorder(BorderFactory.createEmptyBorder());
-		_bottomPanel.setSize(new Dimension(1000,40));
+		_bottomPanel.setSize(new Dimension(1000,38));
 		_bottomPanel.setLocation(bottomPanelLocation);
 
 		BufferedImage dictpic = null;
