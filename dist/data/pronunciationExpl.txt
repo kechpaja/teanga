@@ -1,0 +1,3 @@
+Format of the pronunciation file: each line corresponds to a sound; fields on the line are separated by commas. 
+
+sound_file,letter,IPA,word,explanation in English

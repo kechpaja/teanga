@@ -1,0 +1,1314 @@
+adiaŭ
+goodbye
+noun
+Adiau, hundo!
+
+saluton
+hello 
+noun
+Saluton, hundo!
+
+hundo
+dog
+noun
+Adiaŭ, hundo!
+
+bonvoli
+please
+verb
+helpu min, bonvoli.
+
+kato
+cat
+noun
+Saluton, kato!
+
+porkaĵo
+pork
+noun
+La porkaĵo estas viando bongusta.
+
+kokaĵo
+chicken
+noun
+La kokaĵo estas viando de birdo.
+
+bovaĵo
+beef
+noun
+Li povas manĝi la bovaĵon.
+
+legomo
+vegetable
+noun
+La legomoj estas bonaj por vi.
+
+pizo
+pea
+noun
+La pizoj estas malgrandaj.
+
+pano
+bread
+noun
+La pano estas bongusta ankaŭ.
+
+ovo
+egg
+noun
+La ovoj estas de birdo.
+
+lakto
+milk
+noun
+La lakto estas por la katoj.
+
+fromaĝo
+cheese
+noun
+Muso manĝas la fromaĝon!
+
+rizo
+rice
+noun
+Li volas manĝi rizon.
+
+trinki
+to drink
+verb
+La kato trinkas lakton.
+
+aĉeti
+to buy
+verb
+Mi aĉetas lakton.
+
+dek unu
+eleven
+number
+Tio estas dek unu.
+
+dek du
+twelve
+number
+Tio estas dek du.
+
+dek tri
+thirteen
+number
+Tio estas dek tri.
+
+dek kvar
+fourteen
+number
+Tio estas dek kvar.
+
+dudek unu
+twenty-one
+number
+Tio estas dudek unu.
+
+dudek du
+twenty-two
+number
+Tio estas dudek du.
+
+semajno
+week
+noun
+Sep tagoj estas unu semajno.
+
+nun
+now
+adverb
+Nun mi estas kato.
+
+lampo
+lamp
+noun
+Saluton, lampo!
+
+muso
+mouse
+noun
+Adiau, muso!
+
+esti
+be
+verb
+Mi volas esti bela.
+
+voli
+want
+verb
+Mi ne volas voli!
+
+ne
+not
+adverb
+Mi ne estas bela.
+
+manĝi
+to eat
+verb
+La kato volas manĝi muson.
+
+pomo
+apple
+noun
+Tio estas pomo.
+
+birdo
+bird
+noun
+La kato manĝas birdojn.
+
+fiŝo
+fish
+noun
+La fiŝo estas en la kato. 
+
+vidi
+to see
+verb
+Mi vidas vin.
+
+mi
+I 
+pronoun
+Mi estas humano.
+
+mia
+my
+adjective
+Tio estas mia hundo.
+
+ci
+thou
+pronoun
+Ci estas humano.
+
+cia
+thy
+adjective
+Tio estas cia hundo.
+
+li
+he
+pronoun
+Li volas manĝi cin!
+
+lia
+his
+adjective
+Tio estas lia hundo.
+
+ŝi
+she
+pronoun
+Ŝi manĝas musojn.
+
+ŝia
+her
+adjective
+Tio estas ŝia hundo.
+
+ĝi
+it
+pronoun
+Ĝi estas tablo.
+
+ĝia
+its
+adjective
+Tio estas ĝia kato.
+
+ri
+he/she
+pronoun
+Ri ne volas usi vorton "li".
+
+ria
+their
+adjective
+Tio estas ria kato.
+
+ni
+we
+pronoun
+Ni estas la grupo "Teanga".
+
+nia
+our
+adjective
+Tio estas nia kato.
+
+vi
+you
+pronoun
+Vi estas en la domo.
+
+via
+your
+adjective
+Tio estas via hundo.
+
+ili
+they
+pronoun
+Ili volas min.
+
+ilia
+their
+adjective
+Tio estas ilia kato.
+
+la
+the
+article
+La kato estas bona.
+
+oranĝo
+orange
+noun
+Mi volas manĝi oranĝon.
+
+citrono
+lemon
+noun
+Mi ne volas manĝi citronon. 
+
+vinbero
+grape
+noun
+La vinbero estas frukto bona.
+
+viando
+meat
+noun
+Ŝi ne manĝas la viandon.
+
+bongusta
+tasty, delicious
+adjective
+La viando estas bongusta!
+
+gluti
+to swallow
+verb
+La kato glutas musojn.
+
+ananaso
+pineapple
+noun
+Ĝi estas ananaso.
+
+porkaĵo
+pork (meat)
+noun
+Mi manĝas porkaĵon.
+
+kokaĵo
+chicken (meat)
+noun
+Ĉu vi manĝas kokaĵon?
+
+bovaĵo
+beef (meat)
+noun
+Mi ne manĝas bovaĵon.
+
+frukto
+fruit
+noun
+Ĝi estas frukto bongusta.
+
+legomo
+vegetable
+noun
+La legomoj ne estas bongustaj.
+
+pizo
+pea (vegetable)
+noun
+Mi amas la pizojn.
+
+laktuko
+lettuce
+noun
+La laktuko estas la legomo de la salato.
+
+karoto
+carrot
+noun
+La kunikloj manĝas la karotojn.
+
+brokolo
+broccoli
+noun
+Ĉu vi volas brokolon?
+
+salato
+salad
+noun
+La salato estas de laktuko.
+
+kuniklo
+rabbit
+noun
+La kunikloj manĝas la karotojn.
+
+stomako
+stomach
+noun
+La manĝaĵo estas en mi stomako.
+
+doni
+to give
+verb
+Donu tion al mi!
+
+granda
+big, large
+adjective
+La kato estas granda.
+
+en
+in, into
+preposition
+La kokaĵo estas sur mia tablo. 
+
+al
+to, toward, towards
+preposition
+Mi iras al domo.
+
+anstataŭ
+instead of
+preposition
+Mi iras anstataŭ vi.
+
+antaŭ
+before
+preposition
+Mi volas iri antaŭ vi.
+
+apud
+near, beside, next to
+preposition
+Mi volas seĝi apud vi :).
+
+ĉe
+at
+preposition
+[None Given]
+
+ĉirkaŭ
+around, about
+preposition
+Ili iras ĉirkaŭ la lago.
+
+lago
+lake
+noun
+Ili naĝas en la lago. 
+
+naĝi
+to swim
+verb
+Ili naĝas en la lago. 
+
+de
+of, from
+preposition
+Tio estas la domo de la kato.
+
+dum
+while, during
+preposition
+Mi manĝas dum la nokto.
+
+nokto
+night
+preposition
+Estas nokto! Dormu!
+
+dormi
+to sleep
+verb
+Mi dormas.
+
+ekde
+from, since
+preposition
+[None Given]
+
+ekster
+outside, outside of
+preposition
+Ni estas ekster la domo.
+
+el
+from, out of, out
+preposition
+Mi iras el la domo.
+
+reiri
+to return
+verb
+Mi reiras al domo.
+
+helpi
+to help
+verb
+Helpu min!
+
+vortaro
+dictionary
+noun
+Mi usas la vortaro.
+
+tio
+that, this
+pronoun
+Tio estas kato.
+
+persono
+person
+noun
+Vi estas persono.
+
+malgranda
+small
+adjective
+la bebo estas malgranda.
+
+bona
+good
+adjective
+Mi manĝas bonan manĝon.
+
+iri
+to go
+verb
+Mi iras al domo.
+
+malbona
+bad
+adjective
+ĉi tia verko estas malbona.
+
+ami
+to love
+verb
+Mi amas la hundon.
+
+ĝis
+until
+preposition
+Ĝis la revido!
+
+inter
+among, between
+preposition
+Li estas muso inter katoj.
+
+kontraŭ
+across from, against
+preposition
+Vi batalas kontraŭ mi!
+
+krom
+except
+preposition
+Ni ĉiuj iras krom vi.
+
+kun
+with
+preposition
+Mi vivas kun li.
+
+laŭ
+according to
+preposition
+Laŭ li, mi ne estas en mia domo.
+
+malgraŭ
+despite
+preposition
+[None Given]
+
+malsupren
+down
+preposition
+Iru malsupren!
+
+ol
+than
+preposition
+[None Given]
+
+per
+by, by means of, with
+preposition
+Ni iras per la aŭto.
+
+plus
+plus
+preposition
+[None Given]
+
+po
+at, at the rate of, by
+preposition
+[None Given]
+
+por
+for, to, in order to
+preposition
+[None Given]
+
+post
+after
+preposition
+Mi iras post vi.
+
+preter
+beyond, by, past
+preposition
+Ie, preter la oceano...
+
+pri
+about, concerning, on
+preposition
+[None Given]
+
+pro
+because of, for, on account of
+preposition
+[None Given]
+
+sen
+without
+preposition
+Ne iru sen mi!
+
+sub
+under
+preposition
+Mi estas sub la tablo.
+
+suben
+down, underneath, to under
+preposition
+Ili iras suben.
+
+super
+over
+preposition
+Ĉu ĝi estas super la domo?
+
+sur
+on
+preposition
+Ĝi estas sur la tablo.
+
+tra
+through
+preposition
+Mi iris tra la tunelo.
+
+tunelo
+tunnel
+noun
+Mi iris tra la tunelo.
+
+trans
+across, beyond
+preposition
+Ni vivas trans la strato.
+
+strato
+street
+noun
+Tio estas la strato Thayer.
+
+tablo
+table
+noun
+La kato estas sur la tablo.
+
+flugi
+to fly
+verb
+La birdo flugas. 
+
+saluto
+greeting
+noun
+Saluton!
+
+nul
+zero
+number
+0
+
+unu
+one
+number
+1
+
+du
+two
+number
+2
+
+tri
+three
+number
+3
+
+kvar
+four
+number
+4
+
+kvin
+five
+number
+5
+
+ses
+six
+number
+6
+
+sep
+seven
+number
+7
+
+ok
+eight
+number
+8
+
+naŭ
+nine
+number
+9
+
+dek
+ten
+number
+10
+
+dudek
+twenty
+number
+20
+
+tridek
+thirty
+number
+30
+
+kvardek
+forty
+number
+40
+
+kvindek
+fifty
+number
+50
+
+sesdek
+sixty
+number
+60
+
+sepdek
+seventy
+number
+70
+
+okdek
+eighty
+number
+80
+
+naŭdek
+ninety
+number
+90
+
+cent
+hundred
+number
+100
+
+mil
+thousand
+number
+1000
+
+miliono
+million
+noun
+100,000
+
+miliardo
+billion
+noun
+100,000,000
+
+nombro
+number
+noun
+10 estas nombro.
+
+nombri
+to count
+verb
+Mi nombras la katojn.
+
+sala
+salty
+adjective
+La viando estas sala.
+
+amara
+bitter
+adjective
+Mi ne volas manĝaĵon amaran.
+
+dolĉa
+sweet
+adjective
+La oranĝo estas dolĉa.
+
+acerba
+sour
+adjective
+La citrono estas acerba.
+
+ankaŭ
+also, too
+adverb
+Mi volas iri ankaŭ!
+
+tre
+very
+adverb
+Li estas tre bela.
+
+por
+for
+preposition
+Tio estas la manĝaĵo por mi.
+
+lundo
+monday
+noun
+Hodiaŭ estas lundo.
+
+mardo
+tuesday
+noun
+Hodiaŭ estas mardo.
+
+merkredo
+wednesday
+noun
+Hodiaŭ estas merkredo.
+
+ĵaŭdo
+thursday
+noun
+Hodiaŭ estas ĵaŭdo.
+
+vendredo
+friday
+noun
+Hodiaŭ estas vendredo.
+
+sabato
+saturday
+noun
+Hodiaŭ estas sabato.
+
+dimanĉo
+sunday
+noun
+Hodiaŭ estas dimanĉo.
+
+tago
+day
+noun
+Bonan tagon!
+
+monato
+month
+noun
+Januaro estas monato.
+
+januaro
+january
+noun
+Tia monato estas januaro. 
+
+februaro
+february
+noun
+Tia monato estas februaro.
+
+marto
+march
+noun
+Tia monato estas marto.
+
+aprilo
+april
+noun
+Tia monato estas aprilo.
+
+majo
+may
+noun
+Tia monato estas majo.
+
+junio
+june
+noun
+Tia monato estas junio.
+
+julio
+july
+noun
+Tia monato estas julio.
+
+aŭgusto
+august
+noun
+Tia monato estas aŭgusto.
+
+septembro
+september
+noun
+Tia monato estas septembro.
+
+oktobro
+october
+noun
+Tia monato estas oktobro.
+
+novembro
+november
+noun
+Tia monato estas novembro.
+
+decembro
+december
+noun
+Tia monato estas decembro.
+
+sezono
+season
+noun
+Printempo estas sezono.
+
+printempo
+spring
+noun
+Tia sezono estas printempo!
+
+somero
+summer
+noun
+Tia sezono estas somero.
+
+aŭtuno
+autumn
+noun
+Tia sezono estas aŭtuno.
+
+vintro
+winter
+noun
+Tia sezono estas vintro.
+
+hodiaŭ
+today
+adverb
+Hodiaŭ ni parolos Esperanton!
+
+morgaŭ
+tomorrow
+adverb
+Morgaŭ iros al domo.
+
+mateno
+morning
+noun
+Bonan Matenon!
+
+hieraŭ
+yesterday
+adverb
+Hieraŭ mi skribis kodon de komputilo.
+
+proksimume
+approximately
+adverb
+[None Given]
+
+aŭto
+car
+noun
+Mi volas iri per la aŭto.
+
+aeroplano
+airplane
+noun
+Li iras per la aeroplano.
+
+trajno
+train
+noun
+Ili iras per la trajno.
+
+aŭtobuso
+bus, autobus
+noun
+Ni vojaĝas per la aŭtobuso.
+
+tramo
+tram
+noun
+Ĉu vi volas iri per la tramo?
+
+biciklo
+bicycle, bike
+noun
+Mi iras per biciklo.
+
+ŝipo
+ship
+noun
+[None Given]
+
+flugi
+to fly
+verb
+La birdoj flugas.
+
+marŝi
+to walk, to march
+verb
+Mi marŝas sur la strato.
+
+stiri
+to drive, to steer
+verb
+Mi stiras la aŭton.
+
+veli
+to sail
+verb
+Ili velas ŝipon.
+
+vojaĝi
+to travel
+verb
+Mi vojaĝas per aeroplano.
+
+valizo
+suitcase
+noun
+Mi havas valizon grandan.
+
+porti
+to carry
+verb
+Mi portas valizon grandan.
+
+enpaki
+to pack
+verb
+Mi enpakas mian valizon.
+
+plena
+full
+adjective
+Mia valizo estas plena.
+
+malplena
+empty
+adjective
+Mia valizo estas malplena.
+
+hotelo
+hotel
+noun
+Ni loĝas en hotelo malgranda.
+
+ruza
+smart, clever
+adjective
+La knabo estas tre ruza.
+
+vojaĝo
+trip, journey
+noun
+Tio estas nia vojaĝo per ŝipo.
+
+akvo
+water
+noun
+La fiŝoj estas en la akvo.
+
+oceano
+ocean
+noun
+La ŝipoj iras sur la oceano.
+
+povi
+can, to be able
+verb
+Mi povas trinki lakton.
+
+seĝo
+chair
+noun
+Mi seĝas sur la seĝo.
+
+kanapo
+sofa, couch
+noun
+Li seĝas sur la kanapo.
+
+fenestro
+window
+noun
+Mi vidas vin tra la fenestro.
+
+tapiŝo
+rug, carpet
+noun
+Mi uzas la polvosuĉilo sur la tapiŝo.
+
+ŝtuparo
+staircase, stairs
+noun
+[None Given]
+
+pordo
+door
+noun
+Mi iras tra la pordo.
+
+kuirejo
+kitchen
+noun
+Ili manĝas en la kuirejo.
+
+banĉambro
+bathroom
+noun
+Li estas en la banĉambro!
+
+ĉambro
+room
+noun
+Ĉu vi estas en la ĉambro?
+
+dormĉambro
+bedroom
+noun
+Ni dormas en niaj dormĉambroj.
+
+kelo
+basement, cellar
+noun
+La kelo estas sub la domo.
+
+lito
+bed
+noun
+Ni dormas en niaj litoj.
+
+lampo
+lamp
+noun
+La lampo lumas.
+
+lumi
+to shine
+verb
+Nia lampo lumas.
+
+polvosuĉuilo
+vacuum cleaner, vacuum
+noun
+Ni uzas la polvosuĉilon en niaj dormĉambroj.
+
+forko
+fork
+noun
+Mi manĝas per la forko.
+
+uzi
+to use
+verb
+Ni uzas la polvosuĉilon en niaj dormĉambroj.
+
+kulero
+spoon
+noun
+Mi manĝas per la kulero.
+
+tranĉilo
+knife
+noun
+Mi manĝas per la tranĉilo.
+
+plako
+plate
+noun
+La manĝaĵo estas en la plako.
+
+pelvo
+bowl
+noun
+La lakto estas an la pelvo.
+
+seĝi
+to sit
+verb
+Mi seĝas sur la kanapo.
+
+vekiĝi
+to wake up
+verb
+Mi vekiĝas en mia lito.
+
+portiko
+porch
+noun
+Mi seĝas sur la portiko.
+
+loĝi
+to dwell
+verb
+Mi loĝas en mia domo.
+
+danko
+thanks
+noun
+Dankon!
+
+bela
+beautiful
+adjective
+La kato estas bela. 
+
+havi
+to have
+verb
+Mi havas katon.
+
+domo
+house
+noun
+Mi estas en la domo.
+
+helpi
+to help
+verb
+Mi helpas vin.
+
+reiri
+to return, to go back
+verb
+Mi reiras al domo.
+
+vortaro
+dictionary
+noun
+Tio estas vortaro.
+
+vorto
+word
+noun
+"Vorto" estas vorto. 
+
+pli
+more
+adverb
+[None Given]
+
+serĉi
+to search
+verb
+Mi serĉas en la vortaro.
+
+submetiĝi
+to submit
+verb
+Mi submetiĝas mian respondon.
+
+respondo
+answer
+noun
+Mi submetiĝas mian respondon.
+
+iri
+to go
+verb
+Mi iras al domo.
+
+suko
+juice
+noun
+Mi trinkas sukon.
+
+sango
+blood
+noun
+Mi *ne* trinkas sangon!
+
+jes
+yes
+adverb
+Ĉu vi volas iri? Jes!
+
+naskiĝtago
+birthday
+noun
+Hodiaŭ estas mia naskiĝtago!
+
+paroli
+to speak
+verb
+Mi parolas Esperanton.
+
+jaro
+year
+noun
+[None Given]
+
+sia
+his/her/its own
+adjective
+Li manĝas sian manĝaĵon.
+
+enkonduko
+introduction
+noun
+Tio estas enkonduko al Esperanto.
+
+manĝaĵo
+food
+noun
+Mi manĝas mian manĝaĵon.

@@ -9,10 +9,12 @@
 
 \begin{document}
 
+\thispagestyle{empty}
+
 \begin{tabular}{cccc}
 Letter & Sound in IPA & Example Word & Explanation \\
-A a & /a/ & ami & the "a" in "father" \\
-B b & /b/ & birdo & the "b" in "bed" \\
+A a & /a/ & ami & the ``a" in ``father" \\
+B b & /b/ & birdo & the "b" in ``bed" \\
 C c & /\t{ts}/ & cent & like the "ts" in "cats"* \\
 \^C \^c & /\textipa{\t{tS}}/ & \^cambro & the "ch" in "church" \\
 D d & /d/ & domo & the "d" in "dog" \\

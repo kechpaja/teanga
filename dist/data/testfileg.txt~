@@ -1,0 +1,503 @@
+data/VocabPictures/house.jpg,La domo est~0~ bela.,as,is as an un
+data/VocabPictures/eat.jpg,Mi vol~0~ manĝ~1~.,as i,i in as an un is
+data/VocabPictures/go.jpg,La hundo ir~0~ en la domon.,as, i as un an
+data/VocabPictures/eat.jpg,Ŝi manĝ~0~.,as,un i as an
+data/VocabPictures/eat.jpg,Ŝi volas manĝ~0~.,i,as i an a
+data/VocabPictures/cat.jpg,Ŝi est~0~ bel~1~.,as a,a o as os
+data/VocabPictures/go.jpg,Li ir~0~ al domo.,as,o i as u us
+data/VocabPictures/go.jpg,Mi vol~0~ ir~1~.,as i,i o as on
+data/VocabPictures/go.jpg,Ili povas ir~0~ al mi.,i,o u i a
+data/VocabPictures/house.jpg,La dom~0~ est~1~ bel~2~.,o as a,a us as o i
+data/VocabPictures/house.jpg,Tio estas la dom~0~ de la kat~1~.,o o,a o o an
+data/VocabPictures/house.jpg,Ĝi est~0~ dom~1~.,as o,i o as u a
+data/VocabPictures/cat.jpg,La kat~0~ manĝ~1~.,o as,o as i on
+data/VocabPictures/cat.jpg,Vi est~0~ kato.,as,o as on in
+data/VocabPictures/cat.jpg,Mi hav~0~ katon.,as,o i as u
+data/VocabPictures/table.jpg,La tabl~0~ estas bel~1~.,o a,o i a is os
+data/VocabPictures/table.jpg,Tio est~0~ tabl~1~.,as o,as o i on
+data/VocabPictures/table.jpg,Vi hav~0~ tablon.,as,o as on in
+data/VocabPictures/table.jpg,Tio est~0~ la tablo ~1~ la persono,as de,as on de a
+data/VocabPictures/dog.jpg,La hundo vol~0~ manĝ~1~.,as i,i o on as
+data/VocabPictures/dog.jpg,Ŝi estas hund~0~.,o,i o u us
+data/VocabPictures/dog.jpg,La persono vid~0~ hundon.,as,a as i on
+data/VocabPictures/dog.jpg,La hund~0~ manĝ~1~.,o as,o i as u
+data/VocabPictures/mouse.jpg,Mi am~0~ la muson.,as,i as on un
+data/VocabPictures/mouse.jpg,Mus~0~! Ĝi est~1~ en la domo!,o as,us u as o
+data/VocabPictures/mouse.jpg,Vi manĝ~0~ muson.,as,i as in o
+data/VocabPictures/mouse.jpg,Tio estas mus~0~.,o,i a o on
+data/VocabPictures/fish.jpg,Ti~0~ est~1~ fiŝo.,o as,i as o on
+data/VocabPictures/fish.jpg,Ri est~0~ fiŝo.,as,o as on in
+data/VocabPictures/fish.jpg,Ĝi estas ~0~ fiŝ~1~ de la kat~2~.,la o o,o i o as la
+data/VocabPictures/fish.jpg,La kat~0~ manĝ~0~ fiŝon.,o as,as i u en o
+data/VocabPictures/bird.jpg,La bird~0~ est~1~ en la domo!.,o as,i as o u
+data/VocabPictures/bird.jpg,Birdo manĝ~0~.,as,i as u un
+data/VocabPictures/bird.jpg,La bird~0~ pov~1~ iri.,o as,i u as o
+data/VocabPictures/bird.jpg,Li manĝ~0~!,as,i u o as e
+data/VocabPictures/beautiful.jpeg,Tio est~0~ bel~1~.,as a,a i o as
+data/VocabPictures/beautiful.jpeg,Ĝi estas bel~0~.,as,as i o on
+data/VocabPictures/beautiful.jpeg,Mi volas est~0~ bel~1~.,i a,o a i as
+data/VocabPictures/person.jpg,Estas person~0~ en la domo!.,o,i a e u o
+data/VocabPictures/person.jpg,~0~ persono vol~1~ manĝi.,La as,as La Le O e
+data/VocabPictures/person.jpg,M~0~ estas person~1~.,i o,o u a i e
+data/VocabPictures/person.jpg,La person~0~ am~1~ min.,o as,i as in o en
+data/VocabPictures/large.jpeg,La hundo est~0~ grand~1~.,as a,a i o as
+data/VocabPictures/large.jpeg,Ĝi estas grand~0~!.,a,i us es a as
+data/VocabPictures/large.jpeg,Grand~0~ estas bon~1~!.,a a,u o a a is
+data/VocabPictures/small.jpeg,Tio est~0~ hundo. La hundo estas malgrand~1~.,as a,o a us as in
+data/VocabPictures/small.jpeg,Li estas malgrand~0~.,a,on o a in e
+data/VocabPictures/small.jpeg,Mi volas est~0~ malgrand~1~.,i a,o i u a e
+data/VocabPictures/good.jpeg,Tio estas bon~0~.,a,o a on e
+data/VocabPictures/good.jpeg,Li pov~0~ esti bon~1~.,as a,o i us as a
+data/VocabPictures/good.jpeg,Mi estas kat~0~ bon~1~.,o a,o i a un as
+data/VocabPictures/bad.jpeg,Ĝi estas malbon~0~.,a,o a on e
+data/VocabPictures/bad.jpeg,La hund~0~ malbon~1~ estas malgranda.,o a,a i o u
+data/VocabPictures/bad.jpeg,Ri estas hund~0~ bon~1~.,o a,o i a un as
+data/VocabPictures/see.jpeg,Mi vid~0~ vin.,as,i as in on
+data/VocabPictures/see.jpeg,La kat~0~ vid~1~ la muson.,o as,o u in as
+data/VocabPictures/see.jpeg,Vi vol~0~ vid~1~ katon.,as i,o i as u in
+data/VocabPictures/see.jpeg,Ili vid~0~.,as,o as i un
+data/VocabPictures/love.jpeg,N~0~ am~1~ lin.,i as,on as in i
+data/VocabPictures/love.jpeg,Mi volas am~0~ ŝin!,i,a as in i o
+data/VocabPictures/love.jpeg,Ri am~0~ lin.,as,i o as un
+data/VocabPictures/love.jpeg,Vi vol~0~ am~1~ lin.,as i,i o as u on
+data/VocabPictures/have.jpg,Mi hav~0~ katon malgrandan.,as,o i as u
+data/VocabPictures/have.jpg,Mi volas hav~0~ hundon.,i,o i u in as
+data/VocabPictures/have.jpg,Li hav~0~ tion.,as,i as o on
+data/VocabPictures/have.jpg,Vi pov~0~ hav~1~ katon.,as i,o as u i
+data/VocabPictures/want.jpg,Vi vol~0~ lin.,as,i as o on
+data/VocabPictures/want.jpg,Mi vol~0~ manĝ~1~.,as i,i u on as e
+data/VocabPictures/want.jpg,La mus~0~ vol~1~ tion.,o as,i as in o e
+data/VocabPictures/want.jpg,Ri vol~0~ min.,as,as i on e
+data/VocabPictures/can.jpg,Mi pov~0~ manĝi.,as,o i as in
+data/VocabPictures/can.jpg,Vi pov~0~ iri al domo.,as,o en as e
+data/VocabPictures/can.jpg,Li pov~0~ am~1~ min!,as i,o i on as e
+data/VocabPictures/can.jpg,Ni pov~0~ vidi ilin.,as,o as on i
+data/VocabPictures/to.jpeg,Mi iras ~0~ dom~1~.,al o,o i in al
+data/VocabPictures/to.jpeg,Li ir~0~ ~1~ mi.,as al,al i in as o
+data/VocabPictures/in.jpeg,Mi est~0~ ~1~ la dom~2~.,as en o,o i en as u un
+data/VocabPictures/in.jpeg,La muso estas ~0~ la kat~1~!,en o,i u as o en
+data/VocabPictures/that.jpg,Ti~0~ estas mi!,o,i a us o
+data/VocabPictures/that.jpg,Ti~0~ estas kat~1~.,o o,o a us un o
+data/VocabPictures/we.jpg,N~0~ iras.,i,o i us u
+data/VocabPictures/we.jpg,Mi, vi estas n~0~.,i,o i u as
+data/VocabPictures/you.jpg,~0~ iras.,Vi,Vi O U Us As
+data/VocabPictures/they.jpg,Il~0~ manĝas.,i,i u o an
+data/VocabPictures/he.jpg,~0~ volas iri.,li,li on mi ni
+data/VocabPictures/she.jpg,Tio estas ~0~.,ŝi,mi ŝi i ili
+data/VocabPictures/it.jpg,Tio estas ~0~!,ĝi,i ĝi li ri on
+data/VocabPictures/phe.jpg,~0~ estas en la domo.,Ri,Ri Ili On Ne
+data/VocabPictures/me.jpg,Ĝi estas ~0~.,mi,ri li mi us
+data/VocabPictures/of.jpg,Tio estas la mus~0~ ~1~ la kato.,o de,de li en o u
+0
+data/VocabPictures/meat.jpg,Mi manĝas viand~0~.,on,o on a an
+data/VocabPictures/meat.jpg,La kat~0~ volas viand~1~.,o on,an o a on i
+data/VocabPictures/meat.jpg,Li pov~0~ manĝi viand~1~.,as on,as i o on a
+data/VocabPictures/pork.jpg,La porkaĵ~0~ estas bongust~1~.,o a,i o on a an
+data/VocabPictures/pork.jpg,Ili manĝas porkaĵ~0~ bongust~1~.,on an,o an a on un
+data/VocabPictures/pork.jpg,Li vol~0~ porkaĵ~1~.,as on,on i in as
+data/VocabPictures/chicken.jpg,La kat~0~ bel~1~ volas kokaĵ~2~.,oj aj on,aj on i o oj
+data/VocabPictures/chicken.jpg,Li volas manĝi kokaĵ~0~.,on,on a an i in
+data/VocabPictures/chicken.jpg,Tio estas kokaĵ~0~.,o,o a on an oj
+data/VocabPictures/beef.jpg,La kato~0~ manĝas bovaĵ~1~.,j on,on oj j i e
+data/VocabPictures/beef.jpg,La bovaĵ~0~ estas viand~1~.,o o,o a an o oj
+data/VocabPictures/beef.jpg,Ri havas la bovaĵo~0~.,n,o on n oj j
+data/VocabPictures/fruit.jpg,Mi amas la frukt~0~.,ojn,o oj on ojn
+data/VocabPictures/fruit.jpg,La frukt~0~ estas bongust~1~.,oj aj,aj an ajn oj ojn
+data/VocabPictures/fruit.jpg,Mi havas frukt~0~.,on,a an o on
+data/VocabPictures/lemon.jpg,La citron~0~ estas frukt~1~.,oj oj,aj oj a oj on
+data/VocabPictures/lemon.jpg,Ŝi vidas citron~0~.,on,on o a o i
+data/VocabPictures/lemon.jpg,La citrono~0~ bongusta~1~ estas acerba~2~.,j j j,j u j jn j n
+data/VocabPictures/orange.jpg,Vi volas oranĝ~0~.,on,on an o as o
+data/VocabPictures/orange.jpg,La hundo vol~0~ oranĝ~1~.,as ojn,ojn an i as o
+data/VocabPictures/orange.jpg,Vi manĝas oranĝ~0~.,on,on o on an e
+data/VocabPictures/grape.jpg,La vinber~0~ estas frukt~1~.,oj oj,oj as aj oj ej
+data/VocabPictures/grape.jpg,Ni volas vinber~0~.,on,o on an a i
+data/VocabPictures/grape.jpg,Tio est~0~ vinber~0~.,as o,o a as i e
+data/VocabPictures/pineapple.jpg,Mi volas ananas~0~ bongust~1~.,on an,o an a on o
+data/VocabPictures/pineapple.jpg,La ananas~0~ estas fruktoj.,oj,oj on ojn a
+data/VocabPictures/pineapple.jpg,Ili manĝas ananas~0~.,ojn,ojn o a aj oj
+data/VocabPictures/apple.jpg,Mi volas manĝi pom~0~.,on,o on in i as
+data/VocabPictures/apple.jpg,Ti~0~ estas pom~1~.,o o,o i un o in
+data/VocabPictures/apple.jpg,Mi volas pom~0~ dolĉ~1~.,on an,on on an o e
+data/VocabPictures/vegetable.jpg,La legomoj estas amar~0~.,aj,oj aj as i
+data/VocabPictures/vegetable.jpg,Mi amas la legom~0~.,ojn,ojn oj i a an
+data/VocabPictures/vegetable.jpg,Tio estas legom~0~.,o,o e en as an
+data/VocabPictures/pea.jpg,Mi amas la piz~0~.,ojn,ojn oj i a an
+data/VocabPictures/pea.jpg,La kat~0~ manĝas la piz~0~.,oj ojn,ojn aj ajn oj e
+data/VocabPictures/pea.jpg,Tio estas piz~0~ bel~1~.,o a,o on a an a
+data/VocabPictures/lettuce.jpg,Ili volas laktuk~0~.,on,o on an a i
+data/VocabPictures/lettuce.jpg,Ŝi vidas laktuk~0~.,on,on o a o i
+data/VocabPictures/lettuce.jpg,Tio estas laktuk~0~.,o,o e en as an
+data/VocabPictures/carrot.jpg,Ŝi manĝas karot~0~.,on,on an o a i
+data/VocabPictures/carrot.jpg,Tio estas karot~0~ bel~1~.,o a,o e a i un
+data/VocabPictures/carrot.jpg,Mi manĝas la karot~0~ bongust~1~.,ojn ajn,ojn o on e ajn
+data/VocabPictures/broccoli.jpg,Ili volas brokol~0~.,on,o on an a i
+data/VocabPictures/broccoli.jpg,La brokol~0~ estas amar~1~.,o a,o aj as a i
+data/VocabPictures/broccoli.jpg,Ili manĝas brokol~0~.,on,ojn on a aj oj
+data/VocabPictures/bread.jpg,Li manĝas pan~0~.,on,on an o i
+data/VocabPictures/bread.jpg,La pano estas bongust~0~.,a,o a an aj
+data/VocabPictures/bread.jpg,Mi manĝas panon bongust~0~.,an,a an on oj e
+data/VocabPictures/egg.jpg,Ili vidas ov~0~.,on,on o a o i
+data/VocabPictures/egg.jpg,La ov~0~ estas por v~0~.,oj i,oj i in is
+data/VocabPictures/egg.jpg,Mi manĝas ov~0~.,on,o on a an
+data/VocabPictures/milk.jpg,La kat~0~ trinkas lakt~1~.,oj on,on oj aj an i
+data/VocabPictures/milk.jpg,Tio estas la lakt~0~ de la kat~1~.,o o,o u un e o
+data/VocabPictures/milk.jpg,Tio estas lakt~0~.,o,o e en as an
+data/VocabPictures/cheese.jpg,La fromaĝ~0~ estas de lakt~0~.,o o,o a o an a
+data/VocabPictures/cheese.jpg,La mus~0~ volas la fromaĝ~1~.,oj on,on an oj os
+data/VocabPictures/cheese.jpg,La fromaĝ~0~ estas en la mus~1~.,o o,a o o e en
+data/VocabPictures/rice.jpg,Mi volas aĉeti riz~0~.,on,on in i o a
+data/VocabPictures/rice.jpg,Ili vidas riz~0~.,on,on o a o i
+data/VocabPictures/rice.jpg,Vi manĝas la pan~0~.,on,on an o i
+data/VocabPictures/delicious.jpg,La personoj volas viand~0~ bongust~1~.,on an,o on a i an
+data/VocabPictures/delicious.jpg,Ili estas bongust~0~.,aj,a aj an ajn
+data/VocabPictures/delicious.jpg,Ĝi estas bongust~0~.,a,a aj an ajn
+data/VocabPictures/salty.jpg,Ili povas esti sal~0~.,aj,a aj ajn an
+data/VocabPictures/salty.jpg,Mi amas la ov~0~ sal~1~.,ojn ajn,oj ojn a ajn aj
+data/VocabPictures/salty.jpg,La ovoj sal~0~ estas bongust~1~.,aj aj,aj oj aj u on
+data/VocabPictures/bitter.jpg,Tio estas amar~0~.,a,a on o oj ojn
+data/VocabPictures/bitter.jpg,Ili povas est~0~ amar~0~.,i aj,aj o on an i
+data/VocabPictures/bitter.jpg,La legom~0~ estas amar~1~.,o a,o aj as a i
+data/VocabPictures/sweet.jpg,La vinber~0~ estas dolĉ~1~.,oj aj,oj as aj oj ej
+data/VocabPictures/sweet.jpg,Mi volas pom~0~ dolĉ~1~.,on an,on on an o e
+data/VocabPictures/sour.jpg,Vi amas la citron~0~ acerb~1~.,ojn ajn,i ojn ajn o a
+data/VocabPictures/sour.jpg,La oranĝ~0~ estas acerb~1~.,o a,on an a o i
+data/VocabPictures/sour.jpg,Ĝi povas est~0~ acerb~0~.,i a,a o on an i
+data/VocabPictures/drink.jpg,La kat~0~ trinkas lakt~1~.,o on,u o an on a
+data/VocabPictures/drink.jpg,L~0~ trink~1~.,i as,o as on i u
+data/VocabPictures/drink.jpg,Ili trinkas lakt~0~ acerb~1~.,on an,i in an on o a
+data/VocabPictures/buy.png,Li povas aĉeti ti~0~.,on,in on o i a
+data/VocabPictures/buy.png,Mi volas aĉeti ĝ~0~.,in,on in i o a
+data/VocabPictures/buy.png,Li aĉet~0~ citron~1~.,as on,as i on o a
+data/VocabPictures/also.jpg,Mi trinkas lakt~0~ acerb~1~ ankaŭ.,on an,i in an on o a
+data/VocabPictures/also.jpg,Mi volas iri ank~0~!.,aŭ,an in aŭ i
+data/VocabPictures/also.jpg,Vi manĝas viand~0~ ankaŭ.,on,o on a an
+data/VocabPictures/very.jpg,Li estas ~0~ bela.,tre,tre en de al
+data/VocabPictures/very.jpg,Mi volas esti tre bel~0~.,a,as a i o on
+data/VocabPictures/very.jpg,Ri estas tre bongust~0~.,a,i a on o
+data/VocabPictures/for.jpg,La legom~0~ estas ~1~ mi.,oj por,por de en oj i
+data/VocabPictures/for.jpg,Tio estas muso por la kat~0~.,o,o a e i
+data/VocabPictures/for.jpg,Ĝi estas por v~0~.,i,o in i on
+1
+data/VocabPictures/zero.jpg,~0~ vi povas nombri al ~1~? ~2~.,Ĉu nul Ne,De Ne Jes Ĉu nul unu
+data/VocabPictures/zero.jpg,Tio estas ~0~.,nul,unu nul du dek
+data/VocabPictures/pork.jpg,~0~ vi volas porkaĵon?,Ĉu,Ĉu De La Vi
+data/VocabPictures/number1.jpg,~0~ vi povas nombri al ~1~?,Ĉu unu,Ĉu unu du tri
+data/VocabPictures/number1.jpg,Tio estas ~0~.,unu,du unu dek kvar
+data/VocabPictures/number1.jpg,Nombr~0~ al unu!,u,i o u as is
+data/VocabPictures/beef.jpg,~0~ li manĝas bovaĵon?,Ĉu,Ĉu La Mi Li
+data/VocabPictures/number2.jpg,~0~ vi povas nombri al ~1~?,Ĉu du,Ĉu tri kvar du
+data/VocabPictures/number2.jpg,Tio estas ~0~.,du,unu du tri kvar
+data/VocabPictures/number2.jpg,Nombr~0~ al du!,u,i u as is
+data/VocabPictures/go.jpg,~0~ ili povas iri?,Ĉu,Le Li La Ĉu Ĉa
+data/VocabPictures/number3.jpg,~0~ vi povas nombri al ~1~?,Ĉu tri,Ĉu kvin tri miliono
+data/VocabPictures/number3.jpg,Tio estas ~0~.,tri, tri tridek naŭ du
+data/VocabPictures/number3.jpg,Nombr~0~ al tri!,u,i as is os u
+data/VocabPictures/see.jpg,~0~ ili vidas min?,Ĉu,Ĉia Ĉu Ili Li
+data/VocabPictures/number4.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvar,Ĉu kvar unu dek
+data/VocabPictures/number4.jpg,Tio estas ~0~.,kvar,unu du tri kvar
+data/VocabPictures/number4.jpg,Nombr~0~ al kvar!,u,i as is os u
+data/VocabPictures/count.jpg,~0~ vi nombras ilin?,Ĉu,Se Si Ĉu La
+data/VocabPictures/number5.jpg,~0~ vi povas nombri al ~1~?,Ĉu kvin,Ĉu kvin du dudek
+data/VocabPictures/number5.jpg,Tio estas ~0~.,kvin,du kvin dek unu
+data/VocabPictures/number5.jpg,Nombr~0~ al kvin!,u,i u as is
+data/VocabPictures/cat.jpg,~0~ la kato manĝas la muson?,Ĉu,La Ĉu Li On
+data/VocabPictures/number6.jpg,~0~ vi povas nombri al ~1~?,Ĉu ses,Ĉu dek naŭ ses
+data/VocabPictures/number6.jpg,Tio estas ~0~.,ses,ok naŭ du ses
+data/VocabPictures/number6.jpg,Nombr~0~ al ses!,u,i u as is
+data/VocabPictures/cheese.jpg,~0~ la musoj manĝas la fromaĝon?,Ĉu,Ĉu In Ni Ne
+data/VocabPictures/number7.jpg,~0~ vi povas nombri al ~1~?,Ĉu sep,Ĉu unu sep naŭ
+data/VocabPictures/number7.jpg,Tio estas ~0~.,sep,sep ses kvin kvar
+data/VocabPictures/number7.jpg,Nombr~0~ al sep!,u,i o u as is
+data/VocabPictures/delicious.jpg,~0~ la porkaĵo estas bongusta?,Ĉu,Nu Ne Jes Ĉu
+data/VocabPictures/number8.jpg,~0~ vi povas nombri al ~1~?,Ĉu ok,Ĉu nul ok unu
+data/VocabPictures/number8.jpg,Tio estas ~0~.,ok,naŭ ok unu du
+data/VocabPictures/number8.jpg,Nombr~0~ al ok!,u,i o u as is
+data/VocabPictures/milk.jpg,~0~ vi trinkas lakton?,Ĉu,Mi Ni Ĉu Li
+data/VocabPictures/number9.jpg,~0~ vi povas nombri al ~1~?,Ĉu naŭ,Ĉu ok unu naŭ
+data/VocabPictures/number9.jpg,Tio estas ~0~.,naŭ,naŭ ok ses sep
+data/VocabPictures/number9.jpg,Nombr~0~ al naŭ!,u,i u as is
+data/VocabPictures/person.jpg,~0~ la personoj estas bongustaj?,Ĉu,Jes Ne Ĉu O
+data/VocabPictures/number10.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek,Ĉu naŭ dek du
+data/VocabPictures/number10.jpg,Tio estas ~0~.,dek,naŭ dek ses sep
+data/VocabPictures/number10.jpg,Nombr~0~ al dek!,u,i as is os u
+data/VocabPictures/eat.jpg,~0~ vi volas manĝi?,Ĉu,Ĥi Ĉu Li La
+data/VocabPictures/number11.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_unu,Ĉu du dudek dek_unu
+data/VocabPictures/number11.jpg,Tio estas ~0~.,dek_unu,unu dek dek_unu dek_du
+data/VocabPictures/number11.jpg,Nombr~0~ al dek_unu!,u,i u as is
+data/VocabPictures/cat.jpg,~0~ li estas kato?,Ĉu,Ĉu Li Nu Ne
+data/VocabPictures/number12.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_du,Ĉu dek_du dek_tri dek
+data/VocabPictures/number12.jpg,Tio estas ~0~.,dek_du,dek_du du dek dudek
+data/VocabPictures/number12.jpg,Nombr~0~ al dek_du!,u,i o u as is
+data/VocabPictures/mouse.jpg,~0~ la muso estas en la kato? ~1~.,,Ĉu Ne,Jes Ne Le Lo Ĉu
+data/VocabPictures/number13.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_tri,Ĉu du dek dudek dek_tri
+data/VocabPictures/number13.jpg,Tio estas ~0~.,dek_tri,dek_tri tridek dudek dek
+data/VocabPictures/number13.jpg,Nombr~0~ al dek_tri!,u,i as is os u
+data/VocabPictures/mouse.jpg,~0~ la kato manĝas la muson? ~1~.,Ĉu Ne,La Ol Ĉu De Ne
+data/VocabPictures/number14.jpg,~0~ vi povas nombri al ~1~?,Ĉu dek_kvar,Ĉu tridek dek_kvar kvar
+data/VocabPictures/number14.jpg,Tio estas ~0~.,dek_kvar,dek_tri dek_kvar kvardek tridek
+data/VocabPictures/number14.jpg,Nombr~0~ al dek_kvar!,u,i o u as is
+data/VocabPictures/drink.jpg,~0~ vi trinkas? ~1~.,Ĉu Jes,Jes Ne Ĉu La
+data/VocabPictures/number20.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek,Ĉu dudek dek du
+data/VocabPictures/number20.jpg,Tio estas ~0~.,dudek,tridek dudek dek_du dek_tri
+data/VocabPictures/number20.jpg,Nombr~0~ al dudek!,u,i u as is
+data/VocabPictures/cat.jpg,~0~ la kato iras?,Ĉu,De Ĉu La Mi
+data/VocabPictures/number21.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_unu,Ĉu dudek_unu unu dek_du
+data/VocabPictures/number21.jpg,Tio estas ~0~.,dudek_unu,dudek dek_du dudek_unu dek
+data/VocabPictures/number21.jpg,Nombr~0~ al dudek_unu!,u,i as is os u
+data/VocabPictures/dog.jpg,~0~ la hundo manĝas?,Ĉu,La En I El Ĉu
+data/VocabPictures/number22.jpg,~0~ vi povas nombri al ~1~?,Ĉu dudek_du,Ĉu dek_du dudek_du dudek
+data/VocabPictures/number22.jpg,Tio estas ~0~.,dudek_du,dudek_du dudek_unu dudek du
+data/VocabPictures/number22.jpg,Nombr~0~ al dudek_du!,u,i o u as is
+data/VocabPictures/number100.jpg,~0~ vi povas nombri al ~1~?,Ĉu cent,cent, mil Ĉu De Ne La
+data/VocabPictures/number100.jpg,Tio estas ~0~.,cent,mil cent miliono dek
+data/VocabPictures/number100.jpg,Nombr~0~ al cent!,u,i as is os u
+data/VocabPictures/number1000.jpg,~0~ vi povas nombri al ~1~?,Ĉu mil,Ĉu mil cent miliono
+data/VocabPictures/number1000.jpg,Tio estas ~0~.,mil,cent mil dek dek_unu
+data/VocabPictures/number1000.jpg,Nombr~0~ al mil!,u,i o u as is
+data/VocabPictures/million.jpg,~0~ vi povas nombri al ~1~?,Ĉu miliono,Ĉu mil miliono miliardo
+data/VocabPictures/million.jpg,Tio estas ~0~.,miliono,mil miliono cent dek
+data/VocabPictures/million.jpg,Nombr~0~ al miliono!,u,i u as is
+data/VocabPictures/billion.png,~0~ vi povas nombri al ~1~?,Ĉu miliardo,Ĉu miliardo mil miliono
+data/VocabPictures/billion.png,Tio estas ~0~.,miliardo,miliono miliardo mil cent
+data/VocabPictures/billion.png,Nombr~0~ al miliardo!,u,i o u as is
+data/VocabPictures/number.jpg,Tio estas nombr~0~ grand~1~.,o a,o u i e a
+data/VocabPictures/number.jpg,~0~ tio estas nombr~1~?,Ĉu o,o a u Ĉu De
+data/VocabPictures/count.jpg,~0~ vi nombras al dudek?,Ĉu,Ĉu Kio En Vi Al
+data/VocabPictures/count.jpg,~0~ vi povas nombri?,Ĉu,Ĉu Ne Jes Li
+2
+data/VocabPictures/day.jpg,Hodiaŭ la tago est~0~ lundo.,as,as is os u i
+data/VocabPictures/day.jpg,Hieraŭ la tago est~0~ mardo.,is,as is os u i
+data/VocabPictures/monday.jpg,Hodiaŭ est~0~ lundo.,as,as is os u i
+data/VocabPictures/monday.jpg,Hieraŭ est~0~ lundo.,is,as is os u i
+data/VocabPictures/tuesday.jpg,Hieraŭ est~0~ mardo.,is,as is os u i
+data/VocabPictures/tuesday.jpg,Hodiaŭ est~0~ mardo.,as,as is os u i
+data/VocabPictures/wednesday.jpg,Morgaŭ est~0~ merkredo.,os,as is os u i
+data/VocabPictures/wednesday.jpg,Hieraŭ est~0~ merkredo.,is,as is os u i
+data/VocabPictures/thursday.jpg,Hodiaŭ est~0~ ĵaŭdo.,as,as is os u i
+data/VocabPictures/thursday.jpg,Morgaŭ est~0~ ĵaŭdo.,os,as is os u i
+data/VocabPictures/friday.jpg,Hodiaŭ est~0~ vendredo.,as,as is os u i
+data/VocabPictures/friday.jpg,Morgaŭ est~0~ vendredo.,os,as is os u i
+data/VocabPictures/saturday.jpg,Hieraŭ est~0~ sabato.,is,as is os u i
+data/VocabPictures/saturday.jpg,Morgaŭ est~0~ sabato.,os,as is os u i
+data/VocabPictures/sunday.jpg,Hodiaŭ est~0~ dimanĉo.,as,as is os u i
+data/VocabPictures/sunday.jpg,Morgaŭ est~0~ dimanĉo.,os,as is os u i
+data/VocabPictures/january.jpg,Nun la monato est~0~ januaro.,as,as is os u i
+data/VocabPictures/january.jpg,En 2000 la monate est~0~ januaro.,is,as is os u i
+data/VocabPictures/february.jpg,Nun la monato est~0~ februaro.,as,as is os u i
+data/VocabPictures/february.jpg,En 2121 la monate est~0~ februaro.,os,as is os u i
+data/VocabPictures/march.jpg,En 2000 la monate est~0~ marto.,is,as is os u i
+data/VocabPictures/march.jpg,Nun la monato est~0~ marto.,as,as is os u i
+data/VocabPictures/april.jpg,En 2100 la monate est~0~ aprilo.,os,as is os u i
+data/VocabPictures/april.jpg,En 2000 la monate est~0~ aprilo.,is,as is os u i
+data/VocabPictures/may.jpg,Nun la monato est~0~ majo.,as,as is os u i
+data/VocabPictures/may.jpg,En 2000 la monate est~0~ majo.,is,as is os u i
+data/VocabPictures/june.jpg,Nun la monato est~0~ junio.,as,as is os u i
+data/VocabPictures/june.jpg,En 2000 la monate est~0~ junio.,is,as is os u i
+data/VocabPictures/july.jpg,En 2121 la monate est~0~ julio.,os,as is os u i
+data/VocabPictures/july.jpg,Nun la monato est~0~ julio.,as,as is os u i
+data/VocabPictures/august.jpg,En 2000 la monate est~0~ aŭgusto.,is,as is os u i
+data/VocabPictures/august.jpg,Nun la monato est~0~ aŭgusto.,as,as is os u i
+data/VocabPictures/september.jpg,En 2121 la monate est~0~ septembro.,os,as is os u i
+data/VocabPictures/september.jpg,En 2000 la monate est~0~ septembro.,is,as is os u i
+data/VocabPictures/october.jpg,Nun la monato est~0~ oktobro.,as,as is os u i
+data/VocabPictures/october.jpg,En 2121 la monate est~0~ oktobro.,os,as is os u i
+data/VocabPictures/november.jpg,Nun la monato est~0~ novembro.,as,as is os u i
+data/VocabPictures/november.jpg,En 2000 la monate est~0~ novembro.,is,as is os u i
+data/VocabPictures/december.jpg,En 2121 la monate est~0~ decembro.,os,as is os u i
+data/VocabPictures/december.jpg,Nun la monato est~0~ decembro.,as,as is os u i
+data/VocabPictures/spring.jpg,Nun la sezono est~0~ printempo.,as,as is os u i
+data/VocabPictures/spring.jpg,En 2000 la sezono est~0~ printempo.,is,as is os u i
+data/VocabPictures/summer.jpg,En 2121 la sezono est~0~ somero.,os,as is os u i
+data/VocabPictures/summer.jpg,Nun la sezono est~0~ somero.,as,as is os u i
+data/VocabPictures/autumn.jpg,En 2000 la sezono est~0~ aŭtuno.,is,as is os u i
+data/VocabPictures/autumn.jpg,En 2121 la sezono est~0~ aŭtuno.,os,as is os u i
+data/VocabPictures/winter.jpg,Nun la sezono est~0~ vintro.,as,as is os u i
+data/VocabPictures/winter.jpg,En 2000 la sezono est~0~ vintro.,is,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ mi manĝ~0~ la viandon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ vi vid~0~ personon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ li am~0~ la katon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ŝi trink~0~ lakton.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ri hav~0~ pomon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ĝi vol~0~ iri.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ni est~0~ fiŝoj.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ ili aĉet~0~ fiŝon.,as,as is os u i
+data/VocabPictures/today.jpg,Hodiaŭ tio est~0~ viando.,as,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ mi est~0~ persono.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ vi hav~0~ du fiŝojn.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ li am~0~ rizon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ŝi manĝ~0~ pomon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ri aĉet~0~ fromaĝon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ĝi vid~0~ personon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ni vol~0~ porkaĵon.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ ili trink~0~.,os,as is os u i
+data/VocabPictures/tomorrow.jpg,Morgaŭ tio est~0~ ananaso.,os,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ mi vol~0~ citronon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ vi est~0~ kato.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ li est~0~ hundo.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ŝi vid~0~ min.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ri trink~0~ lakton.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ĝi hav~0~ domon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ni manĝ~0~ pizon.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ ili am~0~ lin.,is,as is os u i
+data/VocabPictures/yesterday.jpg,Hieraŭ tio aĉet~0~ legomojn.,is,as is os u i
+3
+data/VocabPictures/chair.jpg,~0~ estas tio? Tio estas seĝo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/chair.jpg,~0~ mi estas? Mi estas sur la seĝo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/chair.jpg,Tio estas m~0~ seĝo.,ia,a ia an ian es
+data/VocabPictures/sofa.jpg,~0~ estas tio? Tio estas kanapo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sofa.jpg,~0~ mi estas? Mi estas sur la kanapo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sofa.jpg,Tio estas v~0~ kanapo.,ia,a ia an ian es
+data/VocabPictures/window.jpg,~0~ estas tio? Tio estas fenestro.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/window.jpg,Tio estas l~0~ fenestro.,ia,a ia an ian es
+data/VocabPictures/window.jpg,Mi vidas ~0~ fenestro.,mian,mian lian ŝian rian
+data/VocabPictures/rug.jpg,~0~ estas tio? Tio estas tapiŝo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/rug.jpg,~0~ mi estas? Mi estas sur la tapiŝo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/rug.jpg,Tio estas ŝ~0~ tapiŝo.,ia,a ia an ian es
+data/VocabPictures/bed.jpg,~0~ estas tio? Tio estas lito.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bed.jpg,~0~ mi estas? Mi estas sur la lito.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bed.jpg,Tio estas r~0~ lito.,ia,a ia an ian es
+data/VocabPictures/lamp.jpg,~0~ estas tio? Tio estas lampo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/lamp.jpg,Tio estas ĝ~0~ lampo.,ia,a ia an ian es
+data/VocabPictures/lamp.jpg,Li uzas ~0~ lampon.,sian,lian sian mian rian
+data/VocabPictures/staircase.jpg,~0~ estas tio? Tio estas ŝtuparo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/staircase.jpg,Ili uzas ~0~ ŝtuparon.,sian,sian ilian lian rian
+data/VocabPictures/door.jpg,Tio estas n~0~ pordo.,ia,a ia an ian es
+data/VocabPictures/door.jpg,~0~ estas tio? Tio estas pordo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/door.jpg,Li iras tra ~0~ pordo.,sia,sian sia lia lian
+data/VocabPictures/room.jpg,~0~ mi estas? Mi estas en mia ĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/room.jpg,Ŝi vidas s~0~ ĉambron.,ian,a ia an ian es
+data/VocabPictures/room.jpg,Mi estas en ~0~ ĉambro.,mia,mia lia ria mian
+data/VocabPictures/kitchen.jpg,~0~ estas tio? Tio estas kuirejo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/kitchen.jpg,~0~ mi estas? Mi estas en la kuirejo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/kitchen.jpg,Tio estas l~0~ kuirejo.,ia,a ia an ian es
+data/VocabPictures/bathroom.jpg,~0~ mi estas? Mi estas en la banĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bathroom.jpg,Tio estas m~0~ banĉambro.,ia,a ia an ian es
+data/VocabPictures/bathroom.jpg,Vi estas en ~0~ banĉambro.,via,via vian lia lian
+data/VocabPictures/bedroom.jpg,~0~ mi estas? Mi estas en mia dormĉambro.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bedroom.jpg,Tio estas il~0~ dormĉambroj.,iaj,a iaj an ian es
+data/VocabPictures/bedroom.jpg,Vi estas en ~0~ dormĉambro.,via,via vian lia lian
+data/VocabPictures/basement.jpg,~0~ mi estas? Mi estas en la kelo.,Kie,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/basement.jpg,Tio estas v~0~ keloj.,iaj,a iaj ia an es
+data/VocabPictures/basement.jpg,Ni estas en ~0~ kelo.,nia,nia nian lia lian
+data/VocabPictures/vacuum.jpg,~0~ estas tio? Tio estas polvosuĉilo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/vacuum.jpg,Ni uzas ~0~ polvosuĉilon.,nian,nia nia mia mian
+data/VocabPictures/vacuum.jpg,Ri uzas ~0~ polvosuĉilon.,sian,rian lian ŝian sian
+data/VocabPictures/fork.jpg,~0~ estas tio? Tio estas forko.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/fork.jpg,Tio estas n~0~ forkoj.,iaj,a ia an iaj es
+data/VocabPictures/fork.jpg,Ri uzas ~0~ forkon.,sian,rian lian ŝian sian
+data/VocabPictures/spoon.jpg,~0~ estas tio? Tio estas kulero.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/spoon.jpg,Tio estas r~0~ kuleroj.,iaj,a ia an iaj es
+data/VocabPictures/spoon.jpg,Ni uzas ~0~ kuleron.,nian,nia nia mia mian
+data/VocabPictures/knife.jpg,~0~ estas tio? Tio estas tranĉilo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/knife.jpg,Tio estas ĝ~0~ tranĉilo.,ia,a ia an ian es
+data/VocabPictures/knife.jpg,Ri uzas ~0~ tranĉilon.,sian,rian lian ŝian sian
+data/VocabPictures/plate.jpg,~0~ estas tio? Tio estas plako.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/plate.jpg,Tio estas ŝ~0~ plakoj.,iaj,a ia an iaj es
+data/VocabPictures/plate.jpg,Ni uzas ~0~ plakon.,nian,nia nia mia mian
+data/VocabPictures/bowl.jpg,~0~ estas tio? Tio estas pelvo.,Kio,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/bowl.jpg,Tio estas m~0~ pelvo.,ia,a ia an ian es
+data/VocabPictures/bowl.jpg,Tio estas en ~0~ pelvo.,mia,mia mian lia lian
+data/VocabPictures/sleep.jpg,Li dormas en ~0~ lito.,sia,lia sia lian sian
+data/VocabPictures/sleep.jpg,~0~ vi dormas en lito malbona?,Kiel,Kio Kiu Kie Kiel Kiam
+data/VocabPictures/sleep.jpg,Mi dormas. Mi ~0~ vekiĝis.,ne,de li ne al a
+data/VocabPictures/sit.jpg,Ŝi seĝas sur ~0~ seĝo.,sia,lia sia lian sian
+data/VocabPictures/sit.jpg,Li ~0~ iras. Li seĝas.,ne,de ne le la
+data/VocabPictures/sit.jpg,Li seĝas. Mi ~0~ seĝas.,ne,ne la de lo
+data/VocabPictures/wake_up.jpg,Li vekiĝas en ~0~ lito.,sia,lia sia lian sian
+data/VocabPictures/wake_up.jpg,Mi ~0~ dormas. Mi vekiĝis!,ne,de ne li al o
+data/VocabPictures/wake_up.jpg,Mi ~0~ volas dormi!,ne,ne na no ni
+data/VocabPictures/use.jpg,Mi uzas ~0~ plakon.,mian,nia nia mia mian
+data/VocabPictures/use.jpg,Li uzas ~0~ forkon.,sian,rian lian ŝian sian
+data/VocabPictures/use.jpg,La persono uzas ~0~ kuleron.,sian,lian ŝian rian sian
+data/VocabPictures/porch.jpg,Ŝi seĝas sur ~0~ portiko.,sia,lia sia lian sian
+data/VocabPictures/porch.jpg,Li seĝas sur la portiko. Li ~0~ seĝas sur la kanapo.,ne,de ne li al o
+data/VocabPictures/porch.jpg,Mi ~0~ volas esti sur la portiko!,ne,de ne li al o
+data/VocabPictures/out_of.jpg,Mi manĝas el mi~0~ pelv~1~.,a o,a i en o u
+data/VocabPictures/out_of.jpg,La kato trinkas lakton ~0~ pelvo.,el,sur la ne de el
+data/VocabPictures/out_of.jpg,Ni iris ~0~ la CIT.,el,sur la ne de el
+data/VocabPictures/dwell.jpeg,Li ~0~ loĝas en la CIT!,ne,de ne li al o
+data/VocabPictures/dwell.jpeg,Ni loĝas en domo. Ni ~0~ loĝas en pelvo!,ne,sur ne la el
+data/VocabPictures/on.jpeg,Mi seĝas ~0~ la portiko. Mi ~1~ seĝas sur mia lito.,sur ne,sur la ne de el
+data/VocabPictures/on.jpeg,Li dormas ~0~ sia lito.,sur,la ne sur de al
+data/VocabPictures/on.jpeg,Mi seĝas ~0~ la kanapo. Mi ~1~ seĝas sur la kato!,sur ne,sur la ne de el
+data/VocabPictures/through.jpeg,Mi iras ~0~ la pordo.,tra,sur tra el la
+data/VocabPictures/through.jpeg,Li ~0~ volas iri ~1~ la pordo.,ne tra,sur tra el la ne
+data/VocabPictures/through.jpeg,Ĉu li ~0~ volas iri tra la pordo?,ne,sur tra el al ne
+4
+data/VocabPictures/car.jpeg,Li volas stiri ~0~n aŭton.,sia,sia lia mia ria 
+data/VocabPictures/car.jpeg,Ili vojaĝas per ~0~ aŭto.,sia,nia sia via lia
+data/VocabPictures/car.jpeg,La aŭto ne povas stiri ~0~.,sin,lin ĝin sin min
+data/VocabPictures/bus.jpeg,Ri stiras ~0~n aŭtobuson.,sia,lia sia ria ŝia
+data/VocabPictures/bus.jpeg,La persono vojaĝas per ~0~ aŭtobuso.,sia,nia sia via lia
+data/VocabPictures/bus.jpeg,La aŭtobuso ne povas stiri ~0~.,sin,lin ĝin ŝin sin
+data/VocabPictures/airplane.jpeg,Mi flugas en ~0~ aeroplano.,mia,mia ria lia ilia
+data/VocabPictures/airplane.jpeg,Ni vojaĝas per ~0~ aeroplano.,nia,nia ilia via lia
+data/VocabPictures/airplane.jpeg,Ki~0~ la aeroplano iras?,e,o u e a
+data/VocabPictures/train.jpeg,Vi vojaĝas per ~0~ trajno.,via,nia via lia ria
+data/VocabPictures/train.jpeg,La trajno ir~0~.,as,as i u un
+data/VocabPictures/train.jpeg,Li volas iri per ~0~ trajno.,sia,sia nia lia via
+data/VocabPictures/tram.jpeg,Li vojaĝas per ~0~ tramo.,sia,nia sia via lia
+data/VocabPictures/tram.jpeg,Ĉu vi vidas tram~0~?,on,o on a an
+data/VocabPictures/tram.jpeg,La tramo iras ~0~ la strato.,sur,en sur la el
+data/VocabPictures/bicycle.jpeg,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
+data/VocabPictures/bicycle.jpeg,Mi iras per bicikl~0~.,o,a o on an
+data/VocabPictures/bicycle.jpeg,La biciklo bel~0~ portas m~1~.,a in,o a i in on
+data/VocabPictures/ship.jpeg,Ri vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
+data/VocabPictures/ship.jpeg,Mi velas per ~0~ ŝipo.,mia,mia nia lia ŝia
+data/VocabPictures/ship.jpeg,La ŝipoj bel~0~ estas sur la oceano.,aj,oj aj on an
+data/VocabPictures/ocean.jpeg,La akv~0~ estas en la ocean~1~.,o o,o an on o e
+data/VocabPictures/ocean.jpeg,La Pacifiko estas ~0~.,oceano,oceano lago domo akvo
+data/VocabPictures/ocean.jpeg,La ŝipoj bel~0~ estas ~1~ la oceano.,aj sur,oj aj on sur de
+data/VocabPictures/water.jpeg,Ĉu vi volas trinki ~0~ akv~1~?,vian on,vian mian on an
+data/VocabPictures/water.jpeg,La ŝipoj iras ~0~ la akvo.,sur,en sur la on
+data/VocabPictures/water.jpeg,La oceano estas ~0~.,akvo,akvo lakto sango suko
+data/VocabPictures/hotel.jpeg,Li loĝas en ~0~ hotelo.,sia,nia mia lia sia
+data/VocabPictures/hotel.jpeg,Mi ne hav~0~ hotel~1~!.,as on,on o as a e
+data/VocabPictures/hotel.jpeg,Mi ne volas loĝi ~0~ hotelo.,en,de en la el
+data/VocabPictures/trip.jpeg,Mi ne vol~0~ vojaĝ~1~.,as on,as i on o e
+data/VocabPictures/trip.jpeg,Mia vojaĝo estos ~0~.,granda,granda la de kato
+data/VocabPictures/trip.jpeg,Tio estas ~0~ vojaĝo.,ria,ria u o kaj
+data/VocabPictures/street.jpeg,La tramo iras en la ~0~.,strato,strato akvo oceano
+data/VocabPictures/street.jpeg,Ni marŝas ~0~ la strato.,sur,en sur le la
+data/VocabPictures/street.jpeg,~0~ estas la strato?,Kie,Kio Kie Kiu Ne
+data/VocabPictures/suitcase.jpeg,Tio estas ~0~ valizo.,mia,mia sen kun el
+data/VocabPictures/suitcase.jpeg,Mi ne havas valiz~0~.,on,o on a an
+data/VocabPictures/suitcase.jpeg,Mi volas ~0~ valiz~1~!,mian on,on vian mian ol
+data/VocabPictures/full.jpeg,~0~ valizo estas plena.,Mia,Mia Sia De El
+data/VocabPictures/full.jpeg,Ria valizo estis ~0~plena.,mal,mal eks de ek
+data/VocabPictures/full.jpeg,La kato est~0~ plen~1~.,as a,a o on as e
+data/VocabPictures/empty.jpeg,~0~ valizo estas malplena.,Mia,Mia Sia De
+data/VocabPictures/empty.jpeg,Lia valizo estas ~0~plena.,mal,mal eks de ek
+data/VocabPictures/empty.jpeg,Tio estas valiz~0~ malplen~1~.,o a,o in i a an
+data/VocabPictures/smart.jpeg,Mi vol~0~ esti persono ruz~1~.,as a,i a as an
+data/VocabPictures/smart.jpeg,Einstein estis ruz~0~.,a,a o i e
+data/VocabPictures/smart.jpeg,Li manĝas ~0~ manĝaĵ~1~.,sian on,on an lian sian
+data/VocabPictures/carry.jpeg,Ĉu vi port~0~ valiz~1~?,as on,o on i as a
+data/VocabPictures/carry.jpeg,Ki~0~ li portas?,on,o on a an un
+data/VocabPictures/carry.jpeg,Ĉu vi pov~0~ porti aŭtobus~1~?,as on,o on i as a
+data/VocabPictures/pack.jpeg,Enpaku ~0~ valiz~1~!,vian on,mian vian an on
+data/VocabPictures/pack.jpeg,Mi ~0~ enpakas mian valiz~1~.,ne on,ne de la on an
+data/VocabPictures/pack.jpeg,Ne enpak~0~! Ni ne ir~1~!,u os,os i u e an
+data/VocabPictures/fly.jpeg,Mi~0~ birdoj flugas.,aj,aj oj i a
+data/VocabPictures/fly.jpeg,Mi flugas ~0~ la aeroplano.,per,sur per de al
+data/VocabPictures/fly.jpeg,Ĉu vi pov~0~ flug~1~?,as i,on as in i o
+data/VocabPictures/drive.jpeg,Mi stiras ~0~ aŭton.,mian,mia mian via vian
+data/VocabPictures/drive.jpeg,Ĉu vi pov~0~ stir~1~?,as i,i on ian as
+data/VocabPictures/drive.jpeg,Ri ~0~ povas stiri.,ne,jes ne de la
+data/VocabPictures/travel.png,Ki~0~ ni vojaĝos?,e,ne e o ia
+data/VocabPictures/travel.png,Li vojaĝas per ~0~ ŝipo.,sia,nia sia via lia
+data/VocabPictures/travel.png,Ŝi vojaĝas per ~0~ biciklo.,sia,nia sia via lia
+data/VocabPictures/sail.jpeg,Mi vel~0~.,as,i o on as
+data/VocabPictures/sail.jpeg,Ki~0~ vi velas? En la somero.,am,an am el om
+data/VocabPictures/sail.jpeg,Mi vel~0~ per la ŝip~1~.,as o,i o on as
+data/VocabPictures/swim.jpeg,Ri naĝas en ~0~ lago.,sia,ria lia sia mia
+data/VocabPictures/swim.jpeg,Kie vi naĝ~0~?,as,as i u es
+data/VocabPictures/swim.jpeg,~0~ fiŝoj naĝas.,La,De Ne Vi Ni La
+data/VocabPictures/walk.jpg,Kie vi marŝ~0~?,as,as el on o
+data/VocabPictures/walk.jpg,Mi marŝas ~0~ la strato.,sur,la sur per de
+data/VocabPictures/walk.jpg,Ĉu vi marŝas al ~0~ domo?,via,nia via lia ŝia
+data/VocabPictures/by.jpg,Mi vojaĝas ~0~ la ŝipo.,per,per de en la
+data/VocabPictures/by.jpg,Li iras ~0~ sia trajno.,per,de per la sen
+data/VocabPictures/by.jpg,Ili flugas ~0~ la aeroplano.,per,on la per se
+5

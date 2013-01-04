@@ -1,0 +1,123 @@
+binary:
+############
+# NP Stuff #
+############
+
+# NP's need to combine with adjectives...
+NP NP ADJ
+NP NP ADJP
+NP ADJ NP
+NP ADJP NP
+
+NP ADJP N
+NP ADJ N
+NP N ADJP
+NP N ADJ
+
+NP NP PP
+
+
+############
+# DP Stuff #
+############
+
+DP ART NP
+
+# DP's can be extended by adjectives too. This is terrible linguistics-wise, but fine for our purposes. 
+DP DP ADJ
+DP DP ADJP
+
+DP DP PP
+
+
+############
+# VP Stuff #
+############
+
+VP VP ADVP
+VP ADVP VP
+
+VP VP NP
+VP VP DP
+VP VP PP
+VP V VP
+
+
+# VP's break down into these things...
+VP V PP
+VP V DP
+VP V NP
+VP V ADJP
+
+
+# SVP's are also usable...
+SVP NP V
+SVP DP V
+SVP SVP V
+
+
+#ADJP's
+ADJP ADVP ADJP
+ADJP ADV ADJP
+ADJP ADV ADJ
+
+###############################
+# Most Things Starting With S #
+###############################
+
+# handle punctuation
+S S PUNCT
+
+# vocatives
+S NP PUNCT
+S DP PUNCT
+S VP PUNCT
+S SVP PUNCT
+
+S ADVP PUNCT
+
+# PP rules
+PP PREP NP
+PP PREP DP
+
+S DP VP
+S NP VP
+
+S SVP NP
+S SVP DP
+S SVP PP
+S SVP VP
+
+# PP's combine with sentences directly. 
+S PP S
+S S PP
+
+S ADVP S
+
+#####################
+#####################
+#### Unary Rules ####
+#####################
+#####################
+unary:
+NP NOUN
+NP ADJP
+
+# Pronouns become DP's so they can't combine with la...
+DP P
+
+ADJP ADJ
+ADVP ADV
+
+#######################
+#######################
+#### Ternary Rules ####
+#######################
+#######################
+ternary:
+# This will handle all conjunctions, and stuff...
+
+NP NP C NP
+NP NP C DP
+DP DP C NP
+DP DP C DP

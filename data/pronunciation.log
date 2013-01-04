@@ -1,12 +1,20 @@
-This is pdfTeX, Version 3.1415926-2.3-1.40.12 (TeX Live 2011) (format=pdflatex 2012.3.8)  8 MAY 2012 00:16
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2012.11.23)  3 JAN 2013 22:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
 **pronunciation.tex
 (./pronunciation.tex
-LaTeX2e <2009/09/24>
-Babel <v3.8l> and hyphenation patterns for english, dumylang, nohyphenation, lo
-aded.
+LaTeX2e <2011/06/27>
+Babel <v3.8m> and hyphenation patterns for english, dumylang, nohyphenation, et
+hiopic, arabic, farsi, pinyin, croatian, bulgarian, russian, ukrainian, czech, 
+slovak, danish, dutch, ukenglish, usenglishmax, finnish, basque, french, german
+-x-2012-05-30, ngerman-x-2012-05-30, german, ngerman, swissgerman, ancientgreek
+, ibycus, greek, monogreek, hungarian, assamese, bengali, gujarati, hindi, kann
+ada, malayalam, marathi, oriya, panjabi, tamil, telugu, sanskrit, italian, latv
+ian, lithuanian, mongolian, mongolianlmc, bokmal, nynorsk, afrikaans, armenian,
+ coptic, esperanto, estonian, friulan, icelandic, indonesian, interlingua, iris
+h, kurmanji, romanian, romansh, serbianc, serbian, slovenian, turkish, uppersor
+bian, welsh, polish, portuguese, catalan, galician, spanish, swedish, loaded.
 (/usr/share/texmf-dist/tex/latex/amscls/amsart.cls
 Document Class: amsart 2009/07/02 v2.20.1
 \linespacing=\dimen102
@@ -118,7 +126,7 @@ Package: ifpdf 2011/01/30 v2.3 Provides the ifpdf switch (HO)
 Package ifpdf Info: pdfTeX in PDF mode is detected.
 )
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifvtex.sty
-Package: ifvtex 2010/03/01 v1.5 Switches for detecting VTeX and its modes (HO)
+Package: ifvtex 2010/03/01 v1.5 Detect VTeX and its facilities (HO)
 Package ifvtex Info: VTeX not detected.
 )
 (/usr/share/texmf-dist/tex/generic/ifxetex/ifxetex.sty
@@ -155,10 +163,10 @@ Package graphics Info: Driver file: pdftex.def on input line 91.
 File: pdftex.def 2011/05/27 v0.06d Graphics/color for pdfTeX
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/infwarerr.sty
-Package: infwarerr 2010/04/08 v1.3 Providing info/warning/message (HO)
+Package: infwarerr 2010/04/08 v1.3 Providing info/warning/error messages (HO)
 )
 (/usr/share/texmf-dist/tex/generic/oberdiek/ltxcmds.sty
-Package: ltxcmds 2011/04/18 v1.20 LaTeX kernel commands for general use (HO)
+Package: ltxcmds 2011/11/09 v1.22 LaTeX kernel commands for general use (HO)
 )
 \Gread@gobject=\count102
 ))
@@ -175,19 +183,19 @@ Package: epstopdf 2010/02/09 v2.5 Conversion with epstopdf on the fly (HO)
 Package: epstopdf-base 2010/02/09 v2.5 Base part for package epstopdf
 
 (/usr/share/texmf-dist/tex/latex/oberdiek/grfext.sty
-Package: grfext 2010/08/19 v1.1 Managing graphics extensions (HO)
+Package: grfext 2010/08/19 v1.1 Manage graphics extensions (HO)
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/kvdefinekeys.sty
-Package: kvdefinekeys 2011/04/07 v1.3 Defining keys (HO)
+Package: kvdefinekeys 2011/04/07 v1.3 Define keys (HO)
 ))
 (/usr/share/texmf-dist/tex/latex/oberdiek/kvoptions.sty
-Package: kvoptions 2010/12/23 v3.10 Keyval support for LaTeX options (HO)
+Package: kvoptions 2011/06/30 v3.11 Key value format for package options (HO)
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/kvsetkeys.sty
-Package: kvsetkeys 2011/04/07 v1.13 Key value parser (HO)
+Package: kvsetkeys 2012/04/25 v1.16 Key value parser (HO)
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/etexcmds.sty
-Package: etexcmds 2011/02/16 v1.5 Prefix for e-TeX command names (HO)
+Package: etexcmds 2011/02/16 v1.5 Avoid name clashes with e-TeX commands (HO)
 
 (/usr/share/texmf-dist/tex/generic/oberdiek/ifluatex.sty
 Package: ifluatex 2010/03/01 v1.3 Provides the ifluatex switch (HO)
@@ -199,7 +207,8 @@ Package etexcmds Info: Could not find \expanded.
 (etexcmds)             In the latter case, load this package earlier.
 )))
 (/usr/share/texmf-dist/tex/generic/oberdiek/pdftexcmds.sty
-Package: pdftexcmds 2011/04/22 v0.16 Utilities of pdfTeX for LuaTeX (HO)
+Package: pdftexcmds 2011/11/29 v0.20 Utility functions of pdfTeX for LuaTeX (HO
+)
 Package pdftexcmds Info: LuaTeX not detected.
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
@@ -214,13 +223,13 @@ G,.JBIG2,.JB2,.eps]
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 )))
-(/usr/share/texmf/tex/latex/tipa/tipa.sty
+(/usr/share/texmf-dist/tex/latex/tipa/tipa.sty
 Package: tipa 2002/08/08 TIPA version 1.1
 
 (/usr/share/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2005/09/27 v1.99g Standard LaTeX package
 
-(/usr/share/texmf/tex/latex/tipa/t3enc.def
+(/usr/share/texmf-dist/tex/latex/tipa/t3enc.def
 File: t3enc.def 2001/12/31 T3 encoding
 )
 (/usr/share/texmf-dist/tex/latex/base/ot1enc.def
@@ -244,7 +253,7 @@ LaTeX Font Info:    ... okay on input line 10.
 LaTeX Font Info:    Checking defaults for T3/cmr/m/n on input line 10.
 LaTeX Font Info:    Try loading font information for T3+cmr on input line 10.
 
-(/usr/share/texmf/tex/latex/tipa/t3cmr.fd
+(/usr/share/texmf-dist/tex/latex/tipa/t3cmr.fd
 File: t3cmr.fd 2001/12/31 TIPA font definitions
 )
 LaTeX Font Info:    ... okay on input line 10.
@@ -312,23 +321,23 @@ File: omlcmr.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10.95> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 18.
- [1{//var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pronunciation.aux) 
-) 
+ [1{/var/lib/texmf/fonts/map/pdftex/updmap/pdftex.map}] (./pronunciation.aux) )
+ 
 Here is how much of TeX's memory you used:
- 4341 strings out of 495070
- 53974 string characters out of 3182805
- 114117 words of memory out of 3000000
- 7299 multiletter control sequences out of 15000+200000
+ 4372 strings out of 493506
+ 54495 string characters out of 3147768
+ 115975 words of memory out of 3000000
+ 7458 multiletter control sequences out of 15000+200000
  12246 words of font info for 46 fonts, out of 3000000 for 9000
- 175 hyphenation exceptions out of 8191
+ 1118 hyphenation exceptions out of 8191
  42i,11n,26p,324b,158s stack positions out of 5000i,500n,10000p,200000b,50000s
- <//var/cache/fonts/pk/ljfour/fkr/tipa/tipa10.657pk></usr/share/texmf-dist/fon
-ts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texmf-dist/fonts/type1/publi
-c/amsfonts/cm/cmr10.pfb>
-Output written on pronunciation.pdf (1 page, 33032 bytes).
+</usr/share/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/share/texmf-dist/fonts/
+type1/public/tipa/tipa10.pfb>
+Output written on pronunciation.pdf (1 page, 34183 bytes).
 PDF statistics:
- 25 PDF objects out of 1000 (max. 8388607)
- 14 compressed objects within 1 object stream
+ 20 PDF objects out of 1000 (max. 8388607)
+ 13 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 
